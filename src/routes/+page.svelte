@@ -33,5 +33,5 @@
 <button onclick={downloadVocabFile}>Download</button>
 <div>
 	<input type="file" bind:this={fileInput} name="fileInput" accept="json" />
-	<button class="fileButton" onclick={uploadVocabFile}>Upload Vocab File</button>
+	<button class="fileButton" onclick={uploadVocabFile}>UPload Vocab File</button>
 </div>
