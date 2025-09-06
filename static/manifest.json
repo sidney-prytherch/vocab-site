@@ -2,7 +2,7 @@
   "name": "Vocab App",
   "description": "App for studying vocab",
   "display": "standalone",
-  "start_url": "/",
+  "start_url": "/vocab-site",
   "icons": [
     {
       "src": "icons/icon.png",
