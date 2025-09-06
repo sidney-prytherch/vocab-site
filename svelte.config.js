@@ -1,19 +1,27 @@
 import adapter from '@sveltejs/adapter-static';
 import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
 
-// const dev = process.argv.includes('dev');
+const dev = process.argv.includes('dev');
 
 /** @type {import('@sveltejs/kit').Config} */
 
 const config = {
     kit: {
         // appDir: 'app', // Required as the default is _app
-        adapter: adapter(),
+        adapter: adapter({
+            pages: 'build',
+            assets: 'build',
+            fallback: null
+        }),
         paths: {
-            base: '/vocab-site',
+            base: dev ? '' : '/vocab-site'
         }
     },
-    preprocess: vitePreprocess()
+    preprocess: vitePreprocess(),
+    serviceWorker: {
+        register: true,
+        files: (filepath) => filepath.endsWith('.js') || filepath.endsWith('.ts')
+    }
 };
 
 export default config;

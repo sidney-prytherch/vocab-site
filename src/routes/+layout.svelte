@@ -1,11 +1,16 @@
 <script lang="ts">
 	import favicon from '$lib/assets/favicon.svg';
-	import { asset } from '$app/paths';
 	let { children } = $props();
+
+	if ('serviceWorker' in navigator) {
+		navigator.serviceWorker.register(
+			`${import.meta.env.BASE_URL}service-worker.js`
+		);
+	}
 </script>
 
 <svelte:head>
-	<link rel="manifest" href="/vocab-site/manifest.json">
+	<link rel="manifest" href="/manifest.json" />
 	<link rel="icon" href={favicon} />
 </svelte:head>
 

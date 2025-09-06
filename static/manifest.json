@@ -3,7 +3,6 @@
   "description": "App for studying vocab",
   "display": "standalone",
   "start_url": "/vocab-site/",
-  "id": "/vocab-site/",
   "icons": [
     {
       "src": "icons/icon.png",
