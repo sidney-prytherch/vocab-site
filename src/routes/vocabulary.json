@@ -1,0 +1,45 @@
+{
+    "words": [
+        {
+            "english": "tree{s}",
+            "spanish": {
+                "word": "árbol{es}",
+                "gender": "m"
+            },
+            "portuguese": {
+                "word": "árvore{s}",
+                "gender": "f"
+            },
+            "pos": "n"
+        },
+        {
+            "english": "mother{s}",
+            "spanish": {
+                "word": "madre{s}",
+                "gender": "f"
+            },
+            "portuguese": {
+                "word": "mãe{s}",
+                "gender": "f"
+            },
+            "pos": "n"
+        }
+    ],
+    "codes": {
+        "m": "masculine",
+        "f": "feminine",
+        "n": "noun",
+        "v": "verb"
+    },
+    "articles": {
+        "english": "a/some/the/the",
+        "spanish": {
+            "masculine": "un/unos/el/los",
+            "feminine": "una/unas/la/las"
+        },
+        "portuguese": {
+            "masculine": "um/uns/o/os",
+            "feminine": "uma/umas/a/as"
+        }
+    }
+}
