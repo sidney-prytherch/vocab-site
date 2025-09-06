@@ -5,7 +5,7 @@
 </script>
 
 <svelte:head>
-	<link rel="manifest" href="{asset('/manifest.json')}">
+	<link rel="manifest" href="/vocab-site/manifest.json">
 	<link rel="icon" href={favicon} />
 </svelte:head>
 
