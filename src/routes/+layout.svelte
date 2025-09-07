@@ -10,7 +10,7 @@
 </script>
 
 <svelte:head>
-	<link rel="manifest" href="/manifest.json" />
+	<link rel="manifest" href="{import.meta.env.BASE_URL}manifest.json" />
 	<link rel="icon" href={favicon} />
 </svelte:head>
 
