@@ -1,12 +1,20 @@
 // db.ts
 export interface Word {
 	english: string;
-	spanish?: { word: string; gender: string };
-	portuguese?: { word: string; gender: string };
+	spanish?: string;
+	portuguese?: string;
 	pos: string;
+	nDataSp?: {gender: string};
+	adjDataSp?: {};
+	vDataSp?: {};
+	freqIndexSpanish?: number;
+}
+export interface Settings {
+	crosswordSize: number;
 }
 const dbName = 'vocabDB';
 const storeName = 'words';
+const settingsStoreName = 'settings';
 
 export function openDB(): Promise<IDBDatabase> {
 	return new Promise((resolve, reject) => {
@@ -15,6 +23,7 @@ export function openDB(): Promise<IDBDatabase> {
 		request.onupgradeneeded = () => {
 			const db = request.result;
 			db.createObjectStore(storeName, { keyPath: 'id', autoIncrement: true });
+			db.createObjectStore(settingsStoreName, { keyPath: 'id', autoIncrement: true });
 		};
 
 		request.onsuccess = () => resolve(request.result);
@@ -70,5 +79,31 @@ export async function clearAllWords(): Promise<void> {
 		tx.oncomplete = () => resolve();
 		tx.onerror = () => reject(tx.error);
 		tx.onabort = () => reject(tx.error);
+	});
+}
+
+
+export async function addSettings(settings: Settings): Promise<void> {
+	const db = await openDB();
+	const tx = db.transaction(settingsStoreName, 'readwrite');
+	const store = tx.objectStore(settingsStoreName);
+	store.add(settings);
+
+	return new Promise((resolve, reject) => {
+		tx.oncomplete = () => resolve();
+		tx.onerror = () => reject(tx.error);
+		tx.onabort = () => reject(tx.error);
+	});
+}
+
+export async function getSettings(): Promise<(Settings & { id: number })[]> {
+	const db = await openDB();
+	const tx = db.transaction(settingsStoreName, 'readonly');
+	const store = tx.objectStore(settingsStoreName);
+
+	return new Promise((resolve, reject) => {
+		const request = store.getAll();
+		request.onsuccess = () => resolve(request.result as (Settings & { id: number })[]);
+		request.onerror = () => reject(request.error);
 	});
 }

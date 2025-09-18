@@ -1,0 +1,30377 @@
+interface Word {
+	english: string;
+	spanish?: string;
+	portuguese?: string;
+	pos: string;
+	nDataSp?: {gender: string};
+	adjDataSp?: {};
+	vDataSp?: {};
+	freqIndexSpanish?: number;
+}
+let allWordz = [];
+
+let words = [
+    {
+        "spWord": "a",
+        "partOfSpeech": "prep",
+        "definition": "to, at",
+        "freqIndex": 5
+    },
+    {
+        "spWord": "abajo",
+        "partOfSpeech": "adv",
+        "definition": "down, below, downward",
+        "freqIndex": 631
+    },
+    {
+        "spWord": "abandonado",
+        "partOfSpeech": "adj",
+        "definition": "abandoned",
+        "freqIndex": 2298
+    },
+    {
+        "spWord": "abandonar",
+        "partOfSpeech": "v",
+        "definition": "to abandon, leave (a place)",
+        "freqIndex": 638
+    },
+    {
+        "spWord": "abandono",
+        "partOfSpeech": "nm",
+        "definition": "abandonment, desertion",
+        "freqIndex": 2524
+    },
+    {
+        "spWord": "abanico",
+        "partOfSpeech": "nm",
+        "definition": "range, (handheld) fan",
+        "freqIndex": 4422
+    },
+    {
+        "spWord": "abarcar",
+        "partOfSpeech": "v",
+        "definition": "to encompass, comprise",
+        "freqIndex": 2163
+    },
+    {
+        "spWord": "abeja",
+        "partOfSpeech": "nf",
+        "definition": "bee",
+        "freqIndex": 4741
+    },
+    {
+        "spWord": "abiertamente",
+        "partOfSpeech": "adv",
+        "definition": "openly",
+        "freqIndex": 4649
+    },
+    {
+        "spWord": "abierto",
+        "partOfSpeech": "adj",
+        "definition": "open, unlocked",
+        "freqIndex": 439
+    },
+    {
+        "spWord": "abismo",
+        "partOfSpeech": "nm",
+        "definition": "abyss, large gap",
+        "freqIndex": 3612
+    },
+    {
+        "spWord": "abogado",
+        "partOfSpeech": "nm/f",
+        "definition": "lawyer",
+        "freqIndex": 1680
+    },
+    {
+        "spWord": "abordar",
+        "partOfSpeech": "v",
+        "definition": "to board, get in/on",
+        "freqIndex": 2273
+    },
+    {
+        "spWord": "abrazar",
+        "partOfSpeech": "v",
+        "definition": "to hug, embrace",
+        "freqIndex": 2873
+    },
+    {
+        "spWord": "abrazo",
+        "partOfSpeech": "nm",
+        "definition": "hug, embrace",
+        "freqIndex": 3767
+    },
+    {
+        "spWord": "abrigo",
+        "partOfSpeech": "nm",
+        "definition": "overcoat, shelter",
+        "freqIndex": 2996
+    },
+    {
+        "spWord": "abril",
+        "partOfSpeech": "nm",
+        "definition": "April",
+        "freqIndex": 1922
+    },
+    {
+        "spWord": "abrir",
+        "partOfSpeech": "v",
+        "definition": "to open",
+        "freqIndex": 252
+    },
+    {
+        "spWord": "absolutamente",
+        "partOfSpeech": "adv",
+        "definition": "absolutely, completely",
+        "freqIndex": 1181
+    },
+    {
+        "spWord": "absoluto",
+        "partOfSpeech": "adj",
+        "definition": "absolute",
+        "freqIndex": 574
+    },
+    {
+        "spWord": "absorber",
+        "partOfSpeech": "v",
+        "definition": "to absorb, soak up",
+        "freqIndex": 2056
+    },
+    {
+        "spWord": "abstracción",
+        "partOfSpeech": "nf",
+        "definition": "abstraction",
+        "freqIndex": 4872
+    },
+    {
+        "spWord": "abstracto",
+        "partOfSpeech": "adj",
+        "definition": "abstract",
+        "freqIndex": 3549
+    },
+    {
+        "spWord": "absurdo",
+        "partOfSpeech": "adj",
+        "definition": "absurd",
+        "freqIndex": 2010
+    },
+    {
+        "spWord": "absurdo",
+        "partOfSpeech": "nm",
+        "definition": "absurdity, nonsense",
+        "freqIndex": 3648
+    },
+    {
+        "spWord": "abuela",
+        "partOfSpeech": "nf",
+        "definition": "grandmother",
+        "freqIndex": 2408
+    },
+    {
+        "spWord": "abuelo",
+        "partOfSpeech": "nm",
+        "definition": "grandfather",
+        "freqIndex": 1740
+    },
+    {
+        "spWord": "abundancia",
+        "partOfSpeech": "nf",
+        "definition": "abundance",
+        "freqIndex": 3178
+    },
+    {
+        "spWord": "abundante",
+        "partOfSpeech": "adj",
+        "definition": "abundant, plentiful",
+        "freqIndex": 2316
+    },
+    {
+        "spWord": "abundar",
+        "partOfSpeech": "v",
+        "definition": "to be plentiful",
+        "freqIndex": 2923
+    },
+    {
+        "spWord": "aburrido",
+        "partOfSpeech": "adj",
+        "definition": "boring, bored",
+        "freqIndex": 2813
+    },
+    {
+        "spWord": "aburrimiento",
+        "partOfSpeech": "nm",
+        "definition": "boredom",
+        "freqIndex": 4488
+    },
+    {
+        "spWord": "aburrir",
+        "partOfSpeech": "v",
+        "definition": "to bore, tire",
+        "freqIndex": 4024
+    },
+    {
+        "spWord": "abusar",
+        "partOfSpeech": "v",
+        "definition": "to abuse",
+        "freqIndex": 3658
+    },
+    {
+        "spWord": "abuso",
+        "partOfSpeech": "nm",
+        "definition": "abuse, misuse",
+        "freqIndex": 2605
+    },
+    {
+        "spWord": "acá",
+        "partOfSpeech": "adv",
+        "definition": "here, around here",
+        "freqIndex": 2230
+    },
+    {
+        "spWord": "acabar",
+        "partOfSpeech": "v",
+        "definition": "to finish",
+        "freqIndex": 266
+    },
+    {
+        "spWord": "acabar de {v}",
+        "partOfSpeech": "v",
+        "definition": "to have just {verb-ed}",
+        "freqIndex": 266
+    },
+    {
+        "spWord": "academia",
+        "partOfSpeech": "nf",
+        "definition": "academy",
+        "freqIndex": 4039
+    },
+    {
+        "spWord": "académico",
+        "partOfSpeech": "adj",
+        "definition": "academic",
+        "freqIndex": 2399
+    },
+    {
+        "spWord": "acariciar",
+        "partOfSpeech": "v",
+        "definition": "to stroke, fondle, caress",
+        "freqIndex": 4398
+    },
+    {
+        "spWord": "acarrear",
+        "partOfSpeech": "v",
+        "definition": "to bring up, entail",
+        "freqIndex": 3631
+    },
+    {
+        "spWord": "acaso",
+        "partOfSpeech": "adv",
+        "definition": "by chance, maybe",
+        "freqIndex": 1072
+    },
+    {
+        "spWord": "acatar",
+        "partOfSpeech": "v",
+        "definition": "to comply with, abide by",
+        "freqIndex": 4820
+    },
+    {
+        "spWord": "acceder",
+        "partOfSpeech": "v",
+        "definition": "to consent, agree, accede",
+        "freqIndex": 2130
+    },
+    {
+        "spWord": "accesible",
+        "partOfSpeech": "adj",
+        "definition": "accessible",
+        "freqIndex": 4992
+    },
+    {
+        "spWord": "acceso",
+        "partOfSpeech": "nm",
+        "definition": "access, entry",
+        "freqIndex": 1315
+    },
+    {
+        "spWord": "accidente",
+        "partOfSpeech": "nm",
+        "definition": "accident, irregularity",
+        "freqIndex": 1098
+    },
+    {
+        "spWord": "acción",
+        "partOfSpeech": "nf",
+        "definition": "action, act, deed",
+        "freqIndex": 405
+    },
+    {
+        "spWord": "aceite",
+        "partOfSpeech": "nm",
+        "definition": "oil",
+        "freqIndex": 2076
+    },
+    {
+        "spWord": "acelerado",
+        "partOfSpeech": "adj",
+        "definition": "accelerated, quick",
+        "freqIndex": 4633
+    },
+    {
+        "spWord": "acelerar",
+        "partOfSpeech": "v",
+        "definition": "to accelerate, speed (up)",
+        "freqIndex": 3053
+    },
+    {
+        "spWord": "acento",
+        "partOfSpeech": "nm",
+        "definition": "accent, stress",
+        "freqIndex": 2610
+    },
+    {
+        "spWord": "acentuar",
+        "partOfSpeech": "v",
+        "definition": "to accent, stress",
+        "freqIndex": 2718
+    },
+    {
+        "spWord": "aceptable",
+        "partOfSpeech": "adj",
+        "definition": "acceptable, suitable",
+        "freqIndex": 3384
+    },
+    {
+        "spWord": "aceptación",
+        "partOfSpeech": "nf",
+        "definition": "acceptance, approval",
+        "freqIndex": 2758
+    },
+    {
+        "spWord": "aceptar",
+        "partOfSpeech": "v",
+        "definition": "to accept",
+        "freqIndex": 296
+    },
+    {
+        "spWord": "acera",
+        "partOfSpeech": "nf",
+        "definition": "sidewalk",
+        "freqIndex": 4886
+    },
+    {
+        "spWord": "acerca",
+        "partOfSpeech": "adv",
+        "definition": "about, concerning",
+        "freqIndex": 1288
+    },
+    {
+        "spWord": "acercamiento",
+        "partOfSpeech": "nm",
+        "definition": "approach, approximation",
+        "freqIndex": 4334
+    },
+    {
+        "spWord": "acercar",
+        "partOfSpeech": "v",
+        "definition": "to come near",
+        "freqIndex": 410
+    },
+    {
+        "spWord": "acero",
+        "partOfSpeech": "nm",
+        "definition": "steel",
+        "freqIndex": 3064
+    },
+    {
+        "spWord": "acertado",
+        "partOfSpeech": "adj",
+        "definition": "correct, accurate",
+        "freqIndex": 4040
+    },
+    {
+        "spWord": "acertar",
+        "partOfSpeech": "v",
+        "definition": "to get right",
+        "freqIndex": 3308
+    },
+    {
+        "spWord": "ácido",
+        "partOfSpeech": "nm",
+        "definition": "acid",
+        "freqIndex": 3729
+    },
+    {
+        "spWord": "acierto",
+        "partOfSpeech": "nm",
+        "definition": "good aim, guess, hit",
+        "freqIndex": 4248
+    },
+    {
+        "spWord": "aclarar",
+        "partOfSpeech": "v",
+        "definition": "to clarify, clear up",
+        "freqIndex": 1133
+    },
+    {
+        "spWord": "acoger",
+        "partOfSpeech": "v",
+        "definition": "to welcome, accept",
+        "freqIndex": 2715
+    },
+    {
+        "spWord": "acomodado",
+        "partOfSpeech": "adj",
+        "definition": "well-to-do, suitable",
+        "freqIndex": 4768
+    },
+    {
+        "spWord": "acomodar",
+        "partOfSpeech": "v",
+        "definition": "to be/make comfortable",
+        "freqIndex": 2196
+    },
+    {
+        "spWord": "acompañar",
+        "partOfSpeech": "v",
+        "definition": "to accompany",
+        "freqIndex": 512
+    },
+    {
+        "spWord": "aconsejar",
+        "partOfSpeech": "v",
+        "definition": "to advise, counsel",
+        "freqIndex": 1828
+    },
+    {
+        "spWord": "acontecer",
+        "partOfSpeech": "v",
+        "definition": "to happen, come about",
+        "freqIndex": 3831
+    },
+    {
+        "spWord": "acontecimiento",
+        "partOfSpeech": "nm",
+        "definition": "event, happening",
+        "freqIndex": 1125
+    },
+    {
+        "spWord": "acordar",
+        "partOfSpeech": "v",
+        "definition": "to remember, remind",
+        "freqIndex": 595
+    },
+    {
+        "spWord": "acorde",
+        "partOfSpeech": "nm",
+        "definition": "agreement, accord",
+        "freqIndex": 3783
+    },
+    {
+        "spWord": "acostar",
+        "partOfSpeech": "v",
+        "definition": "to put/go to bed",
+        "freqIndex": 3077
+    },
+    {
+        "spWord": "acostumbrado",
+        "partOfSpeech": "adj",
+        "definition": "accustomed",
+        "freqIndex": 1595
+    },
+    {
+        "spWord": "acostumbrar",
+        "partOfSpeech": "v",
+        "definition": "to be accustomed to",
+        "freqIndex": 1628
+    },
+    {
+        "spWord": "acta",
+        "partOfSpeech": "nf",
+        "definition": "(el) (meeting) proceedings, minutes",
+        "freqIndex": 4592
+    },
+    {
+        "spWord": "actitud",
+        "partOfSpeech": "nf",
+        "definition": "attitude",
+        "freqIndex": 644
+    },
+    {
+        "spWord": "actividad",
+        "partOfSpeech": "nf",
+        "definition": "activity, action",
+        "freqIndex": 393
+    },
+    {
+        "spWord": "activo",
+        "partOfSpeech": "adj",
+        "definition": "active",
+        "freqIndex": 1328
+    },
+    {
+        "spWord": "acto",
+        "partOfSpeech": "nm",
+        "definition": "act, action",
+        "freqIndex": 572
+    },
+    {
+        "spWord": "actor",
+        "partOfSpeech": "nm",
+        "definition": "actor",
+        "freqIndex": 1705
+    },
+    {
+        "spWord": "actriz",
+        "partOfSpeech": "nf",
+        "definition": "actress",
+        "freqIndex": 4606
+    },
+    {
+        "spWord": "actuación",
+        "partOfSpeech": "nf",
+        "definition": "performance, acting",
+        "freqIndex": 1924
+    },
+    {
+        "spWord": "actual",
+        "partOfSpeech": "adj",
+        "definition": "current",
+        "freqIndex": 676
+    },
+    {
+        "spWord": "actualidad",
+        "partOfSpeech": "nf",
+        "definition": "present (time)",
+        "freqIndex": 2046
+    },
+    {
+        "spWord": "actualmente",
+        "partOfSpeech": "adv",
+        "definition": "now, at present",
+        "freqIndex": 2362
+    },
+    {
+        "spWord": "actuar",
+        "partOfSpeech": "v",
+        "definition": "to act",
+        "freqIndex": 576
+    },
+    {
+        "spWord": "acudir",
+        "partOfSpeech": "v",
+        "definition": "to attend, go to, frequent",
+        "freqIndex": 1044
+    },
+    {
+        "spWord": "acuerdo",
+        "partOfSpeech": "nm",
+        "definition": "accord",
+        "freqIndex": 313
+    },
+    {
+        "spWord": "de acuerdo",
+        "partOfSpeech": "adv",
+        "definition": "in agreement",
+        "freqIndex": 313
+    },
+    {
+        "spWord": "acumulación",
+        "partOfSpeech": "nf",
+        "definition": "accumulation",
+        "freqIndex": 3718
+    },
+    {
+        "spWord": "acumular",
+        "partOfSpeech": "v",
+        "definition": "to accumulate, amass",
+        "freqIndex": 1301
+    },
+    {
+        "spWord": "acusación",
+        "partOfSpeech": "nf",
+        "definition": "accusation, charge",
+        "freqIndex": 3573
+    },
+    {
+        "spWord": "acusar",
+        "partOfSpeech": "v",
+        "definition": "to accuse",
+        "freqIndex": 1524
+    },
+    {
+        "spWord": "adaptación",
+        "partOfSpeech": "nf",
+        "definition": "adaptation",
+        "freqIndex": 3809
+    },
+    {
+        "spWord": "adaptar",
+        "partOfSpeech": "v",
+        "definition": "to adapt",
+        "freqIndex": 2087
+    },
+    {
+        "spWord": "adecuado",
+        "partOfSpeech": "adj",
+        "definition": "adequate, suitable",
+        "freqIndex": 948
+    },
+    {
+        "spWord": "adelantar",
+        "partOfSpeech": "v",
+        "definition": "to move forward",
+        "freqIndex": 1777
+    },
+    {
+        "spWord": "adelante",
+        "partOfSpeech": "adv",
+        "definition": "forward, further",
+        "freqIndex": 516
+    },
+    {
+        "spWord": "adelanto",
+        "partOfSpeech": "nm",
+        "definition": "advance, progress",
+        "freqIndex": 4210
+    },
+    {
+        "spWord": "además",
+        "partOfSpeech": "adv",
+        "definition": "also, as well, besides",
+        "freqIndex": 159
+    },
+    {
+        "spWord": "adentrar",
+        "partOfSpeech": "v",
+        "definition": "to penetrate, go inside",
+        "freqIndex": 4721
+    },
+    {
+        "spWord": "adentro",
+        "partOfSpeech": "adv",
+        "definition": "inside",
+        "freqIndex": 2084
+    },
+    {
+        "spWord": "adherir",
+        "partOfSpeech": "v",
+        "definition": "to adhere, attach",
+        "freqIndex": 4890
+    },
+    {
+        "spWord": "adhesión",
+        "partOfSpeech": "nf",
+        "definition": "adherence",
+        "freqIndex": 4933
+    },
+    {
+        "spWord": "adicional",
+        "partOfSpeech": "adj",
+        "definition": "additional",
+        "freqIndex": 4124
+    },
+    {
+        "spWord": "adiós",
+        "partOfSpeech": "nm",
+        "definition": "goodbye",
+        "freqIndex": 2557
+    },
+    {
+        "spWord": "adivinar",
+        "partOfSpeech": "v",
+        "definition": "to guess, solve",
+        "freqIndex": 2954
+    },
+    {
+        "spWord": "adjetivo",
+        "partOfSpeech": "nm",
+        "definition": "adjective",
+        "freqIndex": 4511
+    },
+    {
+        "spWord": "administración",
+        "partOfSpeech": "nf",
+        "definition": "administration",
+        "freqIndex": 2055
+    },
+    {
+        "spWord": "administrador",
+        "partOfSpeech": "nm/f",
+        "definition": "administrator, manager",
+        "freqIndex": 3527
+    },
+    {
+        "spWord": "administrar",
+        "partOfSpeech": "v",
+        "definition": "to administer, manage",
+        "freqIndex": 2773
+    },
+    {
+        "spWord": "administrativo",
+        "partOfSpeech": "adj",
+        "definition": "administrative",
+        "freqIndex": 2852
+    },
+    {
+        "spWord": "admirable",
+        "partOfSpeech": "adj",
+        "definition": "admirable",
+        "freqIndex": 2934
+    },
+    {
+        "spWord": "admiración",
+        "partOfSpeech": "nf",
+        "definition": "admiration",
+        "freqIndex": 2448
+    },
+    {
+        "spWord": "admirador",
+        "partOfSpeech": "nm",
+        "definition": "admirer",
+        "freqIndex": 4917
+    },
+    {
+        "spWord": "admirar",
+        "partOfSpeech": "v",
+        "definition": "to admire",
+        "freqIndex": 1682
+    },
+    {
+        "spWord": "admitir",
+        "partOfSpeech": "v",
+        "definition": "to admit",
+        "freqIndex": 985
+    },
+    {
+        "spWord": "adolescencia",
+        "partOfSpeech": "nf",
+        "definition": "adolescence",
+        "freqIndex": 3397
+    },
+    {
+        "spWord": "adolescente",
+        "partOfSpeech": "nc",
+        "definition": "adolescent",
+        "freqIndex": 2645
+    },
+    {
+        "spWord": "adolescente",
+        "partOfSpeech": "adj",
+        "definition": "adolescent",
+        "freqIndex": 4459
+    },
+    {
+        "spWord": "adonde",
+        "partOfSpeech": "adv",
+        "definition": "to where",
+        "freqIndex": 4275
+    },
+    {
+        "spWord": "adónde",
+        "partOfSpeech": "adv",
+        "definition": "to where?",
+        "freqIndex": 3926
+    },
+    {
+        "spWord": "adoptar",
+        "partOfSpeech": "v",
+        "definition": "to adopt",
+        "freqIndex": 1267
+    },
+    {
+        "spWord": "adorar",
+        "partOfSpeech": "v",
+        "definition": "to worship, adore",
+        "freqIndex": 3124
+    },
+    {
+        "spWord": "adornar",
+        "partOfSpeech": "v",
+        "definition": "to adorn, to decorate",
+        "freqIndex": 4179
+    },
+    {
+        "spWord": "adorno",
+        "partOfSpeech": "nm",
+        "definition": "decoration, adornment",
+        "freqIndex": 3468
+    },
+    {
+        "spWord": "adquirir",
+        "partOfSpeech": "v",
+        "definition": "to acquire, get",
+        "freqIndex": 603
+    },
+    {
+        "spWord": "adquisición",
+        "partOfSpeech": "nf",
+        "definition": "acquisition",
+        "freqIndex": 3687
+    },
+    {
+        "spWord": "adulto",
+        "partOfSpeech": "nm",
+        "definition": "adult, grown-up",
+        "freqIndex": 2200
+    },
+    {
+        "spWord": "adulto",
+        "partOfSpeech": "adj",
+        "definition": "adult, grown-up",
+        "freqIndex": 2685
+    },
+    {
+        "spWord": "adversario",
+        "partOfSpeech": "nm",
+        "definition": "adversary",
+        "freqIndex": 3667
+    },
+    {
+        "spWord": "advertencia",
+        "partOfSpeech": "nf",
+        "definition": "warning, notice",
+        "freqIndex": 3438
+    },
+    {
+        "spWord": "advertir",
+        "partOfSpeech": "v",
+        "definition": "to notice, warn",
+        "freqIndex": 887
+    },
+    {
+        "spWord": "aéreo",
+        "partOfSpeech": "adj",
+        "definition": "aerial, air",
+        "freqIndex": 2975
+    },
+    {
+        "spWord": "aeropuerto",
+        "partOfSpeech": "nm",
+        "definition": "airport",
+        "freqIndex": 2993
+    },
+    {
+        "spWord": "afán",
+        "partOfSpeech": "nm",
+        "definition": "eagerness, zeal, effort",
+        "freqIndex": 2152
+    },
+    {
+        "spWord": "afectar",
+        "partOfSpeech": "v",
+        "definition": "to affect",
+        "freqIndex": 991
+    },
+    {
+        "spWord": "afecto",
+        "partOfSpeech": "nm",
+        "definition": "affection, fondness",
+        "freqIndex": 2132
+    },
+    {
+        "spWord": "aferrar",
+        "partOfSpeech": "v",
+        "definition": "to grasp, clutch",
+        "freqIndex": 4373
+    },
+    {
+        "spWord": "afición",
+        "partOfSpeech": "nf",
+        "definition": "fondness, interest",
+        "freqIndex": 3292
+    },
+    {
+        "spWord": "aficionado",
+        "partOfSpeech": "nm",
+        "definition": "fan, devotee",
+        "freqIndex": 3125
+    },
+    {
+        "spWord": "afín",
+        "partOfSpeech": "adj",
+        "definition": "related, similar",
+        "freqIndex": 4726
+    },
+    {
+        "spWord": "afirmación",
+        "partOfSpeech": "nf",
+        "definition": "statement, assertion",
+        "freqIndex": 2357
+    },
+    {
+        "spWord": "afirmar",
+        "partOfSpeech": "v",
+        "definition": "to assert, affirm",
+        "freqIndex": 978
+    },
+    {
+        "spWord": "aflojar",
+        "partOfSpeech": "v",
+        "definition": "to loosen",
+        "freqIndex": 4751
+    },
+    {
+        "spWord": "afortunadamente",
+        "partOfSpeech": "adv",
+        "definition": "luckily, fortunately",
+        "freqIndex": 2712
+    },
+    {
+        "spWord": "afortunado",
+        "partOfSpeech": "adj",
+        "definition": "fortunate",
+        "freqIndex": 4739
+    },
+    {
+        "spWord": "africano",
+        "partOfSpeech": "adj",
+        "definition": "African",
+        "freqIndex": 3654
+    },
+    {
+        "spWord": "afrontar",
+        "partOfSpeech": "v",
+        "definition": "to face, confront",
+        "freqIndex": 2832
+    },
+    {
+        "spWord": "afuera",
+        "partOfSpeech": "adv",
+        "definition": "outside",
+        "freqIndex": 1858
+    },
+    {
+        "spWord": "afueras",
+        "partOfSpeech": "nf",
+        "definition": "outskirts, suburbs",
+        "freqIndex": 4225
+    },
+    {
+        "spWord": "agarrar",
+        "partOfSpeech": "v",
+        "definition": "to grasp, catch",
+        "freqIndex": 2074
+    },
+    {
+        "spWord": "agencia",
+        "partOfSpeech": "nf",
+        "definition": "agency, branch",
+        "freqIndex": 2886
+    },
+    {
+        "spWord": "agente",
+        "partOfSpeech": "nc",
+        "definition": "agent",
+        "freqIndex": 1806
+    },
+    {
+        "spWord": "ágil",
+        "partOfSpeech": "adj",
+        "definition": "agile",
+        "freqIndex": 4119
+    },
+    {
+        "spWord": "agitación",
+        "partOfSpeech": "nf",
+        "definition": "agitation, excitement",
+        "freqIndex": 4153
+    },
+    {
+        "spWord": "agitado",
+        "partOfSpeech": "adj",
+        "definition": "agitated, irritated",
+        "freqIndex": 4045
+    },
+    {
+        "spWord": "agitar",
+        "partOfSpeech": "v",
+        "definition": "to shake, move",
+        "freqIndex": 3027
+    },
+    {
+        "spWord": "agonía",
+        "partOfSpeech": "nf",
+        "definition": "agony, grief",
+        "freqIndex": 4638
+    },
+    {
+        "spWord": "agosto",
+        "partOfSpeech": "nm",
+        "definition": "August",
+        "freqIndex": 1244
+    },
+    {
+        "spWord": "agotado",
+        "partOfSpeech": "adj",
+        "definition": "tired, used up, sold out",
+        "freqIndex": 2861
+    },
+    {
+        "spWord": "agotar",
+        "partOfSpeech": "v",
+        "definition": "to exhaust, wear out, run out",
+        "freqIndex": 1919
+    },
+    {
+        "spWord": "agradable",
+        "partOfSpeech": "adj",
+        "definition": "nice, pleasant",
+        "freqIndex": 1724
+    },
+    {
+        "spWord": "agradar",
+        "partOfSpeech": "v",
+        "definition": "to please",
+        "freqIndex": 3619
+    },
+    {
+        "spWord": "agradecer",
+        "partOfSpeech": "v",
+        "definition": "to thank for",
+        "freqIndex": 1681
+    },
+    {
+        "spWord": "agradecido",
+        "partOfSpeech": "adj",
+        "definition": "grateful, thankful",
+        "freqIndex": 4123
+    },
+    {
+        "spWord": "agradecimiento",
+        "partOfSpeech": "nm",
+        "definition": "gratitude, gratefulness",
+        "freqIndex": 4755
+    },
+    {
+        "spWord": "agrario",
+        "partOfSpeech": "adj",
+        "definition": "agrarian, agricultural",
+        "freqIndex": 4499
+    },
+    {
+        "spWord": "agravar",
+        "partOfSpeech": "v",
+        "definition": "to aggravate",
+        "freqIndex": 4226
+    },
+    {
+        "spWord": "agregar",
+        "partOfSpeech": "v",
+        "definition": "to add, gather",
+        "freqIndex": 1708
+    },
+    {
+        "spWord": "agresión",
+        "partOfSpeech": "nf",
+        "definition": "aggression, attack",
+        "freqIndex": 3204
+    },
+    {
+        "spWord": "agresividad",
+        "partOfSpeech": "nf",
+        "definition": "aggressiveness",
+        "freqIndex": 4931
+    },
+    {
+        "spWord": "agresivo",
+        "partOfSpeech": "adj",
+        "definition": "aggressive",
+        "freqIndex": 2242
+    },
+    {
+        "spWord": "agrícola",
+        "partOfSpeech": "adj",
+        "definition": "agricultural, farming",
+        "freqIndex": 3611
+    },
+    {
+        "spWord": "agricultor",
+        "partOfSpeech": "nm/f",
+        "definition": "farmer",
+        "freqIndex": 4794
+    },
+    {
+        "spWord": "agricultura",
+        "partOfSpeech": "nf",
+        "definition": "agriculture, farming",
+        "freqIndex": 3741
+    },
+    {
+        "spWord": "agrupar",
+        "partOfSpeech": "v",
+        "definition": "to (put in) group",
+        "freqIndex": 4441
+    },
+    {
+        "spWord": "agua",
+        "partOfSpeech": "nf",
+        "definition": "(el) water",
+        "freqIndex": 194
+    },
+    {
+        "spWord": "aguantar",
+        "partOfSpeech": "v",
+        "definition": "to endure, put up with",
+        "freqIndex": 1895
+    },
+    {
+        "spWord": "aguardar",
+        "partOfSpeech": "v",
+        "definition": "to wait for, await",
+        "freqIndex": 3598
+    },
+    {
+        "spWord": "agudo",
+        "partOfSpeech": "adj",
+        "definition": "sharp, acute",
+        "freqIndex": 2180
+    },
+    {
+        "spWord": "aguja",
+        "partOfSpeech": "nf",
+        "definition": "needle, spire, stylus",
+        "freqIndex": 3625
+    },
+    {
+        "spWord": "agujero",
+        "partOfSpeech": "nm",
+        "definition": "hole, opening",
+        "freqIndex": 3128
+    },
+    {
+        "spWord": "ah",
+        "partOfSpeech": "interj",
+        "definition": "oh",
+        "freqIndex": 1489
+    },
+    {
+        "spWord": "ahí",
+        "partOfSpeech": "adv",
+        "definition": "there",
+        "freqIndex": 189
+    },
+    {
+        "spWord": "ahogar",
+        "partOfSpeech": "v",
+        "definition": "to drown, choke, flood",
+        "freqIndex": 2821
+    },
+    {
+        "spWord": "ahora",
+        "partOfSpeech": "adv",
+        "definition": "now",
+        "freqIndex": 85
+    },
+    {
+        "spWord": "ahorrar",
+        "partOfSpeech": "v",
+        "definition": "to save (money, time)",
+        "freqIndex": 2775
+    },
+    {
+        "spWord": "ahorro",
+        "partOfSpeech": "nm",
+        "definition": "saving, thrift",
+        "freqIndex": 2977
+    },
+    {
+        "spWord": "aire",
+        "partOfSpeech": "nm",
+        "definition": "air, wind, appearance",
+        "freqIndex": 374
+    },
+    {
+        "spWord": "aislado",
+        "partOfSpeech": "adj",
+        "definition": "isolated",
+        "freqIndex": 1533
+    },
+    {
+        "spWord": "aislamiento",
+        "partOfSpeech": "nm",
+        "definition": "isolation",
+        "freqIndex": 4017
+    },
+    {
+        "spWord": "aislar",
+        "partOfSpeech": "v",
+        "definition": "to isolate, insulate",
+        "freqIndex": 3174
+    },
+    {
+        "spWord": "ajeno",
+        "partOfSpeech": "adj",
+        "definition": "not belonging to, detached",
+        "freqIndex": 1175
+    },
+    {
+        "spWord": "ajustar",
+        "partOfSpeech": "v",
+        "definition": "to adjust, tighten",
+        "freqIndex": 1545
+    },
+    {
+        "spWord": "ajuste",
+        "partOfSpeech": "nm",
+        "definition": "adjustment, settlement",
+        "freqIndex": 4006
+    },
+    {
+        "spWord": "ala",
+        "partOfSpeech": "nf",
+        "definition": "(el) wing, flank",
+        "freqIndex": 2260
+    },
+    {
+        "spWord": "alambre",
+        "partOfSpeech": "nm",
+        "definition": "wire",
+        "freqIndex": 4255
+    },
+    {
+        "spWord": "alargar",
+        "partOfSpeech": "v",
+        "definition": "to enlarge, elongate",
+        "freqIndex": 2649
+    },
+    {
+        "spWord": "alarma",
+        "partOfSpeech": "nf",
+        "definition": "alarm",
+        "freqIndex": 3452
+    },
+    {
+        "spWord": "alarmante",
+        "partOfSpeech": "adj",
+        "definition": "alarming",
+        "freqIndex": 4565
+    },
+    {
+        "spWord": "alarmar",
+        "partOfSpeech": "v",
+        "definition": "to alarm",
+        "freqIndex": 4537
+    },
+    {
+        "spWord": "albergar",
+        "partOfSpeech": "v",
+        "definition": "to lodge, harbor",
+        "freqIndex": 3822
+    },
+    {
+        "spWord": "alcalde",
+        "partOfSpeech": "nm",
+        "definition": "mayor",
+        "freqIndex": 3277
+    },
+    {
+        "spWord": "alcance",
+        "partOfSpeech": "nm",
+        "definition": "reach, scope",
+        "freqIndex": 1083
+    },
+    {
+        "spWord": "alcanzar",
+        "partOfSpeech": "v",
+        "definition": "to reach, catch up with",
+        "freqIndex": 329
+    },
+    {
+        "spWord": "alcohol",
+        "partOfSpeech": "nm",
+        "definition": "alcohol",
+        "freqIndex": 2421
+    },
+    {
+        "spWord": "aldea",
+        "partOfSpeech": "nf",
+        "definition": "small village",
+        "freqIndex": 3458
+    },
+    {
+        "spWord": "alegar",
+        "partOfSpeech": "v",
+        "definition": "to plead, argue",
+        "freqIndex": 3836
+    },
+    {
+        "spWord": "alegrar",
+        "partOfSpeech": "v",
+        "definition": "to be/make happy",
+        "freqIndex": 2689
+    },
+    {
+        "spWord": "alegre",
+        "partOfSpeech": "adj",
+        "definition": "happy, lively, cheerful",
+        "freqIndex": 2304
+    },
+    {
+        "spWord": "alegría",
+        "partOfSpeech": "nf",
+        "definition": "joy, happiness",
+        "freqIndex": 1429
+    },
+    {
+        "spWord": "alejado",
+        "partOfSpeech": "adj",
+        "definition": "remote, distant, aloof",
+        "freqIndex": 1894
+    },
+    {
+        "spWord": "alejar",
+        "partOfSpeech": "v",
+        "definition": "to move away",
+        "freqIndex": 1196
+    },
+    {
+        "spWord": "alemán",
+        "partOfSpeech": "adj",
+        "definition": "German",
+        "freqIndex": 963
+    },
+    {
+        "spWord": "alentar",
+        "partOfSpeech": "v",
+        "definition": "to encourage",
+        "freqIndex": 3189
+    },
+    {
+        "spWord": "alerta",
+        "partOfSpeech": "nf",
+        "definition": "alert",
+        "freqIndex": 4068
+    },
+    {
+        "spWord": "alertar",
+        "partOfSpeech": "v",
+        "definition": "to alert, warn",
+        "freqIndex": 4503
+    },
+    {
+        "spWord": "alfombra",
+        "partOfSpeech": "nf",
+        "definition": "rug, carpet mat",
+        "freqIndex": 3158
+    },
+    {
+        "spWord": "algo",
+        "partOfSpeech": "pron",
+        "definition": "something, somewhat",
+        "freqIndex": 101
+    },
+    {
+        "spWord": "algodón",
+        "partOfSpeech": "nm",
+        "definition": "cotton",
+        "freqIndex": 3613
+    },
+    {
+        "spWord": "alguien",
+        "partOfSpeech": "pron",
+        "definition": "somebody, someone, anyone",
+        "freqIndex": 480
+    },
+    {
+        "spWord": "alguno",
+        "partOfSpeech": "adj",
+        "definition": "some, someone (pron)",
+        "freqIndex": 50
+    },
+    {
+        "spWord": "aliado",
+        "partOfSpeech": "nm",
+        "definition": "ally",
+        "freqIndex": 4086
+    },
+    {
+        "spWord": "alianza",
+        "partOfSpeech": "nf",
+        "definition": "alliance",
+        "freqIndex": 3851
+    },
+    {
+        "spWord": "aliento",
+        "partOfSpeech": "nm",
+        "definition": "breath, courage, spirit",
+        "freqIndex": 3454
+    },
+    {
+        "spWord": "alimentación",
+        "partOfSpeech": "nf",
+        "definition": "feeding, food",
+        "freqIndex": 2989
+    },
+    {
+        "spWord": "alimentar",
+        "partOfSpeech": "v",
+        "definition": "to feed, support",
+        "freqIndex": 1609
+    },
+    {
+        "spWord": "alimento",
+        "partOfSpeech": "nm",
+        "definition": "food, nourishment",
+        "freqIndex": 1143
+    },
+    {
+        "spWord": "aliviar",
+        "partOfSpeech": "v",
+        "definition": "to lighten, relieve, comfort",
+        "freqIndex": 3063
+    },
+    {
+        "spWord": "alivio",
+        "partOfSpeech": "nm",
+        "definition": "relief, unburdening",
+        "freqIndex": 4018
+    },
+    {
+        "spWord": "allá",
+        "partOfSpeech": "adv",
+        "definition": "there, over there",
+        "freqIndex": 324
+    },
+    {
+        "spWord": "allí",
+        "partOfSpeech": "adv",
+        "definition": "there, over there",
+        "freqIndex": 167
+    },
+    {
+        "spWord": "alma",
+        "partOfSpeech": "nf",
+        "definition": "(el) soul",
+        "freqIndex": 984
+    },
+    {
+        "spWord": "almacén",
+        "partOfSpeech": "nm",
+        "definition": "warehouse, store",
+        "freqIndex": 2455
+    },
+    {
+        "spWord": "almohada",
+        "partOfSpeech": "nf",
+        "definition": "pillow",
+        "freqIndex": 4939
+    },
+    {
+        "spWord": "almorzar",
+        "partOfSpeech": "v",
+        "definition": "to have lunch",
+        "freqIndex": 3820
+    },
+    {
+        "spWord": "almuerzo",
+        "partOfSpeech": "nm",
+        "definition": "lunch",
+        "freqIndex": 3104
+    },
+    {
+        "spWord": "alojar",
+        "partOfSpeech": "v",
+        "definition": "to host, accommodate",
+        "freqIndex": 4896
+    },
+    {
+        "spWord": "alquilar",
+        "partOfSpeech": "v",
+        "definition": "to rent, hire",
+        "freqIndex": 3761
+    },
+    {
+        "spWord": "alquiler",
+        "partOfSpeech": "nm",
+        "definition": "rent, rental",
+        "freqIndex": 3733
+    },
+    {
+        "spWord": "alrededor",
+        "partOfSpeech": "adv",
+        "definition": "about, around, round",
+        "freqIndex": 556
+    },
+    {
+        "spWord": "alrededor",
+        "partOfSpeech": "nm",
+        "definition": "surrounding area, vicinity",
+        "freqIndex": 1617
+    },
+    {
+        "spWord": "altamente",
+        "partOfSpeech": "adv",
+        "definition": "highly",
+        "freqIndex": 4238
+    },
+    {
+        "spWord": "altar",
+        "partOfSpeech": "nm",
+        "definition": "altar",
+        "freqIndex": 4247
+    },
+    {
+        "spWord": "alteración",
+        "partOfSpeech": "nf",
+        "definition": "alteration, change",
+        "freqIndex": 3569
+    },
+    {
+        "spWord": "alterar",
+        "partOfSpeech": "v",
+        "definition": "to alter, modify",
+        "freqIndex": 1809
+    },
+    {
+        "spWord": "alternar",
+        "partOfSpeech": "v",
+        "definition": "to alternate",
+        "freqIndex": 3303
+    },
+    {
+        "spWord": "alternativa",
+        "partOfSpeech": "nf",
+        "definition": "alternative",
+        "freqIndex": 1800
+    },
+    {
+        "spWord": "alternativo",
+        "partOfSpeech": "adj",
+        "definition": "alternating, alternative",
+        "freqIndex": 4180
+    },
+    {
+        "spWord": "altísimo",
+        "partOfSpeech": "adj",
+        "definition": "very high, tall",
+        "freqIndex": 3477
+    },
+    {
+        "spWord": "alto",
+        "partOfSpeech": "adj",
+        "definition": "tall, high",
+        "freqIndex": 185
+    },
+    {
+        "spWord": "altura",
+        "partOfSpeech": "nf",
+        "definition": "height, altitude",
+        "freqIndex": 578
+    },
+    {
+        "spWord": "aludir",
+        "partOfSpeech": "v",
+        "definition": "to allude to",
+        "freqIndex": 3037
+    },
+    {
+        "spWord": "alumbrar",
+        "partOfSpeech": "v",
+        "definition": "to light, illuminate",
+        "freqIndex": 3985
+    },
+    {
+        "spWord": "alumno",
+        "partOfSpeech": "nm",
+        "definition": "student, pupil",
+        "freqIndex": 969
+    },
+    {
+        "spWord": "alusión",
+        "partOfSpeech": "nf",
+        "definition": "allusion, hint",
+        "freqIndex": 3640
+    },
+    {
+        "spWord": "alzar",
+        "partOfSpeech": "v",
+        "definition": "to lift, raise",
+        "freqIndex": 2511
+    },
+    {
+        "spWord": "ama",
+        "partOfSpeech": "nc",
+        "definition": "housekeeper, housewife",
+        "freqIndex": 3321
+    },
+    {
+        "spWord": "amable",
+        "partOfSpeech": "adj",
+        "definition": "kind, nice, friendly",
+        "freqIndex": 2409
+    },
+    {
+        "spWord": "amanecer",
+        "partOfSpeech": "nm",
+        "definition": "daybreak, dawn",
+        "freqIndex": 3051
+    },
+    {
+        "spWord": "amanecer",
+        "partOfSpeech": "v",
+        "definition": "to dawn, get light",
+        "freqIndex": 3591
+    },
+    {
+        "spWord": "amante",
+        "partOfSpeech": "nc",
+        "definition": "lover",
+        "freqIndex": 1893
+    },
+    {
+        "spWord": "amar",
+        "partOfSpeech": "v",
+        "definition": "to love",
+        "freqIndex": 1486
+    },
+    {
+        "spWord": "amargo",
+        "partOfSpeech": "adj",
+        "definition": "bitter, sour, painful",
+        "freqIndex": 2710
+    },
+    {
+        "spWord": "amargura",
+        "partOfSpeech": "nf",
+        "definition": "bitterness, sorrow",
+        "freqIndex": 4408
+    },
+    {
+        "spWord": "amarillo",
+        "partOfSpeech": "adj",
+        "definition": "yellow",
+        "freqIndex": 1586
+    },
+    {
+        "spWord": "ambición",
+        "partOfSpeech": "nf",
+        "definition": "ambition",
+        "freqIndex": 2440
+    },
+    {
+        "spWord": "ambicioso",
+        "partOfSpeech": "adj",
+        "definition": "ambitious, greedy",
+        "freqIndex": 3310
+    },
+    {
+        "spWord": "ambiente",
+        "partOfSpeech": "nm",
+        "definition": "environment, atmosphere",
+        "freqIndex": 683
+    },
+    {
+        "spWord": "ambiguo",
+        "partOfSpeech": "adj",
+        "definition": "ambiguous",
+        "freqIndex": 3645
+    },
+    {
+        "spWord": "ámbito",
+        "partOfSpeech": "nm",
+        "definition": "sphere, space",
+        "freqIndex": 1547
+    },
+    {
+        "spWord": "ambos",
+        "partOfSpeech": "adj",
+        "definition": "both",
+        "freqIndex": 488
+    },
+    {
+        "spWord": "ambulante",
+        "partOfSpeech": "adj",
+        "definition": "traveling",
+        "freqIndex": 4440
+    },
+    {
+        "spWord": "amenaza",
+        "partOfSpeech": "nf",
+        "definition": "threat",
+        "freqIndex": 2229
+    },
+    {
+        "spWord": "amenazado",
+        "partOfSpeech": "adj",
+        "definition": "threatened",
+        "freqIndex": 4350
+    },
+    {
+        "spWord": "amenazar",
+        "partOfSpeech": "v",
+        "definition": "to threaten",
+        "freqIndex": 2239
+    },
+    {
+        "spWord": "americano",
+        "partOfSpeech": "adj",
+        "definition": "American",
+        "freqIndex": 1261
+    },
+    {
+        "spWord": "amiga",
+        "partOfSpeech": "nf",
+        "definition": "friend (f)",
+        "freqIndex": 1817
+    },
+    {
+        "spWord": "amigo",
+        "partOfSpeech": "nm",
+        "definition": "friend",
+        "freqIndex": 262
+    },
+    {
+        "spWord": "amistad",
+        "partOfSpeech": "nf",
+        "definition": "friendship",
+        "freqIndex": 1232
+    },
+    {
+        "spWord": "amistoso",
+        "partOfSpeech": "adj",
+        "definition": "friendly",
+        "freqIndex": 4462
+    },
+    {
+        "spWord": "amo",
+        "partOfSpeech": "nm",
+        "definition": "master, boss (m)",
+        "freqIndex": 2787
+    },
+    {
+        "spWord": "amor",
+        "partOfSpeech": "nm",
+        "definition": "love",
+        "freqIndex": 423
+    },
+    {
+        "spWord": "amoroso",
+        "partOfSpeech": "adj",
+        "definition": "loving, affectionate",
+        "freqIndex": 3028
+    },
+    {
+        "spWord": "amparo",
+        "partOfSpeech": "nm",
+        "definition": "protection, shelter",
+        "freqIndex": 4289
+    },
+    {
+        "spWord": "ampliación",
+        "partOfSpeech": "nf",
+        "definition": "enlargement, extension",
+        "freqIndex": 4959
+    },
+    {
+        "spWord": "ampliamente",
+        "partOfSpeech": "adv",
+        "definition": "widely",
+        "freqIndex": 4263
+    },
+    {
+        "spWord": "ampliar",
+        "partOfSpeech": "v",
+        "definition": "to enlarge, increase, expand",
+        "freqIndex": 1931
+    },
+    {
+        "spWord": "amplio",
+        "partOfSpeech": "adj",
+        "definition": "wide, ample, broad",
+        "freqIndex": 763
+    },
+    {
+        "spWord": "amplitud",
+        "partOfSpeech": "nf",
+        "definition": "breadth, extent, range",
+        "freqIndex": 3908
+    },
+    {
+        "spWord": "añadir",
+        "partOfSpeech": "v",
+        "definition": "to add",
+        "freqIndex": 1369
+    },
+    {
+        "spWord": "análisis",
+        "partOfSpeech": "nm",
+        "definition": "analysis",
+        "freqIndex": 1148
+    },
+    {
+        "spWord": "analizar",
+        "partOfSpeech": "v",
+        "definition": "to analyze",
+        "freqIndex": 1048
+    },
+    {
+        "spWord": "ancho",
+        "partOfSpeech": "adj",
+        "definition": "wide",
+        "freqIndex": 1720
+    },
+    {
+        "spWord": "ancho",
+        "partOfSpeech": "nm",
+        "definition": "width",
+        "freqIndex": 3679
+    },
+    {
+        "spWord": "anciano",
+        "partOfSpeech": "adj",
+        "definition": "elderly, aged",
+        "freqIndex": 1912
+    },
+    {
+        "spWord": "andaluz",
+        "partOfSpeech": "adj",
+        "definition": "Andalusian",
+        "freqIndex": 4591
+    },
+    {
+        "spWord": "andar",
+        "partOfSpeech": "v",
+        "definition": "to walk, function",
+        "freqIndex": 536
+    },
+    {
+        "spWord": "andar",
+        "partOfSpeech": "nm",
+        "definition": "walk, gait, pace",
+        "freqIndex": 4737
+    },
+    {
+        "spWord": "anécdota",
+        "partOfSpeech": "nf",
+        "definition": "anecdote",
+        "freqIndex": 2028
+    },
+    {
+        "spWord": "ángel",
+        "partOfSpeech": "nm",
+        "definition": "angel",
+        "freqIndex": 2248
+    },
+    {
+        "spWord": "ángulo",
+        "partOfSpeech": "nm",
+        "definition": "angle",
+        "freqIndex": 2389
+    },
+    {
+        "spWord": "angustia",
+        "partOfSpeech": "nf",
+        "definition": "anguish, distress",
+        "freqIndex": 1957
+    },
+    {
+        "spWord": "angustiado",
+        "partOfSpeech": "adj",
+        "definition": "anguished, distressed",
+        "freqIndex": 4668
+    },
+    {
+        "spWord": "angustioso",
+        "partOfSpeech": "adj",
+        "definition": "distressing",
+        "freqIndex": 4699
+    },
+    {
+        "spWord": "anhelo",
+        "partOfSpeech": "nm",
+        "definition": "longing, yearning",
+        "freqIndex": 4401
+    },
+    {
+        "spWord": "anillo",
+        "partOfSpeech": "nm",
+        "definition": "(finger) ring",
+        "freqIndex": 3150
+    },
+    {
+        "spWord": "animado",
+        "partOfSpeech": "adj",
+        "definition": "excited, lively",
+        "freqIndex": 3163
+    },
+    {
+        "spWord": "animal",
+        "partOfSpeech": "nm",
+        "definition": "animal",
+        "freqIndex": 497
+    },
+    {
+        "spWord": "animar",
+        "partOfSpeech": "v",
+        "definition": "to cheer up",
+        "freqIndex": 1354
+    },
+    {
+        "spWord": "ánimo",
+        "partOfSpeech": "nm",
+        "definition": "zest, spirit, heart",
+        "freqIndex": 1240
+    },
+    {
+        "spWord": "aniversario",
+        "partOfSpeech": "nm",
+        "definition": "anniversary",
+        "freqIndex": 3669
+    },
+    {
+        "spWord": "año",
+        "partOfSpeech": "nm",
+        "definition": "year",
+        "freqIndex": 55
+    },
+    {
+        "spWord": "anoche",
+        "partOfSpeech": "adv",
+        "definition": "last night",
+        "freqIndex": 3418
+    },
+    {
+        "spWord": "anónimo",
+        "partOfSpeech": "adj",
+        "definition": "anonymous",
+        "freqIndex": 2499
+    },
+    {
+        "spWord": "anotar",
+        "partOfSpeech": "v",
+        "definition": "to annotate, jot, note",
+        "freqIndex": 2570
+    },
+    {
+        "spWord": "ansia",
+        "partOfSpeech": "nf",
+        "definition": "(el) anxiety, anguish",
+        "freqIndex": 3832
+    },
+    {
+        "spWord": "ansiedad",
+        "partOfSpeech": "nf",
+        "definition": "anxiety",
+        "freqIndex": 3284
+    },
+    {
+        "spWord": "ansioso",
+        "partOfSpeech": "adj",
+        "definition": "anxious eager",
+        "freqIndex": 3395
+    },
+    {
+        "spWord": "antaño",
+        "partOfSpeech": "adv",
+        "definition": "in days gone by, last year",
+        "freqIndex": 3924
+    },
+    {
+        "spWord": "ante",
+        "partOfSpeech": "prep",
+        "definition": "before, in the presence of",
+        "freqIndex": 236
+    },
+    {
+        "spWord": "antecedente",
+        "partOfSpeech": "nm",
+        "definition": "antecedent",
+        "freqIndex": 2567
+    },
+    {
+        "spWord": "antemano",
+        "partOfSpeech": "adv",
+        "definition": "beforehand, in advance",
+        "freqIndex": 3601
+    },
+    {
+        "spWord": "antena",
+        "partOfSpeech": "nf",
+        "definition": "antenna",
+        "freqIndex": 4644
+    },
+    {
+        "spWord": "antepasado",
+        "partOfSpeech": "nm",
+        "definition": "ancestor",
+        "freqIndex": 3600
+    },
+    {
+        "spWord": "anterior",
+        "partOfSpeech": "adj",
+        "definition": "previous, preceding",
+        "freqIndex": 370
+    },
+    {
+        "spWord": "anteriormente",
+        "partOfSpeech": "adv",
+        "definition": "previously",
+        "freqIndex": 2719
+    },
+    {
+        "spWord": "antes",
+        "partOfSpeech": "adv",
+        "definition": "before",
+        "freqIndex": 114
+    },
+    {
+        "spWord": "anticipar",
+        "partOfSpeech": "v",
+        "definition": "to anticipate, advance",
+        "freqIndex": 2366
+    },
+    {
+        "spWord": "antigüedad",
+        "partOfSpeech": "nf",
+        "definition": "antiquity, seniority",
+        "freqIndex": 3562
+    },
+    {
+        "spWord": "antiguo",
+        "partOfSpeech": "adj",
+        "definition": "old, ancient, former",
+        "freqIndex": 348
+    },
+    {
+        "spWord": "anual",
+        "partOfSpeech": "adj",
+        "definition": "annual, yearly",
+        "freqIndex": 3508
+    },
+    {
+        "spWord": "anular",
+        "partOfSpeech": "v",
+        "definition": "to annul, cancel",
+        "freqIndex": 2637
+    },
+    {
+        "spWord": "anunciar",
+        "partOfSpeech": "v",
+        "definition": "to announce, advertise",
+        "freqIndex": 730
+    },
+    {
+        "spWord": "anuncio",
+        "partOfSpeech": "nm",
+        "definition": "advertisement, announcement",
+        "freqIndex": 2114
+    },
+    {
+        "spWord": "apagado",
+        "partOfSpeech": "adj",
+        "definition": "turned off",
+        "freqIndex": 4405
+    },
+    {
+        "spWord": "apagar",
+        "partOfSpeech": "v",
+        "definition": "to turn off, extinguish",
+        "freqIndex": 2104
+    },
+    {
+        "spWord": "aparato",
+        "partOfSpeech": "nm",
+        "definition": "apparatus, device",
+        "freqIndex": 1168
+    },
+    {
+        "spWord": "aparecer",
+        "partOfSpeech": "v",
+        "definition": "to appear",
+        "freqIndex": 221
+    },
+    {
+        "spWord": "aparentar",
+        "partOfSpeech": "v",
+        "definition": "to give the appearance",
+        "freqIndex": 4205
+    },
+    {
+        "spWord": "aparente",
+        "partOfSpeech": "adj",
+        "definition": "apparent",
+        "freqIndex": 2659
+    },
+    {
+        "spWord": "aparentemente",
+        "partOfSpeech": "adv",
+        "definition": "apparently",
+        "freqIndex": 1853
+    },
+    {
+        "spWord": "aparición",
+        "partOfSpeech": "nf",
+        "definition": "appearance, apparition",
+        "freqIndex": 1854
+    },
+    {
+        "spWord": "apariencia",
+        "partOfSpeech": "nf",
+        "definition": "appearance, aspect",
+        "freqIndex": 1863
+    },
+    {
+        "spWord": "apartar",
+        "partOfSpeech": "v",
+        "definition": "to move away, separate",
+        "freqIndex": 1505
+    },
+    {
+        "spWord": "aparte",
+        "partOfSpeech": "adv",
+        "definition": "apart, aside, separately",
+        "freqIndex": 1313
+    },
+    {
+        "spWord": "apasionado",
+        "partOfSpeech": "adj",
+        "definition": "passionate",
+        "freqIndex": 3547
+    },
+    {
+        "spWord": "apelar",
+        "partOfSpeech": "v",
+        "definition": "to call upon, appeal to",
+        "freqIndex": 3790
+    },
+    {
+        "spWord": "apellido",
+        "partOfSpeech": "nm",
+        "definition": "last name",
+        "freqIndex": 2167
+    },
+    {
+        "spWord": "apenas",
+        "partOfSpeech": "adv",
+        "definition": "hardly, barely",
+        "freqIndex": 587
+    },
+    {
+        "spWord": "apertura",
+        "partOfSpeech": "nf",
+        "definition": "opening, beginning",
+        "freqIndex": 3368
+    },
+    {
+        "spWord": "apetito",
+        "partOfSpeech": "nm",
+        "definition": "appetite",
+        "freqIndex": 4082
+    },
+    {
+        "spWord": "aplastado",
+        "partOfSpeech": "adj",
+        "definition": "crushed, flattened",
+        "freqIndex": 4976
+    },
+    {
+        "spWord": "aplastar",
+        "partOfSpeech": "v",
+        "definition": "to flatten, crush, smash",
+        "freqIndex": 3391
+    },
+    {
+        "spWord": "aplaudir",
+        "partOfSpeech": "v",
+        "definition": "to clap, applaud",
+        "freqIndex": 3068
+    },
+    {
+        "spWord": "aplauso",
+        "partOfSpeech": "nm",
+        "definition": "applause, praise, acclaim",
+        "freqIndex": 3282
+    },
+    {
+        "spWord": "aplicación",
+        "partOfSpeech": "nf",
+        "definition": "application",
+        "freqIndex": 2263
+    },
+    {
+        "spWord": "aplicado",
+        "partOfSpeech": "adj",
+        "definition": "applied",
+        "freqIndex": 1827
+    },
+    {
+        "spWord": "aplicar",
+        "partOfSpeech": "v",
+        "definition": "to apply",
+        "freqIndex": 650
+    },
+    {
+        "spWord": "apoderar",
+        "partOfSpeech": "v",
+        "definition": "to take power",
+        "freqIndex": 3421
+    },
+    {
+        "spWord": "aportar",
+        "partOfSpeech": "v",
+        "definition": "to provide, contribute",
+        "freqIndex": 1738
+    },
+    {
+        "spWord": "aporte",
+        "partOfSpeech": "nm",
+        "definition": "contribution",
+        "freqIndex": 3957
+    },
+    {
+        "spWord": "apostar",
+        "partOfSpeech": "v",
+        "definition": "to wager, bet",
+        "freqIndex": 3635
+    },
+    {
+        "spWord": "apoyar",
+        "partOfSpeech": "v",
+        "definition": "to support, lean on",
+        "freqIndex": 616
+    },
+    {
+        "spWord": "apoyo",
+        "partOfSpeech": "nm",
+        "definition": "support, backing",
+        "freqIndex": 830
+    },
+    {
+        "spWord": "apreciación",
+        "partOfSpeech": "nf",
+        "definition": "appreciation, assessment",
+        "freqIndex": 4443
+    },
+    {
+        "spWord": "apreciar",
+        "partOfSpeech": "v",
+        "definition": "to appreciate",
+        "freqIndex": 1483
+    },
+    {
+        "spWord": "aprender",
+        "partOfSpeech": "v",
+        "definition": "to learn",
+        "freqIndex": 422
+    },
+    {
+        "spWord": "aprendizaje",
+        "partOfSpeech": "nm",
+        "definition": "learning, apprenticeship",
+        "freqIndex": 2675
+    },
+    {
+        "spWord": "apresurar",
+        "partOfSpeech": "v",
+        "definition": "to hurry up, speed up",
+        "freqIndex": 4377
+    },
+    {
+        "spWord": "apretado",
+        "partOfSpeech": "adj",
+        "definition": "tight, jammed",
+        "freqIndex": 3806
+    },
+    {
+        "spWord": "apretar",
+        "partOfSpeech": "v",
+        "definition": "to squeeze, tighten, compress",
+        "freqIndex": 2404
+    },
+    {
+        "spWord": "aprobación",
+        "partOfSpeech": "nf",
+        "definition": "approval, consent",
+        "freqIndex": 3709
+    },
+    {
+        "spWord": "aprobar",
+        "partOfSpeech": "v",
+        "definition": "to pass (test), approve",
+        "freqIndex": 1443
+    },
+    {
+        "spWord": "apropiado",
+        "partOfSpeech": "adj",
+        "definition": "appropriate",
+        "freqIndex": 2422
+    },
+    {
+        "spWord": "aprovechar",
+        "partOfSpeech": "v",
+        "definition": "to take advantage of",
+        "freqIndex": 612
+    },
+    {
+        "spWord": "aproximación",
+        "partOfSpeech": "nf",
+        "definition": "approximation",
+        "freqIndex": 4241
+    },
+    {
+        "spWord": "aproximadamente",
+        "partOfSpeech": "adv",
+        "definition": "approximately",
+        "freqIndex": 2256
+    },
+    {
+        "spWord": "aproximar",
+        "partOfSpeech": "v",
+        "definition": "to come near, closer",
+        "freqIndex": 2070
+    },
+    {
+        "spWord": "apto",
+        "partOfSpeech": "adj",
+        "definition": "appropriate, fit, able",
+        "freqIndex": 3535
+    },
+    {
+        "spWord": "apuesta",
+        "partOfSpeech": "nf",
+        "definition": "wager, bet",
+        "freqIndex": 4320
+    },
+    {
+        "spWord": "apuntar",
+        "partOfSpeech": "v",
+        "definition": "to point, note, aim",
+        "freqIndex": 1361
+    },
+    {
+        "spWord": "apunte",
+        "partOfSpeech": "nm",
+        "definition": "note, annotation",
+        "freqIndex": 3599
+    },
+    {
+        "spWord": "apurar",
+        "partOfSpeech": "v",
+        "definition": "to speed up, hurry up",
+        "freqIndex": 4389
+    },
+    {
+        "spWord": "apuro",
+        "partOfSpeech": "nm",
+        "definition": "trouble, predicament",
+        "freqIndex": 4618
+    },
+    {
+        "spWord": "aquel",
+        "partOfSpeech": "adj",
+        "definition": "that (over there)",
+        "freqIndex": 107
+    },
+    {
+        "spWord": "aquél",
+        "partOfSpeech": "pron",
+        "definition": "that one over there (m)",
+        "freqIndex": 1390
+    },
+    {
+        "spWord": "aquello",
+        "partOfSpeech": "pron",
+        "definition": "that over there (n)",
+        "freqIndex": 814
+    },
+    {
+        "spWord": "aquí",
+        "partOfSpeech": "adv",
+        "definition": "here",
+        "freqIndex": 129
+    },
+    {
+        "spWord": "árabe",
+        "partOfSpeech": "adj",
+        "definition": "Arab",
+        "freqIndex": 2433
+    },
+    {
+        "spWord": "araña",
+        "partOfSpeech": "nf",
+        "definition": "spider",
+        "freqIndex": 4717
+    },
+    {
+        "spWord": "arbitrario",
+        "partOfSpeech": "adj",
+        "definition": "arbitrary",
+        "freqIndex": 4015
+    },
+    {
+        "spWord": "árbol",
+        "partOfSpeech": "nm",
+        "definition": "tree",
+        "freqIndex": 833
+    },
+    {
+        "spWord": "archivo",
+        "partOfSpeech": "nm",
+        "definition": "archive, file, filing cabinet",
+        "freqIndex": 3244
+    },
+    {
+        "spWord": "arco",
+        "partOfSpeech": "nm",
+        "definition": "arch, arc, bow",
+        "freqIndex": 2412
+    },
+    {
+        "spWord": "arder",
+        "partOfSpeech": "v",
+        "definition": "to burn, glow",
+        "freqIndex": 3087
+    },
+    {
+        "spWord": "ardiente",
+        "partOfSpeech": "adj",
+        "definition": "passionate, ardent",
+        "freqIndex": 4446
+    },
+    {
+        "spWord": "área",
+        "partOfSpeech": "nf",
+        "definition": "(el) area, zone",
+        "freqIndex": 1602
+    },
+    {
+        "spWord": "arena",
+        "partOfSpeech": "nf",
+        "definition": "sand",
+        "freqIndex": 1635
+    },
+    {
+        "spWord": "argentino",
+        "partOfSpeech": "adj",
+        "definition": "Argentine",
+        "freqIndex": 1626
+    },
+    {
+        "spWord": "argumentar",
+        "partOfSpeech": "v",
+        "definition": "to argue, deduce",
+        "freqIndex": 4139
+    },
+    {
+        "spWord": "argumento",
+        "partOfSpeech": "nm",
+        "definition": "argument, plot",
+        "freqIndex": 1279
+    },
+    {
+        "spWord": "árido",
+        "partOfSpeech": "adj",
+        "definition": "arid, dry",
+        "freqIndex": 4634
+    },
+    {
+        "spWord": "arma",
+        "partOfSpeech": "nf",
+        "definition": "(el) weapon",
+        "freqIndex": 832
+    },
+    {
+        "spWord": "armado",
+        "partOfSpeech": "adj",
+        "definition": "armed",
+        "freqIndex": 1639
+    },
+    {
+        "spWord": "armar",
+        "partOfSpeech": "v",
+        "definition": "to arm, put together",
+        "freqIndex": 2627
+    },
+    {
+        "spWord": "armonía",
+        "partOfSpeech": "nf",
+        "definition": "harmony",
+        "freqIndex": 2529
+    },
+    {
+        "spWord": "aroma",
+        "partOfSpeech": "nm",
+        "definition": "aroma",
+        "freqIndex": 3863
+    },
+    {
+        "spWord": "arquitecto",
+        "partOfSpeech": "nm/f",
+        "definition": "architect",
+        "freqIndex": 2808
+    },
+    {
+        "spWord": "arquitectura",
+        "partOfSpeech": "nf",
+        "definition": "architecture",
+        "freqIndex": 2516
+    },
+    {
+        "spWord": "arrancar",
+        "partOfSpeech": "v",
+        "definition": "to start (machine), uproot",
+        "freqIndex": 1268
+    },
+    {
+        "spWord": "arranque",
+        "partOfSpeech": "nm",
+        "definition": "start, outburst, kick-start",
+        "freqIndex": 4077
+    },
+    {
+        "spWord": "arrasar",
+        "partOfSpeech": "v",
+        "definition": "to raze, ravage",
+        "freqIndex": 4158
+    },
+    {
+        "spWord": "arrastrar",
+        "partOfSpeech": "v",
+        "definition": "to drag, pull",
+        "freqIndex": 1134
+    },
+    {
+        "spWord": "arrebatar",
+        "partOfSpeech": "v",
+        "definition": "to snatch, grab",
+        "freqIndex": 3439
+    },
+    {
+        "spWord": "arreglar",
+        "partOfSpeech": "v",
+        "definition": "to fix, arrange",
+        "freqIndex": 1351
+    },
+    {
+        "spWord": "arreglo",
+        "partOfSpeech": "nm",
+        "definition": "arrangement",
+        "freqIndex": 2607
+    },
+    {
+        "spWord": "arrepentir",
+        "partOfSpeech": "v",
+        "definition": "to repent, regret",
+        "freqIndex": 3528
+    },
+    {
+        "spWord": "arriba",
+        "partOfSpeech": "adv",
+        "definition": "up above",
+        "freqIndex": 544
+    },
+    {
+        "spWord": "arriesgar",
+        "partOfSpeech": "v",
+        "definition": "to risk, venture",
+        "freqIndex": 3183
+    },
+    {
+        "spWord": "arrojar",
+        "partOfSpeech": "v",
+        "definition": "to throw, fling",
+        "freqIndex": 1846
+    },
+    {
+        "spWord": "arroyo",
+        "partOfSpeech": "nm",
+        "definition": "brook, stream, gutter",
+        "freqIndex": 4218
+    },
+    {
+        "spWord": "arroz",
+        "partOfSpeech": "nm",
+        "definition": "rice",
+        "freqIndex": 3130
+    },
+    {
+        "spWord": "arte",
+        "partOfSpeech": "nm",
+        "definition": "art, skill",
+        "freqIndex": 567
+    },
+    {
+        "spWord": "artefacto",
+        "partOfSpeech": "nm",
+        "definition": "artifact, device",
+        "freqIndex": 4509
+    },
+    {
+        "spWord": "articular",
+        "partOfSpeech": "v",
+        "definition": "to articulate",
+        "freqIndex": 4101
+    },
+    {
+        "spWord": "artículo",
+        "partOfSpeech": "nm",
+        "definition": "article, product, item",
+        "freqIndex": 819
+    },
+    {
+        "spWord": "artificial",
+        "partOfSpeech": "adj",
+        "definition": "artificial",
+        "freqIndex": 2018
+    },
+    {
+        "spWord": "artista",
+        "partOfSpeech": "nc",
+        "definition": "artist, performer",
+        "freqIndex": 928
+    },
+    {
+        "spWord": "artístico",
+        "partOfSpeech": "adj",
+        "definition": "artistic",
+        "freqIndex": 1598
+    },
+    {
+        "spWord": "asaltar",
+        "partOfSpeech": "v",
+        "definition": "to assault",
+        "freqIndex": 3517
+    },
+    {
+        "spWord": "asalto",
+        "partOfSpeech": "nm",
+        "definition": "assault, robbery",
+        "freqIndex": 3768
+    },
+    {
+        "spWord": "asamblea",
+        "partOfSpeech": "nf",
+        "definition": "assembly",
+        "freqIndex": 3899
+    },
+    {
+        "spWord": "ascender",
+        "partOfSpeech": "v",
+        "definition": "to ascend, be promoted",
+        "freqIndex": 1909
+    },
+    {
+        "spWord": "ascenso",
+        "partOfSpeech": "nm",
+        "definition": "promotion, climb",
+        "freqIndex": 3286
+    },
+    {
+        "spWord": "ascensor",
+        "partOfSpeech": "nm",
+        "definition": "elevator",
+        "freqIndex": 3954
+    },
+    {
+        "spWord": "asco",
+        "partOfSpeech": "nm",
+        "definition": "disgust",
+        "freqIndex": 4375
+    },
+    {
+        "spWord": "asegurar",
+        "partOfSpeech": "v",
+        "definition": "to assure, secure, insure",
+        "freqIndex": 542
+    },
+    {
+        "spWord": "asentar",
+        "partOfSpeech": "v",
+        "definition": "to settle, establish, locate",
+        "freqIndex": 3494
+    },
+    {
+        "spWord": "asentir",
+        "partOfSpeech": "v",
+        "definition": "to assent, agree",
+        "freqIndex": 4742
+    },
+    {
+        "spWord": "asesinar",
+        "partOfSpeech": "v",
+        "definition": "to murder, assassinate",
+        "freqIndex": 3352
+    },
+    {
+        "spWord": "asesinato",
+        "partOfSpeech": "nm",
+        "definition": "murder, assassination",
+        "freqIndex": 3333
+    },
+    {
+        "spWord": "asesino",
+        "partOfSpeech": "nm",
+        "definition": "killer, assassin",
+        "freqIndex": 3092
+    },
+    {
+        "spWord": "asesor",
+        "partOfSpeech": "nm/f",
+        "definition": "adviser, consultant",
+        "freqIndex": 4466
+    },
+    {
+        "spWord": "así",
+        "partOfSpeech": "adv",
+        "definition": "like that",
+        "freqIndex": 59
+    },
+    {
+        "spWord": "asiento",
+        "partOfSpeech": "nm",
+        "definition": "seat, chair",
+        "freqIndex": 2061
+    },
+    {
+        "spWord": "asignar",
+        "partOfSpeech": "v",
+        "definition": "to assign, allocate",
+        "freqIndex": 3008
+    },
+    {
+        "spWord": "asilo",
+        "partOfSpeech": "nm",
+        "definition": "asylum, shelter",
+        "freqIndex": 4865
+    },
+    {
+        "spWord": "asimilar",
+        "partOfSpeech": "v",
+        "definition": "to assimilate",
+        "freqIndex": 2928
+    },
+    {
+        "spWord": "asimismo",
+        "partOfSpeech": "adv",
+        "definition": "as well, also, moreover",
+        "freqIndex": 3511
+    },
+    {
+        "spWord": "asistencia",
+        "partOfSpeech": "nf",
+        "definition": "attendance, assistance",
+        "freqIndex": 2751
+    },
+    {
+        "spWord": "asistente",
+        "partOfSpeech": "nc",
+        "definition": "assistant",
+        "freqIndex": 3180
+    },
+    {
+        "spWord": "asistir",
+        "partOfSpeech": "v",
+        "definition": "to attend",
+        "freqIndex": 822
+    },
+    {
+        "spWord": "asociación",
+        "partOfSpeech": "nf",
+        "definition": "association",
+        "freqIndex": 2123
+    },
+    {
+        "spWord": "asociar",
+        "partOfSpeech": "v",
+        "definition": "to associate with",
+        "freqIndex": 1661
+    },
+    {
+        "spWord": "asomar",
+        "partOfSpeech": "v",
+        "definition": "to appear, show, stick (out)",
+        "freqIndex": 2383
+    },
+    {
+        "spWord": "asombrado",
+        "partOfSpeech": "adj",
+        "definition": "amazed, bewildered",
+        "freqIndex": 4541
+    },
+    {
+        "spWord": "asombrar",
+        "partOfSpeech": "v",
+        "definition": "to amaze, astound",
+        "freqIndex": 3565
+    },
+    {
+        "spWord": "asombro",
+        "partOfSpeech": "nm",
+        "definition": "amazement, astonishment",
+        "freqIndex": 3906
+    },
+    {
+        "spWord": "asombroso",
+        "partOfSpeech": "adj",
+        "definition": "amazing",
+        "freqIndex": 3526
+    },
+    {
+        "spWord": "aspecto",
+        "partOfSpeech": "nm",
+        "definition": "aspect, appearance",
+        "freqIndex": 385
+    },
+    {
+        "spWord": "áspero",
+        "partOfSpeech": "adj",
+        "definition": "rough, coarse, harsh",
+        "freqIndex": 3854
+    },
+    {
+        "spWord": "aspiración",
+        "partOfSpeech": "nf",
+        "definition": "ambition, aspiration",
+        "freqIndex": 2589
+    },
+    {
+        "spWord": "aspirar",
+        "partOfSpeech": "v",
+        "definition": "to aspire, want",
+        "freqIndex": 1552
+    },
+    {
+        "spWord": "astro",
+        "partOfSpeech": "nm",
+        "definition": "star",
+        "freqIndex": 4746
+    },
+    {
+        "spWord": "asumir",
+        "partOfSpeech": "v",
+        "definition": "to assume, take on",
+        "freqIndex": 1132
+    },
+    {
+        "spWord": "asunto",
+        "partOfSpeech": "nm",
+        "definition": "matter, issue, affair",
+        "freqIndex": 518
+    },
+    {
+        "spWord": "asustado",
+        "partOfSpeech": "adj",
+        "definition": "scared, frightened",
+        "freqIndex": 3633
+    },
+    {
+        "spWord": "asustar",
+        "partOfSpeech": "v",
+        "definition": "to frighten, scare",
+        "freqIndex": 2565
+    },
+    {
+        "spWord": "atacar",
+        "partOfSpeech": "v",
+        "definition": "to attack",
+        "freqIndex": 1393
+    },
+    {
+        "spWord": "ataque",
+        "partOfSpeech": "nm",
+        "definition": "attack, raid",
+        "freqIndex": 1157
+    },
+    {
+        "spWord": "atar",
+        "partOfSpeech": "v",
+        "definition": "to tie (up)",
+        "freqIndex": 2153
+    },
+    {
+        "spWord": "atardecer",
+        "partOfSpeech": "nm",
+        "definition": "evening, dusk",
+        "freqIndex": 4186
+    },
+    {
+        "spWord": "atención",
+        "partOfSpeech": "nf",
+        "definition": "attention",
+        "freqIndex": 441
+    },
+    {
+        "spWord": "atender",
+        "partOfSpeech": "v",
+        "definition": "to serve, attend to",
+        "freqIndex": 697
+    },
+    {
+        "spWord": "atener",
+        "partOfSpeech": "v",
+        "definition": "to abide by, comply with",
+        "freqIndex": 4448
+    },
+    {
+        "spWord": "atentado",
+        "partOfSpeech": "nm",
+        "definition": "(terrorist) attack, offense",
+        "freqIndex": 4692
+    },
+    {
+        "spWord": "atento",
+        "partOfSpeech": "adj",
+        "definition": "attentive, polite",
+        "freqIndex": 2532
+    },
+    {
+        "spWord": "atmósfera",
+        "partOfSpeech": "nf",
+        "definition": "atmosphere, environment",
+        "freqIndex": 2003
+    },
+    {
+        "spWord": "atracción",
+        "partOfSpeech": "nf",
+        "definition": "attraction",
+        "freqIndex": 2768
+    },
+    {
+        "spWord": "atractivo",
+        "partOfSpeech": "adj",
+        "definition": "attractive",
+        "freqIndex": 2131
+    },
+    {
+        "spWord": "atractivo",
+        "partOfSpeech": "nm",
+        "definition": "attraction, charm",
+        "freqIndex": 3094
+    },
+    {
+        "spWord": "atraer",
+        "partOfSpeech": "v",
+        "definition": "to attract",
+        "freqIndex": 1293
+    },
+    {
+        "spWord": "atrapado",
+        "partOfSpeech": "adj",
+        "definition": "trapped",
+        "freqIndex": 4234
+    },
+    {
+        "spWord": "atrapar",
+        "partOfSpeech": "v",
+        "definition": "to trap, catch",
+        "freqIndex": 3589
+    },
+    {
+        "spWord": "atrás",
+        "partOfSpeech": "adv",
+        "definition": "back, behind, ago",
+        "freqIndex": 483
+    },
+    {
+        "spWord": "atrasado",
+        "partOfSpeech": "adj",
+        "definition": "behind, slow",
+        "freqIndex": 4120
+    },
+    {
+        "spWord": "atravesar",
+        "partOfSpeech": "v",
+        "definition": "to cross",
+        "freqIndex": 937
+    },
+    {
+        "spWord": "atrever",
+        "partOfSpeech": "v",
+        "definition": "to dare",
+        "freqIndex": 1276
+    },
+    {
+        "spWord": "atribuir",
+        "partOfSpeech": "v",
+        "definition": "to attribute",
+        "freqIndex": 1539
+    },
+    {
+        "spWord": "atributo",
+        "partOfSpeech": "nm",
+        "definition": "attribute, quality",
+        "freqIndex": 4094
+    },
+    {
+        "spWord": "atroz",
+        "partOfSpeech": "adj",
+        "definition": "atrocious",
+        "freqIndex": 4599
+    },
+    {
+        "spWord": "audacia",
+        "partOfSpeech": "nf",
+        "definition": "boldness, audacity",
+        "freqIndex": 4757
+    },
+    {
+        "spWord": "audaz",
+        "partOfSpeech": "adj",
+        "definition": "audacious, bold",
+        "freqIndex": 4107
+    },
+    {
+        "spWord": "audiencia",
+        "partOfSpeech": "nf",
+        "definition": "audience, hearing",
+        "freqIndex": 3353
+    },
+    {
+        "spWord": "aula",
+        "partOfSpeech": "nf",
+        "definition": "(el) classroom",
+        "freqIndex": 3876
+    },
+    {
+        "spWord": "aumentar",
+        "partOfSpeech": "v",
+        "definition": "to increase",
+        "freqIndex": 633
+    },
+    {
+        "spWord": "aumento",
+        "partOfSpeech": "nm",
+        "definition": "increase, rise",
+        "freqIndex": 1873
+    },
+    {
+        "spWord": "aun",
+        "partOfSpeech": "adv",
+        "definition": "even (though), still",
+        "freqIndex": 843
+    },
+    {
+        "spWord": "aún",
+        "partOfSpeech": "adv",
+        "definition": "still, yet",
+        "freqIndex": 282
+    },
+    {
+        "spWord": "aunque",
+        "partOfSpeech": "conj",
+        "definition": "although, even though",
+        "freqIndex": 117
+    },
+    {
+        "spWord": "ausencia",
+        "partOfSpeech": "nf",
+        "definition": "absence",
+        "freqIndex": 1321
+    },
+    {
+        "spWord": "ausente",
+        "partOfSpeech": "adj",
+        "definition": "absent",
+        "freqIndex": 2562
+    },
+    {
+        "spWord": "auténtico",
+        "partOfSpeech": "adj",
+        "definition": "authentic",
+        "freqIndex": 1223
+    },
+    {
+        "spWord": "auto",
+        "partOfSpeech": "nm",
+        "definition": "auto, car",
+        "freqIndex": 2259
+    },
+    {
+        "spWord": "autobús",
+        "partOfSpeech": "nm",
+        "definition": "bus",
+        "freqIndex": 4676
+    },
+    {
+        "spWord": "automáticamente",
+        "partOfSpeech": "adv",
+        "definition": "automatically",
+        "freqIndex": 3324
+    },
+    {
+        "spWord": "automático",
+        "partOfSpeech": "adj",
+        "definition": "automatic",
+        "freqIndex": 2984
+    },
+    {
+        "spWord": "automóvil",
+        "partOfSpeech": "nm",
+        "definition": "automobile",
+        "freqIndex": 1578
+    },
+    {
+        "spWord": "autonomía",
+        "partOfSpeech": "nf",
+        "definition": "autonomy, range",
+        "freqIndex": 3317
+    },
+    {
+        "spWord": "autónomo",
+        "partOfSpeech": "adj",
+        "definition": "autonomous",
+        "freqIndex": 2761
+    },
+    {
+        "spWord": "autopista",
+        "partOfSpeech": "nf",
+        "definition": "freeway, motorway",
+        "freqIndex": 4523
+    },
+    {
+        "spWord": "autor",
+        "partOfSpeech": "nm/f",
+        "definition": "writer, author",
+        "freqIndex": 538
+    },
+    {
+        "spWord": "autoridad",
+        "partOfSpeech": "nf",
+        "definition": "authority",
+        "freqIndex": 718
+    },
+    {
+        "spWord": "autoritario",
+        "partOfSpeech": "adj",
+        "definition": "authoritarian",
+        "freqIndex": 3552
+    },
+    {
+        "spWord": "autorización",
+        "partOfSpeech": "nf",
+        "definition": "authorization",
+        "freqIndex": 4106
+    },
+    {
+        "spWord": "autorizado",
+        "partOfSpeech": "adj",
+        "definition": "authorized",
+        "freqIndex": 3896
+    },
+    {
+        "spWord": "autorizar",
+        "partOfSpeech": "v",
+        "definition": "to authorize, legalize",
+        "freqIndex": 2829
+    },
+    {
+        "spWord": "auxiliar",
+        "partOfSpeech": "adj",
+        "definition": "auxiliary, ancillary",
+        "freqIndex": 3373
+    },
+    {
+        "spWord": "auxilio",
+        "partOfSpeech": "nm",
+        "definition": "help, aid, assistance",
+        "freqIndex": 3500
+    },
+    {
+        "spWord": "avance",
+        "partOfSpeech": "nm",
+        "definition": "advance, progress",
+        "freqIndex": 1565
+    },
+    {
+        "spWord": "avanzado",
+        "partOfSpeech": "adj",
+        "definition": "advanced",
+        "freqIndex": 1856
+    },
+    {
+        "spWord": "avanzar",
+        "partOfSpeech": "v",
+        "definition": "to advance, progress",
+        "freqIndex": 618
+    },
+    {
+        "spWord": "ave",
+        "partOfSpeech": "nm",
+        "definition": "bird",
+        "freqIndex": 2207
+    },
+    {
+        "spWord": "avenida",
+        "partOfSpeech": "nf",
+        "definition": "avenue",
+        "freqIndex": 2876
+    },
+    {
+        "spWord": "aventura",
+        "partOfSpeech": "nf",
+        "definition": "adventure",
+        "freqIndex": 1366
+    },
+    {
+        "spWord": "aventurar",
+        "partOfSpeech": "v",
+        "definition": "to venture, risk",
+        "freqIndex": 4800
+    },
+    {
+        "spWord": "averiguar",
+        "partOfSpeech": "v",
+        "definition": "to investigate, find out",
+        "freqIndex": 1983
+    },
+    {
+        "spWord": "avión",
+        "partOfSpeech": "nm",
+        "definition": "plane, airplane, aircraft",
+        "freqIndex": 1283
+    },
+    {
+        "spWord": "avisar",
+        "partOfSpeech": "v",
+        "definition": "to inform, announce",
+        "freqIndex": 2268
+    },
+    {
+        "spWord": "aviso",
+        "partOfSpeech": "nm",
+        "definition": "warning",
+        "freqIndex": 2611
+    },
+    {
+        "spWord": "ay",
+        "partOfSpeech": "interj",
+        "definition": "oh no! oh my!",
+        "freqIndex": 2337
+    },
+    {
+        "spWord": "ayer",
+        "partOfSpeech": "adv",
+        "definition": "yesterday",
+        "freqIndex": 1112
+    },
+    {
+        "spWord": "ayuda",
+        "partOfSpeech": "nf",
+        "definition": "help, aid",
+        "freqIndex": 594
+    },
+    {
+        "spWord": "ayudante",
+        "partOfSpeech": "nc",
+        "definition": "helper, assistant",
+        "freqIndex": 2901
+    },
+    {
+        "spWord": "ayudar",
+        "partOfSpeech": "v",
+        "definition": "to help",
+        "freqIndex": 345
+    },
+    {
+        "spWord": "azar",
+        "partOfSpeech": "nm",
+        "definition": "random, chance, hazard",
+        "freqIndex": 2400
+    },
+    {
+        "spWord": "azúcar",
+        "partOfSpeech": "nm",
+        "definition": "sugar",
+        "freqIndex": 2033
+    },
+    {
+        "spWord": "azul",
+        "partOfSpeech": "adj",
+        "definition": "blue",
+        "freqIndex": 904
+    },
+    {
+        "spWord": "bachillerato",
+        "partOfSpeech": "nm",
+        "definition": "high school diploma",
+        "freqIndex": 4950
+    },
+    {
+        "spWord": "bahía",
+        "partOfSpeech": "nf",
+        "definition": "bay",
+        "freqIndex": 4770
+    },
+    {
+        "spWord": "bailar",
+        "partOfSpeech": "v",
+        "definition": "to dance",
+        "freqIndex": 2071
+    },
+    {
+        "spWord": "bailarín",
+        "partOfSpeech": "nm/f",
+        "definition": "dancer",
+        "freqIndex": 4508
+    },
+    {
+        "spWord": "baile",
+        "partOfSpeech": "nm",
+        "definition": "dance, ball",
+        "freqIndex": 2222
+    },
+    {
+        "spWord": "bajar",
+        "partOfSpeech": "v",
+        "definition": "to come down, let down",
+        "freqIndex": 569
+    },
+    {
+        "spWord": "bajo",
+        "partOfSpeech": "prep",
+        "definition": "under, underneath",
+        "freqIndex": 214
+    },
+    {
+        "spWord": "bajo",
+        "partOfSpeech": "adj",
+        "definition": "short, low",
+        "freqIndex": 412
+    },
+    {
+        "spWord": "bala",
+        "partOfSpeech": "nf",
+        "definition": "bullet, shot",
+        "freqIndex": 3328
+    },
+    {
+        "spWord": "balance",
+        "partOfSpeech": "nm",
+        "definition": "outcome, balance",
+        "freqIndex": 3151
+    },
+    {
+        "spWord": "balanza",
+        "partOfSpeech": "nf",
+        "definition": "balance, (measuring) scale",
+        "freqIndex": 4551
+    },
+    {
+        "spWord": "balcón",
+        "partOfSpeech": "nm",
+        "definition": "balcony",
+        "freqIndex": 3207
+    },
+    {
+        "spWord": "bañar",
+        "partOfSpeech": "v",
+        "definition": "to bathe, take a bath",
+        "freqIndex": 3224
+    },
+    {
+        "spWord": "bancario",
+        "partOfSpeech": "adj",
+        "definition": "bank, banking",
+        "freqIndex": 4735
+    },
+    {
+        "spWord": "banco",
+        "partOfSpeech": "nm",
+        "definition": "(financial) bank, bench",
+        "freqIndex": 881
+    },
+    {
+        "spWord": "banda",
+        "partOfSpeech": "nf",
+        "definition": "(musical) band, sash",
+        "freqIndex": 2025
+    },
+    {
+        "spWord": "bandeja",
+        "partOfSpeech": "nf",
+        "definition": "tray",
+        "freqIndex": 4240
+    },
+    {
+        "spWord": "bandera",
+        "partOfSpeech": "nf",
+        "definition": "flag",
+        "freqIndex": 2021
+    },
+    {
+        "spWord": "bando",
+        "partOfSpeech": "nm",
+        "definition": "faction, side",
+        "freqIndex": 3380
+    },
+    {
+        "spWord": "baño",
+        "partOfSpeech": "nm",
+        "definition": "bathroom, bath, swim",
+        "freqIndex": 1789
+    },
+    {
+        "spWord": "banquete",
+        "partOfSpeech": "nm",
+        "definition": "banquet, feast",
+        "freqIndex": 4734
+    },
+    {
+        "spWord": "bar",
+        "partOfSpeech": "nm",
+        "definition": "(snack) bar, café",
+        "freqIndex": 2359
+    },
+    {
+        "spWord": "barato",
+        "partOfSpeech": "adj",
+        "definition": "inexpensive",
+        "freqIndex": 1470
+    },
+    {
+        "spWord": "barba",
+        "partOfSpeech": "nf",
+        "definition": "beard",
+        "freqIndex": 3451
+    },
+    {
+        "spWord": "barbaridad",
+        "partOfSpeech": "nf",
+        "definition": "atrocity",
+        "freqIndex": 4013
+    },
+    {
+        "spWord": "bárbaro",
+        "partOfSpeech": "adj",
+        "definition": "savage, horrible",
+        "freqIndex": 2757
+    },
+    {
+        "spWord": "barco",
+        "partOfSpeech": "nm",
+        "definition": "boat, ship",
+        "freqIndex": 1164
+    },
+    {
+        "spWord": "barra",
+        "partOfSpeech": "nf",
+        "definition": "bar, rod, rail",
+        "freqIndex": 2721
+    },
+    {
+        "spWord": "barrer",
+        "partOfSpeech": "v",
+        "definition": "sweep, clean out",
+        "freqIndex": 3156
+    },
+    {
+        "spWord": "barrera",
+        "partOfSpeech": "nf",
+        "definition": "barrier, obstacle",
+        "freqIndex": 2568
+    },
+    {
+        "spWord": "barrio",
+        "partOfSpeech": "nm",
+        "definition": "neighborhood, district",
+        "freqIndex": 1146
+    },
+    {
+        "spWord": "barro",
+        "partOfSpeech": "nm",
+        "definition": "clay, mud",
+        "freqIndex": 2894
+    },
+    {
+        "spWord": "basar",
+        "partOfSpeech": "v",
+        "definition": "to base on, base upon",
+        "freqIndex": 1430
+    },
+    {
+        "spWord": "base",
+        "partOfSpeech": "nf",
+        "definition": "base, basis",
+        "freqIndex": 498
+    },
+    {
+        "spWord": "básicamente",
+        "partOfSpeech": "adv",
+        "definition": "basically",
+        "freqIndex": 3862
+    },
+    {
+        "spWord": "básico",
+        "partOfSpeech": "adj",
+        "definition": "basic, essential",
+        "freqIndex": 2295
+    },
+    {
+        "spWord": "bastante",
+        "partOfSpeech": "adj",
+        "definition": "rather, fairly, quite a bit (adv)",
+        "freqIndex": 270
+    },
+    {
+        "spWord": "bastar",
+        "partOfSpeech": "v",
+        "definition": "to be sufficient",
+        "freqIndex": 899
+    },
+    {
+        "spWord": "bastón",
+        "partOfSpeech": "nm",
+        "definition": "(walking) cane",
+        "freqIndex": 4454
+    },
+    {
+        "spWord": "basura",
+        "partOfSpeech": "nf",
+        "definition": "garbage, rubbish",
+        "freqIndex": 2594
+    },
+    {
+        "spWord": "batalla",
+        "partOfSpeech": "nf",
+        "definition": "battle",
+        "freqIndex": 1091
+    },
+    {
+        "spWord": "batería",
+        "partOfSpeech": "nf",
+        "definition": "battery, gun deck",
+        "freqIndex": 4597
+    },
+    {
+        "spWord": "batir",
+        "partOfSpeech": "v",
+        "definition": "to beat (object)",
+        "freqIndex": 3313
+    },
+    {
+        "spWord": "bautizar",
+        "partOfSpeech": "v",
+        "definition": "to baptize, christen",
+        "freqIndex": 3186
+    },
+    {
+        "spWord": "bebé",
+        "partOfSpeech": "nm",
+        "definition": "baby",
+        "freqIndex": 3406
+    },
+    {
+        "spWord": "beber",
+        "partOfSpeech": "v",
+        "definition": "to drink",
+        "freqIndex": 1476
+    },
+    {
+        "spWord": "bebida",
+        "partOfSpeech": "nf",
+        "definition": "drink, beverage",
+        "freqIndex": 2828
+    },
+    {
+        "spWord": "beca",
+        "partOfSpeech": "nf",
+        "definition": "scholarship, grant",
+        "freqIndex": 3959
+    },
+    {
+        "spWord": "bélico",
+        "partOfSpeech": "adj",
+        "definition": "warlike",
+        "freqIndex": 4955
+    },
+    {
+        "spWord": "belleza",
+        "partOfSpeech": "nf",
+        "definition": "beauty",
+        "freqIndex": 1472
+    },
+    {
+        "spWord": "bello",
+        "partOfSpeech": "adj",
+        "definition": "beautiful, fine",
+        "freqIndex": 1338
+    },
+    {
+        "spWord": "bendito",
+        "partOfSpeech": "adj",
+        "definition": "blessed",
+        "freqIndex": 4560
+    },
+    {
+        "spWord": "beneficiar",
+        "partOfSpeech": "v",
+        "definition": "to benefit",
+        "freqIndex": 3129
+    },
+    {
+        "spWord": "beneficio",
+        "partOfSpeech": "nm",
+        "definition": "benefit, profit",
+        "freqIndex": 1142
+    },
+    {
+        "spWord": "besar",
+        "partOfSpeech": "v",
+        "definition": "to kiss",
+        "freqIndex": 3696
+    },
+    {
+        "spWord": "beso",
+        "partOfSpeech": "nm",
+        "definition": "kiss",
+        "freqIndex": 3322
+    },
+    {
+        "spWord": "bestia",
+        "partOfSpeech": "nf",
+        "definition": "beast, brute",
+        "freqIndex": 3765
+    },
+    {
+        "spWord": "bíblico",
+        "partOfSpeech": "adj",
+        "definition": "biblical",
+        "freqIndex": 4625
+    },
+    {
+        "spWord": "biblioteca",
+        "partOfSpeech": "nf",
+        "definition": "library",
+        "freqIndex": 1825
+    },
+    {
+        "spWord": "bicho",
+        "partOfSpeech": "nm",
+        "definition": "bug, creature",
+        "freqIndex": 4687
+    },
+    {
+        "spWord": "bicicleta",
+        "partOfSpeech": "nf",
+        "definition": "bicycle",
+        "freqIndex": 3955
+    },
+    {
+        "spWord": "bien",
+        "partOfSpeech": "adv",
+        "definition": "well",
+        "freqIndex": 73
+    },
+    {
+        "spWord": "bien",
+        "partOfSpeech": "nm",
+        "definition": "goods, property, benefit",
+        "freqIndex": 667
+    },
+    {
+        "spWord": "bienestar",
+        "partOfSpeech": "nm",
+        "definition": "wellbeing, welfare",
+        "freqIndex": 2335
+    },
+    {
+        "spWord": "bigote",
+        "partOfSpeech": "nm",
+        "definition": "mustache",
+        "freqIndex": 4182
+    },
+    {
+        "spWord": "billete",
+        "partOfSpeech": "nm",
+        "definition": "ticket, bill, note",
+        "freqIndex": 3070
+    },
+    {
+        "spWord": "biografía",
+        "partOfSpeech": "nf",
+        "definition": "biography",
+        "freqIndex": 4200
+    },
+    {
+        "spWord": "biológico",
+        "partOfSpeech": "adj",
+        "definition": "biological",
+        "freqIndex": 3674
+    },
+    {
+        "spWord": "blanco",
+        "partOfSpeech": "adj",
+        "definition": "white",
+        "freqIndex": 250
+    },
+    {
+        "spWord": "blando",
+        "partOfSpeech": "adj",
+        "definition": "soft, limp, gentle",
+        "freqIndex": 2783
+    },
+    {
+        "spWord": "bloque",
+        "partOfSpeech": "nm",
+        "definition": "block",
+        "freqIndex": 2480
+    },
+    {
+        "spWord": "boca",
+        "partOfSpeech": "nf",
+        "definition": "mouth, entrance, opening",
+        "freqIndex": 635
+    },
+    {
+        "spWord": "boda",
+        "partOfSpeech": "nf",
+        "definition": "marriage, wedding",
+        "freqIndex": 2677
+    },
+    {
+        "spWord": "bodega",
+        "partOfSpeech": "nf",
+        "definition": "cellar, pantry, warehouse",
+        "freqIndex": 4643
+    },
+    {
+        "spWord": "bola",
+        "partOfSpeech": "nf",
+        "definition": "ball, sphere",
+        "freqIndex": 2639
+    },
+    {
+        "spWord": "bolsa",
+        "partOfSpeech": "nf",
+        "definition": "bag, purse, stock exchange",
+        "freqIndex": 1915
+    },
+    {
+        "spWord": "bolsillo",
+        "partOfSpeech": "nm",
+        "definition": "pocket",
+        "freqIndex": 2121
+    },
+    {
+        "spWord": "bomba",
+        "partOfSpeech": "nf",
+        "definition": "bomb, explosion, pump",
+        "freqIndex": 1562
+    },
+    {
+        "spWord": "bondad",
+        "partOfSpeech": "nf",
+        "definition": "goodness, kindness",
+        "freqIndex": 2814
+    },
+    {
+        "spWord": "bonito",
+        "partOfSpeech": "adj",
+        "definition": "pretty, nice",
+        "freqIndex": 1707
+    },
+    {
+        "spWord": "borde",
+        "partOfSpeech": "nm",
+        "definition": "edge",
+        "freqIndex": 1763
+    },
+    {
+        "spWord": "bordear",
+        "partOfSpeech": "v",
+        "definition": "to border",
+        "freqIndex": 4915
+    },
+    {
+        "spWord": "bordo",
+        "partOfSpeech": "nm",
+        "definition": "side",
+        "freqIndex": 4341
+    },
+    {
+        "spWord": "a bordo",
+        "partOfSpeech": "adj",
+        "definition": "on board",
+        "freqIndex": 4341
+    },
+    {
+        "spWord": "borrar",
+        "partOfSpeech": "v",
+        "definition": "to erase",
+        "freqIndex": 1890
+    },
+    {
+        "spWord": "bosque",
+        "partOfSpeech": "nm",
+        "definition": "forest",
+        "freqIndex": 1506
+    },
+    {
+        "spWord": "bota",
+        "partOfSpeech": "nf",
+        "definition": "boot, wineskin",
+        "freqIndex": 2735
+    },
+    {
+        "spWord": "bote",
+        "partOfSpeech": "nm",
+        "definition": "boat, container",
+        "freqIndex": 3840
+    },
+    {
+        "spWord": "botella",
+        "partOfSpeech": "nf",
+        "definition": "bottle, flask",
+        "freqIndex": 2161
+    },
+    {
+        "spWord": "botón",
+        "partOfSpeech": "nm",
+        "definition": "button",
+        "freqIndex": 2865
+    },
+    {
+        "spWord": "brasileño",
+        "partOfSpeech": "adj",
+        "definition": "Brazilian",
+        "freqIndex": 4391
+    },
+    {
+        "spWord": "bravo",
+        "partOfSpeech": "adj",
+        "definition": "fierce, angry",
+        "freqIndex": 2572
+    },
+    {
+        "spWord": "brazo",
+        "partOfSpeech": "nm",
+        "definition": "arm",
+        "freqIndex": 620
+    },
+    {
+        "spWord": "breve",
+        "partOfSpeech": "adj",
+        "definition": "brief, short",
+        "freqIndex": 1153
+    },
+    {
+        "spWord": "brevemente",
+        "partOfSpeech": "adv",
+        "definition": "briefly",
+        "freqIndex": 4587
+    },
+    {
+        "spWord": "brillante",
+        "partOfSpeech": "adj",
+        "definition": "brilliant, shiny, sparkling",
+        "freqIndex": 1342
+    },
+    {
+        "spWord": "brillar",
+        "partOfSpeech": "v",
+        "definition": "to shine, twinkle, be outstanding",
+        "freqIndex": 2558
+    },
+    {
+        "spWord": "brillo",
+        "partOfSpeech": "nm",
+        "definition": "shine, twinkling, sparkle",
+        "freqIndex": 3463
+    },
+    {
+        "spWord": "brindar",
+        "partOfSpeech": "v",
+        "definition": "to offer",
+        "freqIndex": 2170
+    },
+    {
+        "spWord": "británico",
+        "partOfSpeech": "adj",
+        "definition": "British",
+        "freqIndex": 3265
+    },
+    {
+        "spWord": "broma",
+        "partOfSpeech": "nf",
+        "definition": "joke",
+        "freqIndex": 2482
+    },
+    {
+        "spWord": "bronce",
+        "partOfSpeech": "nm",
+        "definition": "bronze",
+        "freqIndex": 3413
+    },
+    {
+        "spWord": "brotar",
+        "partOfSpeech": "v",
+        "definition": "to sprout",
+        "freqIndex": 2979
+    },
+    {
+        "spWord": "bruja",
+        "partOfSpeech": "nf",
+        "definition": "witch, hag",
+        "freqIndex": 4305
+    },
+    {
+        "spWord": "bruscamente",
+        "partOfSpeech": "adv",
+        "definition": "quickly, sharply",
+        "freqIndex": 4406
+    },
+    {
+        "spWord": "brusco",
+        "partOfSpeech": "adj",
+        "definition": "brusque, abrupt, sudden",
+        "freqIndex": 3332
+    },
+    {
+        "spWord": "brutal",
+        "partOfSpeech": "adj",
+        "definition": "brutal, savage",
+        "freqIndex": 3505
+    },
+    {
+        "spWord": "bruto",
+        "partOfSpeech": "adj",
+        "definition": "brutal, coarse, clumsy",
+        "freqIndex": 2642
+    },
+    {
+        "spWord": "bueno",
+        "partOfSpeech": "adj",
+        "definition": "good",
+        "freqIndex": 115
+    },
+    {
+        "spWord": "bueno",
+        "partOfSpeech": "adv",
+        "definition": "well…",
+        "freqIndex": 337
+    },
+    {
+        "spWord": "buey",
+        "partOfSpeech": "nm",
+        "definition": "ox",
+        "freqIndex": 4772
+    },
+    {
+        "spWord": "bulto",
+        "partOfSpeech": "nm",
+        "definition": "bulk, shape",
+        "freqIndex": 3925
+    },
+    {
+        "spWord": "buque",
+        "partOfSpeech": "nm",
+        "definition": "ship, vessel, hull",
+        "freqIndex": 3974
+    },
+    {
+        "spWord": "burla",
+        "partOfSpeech": "nf",
+        "definition": "mockery, joke, trick",
+        "freqIndex": 4169
+    },
+    {
+        "spWord": "burlar",
+        "partOfSpeech": "v",
+        "definition": "to mock",
+        "freqIndex": 3047
+    },
+    {
+        "spWord": "burro",
+        "partOfSpeech": "nm",
+        "definition": "donkey",
+        "freqIndex": 4610
+    },
+    {
+        "spWord": "busca",
+        "partOfSpeech": "nf",
+        "definition": "search, hunt",
+        "freqIndex": 1441
+    },
+    {
+        "spWord": "buscar",
+        "partOfSpeech": "v",
+        "definition": "to look for",
+        "freqIndex": 173
+    },
+    {
+        "spWord": "búsqueda",
+        "partOfSpeech": "nf",
+        "definition": "search",
+        "freqIndex": 1727
+    },
+    {
+        "spWord": "caballería",
+        "partOfSpeech": "nf",
+        "definition": "cavalry, knighthood",
+        "freqIndex": 4731
+    },
+    {
+        "spWord": "caballero",
+        "partOfSpeech": "nm",
+        "definition": "gentleman, knight",
+        "freqIndex": 1885
+    },
+    {
+        "spWord": "caballo",
+        "partOfSpeech": "nm",
+        "definition": "horse",
+        "freqIndex": 780
+    },
+    {
+        "spWord": "cabecera",
+        "partOfSpeech": "nf",
+        "definition": "head, header",
+        "freqIndex": 3723
+    },
+    {
+        "spWord": "cabello",
+        "partOfSpeech": "nm",
+        "definition": "hair",
+        "freqIndex": 2920
+    },
+    {
+        "spWord": "caber",
+        "partOfSpeech": "v",
+        "definition": "to fit (into)",
+        "freqIndex": 695
+    },
+    {
+        "spWord": "cabeza",
+        "partOfSpeech": "nf",
+        "definition": "head (part of body)",
+        "freqIndex": 298
+    },
+    {
+        "spWord": "cabina",
+        "partOfSpeech": "nf",
+        "definition": "cabin, cockpit",
+        "freqIndex": 4882
+    },
+    {
+        "spWord": "cable",
+        "partOfSpeech": "nm",
+        "definition": "cable, wiring",
+        "freqIndex": 2812
+    },
+    {
+        "spWord": "cabo",
+        "partOfSpeech": "nm",
+        "definition": "end, bit",
+        "freqIndex": 477
+    },
+    {
+        "spWord": "llevar a cabo",
+        "partOfSpeech": "v",
+        "definition": "to carry out",
+        "freqIndex": 477
+    },
+    {
+        "spWord": "cabra",
+        "partOfSpeech": "nf",
+        "definition": "goat",
+        "freqIndex": 4912
+    },
+    {
+        "spWord": "cada",
+        "partOfSpeech": "adj",
+        "definition": "each, every",
+        "freqIndex": 96
+    },
+    {
+        "spWord": "cadáver",
+        "partOfSpeech": "nm",
+        "definition": "corpse, body",
+        "freqIndex": 2165
+    },
+    {
+        "spWord": "cadena",
+        "partOfSpeech": "nf",
+        "definition": "chain",
+        "freqIndex": 1236
+    },
+    {
+        "spWord": "cadera",
+        "partOfSpeech": "nf",
+        "definition": "hip",
+        "freqIndex": 4279
+    },
+    {
+        "spWord": "caer",
+        "partOfSpeech": "v",
+        "definition": "to fall",
+        "freqIndex": 245
+    },
+    {
+        "spWord": "café",
+        "partOfSpeech": "nm",
+        "definition": "coffee, café",
+        "freqIndex": 1250
+    },
+    {
+        "spWord": "caída",
+        "partOfSpeech": "nf",
+        "definition": "fall, drop, falling",
+        "freqIndex": 1659
+    },
+    {
+        "spWord": "caído",
+        "partOfSpeech": "adj",
+        "definition": "fallen",
+        "freqIndex": 2168
+    },
+    {
+        "spWord": "caja",
+        "partOfSpeech": "nf",
+        "definition": "bank, box, safe",
+        "freqIndex": 1258
+    },
+    {
+        "spWord": "cajón",
+        "partOfSpeech": "nm",
+        "definition": "drawer",
+        "freqIndex": 2620
+    },
+    {
+        "spWord": "cal",
+        "partOfSpeech": "nf",
+        "definition": "lime, whitewash",
+        "freqIndex": 4977
+    },
+    {
+        "spWord": "calcular",
+        "partOfSpeech": "v",
+        "definition": "to calculate, figure out",
+        "freqIndex": 1155
+    },
+    {
+        "spWord": "cálculo",
+        "partOfSpeech": "nm",
+        "definition": "calculation, calculus",
+        "freqIndex": 1897
+    },
+    {
+        "spWord": "caldo",
+        "partOfSpeech": "nm",
+        "definition": "broth, soup",
+        "freqIndex": 4637
+    },
+    {
+        "spWord": "calendario",
+        "partOfSpeech": "nm",
+        "definition": "calendar",
+        "freqIndex": 3656
+    },
+    {
+        "spWord": "calentar",
+        "partOfSpeech": "v",
+        "definition": "to warm, heat",
+        "freqIndex": 2531
+    },
+    {
+        "spWord": "calidad",
+        "partOfSpeech": "nf",
+        "definition": "quality",
+        "freqIndex": 772
+    },
+    {
+        "spWord": "cálido",
+        "partOfSpeech": "adj",
+        "definition": "warm",
+        "freqIndex": 2704
+    },
+    {
+        "spWord": "caliente",
+        "partOfSpeech": "adj",
+        "definition": "hot, warm, spirited",
+        "freqIndex": 1793
+    },
+    {
+        "spWord": "calificación",
+        "partOfSpeech": "nf",
+        "definition": "evaluation, qualification",
+        "freqIndex": 4295
+    },
+    {
+        "spWord": "calificar",
+        "partOfSpeech": "v",
+        "definition": "to grade, rate, qualify",
+        "freqIndex": 2279
+    },
+    {
+        "spWord": "callado",
+        "partOfSpeech": "adj",
+        "definition": "quiet, reserved",
+        "freqIndex": 3095
+    },
+    {
+        "spWord": "callar",
+        "partOfSpeech": "v",
+        "definition": "to be/make quiet",
+        "freqIndex": 2245
+    },
+    {
+        "spWord": "calle",
+        "partOfSpeech": "nf",
+        "definition": "street",
+        "freqIndex": 248
+    },
+    {
+        "spWord": "callejero",
+        "partOfSpeech": "adj",
+        "definition": "of the street",
+        "freqIndex": 4889
+    },
+    {
+        "spWord": "calma",
+        "partOfSpeech": "nf",
+        "definition": "calm, lull",
+        "freqIndex": 2202
+    },
+    {
+        "spWord": "calmar",
+        "partOfSpeech": "v",
+        "definition": "to calm, soothe, relieve",
+        "freqIndex": 3331
+    },
+    {
+        "spWord": "calor",
+        "partOfSpeech": "nm",
+        "definition": "heat, warmth",
+        "freqIndex": 989
+    },
+    {
+        "spWord": "calzar",
+        "partOfSpeech": "v",
+        "definition": "to wear (shoes)",
+        "freqIndex": 4414
+    },
+    {
+        "spWord": "cama",
+        "partOfSpeech": "nf",
+        "definition": "bed (furniture)",
+        "freqIndex": 1185
+    },
+    {
+        "spWord": "cámara",
+        "partOfSpeech": "nf",
+        "definition": "camera, chamber",
+        "freqIndex": 1172
+    },
+    {
+        "spWord": "cambiar",
+        "partOfSpeech": "v",
+        "definition": "to change",
+        "freqIndex": 246
+    },
+    {
+        "spWord": "cambio",
+        "partOfSpeech": "nm",
+        "definition": "change",
+        "freqIndex": 186
+    },
+    {
+        "spWord": "caminar",
+        "partOfSpeech": "v",
+        "definition": "to walk",
+        "freqIndex": 919
+    },
+    {
+        "spWord": "camino",
+        "partOfSpeech": "nm",
+        "definition": "road, route, path",
+        "freqIndex": 319
+    },
+    {
+        "spWord": "camión",
+        "partOfSpeech": "nm",
+        "definition": "truck, van, tanker",
+        "freqIndex": 2503
+    },
+    {
+        "spWord": "camisa",
+        "partOfSpeech": "nf",
+        "definition": "shirt",
+        "freqIndex": 2443
+    },
+    {
+        "spWord": "camiseta",
+        "partOfSpeech": "nf",
+        "definition": "T-shirt",
+        "freqIndex": 4427
+    },
+    {
+        "spWord": "campamento",
+        "partOfSpeech": "nm",
+        "definition": "camp, camping",
+        "freqIndex": 3910
+    },
+    {
+        "spWord": "campana",
+        "partOfSpeech": "nf",
+        "definition": "bell",
+        "freqIndex": 3000
+    },
+    {
+        "spWord": "campaña",
+        "partOfSpeech": "nf",
+        "definition": "campaign",
+        "freqIndex": 1362
+    },
+    {
+        "spWord": "campeón",
+        "partOfSpeech": "nm",
+        "definition": "champion",
+        "freqIndex": 4840
+    },
+    {
+        "spWord": "campesino",
+        "partOfSpeech": "adj",
+        "definition": "rural",
+        "freqIndex": 1815
+    },
+    {
+        "spWord": "campo",
+        "partOfSpeech": "nm",
+        "definition": "field, country",
+        "freqIndex": 295
+    },
+    {
+        "spWord": "caña",
+        "partOfSpeech": "nf",
+        "definition": "cane, reed",
+        "freqIndex": 3173
+    },
+    {
+        "spWord": "canal",
+        "partOfSpeech": "nm",
+        "definition": "channel, canal",
+        "freqIndex": 1804
+    },
+    {
+        "spWord": "cáncer",
+        "partOfSpeech": "nm",
+        "definition": "cancer",
+        "freqIndex": 3242
+    },
+    {
+        "spWord": "cancha",
+        "partOfSpeech": "nf",
+        "definition": "playing field, court",
+        "freqIndex": 4485
+    },
+    {
+        "spWord": "canción",
+        "partOfSpeech": "nf",
+        "definition": "song",
+        "freqIndex": 1459
+    },
+    {
+        "spWord": "candidato",
+        "partOfSpeech": "nm",
+        "definition": "candidate",
+        "freqIndex": 2149
+    },
+    {
+        "spWord": "cañón",
+        "partOfSpeech": "nm",
+        "definition": "canyon, cannon",
+        "freqIndex": 3229
+    },
+    {
+        "spWord": "cansado",
+        "partOfSpeech": "adj",
+        "definition": "tired, tiresome",
+        "freqIndex": 2147
+    },
+    {
+        "spWord": "cansancio",
+        "partOfSpeech": "nm",
+        "definition": "tiredness, weariness",
+        "freqIndex": 2544
+    },
+    {
+        "spWord": "cansar",
+        "partOfSpeech": "v",
+        "definition": "to tire, annoy",
+        "freqIndex": 2552
+    },
+    {
+        "spWord": "cantante",
+        "partOfSpeech": "nc",
+        "definition": "singer",
+        "freqIndex": 3147
+    },
+    {
+        "spWord": "cantar",
+        "partOfSpeech": "v",
+        "definition": "to sing",
+        "freqIndex": 1124
+    },
+    {
+        "spWord": "cantidad",
+        "partOfSpeech": "nf",
+        "definition": "quantity, amount",
+        "freqIndex": 404
+    },
+    {
+        "spWord": "canto",
+        "partOfSpeech": "nm",
+        "definition": "singing, chant",
+        "freqIndex": 1778
+    },
+    {
+        "spWord": "caos",
+        "partOfSpeech": "nm",
+        "definition": "chaos",
+        "freqIndex": 2419
+    },
+    {
+        "spWord": "capa",
+        "partOfSpeech": "nf",
+        "definition": "layer, coat",
+        "freqIndex": 1496
+    },
+    {
+        "spWord": "capacidad",
+        "partOfSpeech": "nf",
+        "definition": "capacity",
+        "freqIndex": 675
+    },
+    {
+        "spWord": "capaz",
+        "partOfSpeech": "adj",
+        "definition": "capable, able",
+        "freqIndex": 411
+    },
+    {
+        "spWord": "capilla",
+        "partOfSpeech": "nf",
+        "definition": "chapel",
+        "freqIndex": 3788
+    },
+    {
+        "spWord": "capital",
+        "partOfSpeech": "nf",
+        "definition": "capital, city",
+        "freqIndex": 651
+    },
+    {
+        "spWord": "capital",
+        "partOfSpeech": "nm",
+        "definition": "money",
+        "freqIndex": 651
+    },
+    {
+        "spWord": "capitán",
+        "partOfSpeech": "nm",
+        "definition": "captain, chief",
+        "freqIndex": 2370
+    },
+    {
+        "spWord": "capítulo",
+        "partOfSpeech": "nm",
+        "definition": "chapter",
+        "freqIndex": 1450
+    },
+    {
+        "spWord": "capricho",
+        "partOfSpeech": "nm",
+        "definition": "caprice, whim",
+        "freqIndex": 2882
+    },
+    {
+        "spWord": "caprichoso",
+        "partOfSpeech": "adj",
+        "definition": "capricious, whimsical",
+        "freqIndex": 4635
+    },
+    {
+        "spWord": "captar",
+        "partOfSpeech": "v",
+        "definition": "to capture, attract",
+        "freqIndex": 1996
+    },
+    {
+        "spWord": "capturar",
+        "partOfSpeech": "v",
+        "definition": "to capture",
+        "freqIndex": 4325
+    },
+    {
+        "spWord": "cara",
+        "partOfSpeech": "nf",
+        "definition": "face, expression",
+        "freqIndex": 356
+    },
+    {
+        "spWord": "carácter",
+        "partOfSpeech": "nm",
+        "definition": "personality, nature",
+        "freqIndex": 530
+    },
+    {
+        "spWord": "característica",
+        "partOfSpeech": "nf",
+        "definition": "characteristic, aspect",
+        "freqIndex": 1266
+    },
+    {
+        "spWord": "característico",
+        "partOfSpeech": "adj",
+        "definition": "characteristic",
+        "freqIndex": 2090
+    },
+    {
+        "spWord": "caracterizar",
+        "partOfSpeech": "v",
+        "definition": "to characterize, portray",
+        "freqIndex": 2476
+    },
+    {
+        "spWord": "caramelo",
+        "partOfSpeech": "nm",
+        "definition": "piece of candy, caramel",
+        "freqIndex": 4762
+    },
+    {
+        "spWord": "carbón",
+        "partOfSpeech": "nm",
+        "definition": "coal, charcoal",
+        "freqIndex": 3909
+    },
+    {
+        "spWord": "carcajada",
+        "partOfSpeech": "nf",
+        "definition": "hearty laughter, guffaw",
+        "freqIndex": 4484
+    },
+    {
+        "spWord": "cárcel",
+        "partOfSpeech": "nf",
+        "definition": "jail, prison",
+        "freqIndex": 1991
+    },
+    {
+        "spWord": "carecer",
+        "partOfSpeech": "v",
+        "definition": "to be without",
+        "freqIndex": 1633
+    },
+    {
+        "spWord": "carencia",
+        "partOfSpeech": "nf",
+        "definition": "lack, shortage",
+        "freqIndex": 3199
+    },
+    {
+        "spWord": "carente",
+        "partOfSpeech": "adj",
+        "definition": "lacking, devoid",
+        "freqIndex": 4907
+    },
+    {
+        "spWord": "carga",
+        "partOfSpeech": "nf",
+        "definition": "load, charge, cargo",
+        "freqIndex": 1031
+    },
+    {
+        "spWord": "cargar",
+        "partOfSpeech": "v",
+        "definition": "to load (up), carry",
+        "freqIndex": 748
+    },
+    {
+        "spWord": "cargo",
+        "partOfSpeech": "nm",
+        "definition": "position, charge, fee",
+        "freqIndex": 791
+    },
+    {
+        "spWord": "caridad",
+        "partOfSpeech": "nf",
+        "definition": "charity",
+        "freqIndex": 3984
+    },
+    {
+        "spWord": "cariño",
+        "partOfSpeech": "nm",
+        "definition": "love, affection",
+        "freqIndex": 2246
+    },
+    {
+        "spWord": "cariñoso",
+        "partOfSpeech": "adj",
+        "definition": "affectionate",
+        "freqIndex": 4033
+    },
+    {
+        "spWord": "carne",
+        "partOfSpeech": "nf",
+        "definition": "meat, flesh",
+        "freqIndex": 787
+    },
+    {
+        "spWord": "caro",
+        "partOfSpeech": "adj",
+        "definition": "expensive, difficult, dear",
+        "freqIndex": 1876
+    },
+    {
+        "spWord": "carrera",
+        "partOfSpeech": "nf",
+        "definition": "career, course, race",
+        "freqIndex": 485
+    },
+    {
+        "spWord": "carretera",
+        "partOfSpeech": "nf",
+        "definition": "highway, road",
+        "freqIndex": 1818
+    },
+    {
+        "spWord": "carro",
+        "partOfSpeech": "nm",
+        "definition": "car, cart",
+        "freqIndex": 1871
+    },
+    {
+        "spWord": "carta",
+        "partOfSpeech": "nf",
+        "definition": "letter, (playing) card",
+        "freqIndex": 586
+    },
+    {
+        "spWord": "cartel",
+        "partOfSpeech": "nm",
+        "definition": "poster",
+        "freqIndex": 3169
+    },
+    {
+        "spWord": "cartera",
+        "partOfSpeech": "nf",
+        "definition": "wallet, satchel",
+        "freqIndex": 2834
+    },
+    {
+        "spWord": "cartón",
+        "partOfSpeech": "nm",
+        "definition": "cardboard, carton, sketch",
+        "freqIndex": 3393
+    },
+    {
+        "spWord": "casa",
+        "partOfSpeech": "nf",
+        "definition": "house",
+        "freqIndex": 116
+    },
+    {
+        "spWord": "casado",
+        "partOfSpeech": "adj",
+        "definition": "married",
+        "freqIndex": 1830
+    },
+    {
+        "spWord": "casar",
+        "partOfSpeech": "v",
+        "definition": "to marry",
+        "freqIndex": 1105
+    },
+    {
+        "spWord": "casco",
+        "partOfSpeech": "nm",
+        "definition": "helmet",
+        "freqIndex": 3033
+    },
+    {
+        "spWord": "casero",
+        "partOfSpeech": "adj",
+        "definition": "homemade",
+        "freqIndex": 3370
+    },
+    {
+        "spWord": "casi",
+        "partOfSpeech": "adv",
+        "definition": "almost, nearly",
+        "freqIndex": 146
+    },
+    {
+        "spWord": "casita",
+        "partOfSpeech": "nf",
+        "definition": "cottage",
+        "freqIndex": 3849
+    },
+    {
+        "spWord": "caso",
+        "partOfSpeech": "nm",
+        "definition": "case, occasion",
+        "freqIndex": 130
+    },
+    {
+        "spWord": "castellano",
+        "partOfSpeech": "adj",
+        "definition": "Castilian, Spanish",
+        "freqIndex": 1660
+    },
+    {
+        "spWord": "castigar",
+        "partOfSpeech": "v",
+        "definition": "to punish",
+        "freqIndex": 2274
+    },
+    {
+        "spWord": "castigo",
+        "partOfSpeech": "nm",
+        "definition": "punishment, penalty",
+        "freqIndex": 1867
+    },
+    {
+        "spWord": "castillo",
+        "partOfSpeech": "nm",
+        "definition": "castle",
+        "freqIndex": 3343
+    },
+    {
+        "spWord": "casualidad",
+        "partOfSpeech": "nf",
+        "definition": "chance, coincidence",
+        "freqIndex": 2190
+    },
+    {
+        "spWord": "catalán",
+        "partOfSpeech": "adj",
+        "definition": "Catalan",
+        "freqIndex": 4097
+    },
+    {
+        "spWord": "catálogo",
+        "partOfSpeech": "nm",
+        "definition": "catalog",
+        "freqIndex": 4287
+    },
+    {
+        "spWord": "catástrofe",
+        "partOfSpeech": "nf",
+        "definition": "catastrophe",
+        "freqIndex": 3099
+    },
+    {
+        "spWord": "cátedra",
+        "partOfSpeech": "nf",
+        "definition": "academic chair",
+        "freqIndex": 4070
+    },
+    {
+        "spWord": "catedral",
+        "partOfSpeech": "nf",
+        "definition": "cathedral",
+        "freqIndex": 4041
+    },
+    {
+        "spWord": "categoría",
+        "partOfSpeech": "nf",
+        "definition": "category",
+        "freqIndex": 1280
+    },
+    {
+        "spWord": "católico",
+        "partOfSpeech": "adj",
+        "definition": "Catholic",
+        "freqIndex": 2137
+    },
+    {
+        "spWord": "catorce",
+        "partOfSpeech": "num",
+        "definition": "fourteen",
+        "freqIndex": 2278
+    },
+    {
+        "spWord": "cauce",
+        "partOfSpeech": "nm",
+        "definition": "(river) bed, ditch",
+        "freqIndex": 3075
+    },
+    {
+        "spWord": "caudal",
+        "partOfSpeech": "nm",
+        "definition": "volume, abundance",
+        "freqIndex": 4296
+    },
+    {
+        "spWord": "causa",
+        "partOfSpeech": "nf",
+        "definition": "cause",
+        "freqIndex": 546
+    },
+    {
+        "spWord": "causar",
+        "partOfSpeech": "v",
+        "definition": "to cause, bring about",
+        "freqIndex": 1007
+    },
+    {
+        "spWord": "cautela",
+        "partOfSpeech": "nf",
+        "definition": "caution",
+        "freqIndex": 4621
+    },
+    {
+        "spWord": "caza",
+        "partOfSpeech": "nf",
+        "definition": "hunting (game)",
+        "freqIndex": 2451
+    },
+    {
+        "spWord": "cazador",
+        "partOfSpeech": "nm/f",
+        "definition": "hunter",
+        "freqIndex": 3376
+    },
+    {
+        "spWord": "cazar",
+        "partOfSpeech": "v",
+        "definition": "to hunt",
+        "freqIndex": 3066
+    },
+    {
+        "spWord": "ceder",
+        "partOfSpeech": "v",
+        "definition": "to give way, yield",
+        "freqIndex": 1289
+    },
+    {
+        "spWord": "ceja",
+        "partOfSpeech": "nf",
+        "definition": "eyebrow, brow",
+        "freqIndex": 4227
+    },
+    {
+        "spWord": "celebración",
+        "partOfSpeech": "nf",
+        "definition": "celebration",
+        "freqIndex": 3409
+    },
+    {
+        "spWord": "celebrar",
+        "partOfSpeech": "v",
+        "definition": "to celebrate",
+        "freqIndex": 1059
+    },
+    {
+        "spWord": "célebre",
+        "partOfSpeech": "adj",
+        "definition": "famous, renowned",
+        "freqIndex": 3127
+    },
+    {
+        "spWord": "celeste",
+        "partOfSpeech": "adj",
+        "definition": "heavenly, sky-blue",
+        "freqIndex": 4026
+    },
+    {
+        "spWord": "celo",
+        "partOfSpeech": "nm",
+        "definition": "jealousy, zeal",
+        "freqIndex": 2924
+    },
+    {
+        "spWord": "celoso",
+        "partOfSpeech": "adj",
+        "definition": "jealous",
+        "freqIndex": 4211
+    },
+    {
+        "spWord": "célula",
+        "partOfSpeech": "nf",
+        "definition": "cell (biology)",
+        "freqIndex": 3052
+    },
+    {
+        "spWord": "cementerio",
+        "partOfSpeech": "nm",
+        "definition": "cemetery, graveyard",
+        "freqIndex": 2700
+    },
+    {
+        "spWord": "cemento",
+        "partOfSpeech": "nm",
+        "definition": "cement, concrete",
+        "freqIndex": 3098
+    },
+    {
+        "spWord": "cena",
+        "partOfSpeech": "nf",
+        "definition": "dinner",
+        "freqIndex": 2971
+    },
+    {
+        "spWord": "cenar",
+        "partOfSpeech": "v",
+        "definition": "to dine",
+        "freqIndex": 3261
+    },
+    {
+        "spWord": "ceñir",
+        "partOfSpeech": "v",
+        "definition": "to adhere to, fit tightly",
+        "freqIndex": 4299
+    },
+    {
+        "spWord": "ceniza",
+        "partOfSpeech": "nf",
+        "definition": "ash",
+        "freqIndex": 3546
+    },
+    {
+        "spWord": "censura",
+        "partOfSpeech": "nf",
+        "definition": "censorship, criticism",
+        "freqIndex": 3990
+    },
+    {
+        "spWord": "centavo",
+        "partOfSpeech": "nm",
+        "definition": "cent",
+        "freqIndex": 4892
+    },
+    {
+        "spWord": "centenar",
+        "partOfSpeech": "nm",
+        "definition": "hundred",
+        "freqIndex": 3480
+    },
+    {
+        "spWord": "centímetro",
+        "partOfSpeech": "nm",
+        "definition": "centimeter",
+        "freqIndex": 2329
+    },
+    {
+        "spWord": "central",
+        "partOfSpeech": "adj",
+        "definition": "central",
+        "freqIndex": 1062
+    },
+    {
+        "spWord": "central",
+        "partOfSpeech": "nf",
+        "definition": "headquarters",
+        "freqIndex": 3844
+    },
+    {
+        "spWord": "centrar",
+        "partOfSpeech": "v",
+        "definition": "to center, focus, base (on)",
+        "freqIndex": 2810
+    },
+    {
+        "spWord": "centro",
+        "partOfSpeech": "nm",
+        "definition": "center, middle, downtown",
+        "freqIndex": 339
+    },
+    {
+        "spWord": "cera",
+        "partOfSpeech": "nf",
+        "definition": "wax",
+        "freqIndex": 4593
+    },
+    {
+        "spWord": "cerca",
+        "partOfSpeech": "adv",
+        "definition": "close, near",
+        "freqIndex": 391
+    },
+    {
+        "spWord": "cercanía",
+        "partOfSpeech": "nf",
+        "definition": "nearness, proximity",
+        "freqIndex": 2943
+    },
+    {
+        "spWord": "cercano",
+        "partOfSpeech": "adj",
+        "definition": "near",
+        "freqIndex": 942
+    },
+    {
+        "spWord": "cerco",
+        "partOfSpeech": "nm",
+        "definition": "fence, circle, ring",
+        "freqIndex": 4996
+    },
+    {
+        "spWord": "cerdo",
+        "partOfSpeech": "nm",
+        "definition": "pig, sow, slob",
+        "freqIndex": 3200
+    },
+    {
+        "spWord": "cerebral",
+        "partOfSpeech": "adj",
+        "definition": "cerebral",
+        "freqIndex": 4860
+    },
+    {
+        "spWord": "cerebro",
+        "partOfSpeech": "nm",
+        "definition": "brain",
+        "freqIndex": 1734
+    },
+    {
+        "spWord": "ceremonia",
+        "partOfSpeech": "nf",
+        "definition": "ceremony",
+        "freqIndex": 2111
+    },
+    {
+        "spWord": "cero",
+        "partOfSpeech": "num",
+        "definition": "zero, naught, nil",
+        "freqIndex": 2284
+    },
+    {
+        "spWord": "cerrado",
+        "partOfSpeech": "adj",
+        "definition": "closed",
+        "freqIndex": 680
+    },
+    {
+        "spWord": "cerrar",
+        "partOfSpeech": "v",
+        "definition": "to close",
+        "freqIndex": 454
+    },
+    {
+        "spWord": "cerro",
+        "partOfSpeech": "nm",
+        "definition": "hill",
+        "freqIndex": 3187
+    },
+    {
+        "spWord": "certeza",
+        "partOfSpeech": "nf",
+        "definition": "certainty",
+        "freqIndex": 2663
+    },
+    {
+        "spWord": "cerveza",
+        "partOfSpeech": "nf",
+        "definition": "beer, ale",
+        "freqIndex": 3134
+    },
+    {
+        "spWord": "cesar",
+        "partOfSpeech": "v",
+        "definition": "to cease, stop",
+        "freqIndex": 2227
+    },
+    {
+        "spWord": "chaqueta",
+        "partOfSpeech": "nf",
+        "definition": "jacket",
+        "freqIndex": 4372
+    },
+    {
+        "spWord": "charla",
+        "partOfSpeech": "nf",
+        "definition": "talk, chat",
+        "freqIndex": 2830
+    },
+    {
+        "spWord": "charlar",
+        "partOfSpeech": "v",
+        "definition": "to chat, talk",
+        "freqIndex": 3671
+    },
+    {
+        "spWord": "chica",
+        "partOfSpeech": "nf",
+        "definition": "girl, female",
+        "freqIndex": 1907
+    },
+    {
+        "spWord": "chico",
+        "partOfSpeech": "nm",
+        "definition": "boy",
+        "freqIndex": 1079
+    },
+    {
+        "spWord": "chileno",
+        "partOfSpeech": "adj",
+        "definition": "Chilean",
+        "freqIndex": 3164
+    },
+    {
+        "spWord": "chimenea",
+        "partOfSpeech": "nf",
+        "definition": "chimney, fireplace",
+        "freqIndex": 4415
+    },
+    {
+        "spWord": "chino",
+        "partOfSpeech": "adj",
+        "definition": "Chinese",
+        "freqIndex": 1444
+    },
+    {
+        "spWord": "chiquillo",
+        "partOfSpeech": "nm",
+        "definition": "kid, youngster",
+        "freqIndex": 4704
+    },
+    {
+        "spWord": "chispa",
+        "partOfSpeech": "nf",
+        "definition": "spark",
+        "freqIndex": 3980
+    },
+    {
+        "spWord": "chiste",
+        "partOfSpeech": "nm",
+        "definition": "joke, funny story",
+        "freqIndex": 2674
+    },
+    {
+        "spWord": "chocar",
+        "partOfSpeech": "v",
+        "definition": "to crash into, collide with",
+        "freqIndex": 1883
+    },
+    {
+        "spWord": "chocolate",
+        "partOfSpeech": "nm",
+        "definition": "chocolate",
+        "freqIndex": 3776
+    },
+    {
+        "spWord": "choque",
+        "partOfSpeech": "nm",
+        "definition": "crash, collision",
+        "freqIndex": 2930
+    },
+    {
+        "spWord": "chorro",
+        "partOfSpeech": "nm",
+        "definition": "stream, jet, spurt",
+        "freqIndex": 4361
+    },
+    {
+        "spWord": "chupar",
+        "partOfSpeech": "v",
+        "definition": "to suck",
+        "freqIndex": 4475
+    },
+    {
+        "spWord": "ciclo",
+        "partOfSpeech": "nm",
+        "definition": "cycle",
+        "freqIndex": 2225
+    },
+    {
+        "spWord": "ciego",
+        "partOfSpeech": "adj",
+        "definition": "blind",
+        "freqIndex": 1481
+    },
+    {
+        "spWord": "cielo",
+        "partOfSpeech": "nm",
+        "definition": "sky, heaven, ceiling",
+        "freqIndex": 932
+    },
+    {
+        "spWord": "ciencia",
+        "partOfSpeech": "nf",
+        "definition": "science, knowledge",
+        "freqIndex": 775
+    },
+    {
+        "spWord": "científico",
+        "partOfSpeech": "adj",
+        "definition": "scientific",
+        "freqIndex": 1634
+    },
+    {
+        "spWord": "científico",
+        "partOfSpeech": "nm/f",
+        "definition": "scientist",
+        "freqIndex": 2745
+    },
+    {
+        "spWord": "ciento",
+        "partOfSpeech": "num",
+        "definition": "hundred",
+        "freqIndex": 300
+    },
+    {
+        "spWord": "cierre",
+        "partOfSpeech": "nm",
+        "definition": "zipper, closing",
+        "freqIndex": 2481
+    },
+    {
+        "spWord": "ciertamente",
+        "partOfSpeech": "adv",
+        "definition": "certainly, indeed",
+        "freqIndex": 2785
+    },
+    {
+        "spWord": "cierto",
+        "partOfSpeech": "adj",
+        "definition": "certain, sure, true",
+        "freqIndex": 123
+    },
+    {
+        "spWord": "cifra",
+        "partOfSpeech": "nf",
+        "definition": "figure, number, amount",
+        "freqIndex": 1540
+    },
+    {
+        "spWord": "cigarrillo",
+        "partOfSpeech": "nm",
+        "definition": "cigarette",
+        "freqIndex": 2858
+    },
+    {
+        "spWord": "cima",
+        "partOfSpeech": "nf",
+        "definition": "summit, peak, top",
+        "freqIndex": 4291
+    },
+    {
+        "spWord": "cinco",
+        "partOfSpeech": "num",
+        "definition": "five",
+        "freqIndex": 231
+    },
+    {
+        "spWord": "cincuenta",
+        "partOfSpeech": "num",
+        "definition": "fifty",
+        "freqIndex": 782
+    },
+    {
+        "spWord": "cine",
+        "partOfSpeech": "nm",
+        "definition": "cinema, US movie theater",
+        "freqIndex": 1159
+    },
+    {
+        "spWord": "cinta",
+        "partOfSpeech": "nf",
+        "definition": "tape, ribbon, film, strip",
+        "freqIndex": 1916
+    },
+    {
+        "spWord": "cintura",
+        "partOfSpeech": "nf",
+        "definition": "waist",
+        "freqIndex": 3323
+    },
+    {
+        "spWord": "cinturón",
+        "partOfSpeech": "nm",
+        "definition": "belt",
+        "freqIndex": 3922
+    },
+    {
+        "spWord": "circo",
+        "partOfSpeech": "nm",
+        "definition": "circus",
+        "freqIndex": 3666
+    },
+    {
+        "spWord": "circuito",
+        "partOfSpeech": "nm",
+        "definition": "circuit, circumference, track",
+        "freqIndex": 3554
+    },
+    {
+        "spWord": "circulación",
+        "partOfSpeech": "nf",
+        "definition": "circulation, traffic",
+        "freqIndex": 2837
+    },
+    {
+        "spWord": "circular",
+        "partOfSpeech": "v",
+        "definition": "to circulate, go around, flow",
+        "freqIndex": 1822
+    },
+    {
+        "spWord": "circular",
+        "partOfSpeech": "adj",
+        "definition": "circular",
+        "freqIndex": 4219
+    },
+    {
+        "spWord": "círculo",
+        "partOfSpeech": "nm",
+        "definition": "circle, club",
+        "freqIndex": 1222
+    },
+    {
+        "spWord": "circunstancia",
+        "partOfSpeech": "nf",
+        "definition": "circumstance",
+        "freqIndex": 704
+    },
+    {
+        "spWord": "cirujano",
+        "partOfSpeech": "nm/f",
+        "definition": "surgeon",
+        "freqIndex": 4698
+    },
+    {
+        "spWord": "cita",
+        "partOfSpeech": "nf",
+        "definition": "appointment, date, quotation",
+        "freqIndex": 2045
+    },
+    {
+        "spWord": "citar",
+        "partOfSpeech": "v",
+        "definition": "to cite, quote",
+        "freqIndex": 1077
+    },
+    {
+        "spWord": "ciudad",
+        "partOfSpeech": "nf",
+        "definition": "city",
+        "freqIndex": 197
+    },
+    {
+        "spWord": "ciudadano",
+        "partOfSpeech": "nm",
+        "definition": "citizen",
+        "freqIndex": 1787
+    },
+    {
+        "spWord": "ciudadano",
+        "partOfSpeech": "adj",
+        "definition": "community, citizen",
+        "freqIndex": 2883
+    },
+    {
+        "spWord": "civil",
+        "partOfSpeech": "adj",
+        "definition": "civil",
+        "freqIndex": 774
+    },
+    {
+        "spWord": "civil",
+        "partOfSpeech": "nc",
+        "definition": "civilian",
+        "freqIndex": 3436
+    },
+    {
+        "spWord": "civilización",
+        "partOfSpeech": "nf",
+        "definition": "civilization",
+        "freqIndex": 2057
+    },
+    {
+        "spWord": "civilizado",
+        "partOfSpeech": "adj",
+        "definition": "civilized",
+        "freqIndex": 4000
+    },
+    {
+        "spWord": "clandestino",
+        "partOfSpeech": "adj",
+        "definition": "undercover, clandestine",
+        "freqIndex": 4269
+    },
+    {
+        "spWord": "claramente",
+        "partOfSpeech": "adv",
+        "definition": "clearly",
+        "freqIndex": 1477
+    },
+    {
+        "spWord": "claridad",
+        "partOfSpeech": "nf",
+        "definition": "clearness, clarity",
+        "freqIndex": 1630
+    },
+    {
+        "spWord": "claro",
+        "partOfSpeech": "adj",
+        "definition": "clear",
+        "freqIndex": 259
+    },
+    {
+        "spWord": "claro",
+        "partOfSpeech": "adv",
+        "definition": "of course, clearly",
+        "freqIndex": 482
+    },
+    {
+        "spWord": "clase",
+        "partOfSpeech": "nf",
+        "definition": "kind, class, order",
+        "freqIndex": 288
+    },
+    {
+        "spWord": "clásico",
+        "partOfSpeech": "adj",
+        "definition": "classic",
+        "freqIndex": 1329
+    },
+    {
+        "spWord": "clasificación",
+        "partOfSpeech": "nf",
+        "definition": "classification",
+        "freqIndex": 4233
+    },
+    {
+        "spWord": "clasificar",
+        "partOfSpeech": "v",
+        "definition": "to classify, sort, file",
+        "freqIndex": 3642
+    },
+    {
+        "spWord": "clavar",
+        "partOfSpeech": "v",
+        "definition": "to nail",
+        "freqIndex": 3146
+    },
+    {
+        "spWord": "clave",
+        "partOfSpeech": "nf",
+        "definition": "key",
+        "freqIndex": 1903
+    },
+    {
+        "spWord": "clave",
+        "partOfSpeech": "adj",
+        "definition": "key",
+        "freqIndex": 3445
+    },
+    {
+        "spWord": "clavo",
+        "partOfSpeech": "nm",
+        "definition": "nail, tack, peg",
+        "freqIndex": 4363
+    },
+    {
+        "spWord": "cliente",
+        "partOfSpeech": "nc",
+        "definition": "client, customer",
+        "freqIndex": 1550
+    },
+    {
+        "spWord": "clientela",
+        "partOfSpeech": "nf",
+        "definition": "customers, clients",
+        "freqIndex": 4823
+    },
+    {
+        "spWord": "clima",
+        "partOfSpeech": "nm",
+        "definition": "climate",
+        "freqIndex": 1576
+    },
+    {
+        "spWord": "clínica",
+        "partOfSpeech": "nf",
+        "definition": "clinic",
+        "freqIndex": 3967
+    },
+    {
+        "spWord": "clínico",
+        "partOfSpeech": "adj",
+        "definition": "clinical",
+        "freqIndex": 4887
+    },
+    {
+        "spWord": "club",
+        "partOfSpeech": "nm",
+        "definition": "club, society",
+        "freqIndex": 2429
+    },
+    {
+        "spWord": "cobrar",
+        "partOfSpeech": "v",
+        "definition": "to charge (money)",
+        "freqIndex": 1013
+    },
+    {
+        "spWord": "cobre",
+        "partOfSpeech": "nm",
+        "definition": "copper",
+        "freqIndex": 3503
+    },
+    {
+        "spWord": "coche",
+        "partOfSpeech": "nm",
+        "definition": "car, carriage",
+        "freqIndex": 1131
+    },
+    {
+        "spWord": "cocina",
+        "partOfSpeech": "nf",
+        "definition": "kitchen",
+        "freqIndex": 1673
+    },
+    {
+        "spWord": "cocinar",
+        "partOfSpeech": "v",
+        "definition": "to cook",
+        "freqIndex": 3372
+    },
+    {
+        "spWord": "cocinero",
+        "partOfSpeech": "nm/f",
+        "definition": "cook",
+        "freqIndex": 4023
+    },
+    {
+        "spWord": "coco",
+        "partOfSpeech": "nm",
+        "definition": "coconut",
+        "freqIndex": 4929
+    },
+    {
+        "spWord": "código",
+        "partOfSpeech": "nm",
+        "definition": "code",
+        "freqIndex": 2078
+    },
+    {
+        "spWord": "codo",
+        "partOfSpeech": "nm",
+        "definition": "elbow",
+        "freqIndex": 4412
+    },
+    {
+        "spWord": "coger",
+        "partOfSpeech": "v",
+        "definition": "to hold, take, catch",
+        "freqIndex": 1896
+    },
+    {
+        "spWord": "coherente",
+        "partOfSpeech": "adj",
+        "definition": "coherent, connected",
+        "freqIndex": 4166
+    },
+    {
+        "spWord": "cohete",
+        "partOfSpeech": "nm",
+        "definition": "rocket",
+        "freqIndex": 4937
+    },
+    {
+        "spWord": "coincidencia",
+        "partOfSpeech": "nf",
+        "definition": "coincidence",
+        "freqIndex": 2713
+    },
+    {
+        "spWord": "coincidir",
+        "partOfSpeech": "v",
+        "definition": "to coincide, agree",
+        "freqIndex": 920
+    },
+    {
+        "spWord": "cola",
+        "partOfSpeech": "nf",
+        "definition": "line, queue, tail",
+        "freqIndex": 1589
+    },
+    {
+        "spWord": "colaboración",
+        "partOfSpeech": "nf",
+        "definition": "collaboration",
+        "freqIndex": 2387
+    },
+    {
+        "spWord": "colaborador",
+        "partOfSpeech": "nm",
+        "definition": "collaborator",
+        "freqIndex": 2881
+    },
+    {
+        "spWord": "colaborar",
+        "partOfSpeech": "v",
+        "definition": "to collaborate, work together",
+        "freqIndex": 1943
+    },
+    {
+        "spWord": "colar",
+        "partOfSpeech": "v",
+        "definition": "to slip in [se]",
+        "freqIndex": 4237
+    },
+    {
+        "spWord": "colchón",
+        "partOfSpeech": "nm",
+        "definition": "mattress",
+        "freqIndex": 4449
+    },
+    {
+        "spWord": "colección",
+        "partOfSpeech": "nf",
+        "definition": "collection",
+        "freqIndex": 1906
+    },
+    {
+        "spWord": "colectivo",
+        "partOfSpeech": "adj",
+        "definition": "collective, joint",
+        "freqIndex": 1728
+    },
+    {
+        "spWord": "colectivo",
+        "partOfSpeech": "nm",
+        "definition": "collective, group",
+        "freqIndex": 3606
+    },
+    {
+        "spWord": "colega",
+        "partOfSpeech": "nc",
+        "definition": "colleague",
+        "freqIndex": 2094
+    },
+    {
+        "spWord": "colegio",
+        "partOfSpeech": "nm",
+        "definition": "(high) school, college",
+        "freqIndex": 1073
+    },
+    {
+        "spWord": "cólera",
+        "partOfSpeech": "nf",
+        "definition": "rage",
+        "freqIndex": 4758
+    },
+    {
+        "spWord": "cólera",
+        "partOfSpeech": "nm",
+        "definition": "cholera",
+        "freqIndex": 4758
+    },
+    {
+        "spWord": "colgado",
+        "partOfSpeech": "adj",
+        "definition": "hanging",
+        "freqIndex": 3185
+    },
+    {
+        "spWord": "colgar",
+        "partOfSpeech": "v",
+        "definition": "to hang (up)",
+        "freqIndex": 2049
+    },
+    {
+        "spWord": "colina",
+        "partOfSpeech": "nf",
+        "definition": "hill, slope",
+        "freqIndex": 4003
+    },
+    {
+        "spWord": "collar",
+        "partOfSpeech": "nm",
+        "definition": "collar, necklace",
+        "freqIndex": 4197
+    },
+    {
+        "spWord": "colmo",
+        "partOfSpeech": "nm",
+        "definition": "climax",
+        "freqIndex": 3525
+    },
+    {
+        "spWord": "para colmo",
+        "partOfSpeech": "v",
+        "definition": "to top it all",
+        "freqIndex": 3525
+    },
+    {
+        "spWord": "colocar",
+        "partOfSpeech": "v",
+        "definition": "to place, position",
+        "freqIndex": 562
+    },
+    {
+        "spWord": "colombiano",
+        "partOfSpeech": "adj",
+        "definition": "Colombian",
+        "freqIndex": 4695
+    },
+    {
+        "spWord": "colonia",
+        "partOfSpeech": "nf",
+        "definition": "colony, cologne",
+        "freqIndex": 2420
+    },
+    {
+        "spWord": "colonial",
+        "partOfSpeech": "adj",
+        "definition": "colonial",
+        "freqIndex": 3293
+    },
+    {
+        "spWord": "color",
+        "partOfSpeech": "nm",
+        "definition": "color",
+        "freqIndex": 359
+    },
+    {
+        "spWord": "colorado",
+        "partOfSpeech": "adj",
+        "definition": "red, colored",
+        "freqIndex": 4614
+    },
+    {
+        "spWord": "columna",
+        "partOfSpeech": "nf",
+        "definition": "column, spine",
+        "freqIndex": 1406
+    },
+    {
+        "spWord": "coma",
+        "partOfSpeech": "nf",
+        "definition": "comma",
+        "freqIndex": 3739
+    },
+    {
+        "spWord": "coma",
+        "partOfSpeech": "nm",
+        "definition": "coma",
+        "freqIndex": 3739
+    },
+    {
+        "spWord": "comandante",
+        "partOfSpeech": "nm",
+        "definition": "commander, commanding officer",
+        "freqIndex": 3755
+    },
+    {
+        "spWord": "comando",
+        "partOfSpeech": "nm",
+        "definition": "command, order",
+        "freqIndex": 4810
+    },
+    {
+        "spWord": "combate",
+        "partOfSpeech": "nm",
+        "definition": "combat, battle, fight",
+        "freqIndex": 2494
+    },
+    {
+        "spWord": "combatir",
+        "partOfSpeech": "v",
+        "definition": "to fight against",
+        "freqIndex": 1726
+    },
+    {
+        "spWord": "combinación",
+        "partOfSpeech": "nf",
+        "definition": "combination",
+        "freqIndex": 2164
+    },
+    {
+        "spWord": "combinado",
+        "partOfSpeech": "adj",
+        "definition": "combined",
+        "freqIndex": 4956
+    },
+    {
+        "spWord": "combinar",
+        "partOfSpeech": "v",
+        "definition": "to combine",
+        "freqIndex": 2348
+    },
+    {
+        "spWord": "comedia",
+        "partOfSpeech": "nf",
+        "definition": "comedy, play, pretense",
+        "freqIndex": 3457
+    },
+    {
+        "spWord": "comedor",
+        "partOfSpeech": "nm",
+        "definition": "dining room",
+        "freqIndex": 3021
+    },
+    {
+        "spWord": "comentar",
+        "partOfSpeech": "v",
+        "definition": "to comment on",
+        "freqIndex": 742
+    },
+    {
+        "spWord": "comentario",
+        "partOfSpeech": "nm",
+        "definition": "remark, comment",
+        "freqIndex": 1030
+    },
+    {
+        "spWord": "comenzar",
+        "partOfSpeech": "v",
+        "definition": "to begin, start",
+        "freqIndex": 223
+    },
+    {
+        "spWord": "comer",
+        "partOfSpeech": "v",
+        "definition": "to eat",
+        "freqIndex": 389
+    },
+    {
+        "spWord": "comercial",
+        "partOfSpeech": "adj",
+        "definition": "commercial, shopping",
+        "freqIndex": 1253
+    },
+    {
+        "spWord": "comerciante",
+        "partOfSpeech": "nc",
+        "definition": "merchant, businessman",
+        "freqIndex": 2442
+    },
+    {
+        "spWord": "comercio",
+        "partOfSpeech": "nm",
+        "definition": "commerce, trade",
+        "freqIndex": 1522
+    },
+    {
+        "spWord": "cometa",
+        "partOfSpeech": "nf",
+        "definition": "kite",
+        "freqIndex": 4857
+    },
+    {
+        "spWord": "cometa",
+        "partOfSpeech": "nm",
+        "definition": "comet",
+        "freqIndex": 4857
+    },
+    {
+        "spWord": "cometer",
+        "partOfSpeech": "v",
+        "definition": "to commit",
+        "freqIndex": 1213
+    },
+    {
+        "spWord": "cómico",
+        "partOfSpeech": "adj",
+        "definition": "comic",
+        "freqIndex": 3485
+    },
+    {
+        "spWord": "comida",
+        "partOfSpeech": "nf",
+        "definition": "food, meal",
+        "freqIndex": 873
+    },
+    {
+        "spWord": "comienzo",
+        "partOfSpeech": "nm",
+        "definition": "start, beginning",
+        "freqIndex": 1162
+    },
+    {
+        "spWord": "comisario",
+        "partOfSpeech": "nm",
+        "definition": "commissioner, delegate",
+        "freqIndex": 4332
+    },
+    {
+        "spWord": "comisión",
+        "partOfSpeech": "nf",
+        "definition": "commission, committee",
+        "freqIndex": 2155
+    },
+    {
+        "spWord": "como",
+        "partOfSpeech": "conj",
+        "definition": "like, as",
+        "freqIndex": 16
+    },
+    {
+        "spWord": "cómo",
+        "partOfSpeech": "adv",
+        "definition": "how?",
+        "freqIndex": 126
+    },
+    {
+        "spWord": "comodidad",
+        "partOfSpeech": "nf",
+        "definition": "comfort, convenience",
+        "freqIndex": 2296
+    },
+    {
+        "spWord": "cómodo",
+        "partOfSpeech": "adj",
+        "definition": "comfortable, convenient",
+        "freqIndex": 1627
+    },
+    {
+        "spWord": "compacto",
+        "partOfSpeech": "adj",
+        "definition": "compact, dense",
+        "freqIndex": 4162
+    },
+    {
+        "spWord": "compañera",
+        "partOfSpeech": "nf",
+        "definition": "female companion",
+        "freqIndex": 2346
+    },
+    {
+        "spWord": "compañero",
+        "partOfSpeech": "nm",
+        "definition": "companion, classmate",
+        "freqIndex": 693
+    },
+    {
+        "spWord": "compañía",
+        "partOfSpeech": "nf",
+        "definition": "company",
+        "freqIndex": 798
+    },
+    {
+        "spWord": "comparable",
+        "partOfSpeech": "adj",
+        "definition": "comparable",
+        "freqIndex": 3719
+    },
+    {
+        "spWord": "comparación",
+        "partOfSpeech": "nf",
+        "definition": "comparison",
+        "freqIndex": 1772
+    },
+    {
+        "spWord": "comparar",
+        "partOfSpeech": "v",
+        "definition": "to compare",
+        "freqIndex": 1058
+    },
+    {
+        "spWord": "compartir",
+        "partOfSpeech": "v",
+        "definition": "to share",
+        "freqIndex": 681
+    },
+    {
+        "spWord": "compás",
+        "partOfSpeech": "nm",
+        "definition": "rhythm, time, compass",
+        "freqIndex": 4194
+    },
+    {
+        "spWord": "compatriota",
+        "partOfSpeech": "nc",
+        "definition": "fellow countryman",
+        "freqIndex": 3891
+    },
+    {
+        "spWord": "compensación",
+        "partOfSpeech": "nf",
+        "definition": "compensation",
+        "freqIndex": 4342
+    },
+    {
+        "spWord": "compensar",
+        "partOfSpeech": "v",
+        "definition": "to compensate, make up for",
+        "freqIndex": 3006
+    },
+    {
+        "spWord": "competencia",
+        "partOfSpeech": "nf",
+        "definition": "competition, contest",
+        "freqIndex": 1529
+    },
+    {
+        "spWord": "competir",
+        "partOfSpeech": "v",
+        "definition": "to compete",
+        "freqIndex": 2486
+    },
+    {
+        "spWord": "complacer",
+        "partOfSpeech": "v",
+        "definition": "to please, satisfy",
+        "freqIndex": 3823
+    },
+    {
+        "spWord": "complejidad",
+        "partOfSpeech": "nf",
+        "definition": "complexity",
+        "freqIndex": 4906
+    },
+    {
+        "spWord": "complejo",
+        "partOfSpeech": "adj",
+        "definition": "complex, complicated",
+        "freqIndex": 1278
+    },
+    {
+        "spWord": "complejo",
+        "partOfSpeech": "nm",
+        "definition": "complex",
+        "freqIndex": 2948
+    },
+    {
+        "spWord": "complementar",
+        "partOfSpeech": "v",
+        "definition": "to complement, supplement",
+        "freqIndex": 3659
+    },
+    {
+        "spWord": "complementario",
+        "partOfSpeech": "adj",
+        "definition": "additional, complementary",
+        "freqIndex": 3948
+    },
+    {
+        "spWord": "complemento",
+        "partOfSpeech": "nm",
+        "definition": "complement, supplement",
+        "freqIndex": 4650
+    },
+    {
+        "spWord": "completamente",
+        "partOfSpeech": "adv",
+        "definition": "completely",
+        "freqIndex": 869
+    },
+    {
+        "spWord": "completar",
+        "partOfSpeech": "v",
+        "definition": "to complete",
+        "freqIndex": 1718
+    },
+    {
+        "spWord": "completo",
+        "partOfSpeech": "adj",
+        "definition": "complete",
+        "freqIndex": 458
+    },
+    {
+        "spWord": "complicación",
+        "partOfSpeech": "nf",
+        "definition": "complication",
+        "freqIndex": 3400
+    },
+    {
+        "spWord": "complicado",
+        "partOfSpeech": "adj",
+        "definition": "complicated, complex",
+        "freqIndex": 1368
+    },
+    {
+        "spWord": "complicar",
+        "partOfSpeech": "v",
+        "definition": "to complicate, make difficult",
+        "freqIndex": 1911
+    },
+    {
+        "spWord": "cómplice",
+        "partOfSpeech": "nc",
+        "definition": "accomplice",
+        "freqIndex": 4310
+    },
+    {
+        "spWord": "complicidad",
+        "partOfSpeech": "nf",
+        "definition": "involvement, complicity",
+        "freqIndex": 4816
+    },
+    {
+        "spWord": "componente",
+        "partOfSpeech": "nm",
+        "definition": "component, ingredient",
+        "freqIndex": 2656
+    },
+    {
+        "spWord": "componer",
+        "partOfSpeech": "v",
+        "definition": "to compose, be part of",
+        "freqIndex": 1336
+    },
+    {
+        "spWord": "comportamiento",
+        "partOfSpeech": "nm",
+        "definition": "behavior, conduct",
+        "freqIndex": 1343
+    },
+    {
+        "spWord": "comportar",
+        "partOfSpeech": "v",
+        "definition": "to behave",
+        "freqIndex": 2294
+    },
+    {
+        "spWord": "composición",
+        "partOfSpeech": "nf",
+        "definition": "composition, make-up, essay",
+        "freqIndex": 1898
+    },
+    {
+        "spWord": "compra",
+        "partOfSpeech": "nf",
+        "definition": "shopping, buy, purchase",
+        "freqIndex": 1374
+    },
+    {
+        "spWord": "comprador",
+        "partOfSpeech": "nm",
+        "definition": "buyer",
+        "freqIndex": 4266
+    },
+    {
+        "spWord": "comprar",
+        "partOfSpeech": "v",
+        "definition": "to buy",
+        "freqIndex": 437
+    },
+    {
+        "spWord": "comprender",
+        "partOfSpeech": "v",
+        "definition": "to understand",
+        "freqIndex": 306
+    },
+    {
+        "spWord": "comprensible",
+        "partOfSpeech": "adj",
+        "definition": "understandable",
+        "freqIndex": 4048
+    },
+    {
+        "spWord": "comprensión",
+        "partOfSpeech": "nf",
+        "definition": "understanding",
+        "freqIndex": 1732
+    },
+    {
+        "spWord": "comprensivo",
+        "partOfSpeech": "adj",
+        "definition": "understanding",
+        "freqIndex": 4713
+    },
+    {
+        "spWord": "comprobar",
+        "partOfSpeech": "v",
+        "definition": "to verify, prove",
+        "freqIndex": 852
+    },
+    {
+        "spWord": "comprometer",
+        "partOfSpeech": "v",
+        "definition": "to compromise",
+        "freqIndex": 2069
+    },
+    {
+        "spWord": "comprometido",
+        "partOfSpeech": "adj",
+        "definition": "committed, engaged",
+        "freqIndex": 2803
+    },
+    {
+        "spWord": "compromiso",
+        "partOfSpeech": "nm",
+        "definition": "compromise, engagement",
+        "freqIndex": 1029
+    },
+    {
+        "spWord": "compuesto",
+        "partOfSpeech": "adj",
+        "definition": "composite, mixed",
+        "freqIndex": 2062
+    },
+    {
+        "spWord": "computadora",
+        "partOfSpeech": "nf",
+        "definition": "computer",
+        "freqIndex": 4253
+    },
+    {
+        "spWord": "común",
+        "partOfSpeech": "adj",
+        "definition": "common",
+        "freqIndex": 438
+    },
+    {
+        "spWord": "comunicación",
+        "partOfSpeech": "nf",
+        "definition": "communication",
+        "freqIndex": 659
+    },
+    {
+        "spWord": "comunicar",
+        "partOfSpeech": "v",
+        "definition": "to communicate",
+        "freqIndex": 952
+    },
+    {
+        "spWord": "comunidad",
+        "partOfSpeech": "nf",
+        "definition": "community",
+        "freqIndex": 1130
+    },
+    {
+        "spWord": "comunión",
+        "partOfSpeech": "nf",
+        "definition": "communion",
+        "freqIndex": 3986
+    },
+    {
+        "spWord": "comunismo",
+        "partOfSpeech": "nm",
+        "definition": "communism",
+        "freqIndex": 4775
+    },
+    {
+        "spWord": "comunista",
+        "partOfSpeech": "adj",
+        "definition": "Communist",
+        "freqIndex": 2315
+    },
+    {
+        "spWord": "comunitario",
+        "partOfSpeech": "adj",
+        "definition": "of the community",
+        "freqIndex": 4416
+    },
+    {
+        "spWord": "con",
+        "partOfSpeech": "prep",
+        "definition": "with",
+        "freqIndex": 13
+    },
+    {
+        "spWord": "concebir",
+        "partOfSpeech": "v",
+        "definition": "to conceive, understand",
+        "freqIndex": 1518
+    },
+    {
+        "spWord": "conceder",
+        "partOfSpeech": "v",
+        "definition": "to grant, concede",
+        "freqIndex": 1331
+    },
+    {
+        "spWord": "concentración",
+        "partOfSpeech": "nf",
+        "definition": "concentration, gathering",
+        "freqIndex": 1670
+    },
+    {
+        "spWord": "concentrar",
+        "partOfSpeech": "v",
+        "definition": "to concentrate",
+        "freqIndex": 1233
+    },
+    {
+        "spWord": "concepción",
+        "partOfSpeech": "nf",
+        "definition": "conception",
+        "freqIndex": 2232
+    },
+    {
+        "spWord": "concepto",
+        "partOfSpeech": "nm",
+        "definition": "concept",
+        "freqIndex": 997
+    },
+    {
+        "spWord": "concesión",
+        "partOfSpeech": "nf",
+        "definition": "awarding, concession",
+        "freqIndex": 3486
+    },
+    {
+        "spWord": "conciencia",
+        "partOfSpeech": "nf",
+        "definition": "conscience, consciousness",
+        "freqIndex": 696
+    },
+    {
+        "spWord": "concierto",
+        "partOfSpeech": "nm",
+        "definition": "concert, concerto",
+        "freqIndex": 2435
+    },
+    {
+        "spWord": "concluir",
+        "partOfSpeech": "v",
+        "definition": "to conclude, finish",
+        "freqIndex": 1221
+    },
+    {
+        "spWord": "conclusión",
+        "partOfSpeech": "nf",
+        "definition": "conclusion, end",
+        "freqIndex": 1138
+    },
+    {
+        "spWord": "concretamente",
+        "partOfSpeech": "adv",
+        "definition": "specifically, exactly",
+        "freqIndex": 3466
+    },
+    {
+        "spWord": "concretar",
+        "partOfSpeech": "v",
+        "definition": "to materialize, fulfill",
+        "freqIndex": 2839
+    },
+    {
+        "spWord": "concreto",
+        "partOfSpeech": "adj",
+        "definition": "concrete, real",
+        "freqIndex": 909
+    },
+    {
+        "spWord": "concurrencia",
+        "partOfSpeech": "nf",
+        "definition": "coming together, participation",
+        "freqIndex": 4798
+    },
+    {
+        "spWord": "concurrir",
+        "partOfSpeech": "v",
+        "definition": "to coincide, concur, meet",
+        "freqIndex": 4183
+    },
+    {
+        "spWord": "concurso",
+        "partOfSpeech": "nm",
+        "definition": "competition, gathering",
+        "freqIndex": 2628
+    },
+    {
+        "spWord": "condena",
+        "partOfSpeech": "nf",
+        "definition": "sentence (in prison), penalty",
+        "freqIndex": 3519
+    },
+    {
+        "spWord": "condenar",
+        "partOfSpeech": "v",
+        "definition": "to convict, condemn",
+        "freqIndex": 1323
+    },
+    {
+        "spWord": "condición",
+        "partOfSpeech": "nf",
+        "definition": "condition",
+        "freqIndex": 341
+    },
+    {
+        "spWord": "condicionado",
+        "partOfSpeech": "adj",
+        "definition": "conditioned",
+        "freqIndex": 4126
+    },
+    {
+        "spWord": "condicionar",
+        "partOfSpeech": "v",
+        "definition": "to condition, determine",
+        "freqIndex": 4498
+    },
+    {
+        "spWord": "conducir",
+        "partOfSpeech": "v",
+        "definition": "to lead, drive",
+        "freqIndex": 868
+    },
+    {
+        "spWord": "conducta",
+        "partOfSpeech": "nf",
+        "definition": "conduct, behavior",
+        "freqIndex": 1388
+    },
+    {
+        "spWord": "conductor",
+        "partOfSpeech": "nm/f",
+        "definition": "driver, conductor",
+        "freqIndex": 3016
+    },
+    {
+        "spWord": "conectar",
+        "partOfSpeech": "v",
+        "definition": "to connect, plug in",
+        "freqIndex": 3084
+    },
+    {
+        "spWord": "conejo",
+        "partOfSpeech": "nm",
+        "definition": "rabbit",
+        "freqIndex": 4316
+    },
+    {
+        "spWord": "conexión",
+        "partOfSpeech": "nf",
+        "definition": "connection, relationship",
+        "freqIndex": 3302
+    },
+    {
+        "spWord": "conferencia",
+        "partOfSpeech": "nf",
+        "definition": "conference, lecture",
+        "freqIndex": 2171
+    },
+    {
+        "spWord": "conferir",
+        "partOfSpeech": "v",
+        "definition": "to confer",
+        "freqIndex": 4561
+    },
+    {
+        "spWord": "confesar",
+        "partOfSpeech": "v",
+        "definition": "to confess, admit",
+        "freqIndex": 1972
+    },
+    {
+        "spWord": "confesión",
+        "partOfSpeech": "nf",
+        "definition": "confession, admission",
+        "freqIndex": 3237
+    },
+    {
+        "spWord": "confianza",
+        "partOfSpeech": "nf",
+        "definition": "confidence, trust",
+        "freqIndex": 947
+    },
+    {
+        "spWord": "confiar",
+        "partOfSpeech": "v",
+        "definition": "to trust, confide",
+        "freqIndex": 1423
+    },
+    {
+        "spWord": "configurar",
+        "partOfSpeech": "v",
+        "definition": "to make up, comprise",
+        "freqIndex": 4257
+    },
+    {
+        "spWord": "confirmar",
+        "partOfSpeech": "v",
+        "definition": "to confirm",
+        "freqIndex": 1435
+    },
+    {
+        "spWord": "conflicto",
+        "partOfSpeech": "nm",
+        "definition": "conflict",
+        "freqIndex": 1282
+    },
+    {
+        "spWord": "conformar",
+        "partOfSpeech": "v",
+        "definition": "to conform",
+        "freqIndex": 1156
+    },
+    {
+        "spWord": "conforme",
+        "partOfSpeech": "adj",
+        "definition": "in agreement",
+        "freqIndex": 1572
+    },
+    {
+        "spWord": "confundido",
+        "partOfSpeech": "adj",
+        "definition": "confused",
+        "freqIndex": 4943
+    },
+    {
+        "spWord": "confundir",
+        "partOfSpeech": "v",
+        "definition": "to confuse",
+        "freqIndex": 1149
+    },
+    {
+        "spWord": "confusión",
+        "partOfSpeech": "nf",
+        "definition": "confusion",
+        "freqIndex": 1706
+    },
+    {
+        "spWord": "confuso",
+        "partOfSpeech": "adj",
+        "definition": "confused, mixed up",
+        "freqIndex": 2634
+    },
+    {
+        "spWord": "congelado",
+        "partOfSpeech": "adj",
+        "definition": "frozen",
+        "freqIndex": 4518
+    },
+    {
+        "spWord": "congreso",
+        "partOfSpeech": "nm",
+        "definition": "congress",
+        "freqIndex": 3280
+    },
+    {
+        "spWord": "conjunto",
+        "partOfSpeech": "nm",
+        "definition": "group, set",
+        "freqIndex": 721
+    },
+    {
+        "spWord": "conmigo",
+        "partOfSpeech": "pron",
+        "definition": "with me",
+        "freqIndex": 1845
+    },
+    {
+        "spWord": "conmover",
+        "partOfSpeech": "v",
+        "definition": "to move, affect",
+        "freqIndex": 3664
+    },
+    {
+        "spWord": "conocedor",
+        "partOfSpeech": "nm",
+        "definition": "expert, judge, connoisseur",
+        "freqIndex": 4245
+    },
+    {
+        "spWord": "conocer",
+        "partOfSpeech": "v",
+        "definition": "to know (someone or place)",
+        "freqIndex": 124
+    },
+    {
+        "spWord": "conocido",
+        "partOfSpeech": "adj",
+        "definition": "known, well-known",
+        "freqIndex": 540
+    },
+    {
+        "spWord": "conocimiento",
+        "partOfSpeech": "nm",
+        "definition": "knowledge",
+        "freqIndex": 434
+    },
+    {
+        "spWord": "conquista",
+        "partOfSpeech": "nf",
+        "definition": "conquest",
+        "freqIndex": 2650
+    },
+    {
+        "spWord": "conquistar",
+        "partOfSpeech": "v",
+        "definition": "to conquer, win (over)",
+        "freqIndex": 2358
+    },
+    {
+        "spWord": "consagrado",
+        "partOfSpeech": "adj",
+        "definition": "dedicated, consecrated",
+        "freqIndex": 3956
+    },
+    {
+        "spWord": "consagrar",
+        "partOfSpeech": "v",
+        "definition": "to consecrate, establish",
+        "freqIndex": 4276
+    },
+    {
+        "spWord": "consciente",
+        "partOfSpeech": "adj",
+        "definition": "conscious, aware",
+        "freqIndex": 1416
+    },
+    {
+        "spWord": "consecuencia",
+        "partOfSpeech": "nf",
+        "definition": "consequence",
+        "freqIndex": 570
+    },
+    {
+        "spWord": "conseguir",
+        "partOfSpeech": "v",
+        "definition": "to get, acquire, obtain",
+        "freqIndex": 222
+    },
+    {
+        "spWord": "consejero",
+        "partOfSpeech": "nm/f",
+        "definition": "advisor, counselor",
+        "freqIndex": 4089
+    },
+    {
+        "spWord": "consejo",
+        "partOfSpeech": "nm",
+        "definition": "advice, council, counsel",
+        "freqIndex": 1188
+    },
+    {
+        "spWord": "consentir",
+        "partOfSpeech": "v",
+        "definition": "to consent to, pamper",
+        "freqIndex": 3960
+    },
+    {
+        "spWord": "conservación",
+        "partOfSpeech": "nf",
+        "definition": "conservation",
+        "freqIndex": 3661
+    },
+    {
+        "spWord": "conservador",
+        "partOfSpeech": "adj",
+        "definition": "conservative",
+        "freqIndex": 2613
+    },
+    {
+        "spWord": "conservar",
+        "partOfSpeech": "v",
+        "definition": "to conserve, preserve",
+        "freqIndex": 670
+    },
+    {
+        "spWord": "considerable",
+        "partOfSpeech": "adj",
+        "definition": "considerable",
+        "freqIndex": 2283
+    },
+    {
+        "spWord": "consideración",
+        "partOfSpeech": "nf",
+        "definition": "consideration, regard",
+        "freqIndex": 1335
+    },
+    {
+        "spWord": "considerar",
+        "partOfSpeech": "v",
+        "definition": "to consider",
+        "freqIndex": 261
+    },
+    {
+        "spWord": "consigna",
+        "partOfSpeech": "nf",
+        "definition": "watchword, motto, slogan",
+        "freqIndex": 4091
+    },
+    {
+        "spWord": "consiguiente",
+        "partOfSpeech": "adj",
+        "definition": "consequent",
+        "freqIndex": 2807
+    },
+    {
+        "spWord": "por consiguiente",
+        "partOfSpeech": "adv",
+        "definition": "consequently",
+        "freqIndex": 2807
+    },
+    {
+        "spWord": "consistencia",
+        "partOfSpeech": "nf",
+        "definition": "consistency",
+        "freqIndex": 4661
+    },
+    {
+        "spWord": "consistir",
+        "partOfSpeech": "v",
+        "definition": "to consist of",
+        "freqIndex": 688
+    },
+    {
+        "spWord": "consolar",
+        "partOfSpeech": "v",
+        "definition": "to console",
+        "freqIndex": 3705
+    },
+    {
+        "spWord": "consolidar",
+        "partOfSpeech": "v",
+        "definition": "to consolidate",
+        "freqIndex": 4376
+    },
+    {
+        "spWord": "conspiración",
+        "partOfSpeech": "nf",
+        "definition": "conspiracy",
+        "freqIndex": 4673
+    },
+    {
+        "spWord": "constancia",
+        "partOfSpeech": "nf",
+        "definition": "perseverance",
+        "freqIndex": 3148
+    },
+    {
+        "spWord": "constante",
+        "partOfSpeech": "adj",
+        "definition": "constant",
+        "freqIndex": 1034
+    },
+    {
+        "spWord": "constantemente",
+        "partOfSpeech": "adv",
+        "definition": "constantly",
+        "freqIndex": 1868
+    },
+    {
+        "spWord": "constar",
+        "partOfSpeech": "v",
+        "definition": "to consist of, comprise",
+        "freqIndex": 1655
+    },
+    {
+        "spWord": "constatar",
+        "partOfSpeech": "v",
+        "definition": "to prove, verify",
+        "freqIndex": 4314
+    },
+    {
+        "spWord": "constitución",
+        "partOfSpeech": "nf",
+        "definition": "constitution",
+        "freqIndex": 4231
+    },
+    {
+        "spWord": "constitucional",
+        "partOfSpeech": "adj",
+        "definition": "constitutional",
+        "freqIndex": 4213
+    },
+    {
+        "spWord": "constituir",
+        "partOfSpeech": "v",
+        "definition": "to constitute, consist of",
+        "freqIndex": 689
+    },
+    {
+        "spWord": "construcción",
+        "partOfSpeech": "nf",
+        "definition": "construction",
+        "freqIndex": 794
+    },
+    {
+        "spWord": "constructivo",
+        "partOfSpeech": "adj",
+        "definition": "constructive",
+        "freqIndex": 4985
+    },
+    {
+        "spWord": "construir",
+        "partOfSpeech": "v",
+        "definition": "to construct, build",
+        "freqIndex": 525
+    },
+    {
+        "spWord": "consuelo",
+        "partOfSpeech": "nm",
+        "definition": "comfort, consolation",
+        "freqIndex": 4031
+    },
+    {
+        "spWord": "consulta",
+        "partOfSpeech": "nf",
+        "definition": "consultation, advice",
+        "freqIndex": 2194
+    },
+    {
+        "spWord": "consultar",
+        "partOfSpeech": "v",
+        "definition": "to consult",
+        "freqIndex": 1587
+    },
+    {
+        "spWord": "consumar",
+        "partOfSpeech": "v",
+        "definition": "to complete, carry out",
+        "freqIndex": 3516
+    },
+    {
+        "spWord": "consumir",
+        "partOfSpeech": "v",
+        "definition": "to consume, take in",
+        "freqIndex": 1326
+    },
+    {
+        "spWord": "consumo",
+        "partOfSpeech": "nm",
+        "definition": "consumption",
+        "freqIndex": 2136
+    },
+    {
+        "spWord": "contacto",
+        "partOfSpeech": "nm",
+        "definition": "contact",
+        "freqIndex": 648
+    },
+    {
+        "spWord": "contagiar",
+        "partOfSpeech": "v",
+        "definition": "to infect, infest",
+        "freqIndex": 4273
+    },
+    {
+        "spWord": "contar",
+        "partOfSpeech": "v",
+        "definition": "to tell, count",
+        "freqIndex": 155
+    },
+    {
+        "spWord": "contemplar",
+        "partOfSpeech": "v",
+        "definition": "to contemplate",
+        "freqIndex": 807
+    },
+    {
+        "spWord": "contemporáneo",
+        "partOfSpeech": "adj",
+        "definition": "contemporary",
+        "freqIndex": 3009
+    },
+    {
+        "spWord": "contener",
+        "partOfSpeech": "v",
+        "definition": "to contain",
+        "freqIndex": 829
+    },
+    {
+        "spWord": "contenido",
+        "partOfSpeech": "nm",
+        "definition": "contents, content",
+        "freqIndex": 1038
+    },
+    {
+        "spWord": "contento",
+        "partOfSpeech": "adj",
+        "definition": "happy, content",
+        "freqIndex": 1642
+    },
+    {
+        "spWord": "contestación",
+        "partOfSpeech": "nf",
+        "definition": "answer",
+        "freqIndex": 4863
+    },
+    {
+        "spWord": "contestar",
+        "partOfSpeech": "v",
+        "definition": "to answer, reply",
+        "freqIndex": 764
+    },
+    {
+        "spWord": "contexto",
+        "partOfSpeech": "nm",
+        "definition": "context",
+        "freqIndex": 2898
+    },
+    {
+        "spWord": "contienda",
+        "partOfSpeech": "nf",
+        "definition": "contest, dispute",
+        "freqIndex": 4356
+    },
+    {
+        "spWord": "contigo",
+        "partOfSpeech": "pron",
+        "definition": "with you",
+        "freqIndex": 3017
+    },
+    {
+        "spWord": "continente",
+        "partOfSpeech": "nm",
+        "definition": "continent",
+        "freqIndex": 1831
+    },
+    {
+        "spWord": "continuación",
+        "partOfSpeech": "nf",
+        "definition": "continuation, follow-up",
+        "freqIndex": 1921
+    },
+    {
+        "spWord": "continuamente",
+        "partOfSpeech": "adv",
+        "definition": "continuously",
+        "freqIndex": 2585
+    },
+    {
+        "spWord": "continuar",
+        "partOfSpeech": "v",
+        "definition": "to continue",
+        "freqIndex": 403
+    },
+    {
+        "spWord": "continuidad",
+        "partOfSpeech": "nf",
+        "definition": "continuity",
+        "freqIndex": 3195
+    },
+    {
+        "spWord": "continuo",
+        "partOfSpeech": "adj",
+        "definition": "continuous",
+        "freqIndex": 1502
+    },
+    {
+        "spWord": "contorno",
+        "partOfSpeech": "nm",
+        "definition": "outline, perimeter, edge",
+        "freqIndex": 4339
+    },
+    {
+        "spWord": "contra",
+        "partOfSpeech": "prep",
+        "definition": "against, opposite",
+        "freqIndex": 172
+    },
+    {
+        "spWord": "contradecir",
+        "partOfSpeech": "v",
+        "definition": "to contradict, be inconsistent",
+        "freqIndex": 4143
+    },
+    {
+        "spWord": "contradicción",
+        "partOfSpeech": "nf",
+        "definition": "contradiction",
+        "freqIndex": 2073
+    },
+    {
+        "spWord": "contradictorio",
+        "partOfSpeech": "adj",
+        "definition": "contradictory",
+        "freqIndex": 3107
+    },
+    {
+        "spWord": "contraer",
+        "partOfSpeech": "v",
+        "definition": "to contract, shrink, abbreviate",
+        "freqIndex": 2782
+    },
+    {
+        "spWord": "contrario",
+        "partOfSpeech": "adj",
+        "definition": "contrary, opposite",
+        "freqIndex": 460
+    },
+    {
+        "spWord": "contrastar",
+        "partOfSpeech": "v",
+        "definition": "to contrast",
+        "freqIndex": 3734
+    },
+    {
+        "spWord": "contraste",
+        "partOfSpeech": "nm",
+        "definition": "contrast",
+        "freqIndex": 2251
+    },
+    {
+        "spWord": "contratar",
+        "partOfSpeech": "v",
+        "definition": "to hire, contract",
+        "freqIndex": 2418
+    },
+    {
+        "spWord": "contrato",
+        "partOfSpeech": "nm",
+        "definition": "contract, agreement",
+        "freqIndex": 1989
+    },
+    {
+        "spWord": "contribución",
+        "partOfSpeech": "nf",
+        "definition": "contribution",
+        "freqIndex": 4168
+    },
+    {
+        "spWord": "contribuir",
+        "partOfSpeech": "v",
+        "definition": "to contribute",
+        "freqIndex": 1183
+    },
+    {
+        "spWord": "control",
+        "partOfSpeech": "nm",
+        "definition": "control",
+        "freqIndex": 889
+    },
+    {
+        "spWord": "controlar",
+        "partOfSpeech": "v",
+        "definition": "to control",
+        "freqIndex": 1070
+    },
+    {
+        "spWord": "contundente",
+        "partOfSpeech": "adj",
+        "definition": "decisive, blunt, forceful",
+        "freqIndex": 4901
+    },
+    {
+        "spWord": "convencer",
+        "partOfSpeech": "v",
+        "definition": "to convince, persuade",
+        "freqIndex": 1169
+    },
+    {
+        "spWord": "convencido",
+        "partOfSpeech": "adj",
+        "definition": "convinced, persuaded",
+        "freqIndex": 1294
+    },
+    {
+        "spWord": "convencimiento",
+        "partOfSpeech": "nm",
+        "definition": "convincing",
+        "freqIndex": 4540
+    },
+    {
+        "spWord": "convención",
+        "partOfSpeech": "nf",
+        "definition": "convention, assembly",
+        "freqIndex": 4934
+    },
+    {
+        "spWord": "convencional",
+        "partOfSpeech": "adj",
+        "definition": "conventional",
+        "freqIndex": 2968
+    },
+    {
+        "spWord": "conveniencia",
+        "partOfSpeech": "nf",
+        "definition": "convenience, usefulness",
+        "freqIndex": 3197
+    },
+    {
+        "spWord": "conveniente",
+        "partOfSpeech": "adj",
+        "definition": "convenient",
+        "freqIndex": 1970
+    },
+    {
+        "spWord": "convenir",
+        "partOfSpeech": "v",
+        "definition": "to be agreeable, be convenient",
+        "freqIndex": 964
+    },
+    {
+        "spWord": "convento",
+        "partOfSpeech": "nm",
+        "definition": "convent, monastery",
+        "freqIndex": 4217
+    },
+    {
+        "spWord": "conversación",
+        "partOfSpeech": "nf",
+        "definition": "conversation",
+        "freqIndex": 892
+    },
+    {
+        "spWord": "conversar",
+        "partOfSpeech": "v",
+        "definition": "to converse, talk",
+        "freqIndex": 2507
+    },
+    {
+        "spWord": "convertir",
+        "partOfSpeech": "v",
+        "definition": "to convert, change, become",
+        "freqIndex": 271
+    },
+    {
+        "spWord": "convicción",
+        "partOfSpeech": "nf",
+        "definition": "conviction",
+        "freqIndex": 2339
+    },
+    {
+        "spWord": "convincente",
+        "partOfSpeech": "adj",
+        "definition": "convincing",
+        "freqIndex": 4030
+    },
+    {
+        "spWord": "convivencia",
+        "partOfSpeech": "nf",
+        "definition": "coexistence, living together",
+        "freqIndex": 2811
+    },
+    {
+        "spWord": "convivir",
+        "partOfSpeech": "v",
+        "definition": "to coexist",
+        "freqIndex": 2913
+    },
+    {
+        "spWord": "convocar",
+        "partOfSpeech": "v",
+        "definition": "to convene, summon",
+        "freqIndex": 2599
+    },
+    {
+        "spWord": "cooperación",
+        "partOfSpeech": "nf",
+        "definition": "cooperation",
+        "freqIndex": 4690
+    },
+    {
+        "spWord": "copa",
+        "partOfSpeech": "nf",
+        "definition": "cup, glass, top (tree)",
+        "freqIndex": 2267
+    },
+    {
+        "spWord": "copia",
+        "partOfSpeech": "nf",
+        "definition": "copy",
+        "freqIndex": 2098
+    },
+    {
+        "spWord": "copiar",
+        "partOfSpeech": "v",
+        "definition": "to copy",
+        "freqIndex": 2402
+    },
+    {
+        "spWord": "coraje",
+        "partOfSpeech": "nm",
+        "definition": "courage, toughness",
+        "freqIndex": 3385
+    },
+    {
+        "spWord": "corazón",
+        "partOfSpeech": "nm",
+        "definition": "heart, core",
+        "freqIndex": 649
+    },
+    {
+        "spWord": "corbata",
+        "partOfSpeech": "nf",
+        "definition": "tie, sash",
+        "freqIndex": 3238
+    },
+    {
+        "spWord": "cordial",
+        "partOfSpeech": "adj",
+        "definition": "cordial, friendly",
+        "freqIndex": 4666
+    },
+    {
+        "spWord": "cordillera",
+        "partOfSpeech": "nf",
+        "definition": "mountain range",
+        "freqIndex": 4432
+    },
+    {
+        "spWord": "cordón",
+        "partOfSpeech": "nm",
+        "definition": "cord, yarn, braid",
+        "freqIndex": 4504
+    },
+    {
+        "spWord": "coro",
+        "partOfSpeech": "nm",
+        "definition": "choir, chorus",
+        "freqIndex": 2940
+    },
+    {
+        "spWord": "corona",
+        "partOfSpeech": "nf",
+        "definition": "crown",
+        "freqIndex": 2772
+    },
+    {
+        "spWord": "coronar",
+        "partOfSpeech": "v",
+        "definition": "to crown, top",
+        "freqIndex": 4346
+    },
+    {
+        "spWord": "coronel",
+        "partOfSpeech": "nm",
+        "definition": "colonel",
+        "freqIndex": 3715
+    },
+    {
+        "spWord": "corporal",
+        "partOfSpeech": "adj",
+        "definition": "of the body, corporal",
+        "freqIndex": 4672
+    },
+    {
+        "spWord": "corral",
+        "partOfSpeech": "nm",
+        "definition": "corral, yard",
+        "freqIndex": 4302
+    },
+    {
+        "spWord": "corrección",
+        "partOfSpeech": "nf",
+        "definition": "correction, amendment",
+        "freqIndex": 3979
+    },
+    {
+        "spWord": "correctamente",
+        "partOfSpeech": "adv",
+        "definition": "correctly",
+        "freqIndex": 4118
+    },
+    {
+        "spWord": "correcto",
+        "partOfSpeech": "adj",
+        "definition": "correct, suitable",
+        "freqIndex": 1234
+    },
+    {
+        "spWord": "corredor",
+        "partOfSpeech": "nm/f",
+        "definition": "broker, corridor, runner",
+        "freqIndex": 2591
+    },
+    {
+        "spWord": "corregir",
+        "partOfSpeech": "v",
+        "definition": "to correct, rectify",
+        "freqIndex": 1585
+    },
+    {
+        "spWord": "correo",
+        "partOfSpeech": "nm",
+        "definition": "mail, post (office)",
+        "freqIndex": 3665
+    },
+    {
+        "spWord": "correr",
+        "partOfSpeech": "v",
+        "definition": "to run",
+        "freqIndex": 332
+    },
+    {
+        "spWord": "correspondencia",
+        "partOfSpeech": "nf",
+        "definition": "correspondence, connection",
+        "freqIndex": 599
+    },
+    {
+        "spWord": "corresponder",
+        "partOfSpeech": "v",
+        "definition": "to correspond with",
+        "freqIndex": 599
+    },
+    {
+        "spWord": "correspondiente",
+        "partOfSpeech": "adj",
+        "definition": "corresponding",
+        "freqIndex": 1461
+    },
+    {
+        "spWord": "corriente",
+        "partOfSpeech": "nf",
+        "definition": "current, flow",
+        "freqIndex": 838
+    },
+    {
+        "spWord": "corriente",
+        "partOfSpeech": "adj",
+        "definition": "current, common",
+        "freqIndex": 1709
+    },
+    {
+        "spWord": "corrupción",
+        "partOfSpeech": "nf",
+        "definition": "corruption",
+        "freqIndex": 3236
+    },
+    {
+        "spWord": "cortar",
+        "partOfSpeech": "v",
+        "definition": "to cut",
+        "freqIndex": 597
+    },
+    {
+        "spWord": "corte",
+        "partOfSpeech": "nf",
+        "definition": "court",
+        "freqIndex": 1041
+    },
+    {
+        "spWord": "corte",
+        "partOfSpeech": "nm",
+        "definition": "cut",
+        "freqIndex": 1041
+    },
+    {
+        "spWord": "cortesía",
+        "partOfSpeech": "nf",
+        "definition": "courtesy",
+        "freqIndex": 4092
+    },
+    {
+        "spWord": "corteza",
+        "partOfSpeech": "nf",
+        "definition": "bark, crust, rind, peel",
+        "freqIndex": 4430
+    },
+    {
+        "spWord": "cortina",
+        "partOfSpeech": "nf",
+        "definition": "curtain, screen",
+        "freqIndex": 3630
+    },
+    {
+        "spWord": "corto",
+        "partOfSpeech": "adj",
+        "definition": "short, brief",
+        "freqIndex": 537
+    },
+    {
+        "spWord": "cosa",
+        "partOfSpeech": "nf",
+        "definition": "thing",
+        "freqIndex": 78
+    },
+    {
+        "spWord": "cosecha",
+        "partOfSpeech": "nf",
+        "definition": "harvest, crop",
+        "freqIndex": 2778
+    },
+    {
+        "spWord": "coser",
+        "partOfSpeech": "v",
+        "definition": "to sew",
+        "freqIndex": 3799
+    },
+    {
+        "spWord": "costa",
+        "partOfSpeech": "nf",
+        "definition": "coast",
+        "freqIndex": 1126
+    },
+    {
+        "spWord": "costado",
+        "partOfSpeech": "nm",
+        "definition": "side, flank",
+        "freqIndex": 3356
+    },
+    {
+        "spWord": "costar",
+        "partOfSpeech": "v",
+        "definition": "to cost, be hard",
+        "freqIndex": 626
+    },
+    {
+        "spWord": "costo",
+        "partOfSpeech": "nm",
+        "definition": "price, cost, expense",
+        "freqIndex": 3110
+    },
+    {
+        "spWord": "costoso",
+        "partOfSpeech": "adj",
+        "definition": "costly, expensive",
+        "freqIndex": 3514
+    },
+    {
+        "spWord": "costumbre",
+        "partOfSpeech": "nf",
+        "definition": "habit, custom, usage",
+        "freqIndex": 700
+    },
+    {
+        "spWord": "cotidiano",
+        "partOfSpeech": "adj",
+        "definition": "daily",
+        "freqIndex": 1434
+    },
+    {
+        "spWord": "cráneo",
+        "partOfSpeech": "nm",
+        "definition": "skull, cranium",
+        "freqIndex": 4750
+    },
+    {
+        "spWord": "creación",
+        "partOfSpeech": "nf",
+        "definition": "creation",
+        "freqIndex": 1173
+    },
+    {
+        "spWord": "creador",
+        "partOfSpeech": "nm",
+        "definition": "creator",
+        "freqIndex": 2393
+    },
+    {
+        "spWord": "crear",
+        "partOfSpeech": "v",
+        "definition": "to create",
+        "freqIndex": 251
+    },
+    {
+        "spWord": "creativo",
+        "partOfSpeech": "adj",
+        "definition": "creative",
+        "freqIndex": 3551
+    },
+    {
+        "spWord": "crecer",
+        "partOfSpeech": "v",
+        "definition": "to grow, increase",
+        "freqIndex": 552
+    },
+    {
+        "spWord": "creciente",
+        "partOfSpeech": "adj",
+        "definition": "growing, increasing",
+        "freqIndex": 2484
+    },
+    {
+        "spWord": "crecimiento",
+        "partOfSpeech": "nm",
+        "definition": "growth, increase",
+        "freqIndex": 1902
+    },
+    {
+        "spWord": "crédito",
+        "partOfSpeech": "nm",
+        "definition": "credit, reputation",
+        "freqIndex": 1799
+    },
+    {
+        "spWord": "creencia",
+        "partOfSpeech": "nf",
+        "definition": "belief",
+        "freqIndex": 2236
+    },
+    {
+        "spWord": "creer",
+        "partOfSpeech": "v",
+        "definition": "to believe, think",
+        "freqIndex": 91
+    },
+    {
+        "spWord": "crema",
+        "partOfSpeech": "nf",
+        "definition": "cream",
+        "freqIndex": 4598
+    },
+    {
+        "spWord": "cría",
+        "partOfSpeech": "nf",
+        "definition": "breeding, raising",
+        "freqIndex": 4282
+    },
+    {
+        "spWord": "criar",
+        "partOfSpeech": "v",
+        "definition": "to bring up, rear",
+        "freqIndex": 1962
+    },
+    {
+        "spWord": "criatura",
+        "partOfSpeech": "nf",
+        "definition": "creature, child",
+        "freqIndex": 2235
+    },
+    {
+        "spWord": "crimen",
+        "partOfSpeech": "nm",
+        "definition": "crime, murder",
+        "freqIndex": 1783
+    },
+    {
+        "spWord": "criminal",
+        "partOfSpeech": "nc",
+        "definition": "criminal",
+        "freqIndex": 4061
+    },
+    {
+        "spWord": "criminal",
+        "partOfSpeech": "adj",
+        "definition": "criminal",
+        "freqIndex": 4165
+    },
+    {
+        "spWord": "crisis",
+        "partOfSpeech": "nf",
+        "definition": "crisis",
+        "freqIndex": 1085
+    },
+    {
+        "spWord": "cristal",
+        "partOfSpeech": "nm",
+        "definition": "glass, crystal, window",
+        "freqIndex": 2026
+    },
+    {
+        "spWord": "cristiano",
+        "partOfSpeech": "adj",
+        "definition": "Christian",
+        "freqIndex": 1114
+    },
+    {
+        "spWord": "criterio",
+        "partOfSpeech": "nm",
+        "definition": "criterion",
+        "freqIndex": 1292
+    },
+    {
+        "spWord": "crítica",
+        "partOfSpeech": "nf",
+        "definition": "criticism, critique",
+        "freqIndex": 1344
+    },
+    {
+        "spWord": "criticar",
+        "partOfSpeech": "v",
+        "definition": "to criticize",
+        "freqIndex": 1849
+    },
+    {
+        "spWord": "crítico",
+        "partOfSpeech": "adj",
+        "definition": "critical",
+        "freqIndex": 1656
+    },
+    {
+        "spWord": "crítico",
+        "partOfSpeech": "nm",
+        "definition": "critic",
+        "freqIndex": 3054
+    },
+    {
+        "spWord": "crónica",
+        "partOfSpeech": "nf",
+        "definition": "account, chronicle",
+        "freqIndex": 2817
+    },
+    {
+        "spWord": "crónico",
+        "partOfSpeech": "adj",
+        "definition": "chronic",
+        "freqIndex": 4622
+    },
+    {
+        "spWord": "cruce",
+        "partOfSpeech": "nm",
+        "definition": "crossing, intersection",
+        "freqIndex": 2809
+    },
+    {
+        "spWord": "crudo",
+        "partOfSpeech": "adj",
+        "definition": "raw, crude, natural",
+        "freqIndex": 2860
+    },
+    {
+        "spWord": "cruel",
+        "partOfSpeech": "adj",
+        "definition": "cruel, harsh",
+        "freqIndex": 2453
+    },
+    {
+        "spWord": "crueldad",
+        "partOfSpeech": "nf",
+        "definition": "cruelty, harshness",
+        "freqIndex": 3830
+    },
+    {
+        "spWord": "cruz",
+        "partOfSpeech": "nf",
+        "definition": "cross, burden",
+        "freqIndex": 2800
+    },
+    {
+        "spWord": "cruzar",
+        "partOfSpeech": "v",
+        "definition": "to cross",
+        "freqIndex": 726
+    },
+    {
+        "spWord": "cuaderno",
+        "partOfSpeech": "nm",
+        "definition": "notebook, workbook",
+        "freqIndex": 3220
+    },
+    {
+        "spWord": "cuadra",
+        "partOfSpeech": "nf",
+        "definition": "(city) block",
+        "freqIndex": 3826
+    },
+    {
+        "spWord": "cuadrado",
+        "partOfSpeech": "adj",
+        "definition": "square",
+        "freqIndex": 2198
+    },
+    {
+        "spWord": "cuadro",
+        "partOfSpeech": "nm",
+        "definition": "painting, picture",
+        "freqIndex": 779
+    },
+    {
+        "spWord": "cual",
+        "partOfSpeech": "pron",
+        "definition": "which, who, whom",
+        "freqIndex": 153
+    },
+    {
+        "spWord": "cuál",
+        "partOfSpeech": "pron",
+        "definition": "which?",
+        "freqIndex": 395
+    },
+    {
+        "spWord": "cualidad",
+        "partOfSpeech": "nf",
+        "definition": "quality, attribute",
+        "freqIndex": 1997
+    },
+    {
+        "spWord": "cualquier",
+        "partOfSpeech": "adj",
+        "definition": "any, anyone (pron)",
+        "freqIndex": 149
+    },
+    {
+        "spWord": "cuando",
+        "partOfSpeech": "conj",
+        "definition": "when",
+        "freqIndex": 40
+    },
+    {
+        "spWord": "cuando",
+        "partOfSpeech": "adv",
+        "definition": "when",
+        "freqIndex": 1803
+    },
+    {
+        "spWord": "cuándo",
+        "partOfSpeech": "adv",
+        "definition": "when?",
+        "freqIndex": 1199
+    },
+    {
+        "spWord": "cuanto",
+        "partOfSpeech": "adj",
+        "definition": "all",
+        "freqIndex": 213
+    },
+    {
+        "spWord": "en cuanto a",
+        "partOfSpeech": "prep",
+        "definition": "in terms of, regarding",
+        "freqIndex": 213
+    },
+    {
+        "spWord": "cuánto",
+        "partOfSpeech": "adj",
+        "definition": "how much?",
+        "freqIndex": 723
+    },
+    {
+        "spWord": "cuarenta",
+        "partOfSpeech": "num",
+        "definition": "forty",
+        "freqIndex": 943
+    },
+    {
+        "spWord": "cuartel",
+        "partOfSpeech": "nm",
+        "definition": "quarters, barracks",
+        "freqIndex": 2791
+    },
+    {
+        "spWord": "cuarto",
+        "partOfSpeech": "nm",
+        "definition": "room, chamber",
+        "freqIndex": 655
+    },
+    {
+        "spWord": "cuarto",
+        "partOfSpeech": "adj",
+        "definition": "fourth",
+        "freqIndex": 897
+    },
+    {
+        "spWord": "cuatro",
+        "partOfSpeech": "num",
+        "definition": "four",
+        "freqIndex": 188
+    },
+    {
+        "spWord": "cubano",
+        "partOfSpeech": "adj",
+        "definition": "Cuban",
+        "freqIndex": 3905
+    },
+    {
+        "spWord": "cubierta",
+        "partOfSpeech": "nf",
+        "definition": "covering, top, lid",
+        "freqIndex": 3668
+    },
+    {
+        "spWord": "cubierto",
+        "partOfSpeech": "adj",
+        "definition": "covered",
+        "freqIndex": 1646
+    },
+    {
+        "spWord": "cubrir",
+        "partOfSpeech": "v",
+        "definition": "to cover",
+        "freqIndex": 691
+    },
+    {
+        "spWord": "cuchillo",
+        "partOfSpeech": "nm",
+        "definition": "knife",
+        "freqIndex": 2945
+    },
+    {
+        "spWord": "cuello",
+        "partOfSpeech": "nm",
+        "definition": "neck, collar",
+        "freqIndex": 1920
+    },
+    {
+        "spWord": "cuenca",
+        "partOfSpeech": "nf",
+        "definition": "socket, basin, bowl",
+        "freqIndex": 4975
+    },
+    {
+        "spWord": "cuenta",
+        "partOfSpeech": "nf",
+        "definition": "bill, account",
+        "freqIndex": 170
+    },
+    {
+        "spWord": "cuento",
+        "partOfSpeech": "nm",
+        "definition": "story, tale",
+        "freqIndex": 1357
+    },
+    {
+        "spWord": "cuerda",
+        "partOfSpeech": "nf",
+        "definition": "cord, rope",
+        "freqIndex": 2193
+    },
+    {
+        "spWord": "cuerno",
+        "partOfSpeech": "nm",
+        "definition": "horn, antler",
+        "freqIndex": 4326
+    },
+    {
+        "spWord": "cuero",
+        "partOfSpeech": "nm",
+        "definition": "leather, skin",
+        "freqIndex": 2848
+    },
+    {
+        "spWord": "cuerpo",
+        "partOfSpeech": "nm",
+        "definition": "body",
+        "freqIndex": 232
+    },
+    {
+        "spWord": "cuestión",
+        "partOfSpeech": "nf",
+        "definition": "question, matter",
+        "freqIndex": 398
+    },
+    {
+        "spWord": "cuestionar",
+        "partOfSpeech": "v",
+        "definition": "to question",
+        "freqIndex": 3888
+    },
+    {
+        "spWord": "cueva",
+        "partOfSpeech": "nf",
+        "definition": "cave",
+        "freqIndex": 5000
+    },
+    {
+        "spWord": "cuidado",
+        "partOfSpeech": "nm",
+        "definition": "care, carefulness",
+        "freqIndex": 754
+    },
+    {
+        "spWord": "cuidadosamente",
+        "partOfSpeech": "adv",
+        "definition": "carefully",
+        "freqIndex": 3808
+    },
+    {
+        "spWord": "cuidadoso",
+        "partOfSpeech": "adj",
+        "definition": "careful, cautious",
+        "freqIndex": 4049
+    },
+    {
+        "spWord": "cuidar",
+        "partOfSpeech": "v",
+        "definition": "to take care of",
+        "freqIndex": 846
+    },
+    {
+        "spWord": "culminar",
+        "partOfSpeech": "v",
+        "definition": "to culminate, accomplish",
+        "freqIndex": 3276
+    },
+    {
+        "spWord": "culpa",
+        "partOfSpeech": "nf",
+        "definition": "blame, fault",
+        "freqIndex": 1053
+    },
+    {
+        "spWord": "culpable",
+        "partOfSpeech": "adj",
+        "definition": "guilty",
+        "freqIndex": 2211
+    },
+    {
+        "spWord": "cultivar",
+        "partOfSpeech": "v",
+        "definition": "to cultivate, produce",
+        "freqIndex": 1936
+    },
+    {
+        "spWord": "cultivo",
+        "partOfSpeech": "nm",
+        "definition": "cultivation, crop",
+        "freqIndex": 2333
+    },
+    {
+        "spWord": "culto",
+        "partOfSpeech": "adj",
+        "definition": "cultured, educated",
+        "freqIndex": 2725
+    },
+    {
+        "spWord": "culto",
+        "partOfSpeech": "nm",
+        "definition": "worship, cult",
+        "freqIndex": 2937
+    },
+    {
+        "spWord": "cultura",
+        "partOfSpeech": "nf",
+        "definition": "culture",
+        "freqIndex": 521
+    },
+    {
+        "spWord": "cultural",
+        "partOfSpeech": "adj",
+        "definition": "cultural",
+        "freqIndex": 1277
+    },
+    {
+        "spWord": "cumbre",
+        "partOfSpeech": "nf",
+        "definition": "summit, top",
+        "freqIndex": 3523
+    },
+    {
+        "spWord": "cumpleaños",
+        "partOfSpeech": "nm",
+        "definition": "birthday",
+        "freqIndex": 3785
+    },
+    {
+        "spWord": "cumplimiento",
+        "partOfSpeech": "nm",
+        "definition": "fulfillment, compliment",
+        "freqIndex": 2691
+    },
+    {
+        "spWord": "cumplir",
+        "partOfSpeech": "v",
+        "definition": "to fulfill",
+        "freqIndex": 363
+    },
+    {
+        "spWord": "cuna",
+        "partOfSpeech": "nf",
+        "definition": "cradle, birth, lineage",
+        "freqIndex": 3726
+    },
+    {
+        "spWord": "cuota",
+        "partOfSpeech": "nf",
+        "definition": "quota, share, dues",
+        "freqIndex": 2955
+    },
+    {
+        "spWord": "cúpula",
+        "partOfSpeech": "nf",
+        "definition": "cupola, dome",
+        "freqIndex": 3833
+    },
+    {
+        "spWord": "cura",
+        "partOfSpeech": "nm",
+        "definition": "priest",
+        "freqIndex": 2103
+    },
+    {
+        "spWord": "cura",
+        "partOfSpeech": "nf",
+        "definition": "cure",
+        "freqIndex": 2103
+    },
+    {
+        "spWord": "curar",
+        "partOfSpeech": "v",
+        "definition": "to cure",
+        "freqIndex": 2097
+    },
+    {
+        "spWord": "curiosamente",
+        "partOfSpeech": "adv",
+        "definition": "strangely, funnily enough",
+        "freqIndex": 3469
+    },
+    {
+        "spWord": "curiosidad",
+        "partOfSpeech": "nf",
+        "definition": "curiosity, quaintness",
+        "freqIndex": 1857
+    },
+    {
+        "spWord": "curioso",
+        "partOfSpeech": "adj",
+        "definition": "curious, strange",
+        "freqIndex": 1084
+    },
+    {
+        "spWord": "curso",
+        "partOfSpeech": "nm",
+        "definition": "course, direction",
+        "freqIndex": 610
+    },
+    {
+        "spWord": "curva",
+        "partOfSpeech": "nf",
+        "definition": "curve",
+        "freqIndex": 2781
+    },
+    {
+        "spWord": "cuyo",
+        "partOfSpeech": "adj",
+        "definition": "whose",
+        "freqIndex": 264
+    },
+    {
+        "spWord": "dado",
+        "partOfSpeech": "adj",
+        "definition": "given",
+        "freqIndex": 968
+    },
+    {
+        "spWord": "dama",
+        "partOfSpeech": "nf",
+        "definition": "lady, dame",
+        "freqIndex": 2159
+    },
+    {
+        "spWord": "dañar",
+        "partOfSpeech": "v",
+        "definition": "to damage",
+        "freqIndex": 3558
+    },
+    {
+        "spWord": "daño",
+        "partOfSpeech": "nm",
+        "definition": "harm, injury, damage",
+        "freqIndex": 1045
+    },
+    {
+        "spWord": "danza",
+        "partOfSpeech": "nf",
+        "definition": "dance",
+        "freqIndex": 2434
+    },
+    {
+        "spWord": "dar",
+        "partOfSpeech": "v",
+        "definition": "to give",
+        "freqIndex": 39
+    },
+    {
+        "spWord": "dato",
+        "partOfSpeech": "nm",
+        "definition": "data, fact",
+        "freqIndex": 513
+    },
+    {
+        "spWord": "de",
+        "partOfSpeech": "prep",
+        "definition": "of, from",
+        "freqIndex": 2
+    },
+    {
+        "spWord": "debajo",
+        "partOfSpeech": "adv",
+        "definition": "underneath, below",
+        "freqIndex": 820
+    },
+    {
+        "spWord": "debate",
+        "partOfSpeech": "nm",
+        "definition": "debate",
+        "freqIndex": 2261
+    },
+    {
+        "spWord": "debatir",
+        "partOfSpeech": "v",
+        "definition": "to debate, discuss",
+        "freqIndex": 3422
+    },
+    {
+        "spWord": "deber",
+        "partOfSpeech": "v",
+        "definition": "should, ought to; to owe",
+        "freqIndex": 75
+    },
+    {
+        "spWord": "deber",
+        "partOfSpeech": "nm",
+        "definition": "duty, obligation",
+        "freqIndex": 1588
+    },
+    {
+        "spWord": "debidamente",
+        "partOfSpeech": "adv",
+        "definition": "properly, duly",
+        "freqIndex": 4897
+    },
+    {
+        "spWord": "debido",
+        "partOfSpeech": "adj",
+        "definition": "due",
+        "freqIndex": 981
+    },
+    {
+        "spWord": "debido a",
+        "partOfSpeech": "prep",
+        "definition": "due to",
+        "freqIndex": 981
+    },
+    {
+        "spWord": "débil",
+        "partOfSpeech": "adj",
+        "definition": "weak",
+        "freqIndex": 1284
+    },
+    {
+        "spWord": "debilidad",
+        "partOfSpeech": "nf",
+        "definition": "weakness",
+        "freqIndex": 2439
+    },
+    {
+        "spWord": "debilitar",
+        "partOfSpeech": "v",
+        "definition": "to weaken, debilitate",
+        "freqIndex": 4112
+    },
+    {
+        "spWord": "década",
+        "partOfSpeech": "nf",
+        "definition": "decade",
+        "freqIndex": 2127
+    },
+    {
+        "spWord": "decadencia",
+        "partOfSpeech": "nf",
+        "definition": "decline, decay",
+        "freqIndex": 3117
+    },
+    {
+        "spWord": "decaer",
+        "partOfSpeech": "v",
+        "definition": "to decay, wane",
+        "freqIndex": 4974
+    },
+    {
+        "spWord": "decena",
+        "partOfSpeech": "nf",
+        "definition": "ten (of something)",
+        "freqIndex": 4580
+    },
+    {
+        "spWord": "decente",
+        "partOfSpeech": "adj",
+        "definition": "respectable, decent",
+        "freqIndex": 4517
+    },
+    {
+        "spWord": "decepción",
+        "partOfSpeech": "nf",
+        "definition": "disappointment, disenchantment",
+        "freqIndex": 4895
+    },
+    {
+        "spWord": "decididamente",
+        "partOfSpeech": "adv",
+        "definition": "decidedly, decisively",
+        "freqIndex": 4403
+    },
+    {
+        "spWord": "decidido",
+        "partOfSpeech": "adj",
+        "definition": "determined, resolute",
+        "freqIndex": 1988
+    },
+    {
+        "spWord": "decidir",
+        "partOfSpeech": "v",
+        "definition": "to decide",
+        "freqIndex": 381
+    },
+    {
+        "spWord": "décimo",
+        "partOfSpeech": "adj",
+        "definition": "tenth",
+        "freqIndex": 3355
+    },
+    {
+        "spWord": "decir",
+        "partOfSpeech": "v",
+        "definition": "to tell, say",
+        "freqIndex": 28
+    },
+    {
+        "spWord": "decisión",
+        "partOfSpeech": "nf",
+        "definition": "decision",
+        "freqIndex": 549
+    },
+    {
+        "spWord": "decisivo",
+        "partOfSpeech": "adj",
+        "definition": "decisive, conclusive",
+        "freqIndex": 2638
+    },
+    {
+        "spWord": "declaración",
+        "partOfSpeech": "nf",
+        "definition": "declaration, statement",
+        "freqIndex": 1746
+    },
+    {
+        "spWord": "declarar",
+        "partOfSpeech": "v",
+        "definition": "to declare, testify",
+        "freqIndex": 1136
+    },
+    {
+        "spWord": "decoración",
+        "partOfSpeech": "nf",
+        "definition": "decoration",
+        "freqIndex": 4532
+    },
+    {
+        "spWord": "decreto",
+        "partOfSpeech": "nm",
+        "definition": "decree, order",
+        "freqIndex": 3529
+    },
+    {
+        "spWord": "dedicación",
+        "partOfSpeech": "nf",
+        "definition": "dedication, devotion",
+        "freqIndex": 3698
+    },
+    {
+        "spWord": "dedicar",
+        "partOfSpeech": "v",
+        "definition": "to dedicate, devote",
+        "freqIndex": 415
+    },
+    {
+        "spWord": "dedo",
+        "partOfSpeech": "nm",
+        "definition": "finger, toe, digit",
+        "freqIndex": 1248
+    },
+    {
+        "spWord": "deducir",
+        "partOfSpeech": "v",
+        "definition": "to deduce, infer",
+        "freqIndex": 2869
+    },
+    {
+        "spWord": "defecto",
+        "partOfSpeech": "nm",
+        "definition": "defect",
+        "freqIndex": 1497
+    },
+    {
+        "spWord": "defender",
+        "partOfSpeech": "v",
+        "definition": "to defend, protect",
+        "freqIndex": 665
+    },
+    {
+        "spWord": "defensa",
+        "partOfSpeech": "nf",
+        "definition": "defense, plea",
+        "freqIndex": 815
+    },
+    {
+        "spWord": "defensivo",
+        "partOfSpeech": "adj",
+        "definition": "defensive",
+        "freqIndex": 4270
+    },
+    {
+        "spWord": "defensor",
+        "partOfSpeech": "nm",
+        "definition": "defender",
+        "freqIndex": 3499
+    },
+    {
+        "spWord": "definición",
+        "partOfSpeech": "nf",
+        "definition": "definition",
+        "freqIndex": 1676
+    },
+    {
+        "spWord": "definido",
+        "partOfSpeech": "adj",
+        "definition": "definite",
+        "freqIndex": 2043
+    },
+    {
+        "spWord": "definir",
+        "partOfSpeech": "v",
+        "definition": "to define",
+        "freqIndex": 974
+    },
+    {
+        "spWord": "definitivamente",
+        "partOfSpeech": "adv",
+        "definition": "definitely, finally",
+        "freqIndex": 1358
+    },
+    {
+        "spWord": "definitivo",
+        "partOfSpeech": "adj",
+        "definition": "definitive, conclusive",
+        "freqIndex": 803
+    },
+    {
+        "spWord": "dejar",
+        "partOfSpeech": "v",
+        "definition": "to let, leave",
+        "freqIndex": 94
+    },
+    {
+        "spWord": "delante",
+        "partOfSpeech": "adv",
+        "definition": "(in) front (of), ahead",
+        "freqIndex": 885
+    },
+    {
+        "spWord": "delgado",
+        "partOfSpeech": "adj",
+        "definition": "thin, skinny",
+        "freqIndex": 3039
+    },
+    {
+        "spWord": "delicadeza",
+        "partOfSpeech": "nf",
+        "definition": "gentleness, tenderness",
+        "freqIndex": 4986
+    },
+    {
+        "spWord": "delicado",
+        "partOfSpeech": "adj",
+        "definition": "delicate",
+        "freqIndex": 1380
+    },
+    {
+        "spWord": "delicioso",
+        "partOfSpeech": "adj",
+        "definition": "delicious, delightful, charming",
+        "freqIndex": 3132
+    },
+    {
+        "spWord": "delincuente",
+        "partOfSpeech": "nc",
+        "definition": "delinquent",
+        "freqIndex": 4111
+    },
+    {
+        "spWord": "delirio",
+        "partOfSpeech": "nm",
+        "definition": "delirium, nonsense",
+        "freqIndex": 4574
+    },
+    {
+        "spWord": "delito",
+        "partOfSpeech": "nm",
+        "definition": "crime, offense",
+        "freqIndex": 2219
+    },
+    {
+        "spWord": "demanda",
+        "partOfSpeech": "nf",
+        "definition": "petition, request, demand",
+        "freqIndex": 1950
+    },
+    {
+        "spWord": "demandar",
+        "partOfSpeech": "v",
+        "definition": "to claim, sue",
+        "freqIndex": 4802
+    },
+    {
+        "spWord": "demás",
+        "partOfSpeech": "adj",
+        "definition": "the rest, others",
+        "freqIndex": 312
+    },
+    {
+        "spWord": "demasiado",
+        "partOfSpeech": "adj",
+        "definition": "too much, too many",
+        "freqIndex": 335
+    },
+    {
+        "spWord": "democracia",
+        "partOfSpeech": "nf",
+        "definition": "democracy",
+        "freqIndex": 2576
+    },
+    {
+        "spWord": "democrático",
+        "partOfSpeech": "adj",
+        "definition": "democratic",
+        "freqIndex": 2271
+    },
+    {
+        "spWord": "demonio",
+        "partOfSpeech": "nm",
+        "definition": "demon, devil",
+        "freqIndex": 3258
+    },
+    {
+        "spWord": "demorar",
+        "partOfSpeech": "v",
+        "definition": "to delay, take time",
+        "freqIndex": 3320
+    },
+    {
+        "spWord": "demostración",
+        "partOfSpeech": "nf",
+        "definition": "demonstration",
+        "freqIndex": 2687
+    },
+    {
+        "spWord": "demostrar",
+        "partOfSpeech": "v",
+        "definition": "to show, demonstrate",
+        "freqIndex": 501
+    },
+    {
+        "spWord": "denominación",
+        "partOfSpeech": "nf",
+        "definition": "name, denomination",
+        "freqIndex": 4914
+    },
+    {
+        "spWord": "denominar",
+        "partOfSpeech": "v",
+        "definition": "to call, name",
+        "freqIndex": 1869
+    },
+    {
+        "spWord": "densidad",
+        "partOfSpeech": "nf",
+        "definition": "density, thickness",
+        "freqIndex": 4318
+    },
+    {
+        "spWord": "denso",
+        "partOfSpeech": "adj",
+        "definition": "heavy, dense, thick",
+        "freqIndex": 3605
+    },
+    {
+        "spWord": "dentro",
+        "partOfSpeech": "adv",
+        "definition": "inside",
+        "freqIndex": 174
+    },
+    {
+        "spWord": "denuncia",
+        "partOfSpeech": "nf",
+        "definition": "accusation",
+        "freqIndex": 2838
+    },
+    {
+        "spWord": "denunciar",
+        "partOfSpeech": "v",
+        "definition": "to denounce",
+        "freqIndex": 2332
+    },
+    {
+        "spWord": "departamento",
+        "partOfSpeech": "nm",
+        "definition": "department, apartment",
+        "freqIndex": 1462
+    },
+    {
+        "spWord": "dependencia",
+        "partOfSpeech": "nf",
+        "definition": "dependence, dependency",
+        "freqIndex": 2575
+    },
+    {
+        "spWord": "depender",
+        "partOfSpeech": "v",
+        "definition": "to depend on",
+        "freqIndex": 673
+    },
+    {
+        "spWord": "deporte",
+        "partOfSpeech": "nm",
+        "definition": "sport",
+        "freqIndex": 2019
+    },
+    {
+        "spWord": "deportivo",
+        "partOfSpeech": "adj",
+        "definition": "sports, sporty",
+        "freqIndex": 2862
+    },
+    {
+        "spWord": "depositar",
+        "partOfSpeech": "v",
+        "definition": "to deposit, place, store",
+        "freqIndex": 1995
+    },
+    {
+        "spWord": "depósito",
+        "partOfSpeech": "nm",
+        "definition": "deposit, sediment",
+        "freqIndex": 2664
+    },
+    {
+        "spWord": "depresión",
+        "partOfSpeech": "nf",
+        "definition": "depression, slump",
+        "freqIndex": 3419
+    },
+    {
+        "spWord": "derecha",
+        "partOfSpeech": "nf",
+        "definition": "right, right hand",
+        "freqIndex": 1035
+    },
+    {
+        "spWord": "derecho",
+        "partOfSpeech": "nm",
+        "definition": "right, justice, law",
+        "freqIndex": 427
+    },
+    {
+        "spWord": "derecho",
+        "partOfSpeech": "adj",
+        "definition": "right, straight",
+        "freqIndex": 912
+    },
+    {
+        "spWord": "derivar",
+        "partOfSpeech": "v",
+        "definition": "to derive, come (from)",
+        "freqIndex": 1739
+    },
+    {
+        "spWord": "derramar",
+        "partOfSpeech": "v",
+        "definition": "to shed, pour out",
+        "freqIndex": 4222
+    },
+    {
+        "spWord": "derribar",
+        "partOfSpeech": "v",
+        "definition": "to knock down, overthrow",
+        "freqIndex": 3772
+    },
+    {
+        "spWord": "derrota",
+        "partOfSpeech": "nf",
+        "definition": "defeat, loss",
+        "freqIndex": 2601
+    },
+    {
+        "spWord": "derrotar",
+        "partOfSpeech": "v",
+        "definition": "to defeat, beat",
+        "freqIndex": 2951
+    },
+    {
+        "spWord": "derrumbar",
+        "partOfSpeech": "v",
+        "definition": "to knock down, demolish",
+        "freqIndex": 3544
+    },
+    {
+        "spWord": "desacuerdo",
+        "partOfSpeech": "nm",
+        "definition": "disagreement",
+        "freqIndex": 4038
+    },
+    {
+        "spWord": "desafiar",
+        "partOfSpeech": "v",
+        "definition": "to defy, stand up to",
+        "freqIndex": 4044
+    },
+    {
+        "spWord": "desafío",
+        "partOfSpeech": "nm",
+        "definition": "challenge, provocation",
+        "freqIndex": 2992
+    },
+    {
+        "spWord": "desagradable",
+        "partOfSpeech": "adj",
+        "definition": "unpleasant",
+        "freqIndex": 2237
+    },
+    {
+        "spWord": "desaparecer",
+        "partOfSpeech": "v",
+        "definition": "to disappear, vanish",
+        "freqIndex": 528
+    },
+    {
+        "spWord": "desaparecido",
+        "partOfSpeech": "adj",
+        "definition": "missing",
+        "freqIndex": 3813
+    },
+    {
+        "spWord": "desaparición",
+        "partOfSpeech": "nf",
+        "definition": "disappearance",
+        "freqIndex": 2470
+    },
+    {
+        "spWord": "desarrollado",
+        "partOfSpeech": "adj",
+        "definition": "developed, grown",
+        "freqIndex": 2369
+    },
+    {
+        "spWord": "desarrollar",
+        "partOfSpeech": "v",
+        "definition": "to develop",
+        "freqIndex": 491
+    },
+    {
+        "spWord": "desarrollo",
+        "partOfSpeech": "nm",
+        "definition": "development",
+        "freqIndex": 685
+    },
+    {
+        "spWord": "desastre",
+        "partOfSpeech": "nm",
+        "definition": "disaster",
+        "freqIndex": 1953
+    },
+    {
+        "spWord": "desatar",
+        "partOfSpeech": "v",
+        "definition": "to untie, unleash, spark off",
+        "freqIndex": 3188
+    },
+    {
+        "spWord": "desayunar",
+        "partOfSpeech": "v",
+        "definition": "to have breakfast",
+        "freqIndex": 4588
+    },
+    {
+        "spWord": "desayuno",
+        "partOfSpeech": "nm",
+        "definition": "breakfast",
+        "freqIndex": 3157
+    },
+    {
+        "spWord": "desbordar",
+        "partOfSpeech": "v",
+        "definition": "to overflow, spill over",
+        "freqIndex": 3834
+    },
+    {
+        "spWord": "descalzo",
+        "partOfSpeech": "adj",
+        "definition": "barefoot",
+        "freqIndex": 4384
+    },
+    {
+        "spWord": "descansar",
+        "partOfSpeech": "v",
+        "definition": "to rest",
+        "freqIndex": 1257
+    },
+    {
+        "spWord": "descanso",
+        "partOfSpeech": "nm",
+        "definition": "rest, interval, break",
+        "freqIndex": 1930
+    },
+    {
+        "spWord": "descarga",
+        "partOfSpeech": "nf",
+        "definition": "unloading, discharge",
+        "freqIndex": 4971
+    },
+    {
+        "spWord": "descargar",
+        "partOfSpeech": "v",
+        "definition": "to unleash, unload",
+        "freqIndex": 3190
+    },
+    {
+        "spWord": "descartar",
+        "partOfSpeech": "v",
+        "definition": "to discard, reject, rule out",
+        "freqIndex": 2877
+    },
+    {
+        "spWord": "descender",
+        "partOfSpeech": "v",
+        "definition": "to descend",
+        "freqIndex": 1645
+    },
+    {
+        "spWord": "descendiente",
+        "partOfSpeech": "nc",
+        "definition": "descendant",
+        "freqIndex": 3387
+    },
+    {
+        "spWord": "descenso",
+        "partOfSpeech": "nm",
+        "definition": "decline, descent, lowering",
+        "freqIndex": 3641
+    },
+    {
+        "spWord": "descifrar",
+        "partOfSpeech": "v",
+        "definition": "to decipher",
+        "freqIndex": 4946
+    },
+    {
+        "spWord": "descomponer",
+        "partOfSpeech": "v",
+        "definition": "to decompose, break down",
+        "freqIndex": 3706
+    },
+    {
+        "spWord": "desconcertado",
+        "partOfSpeech": "adj",
+        "definition": "disoriented, disconcerted",
+        "freqIndex": 4808
+    },
+    {
+        "spWord": "desconcierto",
+        "partOfSpeech": "nm",
+        "definition": "disorder, chaos",
+        "freqIndex": 4543
+    },
+    {
+        "spWord": "desconfianza",
+        "partOfSpeech": "nf",
+        "definition": "distrust",
+        "freqIndex": 3170
+    },
+    {
+        "spWord": "desconocer",
+        "partOfSpeech": "v",
+        "definition": "to not know, not recognize",
+        "freqIndex": 1662
+    },
+    {
+        "spWord": "desconocido",
+        "partOfSpeech": "adj",
+        "definition": "unknown",
+        "freqIndex": 1302
+    },
+    {
+        "spWord": "describir",
+        "partOfSpeech": "v",
+        "definition": "to describe",
+        "freqIndex": 1151
+    },
+    {
+        "spWord": "descripción",
+        "partOfSpeech": "nf",
+        "definition": "description",
+        "freqIndex": 2550
+    },
+    {
+        "spWord": "descubrimiento",
+        "partOfSpeech": "nm",
+        "definition": "discovery",
+        "freqIndex": 1622
+    },
+    {
+        "spWord": "descubrir",
+        "partOfSpeech": "v",
+        "definition": "to discover",
+        "freqIndex": 369
+    },
+    {
+        "spWord": "descuidar",
+        "partOfSpeech": "v",
+        "definition": "to neglect",
+        "freqIndex": 3072
+    },
+    {
+        "spWord": "descuido",
+        "partOfSpeech": "nm",
+        "definition": "neglect, oversight",
+        "freqIndex": 4624
+    },
+    {
+        "spWord": "desde",
+        "partOfSpeech": "prep",
+        "definition": "from, since",
+        "freqIndex": 61
+    },
+    {
+        "spWord": "deseable",
+        "partOfSpeech": "adj",
+        "definition": "desirable",
+        "freqIndex": 4313
+    },
+    {
+        "spWord": "desear",
+        "partOfSpeech": "v",
+        "definition": "to want, desire, wish for",
+        "freqIndex": 515
+    },
+    {
+        "spWord": "desechar",
+        "partOfSpeech": "v",
+        "definition": "to discard",
+        "freqIndex": 3855
+    },
+    {
+        "spWord": "desembocar",
+        "partOfSpeech": "v",
+        "definition": "to flow, lead into",
+        "freqIndex": 3059
+    },
+    {
+        "spWord": "desempeñar",
+        "partOfSpeech": "v",
+        "definition": "to carry out, fulfill",
+        "freqIndex": 2100
+    },
+    {
+        "spWord": "desencadenar",
+        "partOfSpeech": "v",
+        "definition": "to unleash, unchain",
+        "freqIndex": 3933
+    },
+    {
+        "spWord": "desenlace",
+        "partOfSpeech": "nm",
+        "definition": "outcome, result",
+        "freqIndex": 4507
+    },
+    {
+        "spWord": "desenvolver",
+        "partOfSpeech": "v",
+        "definition": "to clear up, unwrap",
+        "freqIndex": 3740
+    },
+    {
+        "spWord": "deseo",
+        "partOfSpeech": "nm",
+        "definition": "desire, wish",
+        "freqIndex": 579
+    },
+    {
+        "spWord": "desequilibrio",
+        "partOfSpeech": "nm",
+        "definition": "imbalance, unsteadiness",
+        "freqIndex": 4953
+    },
+    {
+        "spWord": "desesperación",
+        "partOfSpeech": "nf",
+        "definition": "desperation, exasperation",
+        "freqIndex": 2780
+    },
+    {
+        "spWord": "desesperado",
+        "partOfSpeech": "adj",
+        "definition": "desperate, hopeless",
+        "freqIndex": 2156
+    },
+    {
+        "spWord": "desesperar",
+        "partOfSpeech": "v",
+        "definition": "to despair, lose hope",
+        "freqIndex": 4642
+    },
+    {
+        "spWord": "desfilar",
+        "partOfSpeech": "v",
+        "definition": "to march, parade",
+        "freqIndex": 4329
+    },
+    {
+        "spWord": "desfile",
+        "partOfSpeech": "nm",
+        "definition": "parade, line, formation",
+        "freqIndex": 3973
+    },
+    {
+        "spWord": "desgracia",
+        "partOfSpeech": "nf",
+        "definition": "misfortune, bad luck",
+        "freqIndex": 1584
+    },
+    {
+        "spWord": "desgraciadamente",
+        "partOfSpeech": "adv",
+        "definition": "unfortunately",
+        "freqIndex": 3315
+    },
+    {
+        "spWord": "deshacer",
+        "partOfSpeech": "v",
+        "definition": "to undo, destroy, take apart",
+        "freqIndex": 2324
+    },
+    {
+        "spWord": "desierto",
+        "partOfSpeech": "nm",
+        "definition": "desert",
+        "freqIndex": 2431
+    },
+    {
+        "spWord": "desierto",
+        "partOfSpeech": "adj",
+        "definition": "deserted, desolate",
+        "freqIndex": 3782
+    },
+    {
+        "spWord": "designar",
+        "partOfSpeech": "v",
+        "definition": "to designate",
+        "freqIndex": 2479
+    },
+    {
+        "spWord": "desigual",
+        "partOfSpeech": "adj",
+        "definition": "unequal, uneven, irregular",
+        "freqIndex": 3978
+    },
+    {
+        "spWord": "desilusión",
+        "partOfSpeech": "nf",
+        "definition": "disappointment, letdown",
+        "freqIndex": 4784
+    },
+    {
+        "spWord": "deslizar",
+        "partOfSpeech": "v",
+        "definition": "to slide, glide, slip",
+        "freqIndex": 3651
+    },
+    {
+        "spWord": "desmentir",
+        "partOfSpeech": "v",
+        "definition": "to contradict",
+        "freqIndex": 4925
+    },
+    {
+        "spWord": "desnudo",
+        "partOfSpeech": "adj",
+        "definition": "nude, naked",
+        "freqIndex": 2008
+    },
+    {
+        "spWord": "desorden",
+        "partOfSpeech": "nm",
+        "definition": "disorder, mess",
+        "freqIndex": 2374
+    },
+    {
+        "spWord": "desordenado",
+        "partOfSpeech": "adj",
+        "definition": "messy, confused",
+        "freqIndex": 4335
+    },
+    {
+        "spWord": "despacho",
+        "partOfSpeech": "nm",
+        "definition": "office, study",
+        "freqIndex": 2487
+    },
+    {
+        "spWord": "despacio",
+        "partOfSpeech": "adj",
+        "definition": "slow, slowly",
+        "freqIndex": 3398
+    },
+    {
+        "spWord": "despedida",
+        "partOfSpeech": "nf",
+        "definition": "goodbye, farewell",
+        "freqIndex": 4848
+    },
+    {
+        "spWord": "despedir",
+        "partOfSpeech": "v",
+        "definition": "to say goodbye (to), dismiss",
+        "freqIndex": 1940
+    },
+    {
+        "spWord": "despejar",
+        "partOfSpeech": "v",
+        "definition": "to clear (up)",
+        "freqIndex": 4573
+    },
+    {
+        "spWord": "desperdicio",
+        "partOfSpeech": "nm",
+        "definition": "waste, refuse, garbage",
+        "freqIndex": 4957
+    },
+    {
+        "spWord": "despertar",
+        "partOfSpeech": "v",
+        "definition": "to wake (up), arouse",
+        "freqIndex": 734
+    },
+    {
+        "spWord": "despierto",
+        "partOfSpeech": "adj",
+        "definition": "awake",
+        "freqIndex": 3958
+    },
+    {
+        "spWord": "desplazamiento",
+        "partOfSpeech": "nm",
+        "definition": "movement, removal",
+        "freqIndex": 3887
+    },
+    {
+        "spWord": "desplazar",
+        "partOfSpeech": "v",
+        "definition": "to replace, move, shift",
+        "freqIndex": 1771
+    },
+    {
+        "spWord": "desplegar",
+        "partOfSpeech": "v",
+        "definition": "to unfold, deploy",
+        "freqIndex": 3058
+    },
+    {
+        "spWord": "despliegue",
+        "partOfSpeech": "nm",
+        "definition": "deployment, display",
+        "freqIndex": 4963
+    },
+    {
+        "spWord": "despojar",
+        "partOfSpeech": "v",
+        "definition": "to deprive, rob",
+        "freqIndex": 4050
+    },
+    {
+        "spWord": "despreciar",
+        "partOfSpeech": "v",
+        "definition": "to despise, scorn",
+        "freqIndex": 3141
+    },
+    {
+        "spWord": "desprecio",
+        "partOfSpeech": "nm",
+        "definition": "contempt, disdain",
+        "freqIndex": 2946
+    },
+    {
+        "spWord": "desprender",
+        "partOfSpeech": "v",
+        "definition": "to detach, release, remove",
+        "freqIndex": 1819
+    },
+    {
+        "spWord": "después",
+        "partOfSpeech": "adv",
+        "definition": "after",
+        "freqIndex": 87
+    },
+    {
+        "spWord": "destacado",
+        "partOfSpeech": "adj",
+        "definition": "outstanding, leading",
+        "freqIndex": 3001
+    },
+    {
+        "spWord": "destacar",
+        "partOfSpeech": "v",
+        "definition": "to emphasize, stand out",
+        "freqIndex": 941
+    },
+    {
+        "spWord": "destinar",
+        "partOfSpeech": "v",
+        "definition": "to assign, appoint",
+        "freqIndex": 1057
+    },
+    {
+        "spWord": "destino",
+        "partOfSpeech": "nm",
+        "definition": "destination, destiny",
+        "freqIndex": 844
+    },
+    {
+        "spWord": "destreza",
+        "partOfSpeech": "nf",
+        "definition": "skill",
+        "freqIndex": 4679
+    },
+    {
+        "spWord": "destrozar",
+        "partOfSpeech": "v",
+        "definition": "to rip/break into pieces",
+        "freqIndex": 3945
+    },
+    {
+        "spWord": "destrucción",
+        "partOfSpeech": "nf",
+        "definition": "destruction",
+        "freqIndex": 2301
+    },
+    {
+        "spWord": "destruido",
+        "partOfSpeech": "adj",
+        "definition": "destroyed",
+        "freqIndex": 4487
+    },
+    {
+        "spWord": "destruir",
+        "partOfSpeech": "v",
+        "definition": "to destroy, ruin",
+        "freqIndex": 1207
+    },
+    {
+        "spWord": "desviar",
+        "partOfSpeech": "v",
+        "definition": "to deviate, divert, change",
+        "freqIndex": 2723
+    },
+    {
+        "spWord": "detallado",
+        "partOfSpeech": "adj",
+        "definition": "detailed, thorough",
+        "freqIndex": 4228
+    },
+    {
+        "spWord": "detalle",
+        "partOfSpeech": "nm",
+        "definition": "detail",
+        "freqIndex": 784
+    },
+    {
+        "spWord": "detectar",
+        "partOfSpeech": "v",
+        "definition": "to detect",
+        "freqIndex": 2826
+    },
+    {
+        "spWord": "detención",
+        "partOfSpeech": "nf",
+        "definition": "detention, arrest",
+        "freqIndex": 4675
+    },
+    {
+        "spWord": "detener",
+        "partOfSpeech": "v",
+        "definition": "to stop, detain",
+        "freqIndex": 490
+    },
+    {
+        "spWord": "deteriorar",
+        "partOfSpeech": "v",
+        "definition": "to deteriorate",
+        "freqIndex": 4639
+    },
+    {
+        "spWord": "deterioro",
+        "partOfSpeech": "nm",
+        "definition": "deterioration, damage",
+        "freqIndex": 4138
+    },
+    {
+        "spWord": "determinación",
+        "partOfSpeech": "nf",
+        "definition": "determination",
+        "freqIndex": 2640
+    },
+    {
+        "spWord": "determinado",
+        "partOfSpeech": "adj",
+        "definition": "determined, fixed",
+        "freqIndex": 927
+    },
+    {
+        "spWord": "determinar",
+        "partOfSpeech": "v",
+        "definition": "to determine, decide",
+        "freqIndex": 1009
+    },
+    {
+        "spWord": "detrás",
+        "partOfSpeech": "adv",
+        "definition": "behind",
+        "freqIndex": 701
+    },
+    {
+        "spWord": "deuda",
+        "partOfSpeech": "nf",
+        "definition": "debt",
+        "freqIndex": 2139
+    },
+    {
+        "spWord": "devoción",
+        "partOfSpeech": "nf",
+        "definition": "devotion",
+        "freqIndex": 3702
+    },
+    {
+        "spWord": "devolver",
+        "partOfSpeech": "v",
+        "definition": "to return, give back",
+        "freqIndex": 1003
+    },
+    {
+        "spWord": "devorar",
+        "partOfSpeech": "v",
+        "definition": "to devour, consume",
+        "freqIndex": 4370
+    },
+    {
+        "spWord": "día",
+        "partOfSpeech": "nm",
+        "definition": "day",
+        "freqIndex": 71
+    },
+    {
+        "spWord": "diablo",
+        "partOfSpeech": "nm",
+        "definition": "devil",
+        "freqIndex": 2878
+    },
+    {
+        "spWord": "diagnóstico",
+        "partOfSpeech": "nm",
+        "definition": "diagnosis",
+        "freqIndex": 3825
+    },
+    {
+        "spWord": "dialogar",
+        "partOfSpeech": "v",
+        "definition": "to confer, talk",
+        "freqIndex": 4883
+    },
+    {
+        "spWord": "diálogo",
+        "partOfSpeech": "nm",
+        "definition": "dialogue, conversation",
+        "freqIndex": 1251
+    },
+    {
+        "spWord": "diamante",
+        "partOfSpeech": "nm",
+        "definition": "diamond",
+        "freqIndex": 4984
+    },
+    {
+        "spWord": "diariamente",
+        "partOfSpeech": "adv",
+        "definition": "daily",
+        "freqIndex": 3524
+    },
+    {
+        "spWord": "diario",
+        "partOfSpeech": "nm",
+        "definition": "newspaper",
+        "freqIndex": 903
+    },
+    {
+        "spWord": "diario",
+        "partOfSpeech": "adj",
+        "definition": "daily",
+        "freqIndex": 979
+    },
+    {
+        "spWord": "dibujar",
+        "partOfSpeech": "v",
+        "definition": "to draw, sketch",
+        "freqIndex": 2317
+    },
+    {
+        "spWord": "dibujo",
+        "partOfSpeech": "nm",
+        "definition": "drawing, sketch",
+        "freqIndex": 1692
+    },
+    {
+        "spWord": "diccionario",
+        "partOfSpeech": "nm",
+        "definition": "dictionary",
+        "freqIndex": 4223
+    },
+    {
+        "spWord": "dicha",
+        "partOfSpeech": "nf",
+        "definition": "fortune, happiness, luck",
+        "freqIndex": 4590
+    },
+    {
+        "spWord": "dicho",
+        "partOfSpeech": "nm",
+        "definition": "saying, proverb",
+        "freqIndex": 3348
+    },
+    {
+        "spWord": "dicho",
+        "partOfSpeech": "adj",
+        "definition": "aforementioned, said",
+        "freqIndex": 3644
+    },
+    {
+        "spWord": "dichoso",
+        "partOfSpeech": "adj",
+        "definition": "fortunate, happy",
+        "freqIndex": 4497
+    },
+    {
+        "spWord": "diciembre",
+        "partOfSpeech": "nm",
+        "definition": "December",
+        "freqIndex": 1341
+    },
+    {
+        "spWord": "dictador",
+        "partOfSpeech": "nm",
+        "definition": "dictator",
+        "freqIndex": 4747
+    },
+    {
+        "spWord": "dictadura",
+        "partOfSpeech": "nf",
+        "definition": "dictatorship",
+        "freqIndex": 2824
+    },
+    {
+        "spWord": "dictar",
+        "partOfSpeech": "v",
+        "definition": "to dictate, announce",
+        "freqIndex": 1881
+    },
+    {
+        "spWord": "dieciocho",
+        "partOfSpeech": "num",
+        "definition": "eighteen",
+        "freqIndex": 2694
+    },
+    {
+        "spWord": "dieciséis",
+        "partOfSpeech": "num",
+        "definition": "sixteen",
+        "freqIndex": 2793
+    },
+    {
+        "spWord": "diecisiete",
+        "partOfSpeech": "num",
+        "definition": "seventeen",
+        "freqIndex": 3446
+    },
+    {
+        "spWord": "diente",
+        "partOfSpeech": "nm",
+        "definition": "tooth, cog",
+        "freqIndex": 1859
+    },
+    {
+        "spWord": "dieta",
+        "partOfSpeech": "nf",
+        "definition": "diet",
+        "freqIndex": 3607
+    },
+    {
+        "spWord": "diez",
+        "partOfSpeech": "num",
+        "definition": "ten",
+        "freqIndex": 346
+    },
+    {
+        "spWord": "diferencia",
+        "partOfSpeech": "nf",
+        "definition": "difference",
+        "freqIndex": 400
+    },
+    {
+        "spWord": "diferenciar",
+        "partOfSpeech": "v",
+        "definition": "to differentiate, distinguish",
+        "freqIndex": 2995
+    },
+    {
+        "spWord": "diferente",
+        "partOfSpeech": "adj",
+        "definition": "different, separate",
+        "freqIndex": 365
+    },
+    {
+        "spWord": "difícil",
+        "partOfSpeech": "adj",
+        "definition": "difficult, hard",
+        "freqIndex": 314
+    },
+    {
+        "spWord": "difícilmente",
+        "partOfSpeech": "adv",
+        "definition": "with difficulty",
+        "freqIndex": 3300
+    },
+    {
+        "spWord": "dificultad",
+        "partOfSpeech": "nf",
+        "definition": "difficulty, obstacle",
+        "freqIndex": 741
+    },
+    {
+        "spWord": "difundir",
+        "partOfSpeech": "v",
+        "definition": "to spread (out)",
+        "freqIndex": 2740
+    },
+    {
+        "spWord": "difusión",
+        "partOfSpeech": "nf",
+        "definition": "spread, diffusion",
+        "freqIndex": 3816
+    },
+    {
+        "spWord": "dignidad",
+        "partOfSpeech": "nf",
+        "definition": "dignity",
+        "freqIndex": 2092
+    },
+    {
+        "spWord": "digno",
+        "partOfSpeech": "adj",
+        "definition": "worthy",
+        "freqIndex": 1561
+    },
+    {
+        "spWord": "diligencia",
+        "partOfSpeech": "nf",
+        "definition": "diligence",
+        "freqIndex": 4903
+    },
+    {
+        "spWord": "diluir",
+        "partOfSpeech": "v",
+        "definition": "to dilute, weaken",
+        "freqIndex": 4029
+    },
+    {
+        "spWord": "dimensión",
+        "partOfSpeech": "nf",
+        "definition": "dimension, size",
+        "freqIndex": 1549
+    },
+    {
+        "spWord": "diminuto",
+        "partOfSpeech": "adj",
+        "definition": "diminutive, tiny, minute",
+        "freqIndex": 4025
+    },
+    {
+        "spWord": "dinámica",
+        "partOfSpeech": "nf",
+        "definition": "dynamics",
+        "freqIndex": 4365
+    },
+    {
+        "spWord": "dinámico",
+        "partOfSpeech": "adj",
+        "definition": "dynamic",
+        "freqIndex": 4064
+    },
+    {
+        "spWord": "dinero",
+        "partOfSpeech": "nm",
+        "definition": "money",
+        "freqIndex": 291
+    },
+    {
+        "spWord": "dios",
+        "partOfSpeech": "nm",
+        "definition": "god, divinity",
+        "freqIndex": 274
+    },
+    {
+        "spWord": "diplomático",
+        "partOfSpeech": "adj",
+        "definition": "diplomatic",
+        "freqIndex": 3681
+    },
+    {
+        "spWord": "diplomático",
+        "partOfSpeech": "nm/f",
+        "definition": "diplomat",
+        "freqIndex": 4722
+    },
+    {
+        "spWord": "diputado",
+        "partOfSpeech": "nm",
+        "definition": "deputy, member",
+        "freqIndex": 3749
+    },
+    {
+        "spWord": "dirección",
+        "partOfSpeech": "nf",
+        "definition": "direction, address",
+        "freqIndex": 636
+    },
+    {
+        "spWord": "directamente",
+        "partOfSpeech": "adv",
+        "definition": "directly, straight away",
+        "freqIndex": 936
+    },
+    {
+        "spWord": "directo",
+        "partOfSpeech": "adj",
+        "definition": "direct, straight",
+        "freqIndex": 733
+    },
+    {
+        "spWord": "director",
+        "partOfSpeech": "nm/f",
+        "definition": "director, manager, principal",
+        "freqIndex": 816
+    },
+    {
+        "spWord": "dirigente",
+        "partOfSpeech": "nc",
+        "definition": "leader, director, manager",
+        "freqIndex": 3285
+    },
+    {
+        "spWord": "dirigir",
+        "partOfSpeech": "v",
+        "definition": "to direct, manage",
+        "freqIndex": 331
+    },
+    {
+        "spWord": "disciplina",
+        "partOfSpeech": "nf",
+        "definition": "discipline, subject",
+        "freqIndex": 1401
+    },
+    {
+        "spWord": "discípulo",
+        "partOfSpeech": "nm",
+        "definition": "disciple",
+        "freqIndex": 3714
+    },
+    {
+        "spWord": "disco",
+        "partOfSpeech": "nm",
+        "definition": "disc, disk, record",
+        "freqIndex": 1948
+    },
+    {
+        "spWord": "discreto",
+        "partOfSpeech": "adj",
+        "definition": "discreet, tactful",
+        "freqIndex": 3025
+    },
+    {
+        "spWord": "disculpa",
+        "partOfSpeech": "nf",
+        "definition": "apology, excuse",
+        "freqIndex": 4563
+    },
+    {
+        "spWord": "disculpar",
+        "partOfSpeech": "v",
+        "definition": "to excuse",
+        "freqIndex": 4079
+    },
+    {
+        "spWord": "discurrir",
+        "partOfSpeech": "v",
+        "definition": "to flow, pass, roam",
+        "freqIndex": 4791
+    },
+    {
+        "spWord": "discurso",
+        "partOfSpeech": "nm",
+        "definition": "lecture, discourse, talk",
+        "freqIndex": 1254
+    },
+    {
+        "spWord": "discusión",
+        "partOfSpeech": "nf",
+        "definition": "discussion, argument",
+        "freqIndex": 1055
+    },
+    {
+        "spWord": "discutir",
+        "partOfSpeech": "v",
+        "definition": "to argue, discuss",
+        "freqIndex": 859
+    },
+    {
+        "spWord": "diseñar",
+        "partOfSpeech": "v",
+        "definition": "to design, develop",
+        "freqIndex": 2910
+    },
+    {
+        "spWord": "diseño",
+        "partOfSpeech": "nm",
+        "definition": "design",
+        "freqIndex": 2013
+    },
+    {
+        "spWord": "disfrazado",
+        "partOfSpeech": "adj",
+        "definition": "disguised",
+        "freqIndex": 4115
+    },
+    {
+        "spWord": "disfrazar",
+        "partOfSpeech": "v",
+        "definition": "to disguise, hide, conceal",
+        "freqIndex": 4979
+    },
+    {
+        "spWord": "disfrutar",
+        "partOfSpeech": "v",
+        "definition": "to enjoy",
+        "freqIndex": 1269
+    },
+    {
+        "spWord": "disgusto",
+        "partOfSpeech": "nm",
+        "definition": "disgust, annoyance",
+        "freqIndex": 3660
+    },
+    {
+        "spWord": "disimular",
+        "partOfSpeech": "v",
+        "definition": "to disguise, hide, pretend",
+        "freqIndex": 3364
+    },
+    {
+        "spWord": "disipar",
+        "partOfSpeech": "v",
+        "definition": "to dissipate, disperse",
+        "freqIndex": 3963
+    },
+    {
+        "spWord": "disminuir",
+        "partOfSpeech": "v",
+        "definition": "to decrease, diminish",
+        "freqIndex": 1982
+    },
+    {
+        "spWord": "disolver",
+        "partOfSpeech": "v",
+        "definition": "to dissolve",
+        "freqIndex": 3240
+    },
+    {
+        "spWord": "disparar",
+        "partOfSpeech": "v",
+        "definition": "to shoot (at)",
+        "freqIndex": 2141
+    },
+    {
+        "spWord": "disparate",
+        "partOfSpeech": "nm",
+        "definition": "nonsense, blunder",
+        "freqIndex": 4022
+    },
+    {
+        "spWord": "disparo",
+        "partOfSpeech": "nm",
+        "definition": "shot, discharge",
+        "freqIndex": 3932
+    },
+    {
+        "spWord": "dispersar",
+        "partOfSpeech": "v",
+        "definition": "to disperse, scatter, spread",
+        "freqIndex": 4319
+    },
+    {
+        "spWord": "disperso",
+        "partOfSpeech": "adj",
+        "definition": "spread out",
+        "freqIndex": 3506
+    },
+    {
+        "spWord": "disponer",
+        "partOfSpeech": "v",
+        "definition": "to have means, dispose",
+        "freqIndex": 658
+    },
+    {
+        "spWord": "disponible",
+        "partOfSpeech": "adj",
+        "definition": "available",
+        "freqIndex": 3262
+    },
+    {
+        "spWord": "disposición",
+        "partOfSpeech": "nf",
+        "definition": "disposal, disposition",
+        "freqIndex": 1398
+    },
+    {
+        "spWord": "dispuesto",
+        "partOfSpeech": "adj",
+        "definition": "willing, ready",
+        "freqIndex": 690
+    },
+    {
+        "spWord": "disputa",
+        "partOfSpeech": "nf",
+        "definition": "dispute, argument, quarrel",
+        "freqIndex": 3991
+    },
+    {
+        "spWord": "disputar",
+        "partOfSpeech": "v",
+        "definition": "to dispute, contest",
+        "freqIndex": 3425
+    },
+    {
+        "spWord": "distancia",
+        "partOfSpeech": "nf",
+        "definition": "distance",
+        "freqIndex": 678
+    },
+    {
+        "spWord": "distante",
+        "partOfSpeech": "adj",
+        "definition": "distant, far, remote",
+        "freqIndex": 2351
+    },
+    {
+        "spWord": "distinción",
+        "partOfSpeech": "nf",
+        "definition": "distinction",
+        "freqIndex": 2962
+    },
+    {
+        "spWord": "distinguido",
+        "partOfSpeech": "adj",
+        "definition": "distinguished",
+        "freqIndex": 3228
+    },
+    {
+        "spWord": "distinguir",
+        "partOfSpeech": "v",
+        "definition": "to distinguish",
+        "freqIndex": 945
+    },
+    {
+        "spWord": "distinto",
+        "partOfSpeech": "adj",
+        "definition": "distinct, different",
+        "freqIndex": 254
+    },
+    {
+        "spWord": "distracción",
+        "partOfSpeech": "nf",
+        "definition": "distraction, amusement",
+        "freqIndex": 4705
+    },
+    {
+        "spWord": "distraer",
+        "partOfSpeech": "v",
+        "definition": "to distract",
+        "freqIndex": 2905
+    },
+    {
+        "spWord": "distribución",
+        "partOfSpeech": "nf",
+        "definition": "distribution",
+        "freqIndex": 2299
+    },
+    {
+        "spWord": "distribuir",
+        "partOfSpeech": "v",
+        "definition": "to distribute, deliver",
+        "freqIndex": 1503
+    },
+    {
+        "spWord": "diversidad",
+        "partOfSpeech": "nf",
+        "definition": "diversity, variety",
+        "freqIndex": 4733
+    },
+    {
+        "spWord": "diversión",
+        "partOfSpeech": "nf",
+        "definition": "fun, entertainment",
+        "freqIndex": 3345
+    },
+    {
+        "spWord": "diverso",
+        "partOfSpeech": "adj",
+        "definition": "different, several, diverse",
+        "freqIndex": 740
+    },
+    {
+        "spWord": "divertido",
+        "partOfSpeech": "adj",
+        "definition": "funny, amusing",
+        "freqIndex": 2553
+    },
+    {
+        "spWord": "divertir",
+        "partOfSpeech": "v",
+        "definition": "to amuse, entertain",
+        "freqIndex": 2356
+    },
+    {
+        "spWord": "dividir",
+        "partOfSpeech": "v",
+        "definition": "to divide",
+        "freqIndex": 1015
+    },
+    {
+        "spWord": "divino",
+        "partOfSpeech": "adj",
+        "definition": "divine",
+        "freqIndex": 1888
+    },
+    {
+        "spWord": "división",
+        "partOfSpeech": "nf",
+        "definition": "division",
+        "freqIndex": 1992
+    },
+    {
+        "spWord": "divorcio",
+        "partOfSpeech": "nm",
+        "definition": "divorce",
+        "freqIndex": 3997
+    },
+    {
+        "spWord": "doblar",
+        "partOfSpeech": "v",
+        "definition": "to bend, turn",
+        "freqIndex": 1981
+    },
+    {
+        "spWord": "doble",
+        "partOfSpeech": "adj",
+        "definition": "double",
+        "freqIndex": 1002
+    },
+    {
+        "spWord": "doble",
+        "partOfSpeech": "nm",
+        "definition": "double",
+        "freqIndex": 2354
+    },
+    {
+        "spWord": "doce",
+        "partOfSpeech": "num",
+        "definition": "twelve",
+        "freqIndex": 823
+    },
+    {
+        "spWord": "docena",
+        "partOfSpeech": "nf",
+        "definition": "dozen",
+        "freqIndex": 2774
+    },
+    {
+        "spWord": "doctor",
+        "partOfSpeech": "nm/f",
+        "definition": "doctor",
+        "freqIndex": 778
+    },
+    {
+        "spWord": "doctrina",
+        "partOfSpeech": "nf",
+        "definition": "doctrine, teachings",
+        "freqIndex": 2959
+    },
+    {
+        "spWord": "documentación",
+        "partOfSpeech": "nf",
+        "definition": "documentation",
+        "freqIndex": 4578
+    },
+    {
+        "spWord": "documento",
+        "partOfSpeech": "nm",
+        "definition": "document",
+        "freqIndex": 1076
+    },
+    {
+        "spWord": "dólar",
+        "partOfSpeech": "nm",
+        "definition": "dollar",
+        "freqIndex": 1878
+    },
+    {
+        "spWord": "doler",
+        "partOfSpeech": "v",
+        "definition": "to hurt",
+        "freqIndex": 2037
+    },
+    {
+        "spWord": "dolor",
+        "partOfSpeech": "nm",
+        "definition": "pain, ache, sorrow",
+        "freqIndex": 705
+    },
+    {
+        "spWord": "doloroso",
+        "partOfSpeech": "adj",
+        "definition": "painful",
+        "freqIndex": 2080
+    },
+    {
+        "spWord": "doméstico",
+        "partOfSpeech": "adj",
+        "definition": "domestic",
+        "freqIndex": 1960
+    },
+    {
+        "spWord": "domicilio",
+        "partOfSpeech": "nm",
+        "definition": "residence, address",
+        "freqIndex": 3045
+    },
+    {
+        "spWord": "dominante",
+        "partOfSpeech": "adj",
+        "definition": "dominant, prevailing",
+        "freqIndex": 3583
+    },
+    {
+        "spWord": "dominar",
+        "partOfSpeech": "v",
+        "definition": "to dominate, master",
+        "freqIndex": 926
+    },
+    {
+        "spWord": "domingo",
+        "partOfSpeech": "nm",
+        "definition": "Sunday",
+        "freqIndex": 1121
+    },
+    {
+        "spWord": "dominio",
+        "partOfSpeech": "nm",
+        "definition": "power, control",
+        "freqIndex": 1619
+    },
+    {
+        "spWord": "don",
+        "partOfSpeech": "nm",
+        "definition": "courtesy title (m), Mr., gift",
+        "freqIndex": 303
+    },
+    {
+        "spWord": "doña",
+        "partOfSpeech": "nf",
+        "definition": "courtesy title (f), Mrs.",
+        "freqIndex": 2410
+    },
+    {
+        "spWord": "donde",
+        "partOfSpeech": "conj",
+        "definition": "where",
+        "freqIndex": 84
+    },
+    {
+        "spWord": "dónde",
+        "partOfSpeech": "adv",
+        "definition": "where?",
+        "freqIndex": 421
+    },
+    {
+        "spWord": "dorado",
+        "partOfSpeech": "adj",
+        "definition": "golden, gold-plated",
+        "freqIndex": 2696
+    },
+    {
+        "spWord": "dormido",
+        "partOfSpeech": "adj",
+        "definition": "asleep, sleeping",
+        "freqIndex": 2786
+    },
+    {
+        "spWord": "dormir",
+        "partOfSpeech": "v",
+        "definition": "to sleep",
+        "freqIndex": 857
+    },
+    {
+        "spWord": "dormitorio",
+        "partOfSpeech": "nm",
+        "definition": "bedroom, dormitory",
+        "freqIndex": 3382
+    },
+    {
+        "spWord": "dos",
+        "partOfSpeech": "num",
+        "definition": "two",
+        "freqIndex": 56
+    },
+    {
+        "spWord": "doscientos",
+        "partOfSpeech": "num",
+        "definition": "two hundred",
+        "freqIndex": 2344
+    },
+    {
+        "spWord": "dosis",
+        "partOfSpeech": "nf",
+        "definition": "dose",
+        "freqIndex": 2609
+    },
+    {
+        "spWord": "dotado",
+        "partOfSpeech": "adj",
+        "definition": "endowed, gifted",
+        "freqIndex": 3083
+    },
+    {
+        "spWord": "dotar",
+        "partOfSpeech": "v",
+        "definition": "to endow, bestow",
+        "freqIndex": 3998
+    },
+    {
+        "spWord": "drama",
+        "partOfSpeech": "nm",
+        "definition": "drama",
+        "freqIndex": 2350
+    },
+    {
+        "spWord": "dramático",
+        "partOfSpeech": "adj",
+        "definition": "dramatic",
+        "freqIndex": 2011
+    },
+    {
+        "spWord": "droga",
+        "partOfSpeech": "nf",
+        "definition": "drug",
+        "freqIndex": 2371
+    },
+    {
+        "spWord": "duda",
+        "partOfSpeech": "nf",
+        "definition": "doubt",
+        "freqIndex": 399
+    },
+    {
+        "spWord": "dudar",
+        "partOfSpeech": "v",
+        "definition": "to (have) doubt",
+        "freqIndex": 1252
+    },
+    {
+        "spWord": "dudoso",
+        "partOfSpeech": "adj",
+        "definition": "doubtful, dubious",
+        "freqIndex": 3230
+    },
+    {
+        "spWord": "duelo",
+        "partOfSpeech": "nm",
+        "definition": "grief, affliction",
+        "freqIndex": 3751
+    },
+    {
+        "spWord": "dueña",
+        "partOfSpeech": "nf",
+        "definition": "landlady, owner (f)",
+        "freqIndex": 3557
+    },
+    {
+        "spWord": "dueño",
+        "partOfSpeech": "nm",
+        "definition": "owner, landlord (m)",
+        "freqIndex": 1093
+    },
+    {
+        "spWord": "dulce",
+        "partOfSpeech": "adj",
+        "definition": "sweet",
+        "freqIndex": 1882
+    },
+    {
+        "spWord": "dulce",
+        "partOfSpeech": "nm",
+        "definition": "candy, sweets",
+        "freqIndex": 3100
+    },
+    {
+        "spWord": "duración",
+        "partOfSpeech": "nf",
+        "definition": "duration, length",
+        "freqIndex": 3336
+    },
+    {
+        "spWord": "duramente",
+        "partOfSpeech": "adv",
+        "definition": "harshly, severely",
+        "freqIndex": 4875
+    },
+    {
+        "spWord": "durante",
+        "partOfSpeech": "adv",
+        "definition": "during, for (time)",
+        "freqIndex": 148
+    },
+    {
+        "spWord": "durar",
+        "partOfSpeech": "v",
+        "definition": "to last",
+        "freqIndex": 812
+    },
+    {
+        "spWord": "dureza",
+        "partOfSpeech": "nf",
+        "definition": "hardness, toughness",
+        "freqIndex": 3858
+    },
+    {
+        "spWord": "duro",
+        "partOfSpeech": "adj",
+        "definition": "hard",
+        "freqIndex": 615
+    },
+    {
+        "spWord": "duro",
+        "partOfSpeech": "nm",
+        "definition": "duro (money)",
+        "freqIndex": 2083
+    },
+    {
+        "spWord": "echar",
+        "partOfSpeech": "v",
+        "definition": "to throw, cast",
+        "freqIndex": 455
+    },
+    {
+        "spWord": "eclesiástico",
+        "partOfSpeech": "adj",
+        "definition": "ecclesiastical",
+        "freqIndex": 4942
+    },
+    {
+        "spWord": "eco",
+        "partOfSpeech": "nm",
+        "definition": "echo, response",
+        "freqIndex": 2042
+    },
+    {
+        "spWord": "economía",
+        "partOfSpeech": "nf",
+        "definition": "economy, economics, thriftiness",
+        "freqIndex": 1504
+    },
+    {
+        "spWord": "económicamente",
+        "partOfSpeech": "adv",
+        "definition": "economically",
+        "freqIndex": 4778
+    },
+    {
+        "spWord": "económico",
+        "partOfSpeech": "adj",
+        "definition": "economic",
+        "freqIndex": 426
+    },
+    {
+        "spWord": "economista",
+        "partOfSpeech": "nm/f",
+        "definition": "economist",
+        "freqIndex": 4544
+    },
+    {
+        "spWord": "edad",
+        "partOfSpeech": "nf",
+        "definition": "age",
+        "freqIndex": 350
+    },
+    {
+        "spWord": "edición",
+        "partOfSpeech": "nf",
+        "definition": "edition, publication",
+        "freqIndex": 2195
+    },
+    {
+        "spWord": "edificación",
+        "partOfSpeech": "nf",
+        "definition": "construction, building",
+        "freqIndex": 4871
+    },
+    {
+        "spWord": "edificio",
+        "partOfSpeech": "nm",
+        "definition": "building",
+        "freqIndex": 717
+    },
+    {
+        "spWord": "editar",
+        "partOfSpeech": "v",
+        "definition": "to edit, publish, release",
+        "freqIndex": 4421
+    },
+    {
+        "spWord": "editor",
+        "partOfSpeech": "nm/f",
+        "definition": "editor, publisher",
+        "freqIndex": 4651
+    },
+    {
+        "spWord": "editorial",
+        "partOfSpeech": "nf",
+        "definition": "publisher",
+        "freqIndex": 4685
+    },
+    {
+        "spWord": "editorial",
+        "partOfSpeech": "nm",
+        "definition": "editorial article",
+        "freqIndex": 4685
+    },
+    {
+        "spWord": "educación",
+        "partOfSpeech": "nf",
+        "definition": "education",
+        "freqIndex": 845
+    },
+    {
+        "spWord": "educado",
+        "partOfSpeech": "adj",
+        "definition": "educated",
+        "freqIndex": 4846
+    },
+    {
+        "spWord": "educar",
+        "partOfSpeech": "v",
+        "definition": "to educate",
+        "freqIndex": 2068
+    },
+    {
+        "spWord": "educativo",
+        "partOfSpeech": "adj",
+        "definition": "educational",
+        "freqIndex": 3794
+    },
+    {
+        "spWord": "efectivamente",
+        "partOfSpeech": "adv",
+        "definition": "in fact, actually, indeed",
+        "freqIndex": 1604
+    },
+    {
+        "spWord": "efectivo",
+        "partOfSpeech": "adj",
+        "definition": "effective",
+        "freqIndex": 1820
+    },
+    {
+        "spWord": "efecto",
+        "partOfSpeech": "nm",
+        "definition": "effect",
+        "freqIndex": 418
+    },
+    {
+        "spWord": "efectuar",
+        "partOfSpeech": "v",
+        "definition": "to carry out, cause to happen",
+        "freqIndex": 2523
+    },
+    {
+        "spWord": "eficacia",
+        "partOfSpeech": "nf",
+        "definition": "efficiency, effectiveness",
+        "freqIndex": 2825
+    },
+    {
+        "spWord": "eficaz",
+        "partOfSpeech": "adj",
+        "definition": "effective",
+        "freqIndex": 1976
+    },
+    {
+        "spWord": "eficiencia",
+        "partOfSpeech": "nf",
+        "definition": "efficiency",
+        "freqIndex": 4940
+    },
+    {
+        "spWord": "eficiente",
+        "partOfSpeech": "adj",
+        "definition": "efficient",
+        "freqIndex": 3571
+    },
+    {
+        "spWord": "efímero",
+        "partOfSpeech": "adj",
+        "definition": "ephemeral, short-lived",
+        "freqIndex": 4371
+    },
+    {
+        "spWord": "egoísmo",
+        "partOfSpeech": "nm",
+        "definition": "selfishness",
+        "freqIndex": 4340
+    },
+    {
+        "spWord": "egoísta",
+        "partOfSpeech": "adj",
+        "definition": "selfish",
+        "freqIndex": 3845
+    },
+    {
+        "spWord": "eh",
+        "partOfSpeech": "interj",
+        "definition": "eh",
+        "freqIndex": 2520
+    },
+    {
+        "spWord": "eje",
+        "partOfSpeech": "nm",
+        "definition": "axis, shaft, crux",
+        "freqIndex": 2521
+    },
+    {
+        "spWord": "ejecución",
+        "partOfSpeech": "nf",
+        "definition": "performance, execution",
+        "freqIndex": 2415
+    },
+    {
+        "spWord": "ejecutar",
+        "partOfSpeech": "v",
+        "definition": "to execute, carry out",
+        "freqIndex": 2285
+    },
+    {
+        "spWord": "ejecutivo",
+        "partOfSpeech": "adj",
+        "definition": "executive",
+        "freqIndex": 3065
+    },
+    {
+        "spWord": "ejemplar",
+        "partOfSpeech": "nm",
+        "definition": "copy, issue",
+        "freqIndex": 2101
+    },
+    {
+        "spWord": "ejemplar",
+        "partOfSpeech": "adj",
+        "definition": "exemplary, model",
+        "freqIndex": 2747
+    },
+    {
+        "spWord": "ejemplo",
+        "partOfSpeech": "nm",
+        "definition": "example",
+        "freqIndex": 162
+    },
+    {
+        "spWord": "ejercer",
+        "partOfSpeech": "v",
+        "definition": "to practice, exercise",
+        "freqIndex": 1004
+    },
+    {
+        "spWord": "ejercicio",
+        "partOfSpeech": "nm",
+        "definition": "exercise, practice",
+        "freqIndex": 1242
+    },
+    {
+        "spWord": "ejército",
+        "partOfSpeech": "nm",
+        "definition": "army",
+        "freqIndex": 1218
+    },
+    {
+        "spWord": "el, la",
+        "partOfSpeech": "art",
+        "definition": "the",
+        "freqIndex": 1
+    },
+    {
+        "spWord": "él",
+        "partOfSpeech": "pron",
+        "definition": "he, [ellos] them (m)",
+        "freqIndex": 41
+    },
+    {
+        "spWord": "elaboración",
+        "partOfSpeech": "nf",
+        "definition": "production",
+        "freqIndex": 3663
+    },
+    {
+        "spWord": "elaborar",
+        "partOfSpeech": "v",
+        "definition": "to make, develop",
+        "freqIndex": 1592
+    },
+    {
+        "spWord": "elección",
+        "partOfSpeech": "nf",
+        "definition": "election, choice",
+        "freqIndex": 827
+    },
+    {
+        "spWord": "electoral",
+        "partOfSpeech": "adj",
+        "definition": "electoral",
+        "freqIndex": 3411
+    },
+    {
+        "spWord": "electricidad",
+        "partOfSpeech": "nf",
+        "definition": "electricity",
+        "freqIndex": 3950
+    },
+    {
+        "spWord": "eléctrico",
+        "partOfSpeech": "adj",
+        "definition": "electric",
+        "freqIndex": 1333
+    },
+    {
+        "spWord": "electrónico",
+        "partOfSpeech": "adj",
+        "definition": "electronic",
+        "freqIndex": 3149
+    },
+    {
+        "spWord": "elefante",
+        "partOfSpeech": "nm",
+        "definition": "elephant",
+        "freqIndex": 4945
+    },
+    {
+        "spWord": "elegancia",
+        "partOfSpeech": "nf",
+        "definition": "elegance, style",
+        "freqIndex": 4060
+    },
+    {
+        "spWord": "elegante",
+        "partOfSpeech": "adj",
+        "definition": "elegant, smart, stylish",
+        "freqIndex": 1918
+    },
+    {
+        "spWord": "elegir",
+        "partOfSpeech": "v",
+        "definition": "to choose, elect",
+        "freqIndex": 494
+    },
+    {
+        "spWord": "elemental",
+        "partOfSpeech": "adj",
+        "definition": "elemental, basic",
+        "freqIndex": 1901
+    },
+    {
+        "spWord": "elemento",
+        "partOfSpeech": "nm",
+        "definition": "element",
+        "freqIndex": 607
+    },
+    {
+        "spWord": "elevación",
+        "partOfSpeech": "nf",
+        "definition": "rise, elevation, increase",
+        "freqIndex": 4691
+    },
+    {
+        "spWord": "elevado",
+        "partOfSpeech": "adj",
+        "definition": "elevated, high, lofty",
+        "freqIndex": 1512
+    },
+    {
+        "spWord": "elevar",
+        "partOfSpeech": "v",
+        "definition": "to elevate, raise",
+        "freqIndex": 1123
+    },
+    {
+        "spWord": "eliminar",
+        "partOfSpeech": "v",
+        "definition": "to eliminate, exclude",
+        "freqIndex": 1612
+    },
+    {
+        "spWord": "ella",
+        "partOfSpeech": "pron",
+        "definition": "she, [ellas] them (f)",
+        "freqIndex": 69
+    },
+    {
+        "spWord": "ello",
+        "partOfSpeech": "pron",
+        "definition": "it (subj-n)",
+        "freqIndex": 343
+    },
+    {
+        "spWord": "elocuente",
+        "partOfSpeech": "adj",
+        "definition": "eloquent",
+        "freqIndex": 4719
+    },
+    {
+        "spWord": "elogio",
+        "partOfSpeech": "nm",
+        "definition": "praise, eulogy, compliment",
+        "freqIndex": 4062
+    },
+    {
+        "spWord": "eludir",
+        "partOfSpeech": "v",
+        "definition": "to evade, avoid, elude",
+        "freqIndex": 3460
+    },
+    {
+        "spWord": "embajada",
+        "partOfSpeech": "nf",
+        "definition": "embassy",
+        "freqIndex": 4404
+    },
+    {
+        "spWord": "embajador",
+        "partOfSpeech": "nm/f",
+        "definition": "ambassador",
+        "freqIndex": 3987
+    },
+    {
+        "spWord": "embarazada",
+        "partOfSpeech": "adj",
+        "definition": "pregnant",
+        "freqIndex": 3969
+    },
+    {
+        "spWord": "embarazo",
+        "partOfSpeech": "nm",
+        "definition": "pregnancy",
+        "freqIndex": 4051
+    },
+    {
+        "spWord": "embarcar",
+        "partOfSpeech": "v",
+        "definition": "to embark, load",
+        "freqIndex": 3597
+    },
+    {
+        "spWord": "embargo",
+        "partOfSpeech": "nm",
+        "definition": "embargo",
+        "freqIndex": 180
+    },
+    {
+        "spWord": "sin embargo",
+        "partOfSpeech": "conj",
+        "definition": "nevertheless",
+        "freqIndex": 180
+    },
+    {
+        "spWord": "emergencia",
+        "partOfSpeech": "nf",
+        "definition": "emergency",
+        "freqIndex": 3273
+    },
+    {
+        "spWord": "emerger",
+        "partOfSpeech": "v",
+        "definition": "to emerge, surface",
+        "freqIndex": 3145
+    },
+    {
+        "spWord": "emigrar",
+        "partOfSpeech": "v",
+        "definition": "to emigrate",
+        "freqIndex": 3850
+    },
+    {
+        "spWord": "emisión",
+        "partOfSpeech": "nf",
+        "definition": "broadcast, emission",
+        "freqIndex": 4812
+    },
+    {
+        "spWord": "emisor",
+        "partOfSpeech": "nm",
+        "definition": "transmitter, emitter",
+        "freqIndex": 4103
+    },
+    {
+        "spWord": "emitir",
+        "partOfSpeech": "v",
+        "definition": "to emit, give (off)",
+        "freqIndex": 1811
+    },
+    {
+        "spWord": "emoción",
+        "partOfSpeech": "nf",
+        "definition": "emotion, excitement",
+        "freqIndex": 1577
+    },
+    {
+        "spWord": "emocional",
+        "partOfSpeech": "adj",
+        "definition": "emotional",
+        "freqIndex": 3680
+    },
+    {
+        "spWord": "emocionar",
+        "partOfSpeech": "v",
+        "definition": "to move, make/get excited",
+        "freqIndex": 4420
+    },
+    {
+        "spWord": "empeñar",
+        "partOfSpeech": "v",
+        "definition": "[se] to insist on",
+        "freqIndex": 1998
+    },
+    {
+        "spWord": "empeño",
+        "partOfSpeech": "nm",
+        "definition": "insistence, determination",
+        "freqIndex": 3203
+    },
+    {
+        "spWord": "emperador",
+        "partOfSpeech": "nm",
+        "definition": "emperor",
+        "freqIndex": 4856
+    },
+    {
+        "spWord": "empezar",
+        "partOfSpeech": "v",
+        "definition": "to begin, start",
+        "freqIndex": 161
+    },
+    {
+        "spWord": "empleado",
+        "partOfSpeech": "nm",
+        "definition": "employee",
+        "freqIndex": 1104
+    },
+    {
+        "spWord": "emplear",
+        "partOfSpeech": "v",
+        "definition": "to employ",
+        "freqIndex": 962
+    },
+    {
+        "spWord": "empleo",
+        "partOfSpeech": "nm",
+        "definition": "work, job, occupation",
+        "freqIndex": 1436
+    },
+    {
+        "spWord": "emprender",
+        "partOfSpeech": "v",
+        "definition": "to undertake, embark on",
+        "freqIndex": 2365
+    },
+    {
+        "spWord": "empresa",
+        "partOfSpeech": "nf",
+        "definition": "firm, company, venture",
+        "freqIndex": 517
+    },
+    {
+        "spWord": "empresario",
+        "partOfSpeech": "nm",
+        "definition": "manager, entrepreneur",
+        "freqIndex": 2796
+    },
+    {
+        "spWord": "empujar",
+        "partOfSpeech": "v",
+        "definition": "to push, shove",
+        "freqIndex": 1877
+    },
+    {
+        "spWord": "en",
+        "partOfSpeech": "prep",
+        "definition": "in, on",
+        "freqIndex": 6
+    },
+    {
+        "spWord": "enamorado",
+        "partOfSpeech": "adj",
+        "definition": "in love",
+        "freqIndex": 3274
+    },
+    {
+        "spWord": "enamorar",
+        "partOfSpeech": "v",
+        "definition": "to fall in love",
+        "freqIndex": 3193
+    },
+    {
+        "spWord": "encabezar",
+        "partOfSpeech": "v",
+        "definition": "to head, lead (off)",
+        "freqIndex": 4460
+    },
+    {
+        "spWord": "encajar",
+        "partOfSpeech": "v",
+        "definition": "to insert, fit well",
+        "freqIndex": 3049
+    },
+    {
+        "spWord": "encaje",
+        "partOfSpeech": "nm",
+        "definition": "lace",
+        "freqIndex": 4850
+    },
+    {
+        "spWord": "encaminar",
+        "partOfSpeech": "v",
+        "definition": "to head for, guide",
+        "freqIndex": 4246
+    },
+    {
+        "spWord": "encantado",
+        "partOfSpeech": "adj",
+        "definition": "pleased, delighted",
+        "freqIndex": 3264
+    },
+    {
+        "spWord": "encantador",
+        "partOfSpeech": "adj",
+        "definition": "charming",
+        "freqIndex": 3650
+    },
+    {
+        "spWord": "encantar",
+        "partOfSpeech": "v",
+        "definition": "to be very pleasing to",
+        "freqIndex": 2859
+    },
+    {
+        "spWord": "encanto",
+        "partOfSpeech": "nm",
+        "definition": "charm, spell",
+        "freqIndex": 3078
+    },
+    {
+        "spWord": "encarar",
+        "partOfSpeech": "v",
+        "definition": "to front, confront",
+        "freqIndex": 3839
+    },
+    {
+        "spWord": "encargado",
+        "partOfSpeech": "adj",
+        "definition": "in charge of",
+        "freqIndex": 1479
+    },
+    {
+        "spWord": "encargar",
+        "partOfSpeech": "v",
+        "definition": "to entrust, [se] take charge of",
+        "freqIndex": 1054
+    },
+    {
+        "spWord": "encargo",
+        "partOfSpeech": "nm",
+        "definition": "job, order, errand",
+        "freqIndex": 3818
+    },
+    {
+        "spWord": "encarnar",
+        "partOfSpeech": "v",
+        "definition": "to embody",
+        "freqIndex": 3918
+    },
+    {
+        "spWord": "encender",
+        "partOfSpeech": "v",
+        "definition": "to turn on",
+        "freqIndex": 2133
+    },
+    {
+        "spWord": "encendido",
+        "partOfSpeech": "adj",
+        "definition": "turned on, burning",
+        "freqIndex": 3002
+    },
+    {
+        "spWord": "encerrado",
+        "partOfSpeech": "adj",
+        "definition": "locked (up)",
+        "freqIndex": 2376
+    },
+    {
+        "spWord": "encerrar",
+        "partOfSpeech": "v",
+        "definition": "to shut (in)",
+        "freqIndex": 1861
+    },
+    {
+        "spWord": "encima",
+        "partOfSpeech": "adv",
+        "definition": "above, on top, in addition",
+        "freqIndex": 436
+    },
+    {
+        "spWord": "encomendar",
+        "partOfSpeech": "v",
+        "definition": "to commend, entrust",
+        "freqIndex": 4828
+    },
+    {
+        "spWord": "encontrar",
+        "partOfSpeech": "v",
+        "definition": "to find",
+        "freqIndex": 100
+    },
+    {
+        "spWord": "encuentro",
+        "partOfSpeech": "nm",
+        "definition": "meeting, game, skirmish",
+        "freqIndex": 836
+    },
+    {
+        "spWord": "encuesta",
+        "partOfSpeech": "nf",
+        "definition": "poll, survey, inquiry",
+        "freqIndex": 4281
+    },
+    {
+        "spWord": "endurecer",
+        "partOfSpeech": "v",
+        "definition": "harden, make hard",
+        "freqIndex": 4656
+    },
+    {
+        "spWord": "enemigo",
+        "partOfSpeech": "nm",
+        "definition": "enemy",
+        "freqIndex": 1024
+    },
+    {
+        "spWord": "energía",
+        "partOfSpeech": "nf",
+        "definition": "energy, power",
+        "freqIndex": 946
+    },
+    {
+        "spWord": "enérgico",
+        "partOfSpeech": "adj",
+        "definition": "energetic, vigorous",
+        "freqIndex": 3459
+    },
+    {
+        "spWord": "enero",
+        "partOfSpeech": "nm",
+        "definition": "January",
+        "freqIndex": 1449
+    },
+    {
+        "spWord": "énfasis",
+        "partOfSpeech": "nm",
+        "definition": "emphasis",
+        "freqIndex": 2794
+    },
+    {
+        "spWord": "enfermar",
+        "partOfSpeech": "v",
+        "definition": "to become ill",
+        "freqIndex": 4513
+    },
+    {
+        "spWord": "enfermedad",
+        "partOfSpeech": "nf",
+        "definition": "illness, sickness",
+        "freqIndex": 666
+    },
+    {
+        "spWord": "enfermero",
+        "partOfSpeech": "nm/f",
+        "definition": "nurse",
+        "freqIndex": 3122
+    },
+    {
+        "spWord": "enfermo",
+        "partOfSpeech": "adj",
+        "definition": "ill, sick",
+        "freqIndex": 698
+    },
+    {
+        "spWord": "enfocar",
+        "partOfSpeech": "v",
+        "definition": "to focus",
+        "freqIndex": 3707
+    },
+    {
+        "spWord": "enfoque",
+        "partOfSpeech": "nm",
+        "definition": "focus, approach",
+        "freqIndex": 3999
+    },
+    {
+        "spWord": "enfrentamiento",
+        "partOfSpeech": "nm",
+        "definition": "confrontation",
+        "freqIndex": 3212
+    },
+    {
+        "spWord": "enfrentar",
+        "partOfSpeech": "v",
+        "definition": "to confront, face",
+        "freqIndex": 862
+    },
+    {
+        "spWord": "enfrente",
+        "partOfSpeech": "adv",
+        "definition": "in front (of)",
+        "freqIndex": 2541
+    },
+    {
+        "spWord": "enfriar",
+        "partOfSpeech": "v",
+        "definition": "to cool",
+        "freqIndex": 3938
+    },
+    {
+        "spWord": "engañar",
+        "partOfSpeech": "v",
+        "definition": "to trick, deceive",
+        "freqIndex": 1917
+    },
+    {
+        "spWord": "engaño",
+        "partOfSpeech": "nm",
+        "definition": "deceit, falsehood, hoax",
+        "freqIndex": 3192
+    },
+    {
+        "spWord": "engendrar",
+        "partOfSpeech": "v",
+        "definition": "to engender, beget",
+        "freqIndex": 4272
+    },
+    {
+        "spWord": "engordar",
+        "partOfSpeech": "v",
+        "definition": "to fatten, get fat",
+        "freqIndex": 4796
+    },
+    {
+        "spWord": "enigma",
+        "partOfSpeech": "nm",
+        "definition": "enigma, mystery",
+        "freqIndex": 4989
+    },
+    {
+        "spWord": "enlace",
+        "partOfSpeech": "nm",
+        "definition": "link, connection, bond",
+        "freqIndex": 4220
+    },
+    {
+        "spWord": "enlazar",
+        "partOfSpeech": "v",
+        "definition": "to link, connect",
+        "freqIndex": 4232
+    },
+    {
+        "spWord": "enorme",
+        "partOfSpeech": "adj",
+        "definition": "enormous, vast",
+        "freqIndex": 471
+    },
+    {
+        "spWord": "enormemente",
+        "partOfSpeech": "adv",
+        "definition": "enormously",
+        "freqIndex": 3678
+    },
+    {
+        "spWord": "enredar",
+        "partOfSpeech": "v",
+        "definition": "to entangle, ensnare",
+        "freqIndex": 4548
+    },
+    {
+        "spWord": "enriquecer",
+        "partOfSpeech": "v",
+        "definition": "to enrich",
+        "freqIndex": 2681
+    },
+    {
+        "spWord": "ensayar",
+        "partOfSpeech": "v",
+        "definition": "to test",
+        "freqIndex": 3166
+    },
+    {
+        "spWord": "ensayo",
+        "partOfSpeech": "nm",
+        "definition": "essay, rehearsal",
+        "freqIndex": 1835
+    },
+    {
+        "spWord": "enseguida",
+        "partOfSpeech": "adv",
+        "definition": "immediately, at once",
+        "freqIndex": 2707
+    },
+    {
+        "spWord": "enseñanza",
+        "partOfSpeech": "nf",
+        "definition": "teaching, instruction",
+        "freqIndex": 1751
+    },
+    {
+        "spWord": "enseñar",
+        "partOfSpeech": "v",
+        "definition": "to teach, show",
+        "freqIndex": 524
+    },
+    {
+        "spWord": "ensuciar",
+        "partOfSpeech": "v",
+        "definition": "to get dirty",
+        "freqIndex": 4766
+    },
+    {
+        "spWord": "entablar",
+        "partOfSpeech": "v",
+        "definition": "to start, establish",
+        "freqIndex": 4952
+    },
+    {
+        "spWord": "ente",
+        "partOfSpeech": "nm",
+        "definition": "entity, being, firm",
+        "freqIndex": 4898
+    },
+    {
+        "spWord": "entender",
+        "partOfSpeech": "v",
+        "definition": "to understand",
+        "freqIndex": 203
+    },
+    {
+        "spWord": "entendido",
+        "partOfSpeech": "adj",
+        "definition": "understood",
+        "freqIndex": 1852
+    },
+    {
+        "spWord": "entendimiento",
+        "partOfSpeech": "nm",
+        "definition": "understanding",
+        "freqIndex": 3152
+    },
+    {
+        "spWord": "enterado",
+        "partOfSpeech": "adj",
+        "definition": "aware of",
+        "freqIndex": 4175
+    },
+    {
+        "spWord": "enteramente",
+        "partOfSpeech": "adv",
+        "definition": "completely, entirely",
+        "freqIndex": 3789
+    },
+    {
+        "spWord": "enterar",
+        "partOfSpeech": "v",
+        "definition": "to find out [se]",
+        "freqIndex": 1543
+    },
+    {
+        "spWord": "entero",
+        "partOfSpeech": "adj",
+        "definition": "entire, whole, complete",
+        "freqIndex": 760
+    },
+    {
+        "spWord": "enterrado",
+        "partOfSpeech": "adj",
+        "definition": "buried",
+        "freqIndex": 4208
+    },
+    {
+        "spWord": "enterrar",
+        "partOfSpeech": "v",
+        "definition": "to bury",
+        "freqIndex": 2779
+    },
+    {
+        "spWord": "entidad",
+        "partOfSpeech": "nf",
+        "definition": "entity",
+        "freqIndex": 2660
+    },
+    {
+        "spWord": "entierro",
+        "partOfSpeech": "nm",
+        "definition": "burial",
+        "freqIndex": 4008
+    },
+    {
+        "spWord": "entonces",
+        "partOfSpeech": "adv",
+        "definition": "so, then",
+        "freqIndex": 76
+    },
+    {
+        "spWord": "entorno",
+        "partOfSpeech": "nm",
+        "definition": "environment, surroundings",
+        "freqIndex": 2614
+    },
+    {
+        "spWord": "entrada",
+        "partOfSpeech": "nf",
+        "definition": "entrance, admission ticket",
+        "freqIndex": 647
+    },
+    {
+        "spWord": "entrañas",
+        "partOfSpeech": "nf",
+        "definition": "insides, bowels",
+        "freqIndex": 4681
+    },
+    {
+        "spWord": "entrar",
+        "partOfSpeech": "v",
+        "definition": "to enter",
+        "freqIndex": 179
+    },
+    {
+        "spWord": "entre",
+        "partOfSpeech": "prep",
+        "definition": "between, among",
+        "freqIndex": 58
+    },
+    {
+        "spWord": "entrega",
+        "partOfSpeech": "nf",
+        "definition": "delivery",
+        "freqIndex": 2182
+    },
+    {
+        "spWord": "entregar",
+        "partOfSpeech": "v",
+        "definition": "to deliver",
+        "freqIndex": 558
+    },
+    {
+        "spWord": "entrenamiento",
+        "partOfSpeech": "nm",
+        "definition": "training",
+        "freqIndex": 4019
+    },
+    {
+        "spWord": "entrenar",
+        "partOfSpeech": "v",
+        "definition": "to train",
+        "freqIndex": 4670
+    },
+    {
+        "spWord": "entretener",
+        "partOfSpeech": "v",
+        "definition": "to entertain, amuse",
+        "freqIndex": 2722
+    },
+    {
+        "spWord": "entretenimiento",
+        "partOfSpeech": "nm",
+        "definition": "entertainment",
+        "freqIndex": 4600
+    },
+    {
+        "spWord": "entrevista",
+        "partOfSpeech": "nf",
+        "definition": "interview, meeting",
+        "freqIndex": 1419
+    },
+    {
+        "spWord": "entrevistar",
+        "partOfSpeech": "v",
+        "definition": "to interview",
+        "freqIndex": 4160
+    },
+    {
+        "spWord": "entusiasmado",
+        "partOfSpeech": "adj",
+        "definition": "enthused, excited",
+        "freqIndex": 4243
+    },
+    {
+        "spWord": "entusiasmar",
+        "partOfSpeech": "v",
+        "definition": "to fill with enthusiasm, excite",
+        "freqIndex": 3793
+    },
+    {
+        "spWord": "entusiasmo",
+        "partOfSpeech": "nm",
+        "definition": "enthusiasm",
+        "freqIndex": 1765
+    },
+    {
+        "spWord": "entusiasta",
+        "partOfSpeech": "adj",
+        "definition": "enthusiastic",
+        "freqIndex": 4970
+    },
+    {
+        "spWord": "enumerar",
+        "partOfSpeech": "v",
+        "definition": "to enumerate, count",
+        "freqIndex": 4706
+    },
+    {
+        "spWord": "envergadura",
+        "partOfSpeech": "nf",
+        "definition": "breadth, expanse",
+        "freqIndex": 4916
+    },
+    {
+        "spWord": "enviar",
+        "partOfSpeech": "v",
+        "definition": "to send",
+        "freqIndex": 842
+    },
+    {
+        "spWord": "envidia",
+        "partOfSpeech": "nf",
+        "definition": "envy",
+        "freqIndex": 3272
+    },
+    {
+        "spWord": "envidiar",
+        "partOfSpeech": "v",
+        "definition": "to envy",
+        "freqIndex": 4631
+    },
+    {
+        "spWord": "envolver",
+        "partOfSpeech": "v",
+        "definition": "to wrap",
+        "freqIndex": 2363
+    },
+    {
+        "spWord": "envuelto",
+        "partOfSpeech": "adj",
+        "definition": "wrapped",
+        "freqIndex": 2473
+    },
+    {
+        "spWord": "episodio",
+        "partOfSpeech": "nm",
+        "definition": "episode, incident",
+        "freqIndex": 2355
+    },
+    {
+        "spWord": "época",
+        "partOfSpeech": "nf",
+        "definition": "time, age, period",
+        "freqIndex": 358
+    },
+    {
+        "spWord": "equilibrar",
+        "partOfSpeech": "v",
+        "definition": "to balance",
+        "freqIndex": 2382
+    },
+    {
+        "spWord": "equilibrio",
+        "partOfSpeech": "nm",
+        "definition": "balance",
+        "freqIndex": 1487
+    },
+    {
+        "spWord": "equipo",
+        "partOfSpeech": "nm",
+        "definition": "team, equipment, outfit",
+        "freqIndex": 737
+    },
+    {
+        "spWord": "equivalente",
+        "partOfSpeech": "adj",
+        "definition": "equivalent",
+        "freqIndex": 4308
+    },
+    {
+        "spWord": "equivalente",
+        "partOfSpeech": "nm",
+        "definition": "equivalent",
+        "freqIndex": 4780
+    },
+    {
+        "spWord": "equivaler",
+        "partOfSpeech": "v",
+        "definition": "to be equivalent, tantamount (to)",
+        "freqIndex": 3675
+    },
+    {
+        "spWord": "equivocación",
+        "partOfSpeech": "nf",
+        "definition": "mistake, misconception",
+        "freqIndex": 4774
+    },
+    {
+        "spWord": "equivocado",
+        "partOfSpeech": "adj",
+        "definition": "mistaken, wrong",
+        "freqIndex": 2353
+    },
+    {
+        "spWord": "equivocar",
+        "partOfSpeech": "v",
+        "definition": "to be wrong",
+        "freqIndex": 1457
+    },
+    {
+        "spWord": "era",
+        "partOfSpeech": "nf",
+        "definition": "era, age",
+        "freqIndex": 4076
+    },
+    {
+        "spWord": "erótico",
+        "partOfSpeech": "adj",
+        "definition": "erotic",
+        "freqIndex": 4349
+    },
+    {
+        "spWord": "error",
+        "partOfSpeech": "nm",
+        "definition": "error, mistake",
+        "freqIndex": 738
+    },
+    {
+        "spWord": "escala",
+        "partOfSpeech": "nf",
+        "definition": "scale, ladder, rank",
+        "freqIndex": 1542
+    },
+    {
+        "spWord": "escalera",
+        "partOfSpeech": "nf",
+        "definition": "stairs, ladder",
+        "freqIndex": 2595
+    },
+    {
+        "spWord": "escándalo",
+        "partOfSpeech": "nm",
+        "definition": "scandal",
+        "freqIndex": 2093
+    },
+    {
+        "spWord": "escapar",
+        "partOfSpeech": "v",
+        "definition": "to escape",
+        "freqIndex": 757
+    },
+    {
+        "spWord": "escaparate",
+        "partOfSpeech": "nm",
+        "definition": "showcase, display window",
+        "freqIndex": 4725
+    },
+    {
+        "spWord": "escasez",
+        "partOfSpeech": "nf",
+        "definition": "scarcity, shortage",
+        "freqIndex": 3135
+    },
+    {
+        "spWord": "escaso",
+        "partOfSpeech": "adj",
+        "definition": "scarce, very little",
+        "freqIndex": 1110
+    },
+    {
+        "spWord": "escena",
+        "partOfSpeech": "nf",
+        "definition": "scene, stage, setting",
+        "freqIndex": 1139
+    },
+    {
+        "spWord": "escenario",
+        "partOfSpeech": "nm",
+        "definition": "stage, setting, scene",
+        "freqIndex": 1638
+    },
+    {
+        "spWord": "esclavo",
+        "partOfSpeech": "nm",
+        "definition": "slave",
+        "freqIndex": 2377
+    },
+    {
+        "spWord": "escoger",
+        "partOfSpeech": "v",
+        "definition": "to choose",
+        "freqIndex": 2048
+    },
+    {
+        "spWord": "escolar",
+        "partOfSpeech": "adj",
+        "definition": "school, scholastic",
+        "freqIndex": 2701
+    },
+    {
+        "spWord": "esconder",
+        "partOfSpeech": "v",
+        "definition": "to hide, conceal",
+        "freqIndex": 1802
+    },
+    {
+        "spWord": "escondido",
+        "partOfSpeech": "adj",
+        "definition": "hidden",
+        "freqIndex": 2546
+    },
+    {
+        "spWord": "escribir",
+        "partOfSpeech": "v",
+        "definition": "to write",
+        "freqIndex": 187
+    },
+    {
+        "spWord": "escrito",
+        "partOfSpeech": "nm",
+        "definition": "manuscript, writing",
+        "freqIndex": 4629
+    },
+    {
+        "spWord": "escritor",
+        "partOfSpeech": "nm/f",
+        "definition": "writer",
+        "freqIndex": 1011
+    },
+    {
+        "spWord": "escritorio",
+        "partOfSpeech": "nm",
+        "definition": "desk, bureau",
+        "freqIndex": 3539
+    },
+    {
+        "spWord": "escritura",
+        "partOfSpeech": "nf",
+        "definition": "writing, scripture",
+        "freqIndex": 2432
+    },
+    {
+        "spWord": "escuchar",
+        "partOfSpeech": "v",
+        "definition": "to listen to",
+        "freqIndex": 360
+    },
+    {
+        "spWord": "escudo",
+        "partOfSpeech": "nm",
+        "definition": "shield, coat of arms",
+        "freqIndex": 3081
+    },
+    {
+        "spWord": "escuela",
+        "partOfSpeech": "nf",
+        "definition": "school",
+        "freqIndex": 532
+    },
+    {
+        "spWord": "escultura",
+        "partOfSpeech": "nf",
+        "definition": "sculpture, carving",
+        "freqIndex": 4125
+    },
+    {
+        "spWord": "ese",
+        "partOfSpeech": "adj",
+        "definition": "that (m) [esa (f)]",
+        "freqIndex": 32
+    },
+    {
+        "spWord": "ése",
+        "partOfSpeech": "pron",
+        "definition": "that one (m), [ésa (f)]",
+        "freqIndex": 855
+    },
+    {
+        "spWord": "esencia",
+        "partOfSpeech": "nf",
+        "definition": "essence",
+        "freqIndex": 1672
+    },
+    {
+        "spWord": "esencial",
+        "partOfSpeech": "adj",
+        "definition": "essential",
+        "freqIndex": 1573
+    },
+    {
+        "spWord": "esencialmente",
+        "partOfSpeech": "adv",
+        "definition": "essentially",
+        "freqIndex": 4607
+    },
+    {
+        "spWord": "esfera",
+        "partOfSpeech": "nf",
+        "definition": "sphere, globe",
+        "freqIndex": 2514
+    },
+    {
+        "spWord": "esforzar",
+        "partOfSpeech": "v",
+        "definition": "to make an effort, exert oneself",
+        "freqIndex": 2823
+    },
+    {
+        "spWord": "esfuerzo",
+        "partOfSpeech": "nm",
+        "definition": "effort, endeavor",
+        "freqIndex": 444
+    },
+    {
+        "spWord": "eso",
+        "partOfSpeech": "pron",
+        "definition": "that (n)",
+        "freqIndex": 63
+    },
+    {
+        "spWord": "espacial",
+        "partOfSpeech": "adj",
+        "definition": "spatial, space",
+        "freqIndex": 4424
+    },
+    {
+        "spWord": "espacio",
+        "partOfSpeech": "nm",
+        "definition": "space, room",
+        "freqIndex": 474
+    },
+    {
+        "spWord": "espada",
+        "partOfSpeech": "nf",
+        "definition": "sword",
+        "freqIndex": 3024
+    },
+    {
+        "spWord": "espalda",
+        "partOfSpeech": "nf",
+        "definition": "back (body)",
+        "freqIndex": 1499
+    },
+    {
+        "spWord": "español",
+        "partOfSpeech": "adj",
+        "definition": "Spanish",
+        "freqIndex": 285
+    },
+    {
+        "spWord": "espantar",
+        "partOfSpeech": "v",
+        "definition": "to scare, frighten",
+        "freqIndex": 4435
+    },
+    {
+        "spWord": "espantoso",
+        "partOfSpeech": "adj",
+        "definition": "frightening, dreadful",
+        "freqIndex": 3281
+    },
+    {
+        "spWord": "especial",
+        "partOfSpeech": "adj",
+        "definition": "special",
+        "freqIndex": 364
+    },
+    {
+        "spWord": "especialidad",
+        "partOfSpeech": "nf",
+        "definition": "specialty, specialized field",
+        "freqIndex": 2517
+    },
+    {
+        "spWord": "especialista",
+        "partOfSpeech": "nc",
+        "definition": "specialist",
+        "freqIndex": 1886
+    },
+    {
+        "spWord": "especializar",
+        "partOfSpeech": "v",
+        "definition": "to specialize, major in",
+        "freqIndex": 2474
+    },
+    {
+        "spWord": "especialmente",
+        "partOfSpeech": "adv",
+        "definition": "especially",
+        "freqIndex": 684
+    },
+    {
+        "spWord": "especie",
+        "partOfSpeech": "nf",
+        "definition": "kind, sort, species",
+        "freqIndex": 388
+    },
+    {
+        "spWord": "específicamente",
+        "partOfSpeech": "adv",
+        "definition": "specifically",
+        "freqIndex": 4492
+    },
+    {
+        "spWord": "específico",
+        "partOfSpeech": "adj",
+        "definition": "specific",
+        "freqIndex": 2372
+    },
+    {
+        "spWord": "espectacular",
+        "partOfSpeech": "adj",
+        "definition": "spectacular",
+        "freqIndex": 2845
+    },
+    {
+        "spWord": "espectáculo",
+        "partOfSpeech": "nm",
+        "definition": "spectacle, show",
+        "freqIndex": 1420
+    },
+    {
+        "spWord": "espectador",
+        "partOfSpeech": "nm",
+        "definition": "spectator, onlooker",
+        "freqIndex": 2732
+    },
+    {
+        "spWord": "espectro",
+        "partOfSpeech": "nm",
+        "definition": "ghost, specter",
+        "freqIndex": 3802
+    },
+    {
+        "spWord": "especulación",
+        "partOfSpeech": "nf",
+        "definition": "speculation, conjecture",
+        "freqIndex": 3928
+    },
+    {
+        "spWord": "espejo",
+        "partOfSpeech": "nm",
+        "definition": "mirror, reflection",
+        "freqIndex": 1730
+    },
+    {
+        "spWord": "espera",
+        "partOfSpeech": "nf",
+        "definition": "wait",
+        "freqIndex": 1525
+    },
+    {
+        "spWord": "esperanza",
+        "partOfSpeech": "nf",
+        "definition": "hope",
+        "freqIndex": 805
+    },
+    {
+        "spWord": "esperar",
+        "partOfSpeech": "v",
+        "definition": "to wait, hope (for), expect",
+        "freqIndex": 163
+    },
+    {
+        "spWord": "espeso",
+        "partOfSpeech": "adj",
+        "definition": "thick, dense, stiff",
+        "freqIndex": 3537
+    },
+    {
+        "spWord": "espina",
+        "partOfSpeech": "nf",
+        "definition": "thorn, spine",
+        "freqIndex": 3708
+    },
+    {
+        "spWord": "espíritu",
+        "partOfSpeech": "nm",
+        "definition": "spirit, ghost",
+        "freqIndex": 731
+    },
+    {
+        "spWord": "espiritual",
+        "partOfSpeech": "adj",
+        "definition": "spiritual",
+        "freqIndex": 1865
+    },
+    {
+        "spWord": "espléndido",
+        "partOfSpeech": "adj",
+        "definition": "splendid, generous",
+        "freqIndex": 2822
+    },
+    {
+        "spWord": "esplendor",
+        "partOfSpeech": "nm",
+        "definition": "splendor",
+        "freqIndex": 3992
+    },
+    {
+        "spWord": "espontáneamente",
+        "partOfSpeech": "adv",
+        "definition": "spontaneously",
+        "freqIndex": 4743
+    },
+    {
+        "spWord": "espontáneo",
+        "partOfSpeech": "adj",
+        "definition": "spontaneous",
+        "freqIndex": 2172
+    },
+    {
+        "spWord": "esporádico",
+        "partOfSpeech": "adj",
+        "definition": "sporadic",
+        "freqIndex": 4678
+    },
+    {
+        "spWord": "esposa",
+        "partOfSpeech": "nf",
+        "definition": "wife",
+        "freqIndex": 951
+    },
+    {
+        "spWord": "esposo",
+        "partOfSpeech": "nm",
+        "definition": "husband, spouse",
+        "freqIndex": 2676
+    },
+    {
+        "spWord": "espuma",
+        "partOfSpeech": "nf",
+        "definition": "foam, lather",
+        "freqIndex": 4697
+    },
+    {
+        "spWord": "esqueleto",
+        "partOfSpeech": "nm",
+        "definition": "skeleton, framework",
+        "freqIndex": 4121
+    },
+    {
+        "spWord": "esquema",
+        "partOfSpeech": "nm",
+        "definition": "outline, diagram, plan",
+        "freqIndex": 2466
+    },
+    {
+        "spWord": "esquina",
+        "partOfSpeech": "nf",
+        "definition": "corner",
+        "freqIndex": 1926
+    },
+    {
+        "spWord": "estabilidad",
+        "partOfSpeech": "nf",
+        "definition": "stability",
+        "freqIndex": 3251
+    },
+    {
+        "spWord": "estable",
+        "partOfSpeech": "adj",
+        "definition": "stable, steady",
+        "freqIndex": 2784
+    },
+    {
+        "spWord": "establecer",
+        "partOfSpeech": "v",
+        "definition": "to establish",
+        "freqIndex": 565
+    },
+    {
+        "spWord": "establecido",
+        "partOfSpeech": "adj",
+        "definition": "established",
+        "freqIndex": 1515
+    },
+    {
+        "spWord": "establecimiento",
+        "partOfSpeech": "nm",
+        "definition": "establishment",
+        "freqIndex": 2289
+    },
+    {
+        "spWord": "estación",
+        "partOfSpeech": "nf",
+        "definition": "station, season",
+        "freqIndex": 1275
+    },
+    {
+        "spWord": "estadio",
+        "partOfSpeech": "nm",
+        "definition": "stadium",
+        "freqIndex": 3970
+    },
+    {
+        "spWord": "estadística",
+        "partOfSpeech": "nf",
+        "definition": "statistic",
+        "freqIndex": 3339
+    },
+    {
+        "spWord": "estadístico",
+        "partOfSpeech": "adj",
+        "definition": "statistical",
+        "freqIndex": 4707
+    },
+    {
+        "spWord": "estado",
+        "partOfSpeech": "nm",
+        "definition": "state, condition, status",
+        "freqIndex": 351
+    },
+    {
+        "spWord": "estallar",
+        "partOfSpeech": "v",
+        "definition": "to break out, explode, start",
+        "freqIndex": 2401
+    },
+    {
+        "spWord": "estallido",
+        "partOfSpeech": "nm",
+        "definition": "crash, outbreak, explosion",
+        "freqIndex": 4445
+    },
+    {
+        "spWord": "estampa",
+        "partOfSpeech": "nf",
+        "definition": "print, engraving, illustration",
+        "freqIndex": 4999
+    },
+    {
+        "spWord": "estancia",
+        "partOfSpeech": "nf",
+        "definition": "stay, stance, ranch",
+        "freqIndex": 2364
+    },
+    {
+        "spWord": "estar",
+        "partOfSpeech": "v",
+        "definition": "to be (location, change from norm)",
+        "freqIndex": 17
+    },
+    {
+        "spWord": "estatal",
+        "partOfSpeech": "adj",
+        "definition": "state, government-owned",
+        "freqIndex": 4189
+    },
+    {
+        "spWord": "estático",
+        "partOfSpeech": "adj",
+        "definition": "static, motionless",
+        "freqIndex": 3923
+    },
+    {
+        "spWord": "estatua",
+        "partOfSpeech": "nf",
+        "definition": "statue",
+        "freqIndex": 3116
+    },
+    {
+        "spWord": "estatura",
+        "partOfSpeech": "nf",
+        "definition": "stature, height",
+        "freqIndex": 4098
+    },
+    {
+        "spWord": "este",
+        "partOfSpeech": "adj",
+        "definition": "this (m) [esta (f)]",
+        "freqIndex": 29
+    },
+    {
+        "spWord": "este",
+        "partOfSpeech": "nm",
+        "definition": "East",
+        "freqIndex": 2743
+    },
+    {
+        "spWord": "éste",
+        "partOfSpeech": "pron",
+        "definition": "this one (m), [ésta (f)]",
+        "freqIndex": 168
+    },
+    {
+        "spWord": "estéril",
+        "partOfSpeech": "adj",
+        "definition": "sterile, barren",
+        "freqIndex": 4195
+    },
+    {
+        "spWord": "estética",
+        "partOfSpeech": "nf",
+        "definition": "aesthetics",
+        "freqIndex": 4730
+    },
+    {
+        "spWord": "estético",
+        "partOfSpeech": "adj",
+        "definition": "esthetic",
+        "freqIndex": 2569
+    },
+    {
+        "spWord": "estilo",
+        "partOfSpeech": "nm",
+        "definition": "style",
+        "freqIndex": 707
+    },
+    {
+        "spWord": "estimar",
+        "partOfSpeech": "v",
+        "definition": "to estimate, hold in esteem",
+        "freqIndex": 1433
+    },
+    {
+        "spWord": "estimular",
+        "partOfSpeech": "v",
+        "definition": "to stimulate, encourage",
+        "freqIndex": 2662
+    },
+    {
+        "spWord": "estímulo",
+        "partOfSpeech": "nm",
+        "definition": "stimulus, encouragement",
+        "freqIndex": 2714
+    },
+    {
+        "spWord": "estirar",
+        "partOfSpeech": "v",
+        "definition": "to stretch, strain",
+        "freqIndex": 3652
+    },
+    {
+        "spWord": "esto",
+        "partOfSpeech": "pron",
+        "definition": "this (n)",
+        "freqIndex": 110
+    },
+    {
+        "spWord": "estómago",
+        "partOfSpeech": "nm",
+        "definition": "stomach",
+        "freqIndex": 2636
+    },
+    {
+        "spWord": "estrategia",
+        "partOfSpeech": "nf",
+        "definition": "strategy",
+        "freqIndex": 2505
+    },
+    {
+        "spWord": "estratégico",
+        "partOfSpeech": "adj",
+        "definition": "strategic",
+        "freqIndex": 4171
+    },
+    {
+        "spWord": "estrechar",
+        "partOfSpeech": "v",
+        "definition": "to tighten, make closer",
+        "freqIndex": 3501
+    },
+    {
+        "spWord": "estrecho",
+        "partOfSpeech": "adj",
+        "definition": "narrow",
+        "freqIndex": 1686
+    },
+    {
+        "spWord": "estrella",
+        "partOfSpeech": "nf",
+        "definition": "star",
+        "freqIndex": 1194
+    },
+    {
+        "spWord": "estrenar",
+        "partOfSpeech": "v",
+        "definition": "to use for the first time, debut",
+        "freqIndex": 3869
+    },
+    {
+        "spWord": "estrictamente",
+        "partOfSpeech": "adv",
+        "definition": "strictly",
+        "freqIndex": 2587
+    },
+    {
+        "spWord": "estricto",
+        "partOfSpeech": "adj",
+        "definition": "strict, rigorous",
+        "freqIndex": 2079
+    },
+    {
+        "spWord": "estropear",
+        "partOfSpeech": "v",
+        "definition": "to ruin, mess up",
+        "freqIndex": 4851
+    },
+    {
+        "spWord": "estructura",
+        "partOfSpeech": "nf",
+        "definition": "structure",
+        "freqIndex": 1141
+    },
+    {
+        "spWord": "estudiante",
+        "partOfSpeech": "nc",
+        "definition": "student",
+        "freqIndex": 1019
+    },
+    {
+        "spWord": "estudiar",
+        "partOfSpeech": "v",
+        "definition": "to study",
+        "freqIndex": 328
+    },
+    {
+        "spWord": "estudio",
+        "partOfSpeech": "nm",
+        "definition": "study, learning",
+        "freqIndex": 321
+    },
+    {
+        "spWord": "estudioso",
+        "partOfSpeech": "adj",
+        "definition": "studious",
+        "freqIndex": 3940
+    },
+    {
+        "spWord": "estupendo",
+        "partOfSpeech": "adj",
+        "definition": "marvelous, stupendous",
+        "freqIndex": 3478
+    },
+    {
+        "spWord": "estupidez",
+        "partOfSpeech": "nf",
+        "definition": "stupidity, stupid thing",
+        "freqIndex": 4382
+    },
+    {
+        "spWord": "estúpido",
+        "partOfSpeech": "adj",
+        "definition": "stupid, idiotic",
+        "freqIndex": 3319
+    },
+    {
+        "spWord": "etapa",
+        "partOfSpeech": "nf",
+        "definition": "stage, period",
+        "freqIndex": 921
+    },
+    {
+        "spWord": "etcétera",
+        "partOfSpeech": "nm",
+        "definition": "etcetera",
+        "freqIndex": 2154
+    },
+    {
+        "spWord": "eternidad",
+        "partOfSpeech": "nf",
+        "definition": "eternity",
+        "freqIndex": 4352
+    },
+    {
+        "spWord": "eterno",
+        "partOfSpeech": "adj",
+        "definition": "eternal",
+        "freqIndex": 1872
+    },
+    {
+        "spWord": "ética",
+        "partOfSpeech": "nf",
+        "definition": "ethics",
+        "freqIndex": 3683
+    },
+    {
+        "spWord": "ético",
+        "partOfSpeech": "adj",
+        "definition": "ethical",
+        "freqIndex": 4173
+    },
+    {
+        "spWord": "etiqueta",
+        "partOfSpeech": "nf",
+        "definition": "label, etiquette",
+        "freqIndex": 3810
+    },
+    {
+        "spWord": "euforia",
+        "partOfSpeech": "nf",
+        "definition": "euphoria, elation",
+        "freqIndex": 4539
+    },
+    {
+        "spWord": "europeo",
+        "partOfSpeech": "adj",
+        "definition": "European",
+        "freqIndex": 1092
+    },
+    {
+        "spWord": "evaluar",
+        "partOfSpeech": "v",
+        "definition": "to evaluate, assess",
+        "freqIndex": 4419
+    },
+    {
+        "spWord": "evento",
+        "partOfSpeech": "nm",
+        "definition": "event",
+        "freqIndex": 3867
+    },
+    {
+        "spWord": "evidencia",
+        "partOfSpeech": "nf",
+        "definition": "evidence, certainty",
+        "freqIndex": 2091
+    },
+    {
+        "spWord": "evidente",
+        "partOfSpeech": "adj",
+        "definition": "evident, obvious",
+        "freqIndex": 1051
+    },
+    {
+        "spWord": "evidentemente",
+        "partOfSpeech": "adv",
+        "definition": "evidently, obviously",
+        "freqIndex": 1766
+    },
+    {
+        "spWord": "evitar",
+        "partOfSpeech": "v",
+        "definition": "to avoid, prevent",
+        "freqIndex": 446
+    },
+    {
+        "spWord": "evocar",
+        "partOfSpeech": "v",
+        "definition": "to evoke, recall",
+        "freqIndex": 4149
+    },
+    {
+        "spWord": "evolución",
+        "partOfSpeech": "nf",
+        "definition": "evolution, development",
+        "freqIndex": 1754
+    },
+    {
+        "spWord": "evolucionar",
+        "partOfSpeech": "v",
+        "definition": "to evolve, develop",
+        "freqIndex": 3018
+    },
+    {
+        "spWord": "exactamente",
+        "partOfSpeech": "adv",
+        "definition": "exactly",
+        "freqIndex": 977
+    },
+    {
+        "spWord": "exactitud",
+        "partOfSpeech": "nf",
+        "definition": "accuracy",
+        "freqIndex": 3615
+    },
+    {
+        "spWord": "exacto",
+        "partOfSpeech": "adj",
+        "definition": "exact, faithful, true",
+        "freqIndex": 879
+    },
+    {
+        "spWord": "exageración",
+        "partOfSpeech": "nf",
+        "definition": "exaggeration",
+        "freqIndex": 4442
+    },
+    {
+        "spWord": "exagerado",
+        "partOfSpeech": "adj",
+        "definition": "exaggerated",
+        "freqIndex": 2603
+    },
+    {
+        "spWord": "exagerar",
+        "partOfSpeech": "v",
+        "definition": "to exaggerate",
+        "freqIndex": 2755
+    },
+    {
+        "spWord": "examen",
+        "partOfSpeech": "nm",
+        "definition": "examination, exam",
+        "freqIndex": 1286
+    },
+    {
+        "spWord": "examinar",
+        "partOfSpeech": "v",
+        "definition": "to examine, inspect",
+        "freqIndex": 1780
+    },
+    {
+        "spWord": "exceder",
+        "partOfSpeech": "v",
+        "definition": "to excel, exceed",
+        "freqIndex": 4534
+    },
+    {
+        "spWord": "excelencia",
+        "partOfSpeech": "nf",
+        "definition": "excellence",
+        "freqIndex": 3026
+    },
+    {
+        "spWord": "excelente",
+        "partOfSpeech": "adj",
+        "definition": "excellent",
+        "freqIndex": 1273
+    },
+    {
+        "spWord": "excepción",
+        "partOfSpeech": "nf",
+        "definition": "exception",
+        "freqIndex": 1319
+    },
+    {
+        "spWord": "excepcional",
+        "partOfSpeech": "adj",
+        "definition": "exceptional, unusual",
+        "freqIndex": 2392
+    },
+    {
+        "spWord": "excepto",
+        "partOfSpeech": "prep",
+        "definition": "except (for)",
+        "freqIndex": 3108
+    },
+    {
+        "spWord": "excesivamente",
+        "partOfSpeech": "adv",
+        "definition": "excessively",
+        "freqIndex": 3553
+    },
+    {
+        "spWord": "excesivo",
+        "partOfSpeech": "adj",
+        "definition": "excessive",
+        "freqIndex": 1607
+    },
+    {
+        "spWord": "exceso",
+        "partOfSpeech": "nm",
+        "definition": "excess",
+        "freqIndex": 1495
+    },
+    {
+        "spWord": "excitar",
+        "partOfSpeech": "v",
+        "definition": "to excite",
+        "freqIndex": 4701
+    },
+    {
+        "spWord": "excluir",
+        "partOfSpeech": "v",
+        "definition": "to exclude, reject",
+        "freqIndex": 3121
+    },
+    {
+        "spWord": "exclusivamente",
+        "partOfSpeech": "adv",
+        "definition": "exclusively",
+        "freqIndex": 1769
+    },
+    {
+        "spWord": "exclusivo",
+        "partOfSpeech": "adj",
+        "definition": "exclusive",
+        "freqIndex": 2253
+    },
+    {
+        "spWord": "excursión",
+        "partOfSpeech": "nf",
+        "definition": "excursion",
+        "freqIndex": 3916
+    },
+    {
+        "spWord": "excusa",
+        "partOfSpeech": "nf",
+        "definition": "excuse",
+        "freqIndex": 3564
+    },
+    {
+        "spWord": "exento",
+        "partOfSpeech": "adj",
+        "definition": "exempt, free",
+        "freqIndex": 4884
+    },
+    {
+        "spWord": "exhibición",
+        "partOfSpeech": "nf",
+        "definition": "exhibition, showing",
+        "freqIndex": 4723
+    },
+    {
+        "spWord": "exhibir",
+        "partOfSpeech": "v",
+        "definition": "to exhibit, show off",
+        "freqIndex": 2122
+    },
+    {
+        "spWord": "exigencia",
+        "partOfSpeech": "nf",
+        "definition": "requirement, demand",
+        "freqIndex": 1711
+    },
+    {
+        "spWord": "exigente",
+        "partOfSpeech": "adj",
+        "definition": "demanding, urgent",
+        "freqIndex": 3530
+    },
+    {
+        "spWord": "exigir",
+        "partOfSpeech": "v",
+        "definition": "to demand",
+        "freqIndex": 630
+    },
+    {
+        "spWord": "exilio",
+        "partOfSpeech": "nm",
+        "definition": "exile",
+        "freqIndex": 3359
+    },
+    {
+        "spWord": "existencia",
+        "partOfSpeech": "nf",
+        "definition": "existence, life",
+        "freqIndex": 840
+    },
+    {
+        "spWord": "existente",
+        "partOfSpeech": "adj",
+        "definition": "existing",
+        "freqIndex": 2833
+    },
+    {
+        "spWord": "existir",
+        "partOfSpeech": "v",
+        "definition": "to exist",
+        "freqIndex": 177
+    },
+    {
+        "spWord": "éxito",
+        "partOfSpeech": "nm",
+        "definition": "success",
+        "freqIndex": 714
+    },
+    {
+        "spWord": "exótico",
+        "partOfSpeech": "adj",
+        "definition": "exotic",
+        "freqIndex": 3847
+    },
+    {
+        "spWord": "expandir",
+        "partOfSpeech": "v",
+        "definition": "to expand",
+        "freqIndex": 4495
+    },
+    {
+        "spWord": "expansión",
+        "partOfSpeech": "nf",
+        "definition": "expansion, spreading",
+        "freqIndex": 3638
+    },
+    {
+        "spWord": "expectativa",
+        "partOfSpeech": "nf",
+        "definition": "expectation, hope, prospect",
+        "freqIndex": 2456
+    },
+    {
+        "spWord": "expedición",
+        "partOfSpeech": "nf",
+        "definition": "expedition",
+        "freqIndex": 3944
+    },
+    {
+        "spWord": "expediente",
+        "partOfSpeech": "nm",
+        "definition": "dossier, proceedings",
+        "freqIndex": 3791
+    },
+    {
+        "spWord": "experiencia",
+        "partOfSpeech": "nf",
+        "definition": "experience",
+        "freqIndex": 361
+    },
+    {
+        "spWord": "experimental",
+        "partOfSpeech": "adj",
+        "definition": "experimental",
+        "freqIndex": 4360
+    },
+    {
+        "spWord": "experimentar",
+        "partOfSpeech": "v",
+        "definition": "to experience, experiment",
+        "freqIndex": 1484
+    },
+    {
+        "spWord": "experimento",
+        "partOfSpeech": "nm",
+        "definition": "experiment",
+        "freqIndex": 2815
+    },
+    {
+        "spWord": "experto",
+        "partOfSpeech": "nm",
+        "definition": "expert",
+        "freqIndex": 1452
+    },
+    {
+        "spWord": "explicación",
+        "partOfSpeech": "nf",
+        "definition": "explanation",
+        "freqIndex": 818
+    },
+    {
+        "spWord": "explicar",
+        "partOfSpeech": "v",
+        "definition": "to explain",
+        "freqIndex": 316
+    },
+    {
+        "spWord": "explícito",
+        "partOfSpeech": "adj",
+        "definition": "explicit",
+        "freqIndex": 4417
+    },
+    {
+        "spWord": "exploración",
+        "partOfSpeech": "nf",
+        "definition": "exploration",
+        "freqIndex": 4306
+    },
+    {
+        "spWord": "explorar",
+        "partOfSpeech": "v",
+        "definition": "to explore",
+        "freqIndex": 3595
+    },
+    {
+        "spWord": "explosión",
+        "partOfSpeech": "nf",
+        "definition": "explosion",
+        "freqIndex": 2175
+    },
+    {
+        "spWord": "explotación",
+        "partOfSpeech": "nf",
+        "definition": "exploitation, cultivation",
+        "freqIndex": 3764
+    },
+    {
+        "spWord": "explotar",
+        "partOfSpeech": "v",
+        "definition": "to explode, exploit",
+        "freqIndex": 1938
+    },
+    {
+        "spWord": "exponer",
+        "partOfSpeech": "v",
+        "definition": "to expound, expose",
+        "freqIndex": 773
+    },
+    {
+        "spWord": "exportación",
+        "partOfSpeech": "nf",
+        "definition": "export, exportation",
+        "freqIndex": 4493
+    },
+    {
+        "spWord": "exposición",
+        "partOfSpeech": "nf",
+        "definition": "exhibition, display",
+        "freqIndex": 1689
+    },
+    {
+        "spWord": "expresar",
+        "partOfSpeech": "v",
+        "definition": "to express",
+        "freqIndex": 660
+    },
+    {
+        "spWord": "expresión",
+        "partOfSpeech": "nf",
+        "definition": "expression",
+        "freqIndex": 555
+    },
+    {
+        "spWord": "expresivo",
+        "partOfSpeech": "adj",
+        "definition": "expressive",
+        "freqIndex": 4181
+    },
+    {
+        "spWord": "expreso",
+        "partOfSpeech": "adj",
+        "definition": "express, explicit",
+        "freqIndex": 4345
+    },
+    {
+        "spWord": "expulsar",
+        "partOfSpeech": "v",
+        "definition": "to expel, throw out",
+        "freqIndex": 2110
+    },
+    {
+        "spWord": "expulsión",
+        "partOfSpeech": "nf",
+        "definition": "expulsion, ejection",
+        "freqIndex": 4988
+    },
+    {
+        "spWord": "exquisito",
+        "partOfSpeech": "adj",
+        "definition": "exquisite, superb",
+        "freqIndex": 2592
+    },
+    {
+        "spWord": "extender",
+        "partOfSpeech": "v",
+        "definition": "to extend, spread",
+        "freqIndex": 851
+    },
+    {
+        "spWord": "extensión",
+        "partOfSpeech": "nf",
+        "definition": "extension, area, expanse",
+        "freqIndex": 2082
+    },
+    {
+        "spWord": "extenso",
+        "partOfSpeech": "adj",
+        "definition": "extensive, large",
+        "freqIndex": 2306
+    },
+    {
+        "spWord": "exterior",
+        "partOfSpeech": "adj",
+        "definition": "exterior, outside",
+        "freqIndex": 1163
+    },
+    {
+        "spWord": "exterior",
+        "partOfSpeech": "nm",
+        "definition": "exterior, outside",
+        "freqIndex": 1795
+    },
+    {
+        "spWord": "externo",
+        "partOfSpeech": "adj",
+        "definition": "external, outward",
+        "freqIndex": 2047
+    },
+    {
+        "spWord": "extinción",
+        "partOfSpeech": "nf",
+        "definition": "extinction",
+        "freqIndex": 4838
+    },
+    {
+        "spWord": "extinguir",
+        "partOfSpeech": "v",
+        "definition": "to extinguish, put out",
+        "freqIndex": 3616
+    },
+    {
+        "spWord": "extra",
+        "partOfSpeech": "adj",
+        "definition": "extra",
+        "freqIndex": 4756
+    },
+    {
+        "spWord": "extraer",
+        "partOfSpeech": "v",
+        "definition": "to extract, take out",
+        "freqIndex": 2102
+    },
+    {
+        "spWord": "extrañar",
+        "partOfSpeech": "v",
+        "definition": "to miss, long for",
+        "freqIndex": 2564
+    },
+    {
+        "spWord": "extranjero",
+        "partOfSpeech": "adj",
+        "definition": "foreign, alien",
+        "freqIndex": 1042
+    },
+    {
+        "spWord": "extranjero",
+        "partOfSpeech": "nm",
+        "definition": "foreigner",
+        "freqIndex": 1171
+    },
+    {
+        "spWord": "extraño",
+        "partOfSpeech": "adj",
+        "definition": "strange, foreign",
+        "freqIndex": 551
+    },
+    {
+        "spWord": "extraordinariamente",
+        "partOfSpeech": "adv",
+        "definition": "extraordinarily",
+        "freqIndex": 3953
+    },
+    {
+        "spWord": "extraordinario",
+        "partOfSpeech": "adj",
+        "definition": "extraordinary, exceptional",
+        "freqIndex": 860
+    },
+    {
+        "spWord": "extremadamente",
+        "partOfSpeech": "adv",
+        "definition": "extremely",
+        "freqIndex": 4494
+    },
+    {
+        "spWord": "extremo",
+        "partOfSpeech": "nm",
+        "definition": "edge, border, end",
+        "freqIndex": 1036
+    },
+    {
+        "spWord": "extremo",
+        "partOfSpeech": "adj",
+        "definition": "extreme",
+        "freqIndex": 1571
+    },
+    {
+        "spWord": "fábrica",
+        "partOfSpeech": "nf",
+        "definition": "factory, manufacture",
+        "freqIndex": 1498
+    },
+    {
+        "spWord": "fabricación",
+        "partOfSpeech": "nf",
+        "definition": "manufacture, production",
+        "freqIndex": 4526
+    },
+    {
+        "spWord": "fabricar",
+        "partOfSpeech": "v",
+        "definition": "to manufacture",
+        "freqIndex": 1408
+    },
+    {
+        "spWord": "fabuloso",
+        "partOfSpeech": "adj",
+        "definition": "fabulous, fantastic",
+        "freqIndex": 3596
+    },
+    {
+        "spWord": "facción",
+        "partOfSpeech": "nf",
+        "definition": "(face) feature, faction",
+        "freqIndex": 4718
+    },
+    {
+        "spWord": "fachada",
+        "partOfSpeech": "nf",
+        "definition": "front of a building",
+        "freqIndex": 3710
+    },
+    {
+        "spWord": "fácil",
+        "partOfSpeech": "adj",
+        "definition": "easy",
+        "freqIndex": 514
+    },
+    {
+        "spWord": "facilidad",
+        "partOfSpeech": "nf",
+        "definition": "ease, facility",
+        "freqIndex": 1108
+    },
+    {
+        "spWord": "facilitar",
+        "partOfSpeech": "v",
+        "definition": "to facilitate",
+        "freqIndex": 1381
+    },
+    {
+        "spWord": "fácilmente",
+        "partOfSpeech": "adv",
+        "definition": "easily",
+        "freqIndex": 1629
+    },
+    {
+        "spWord": "factor",
+        "partOfSpeech": "nm",
+        "definition": "factor, cause, influence",
+        "freqIndex": 1925
+    },
+    {
+        "spWord": "factura",
+        "partOfSpeech": "nf",
+        "definition": "invoice, bill",
+        "freqIndex": 4552
+    },
+    {
+        "spWord": "facultad",
+        "partOfSpeech": "nf",
+        "definition": "faculty, ability",
+        "freqIndex": 1383
+    },
+    {
+        "spWord": "faena",
+        "partOfSpeech": "nf",
+        "definition": "task, job, performance",
+        "freqIndex": 4147
+    },
+    {
+        "spWord": "falda",
+        "partOfSpeech": "nf",
+        "definition": "skirt",
+        "freqIndex": 3143
+    },
+    {
+        "spWord": "falla",
+        "partOfSpeech": "nf",
+        "definition": "flaw, failure",
+        "freqIndex": 4167
+    },
+    {
+        "spWord": "fallar",
+        "partOfSpeech": "v",
+        "definition": "to fail, miss",
+        "freqIndex": 1664
+    },
+    {
+        "spWord": "fallecer",
+        "partOfSpeech": "v",
+        "definition": "to pass away (to die)",
+        "freqIndex": 3456
+    },
+    {
+        "spWord": "fallo",
+        "partOfSpeech": "nm",
+        "definition": "mistake, blunder, fault",
+        "freqIndex": 3976
+    },
+    {
+        "spWord": "falso",
+        "partOfSpeech": "adj",
+        "definition": "false",
+        "freqIndex": 1140
+    },
+    {
+        "spWord": "falta",
+        "partOfSpeech": "nf",
+        "definition": "lack, shortage",
+        "freqIndex": 344
+    },
+    {
+        "spWord": "faltar",
+        "partOfSpeech": "v",
+        "definition": "to be lacking",
+        "freqIndex": 510
+    },
+    {
+        "spWord": "fama",
+        "partOfSpeech": "nf",
+        "definition": "reputation, fame",
+        "freqIndex": 1967
+    },
+    {
+        "spWord": "familia",
+        "partOfSpeech": "nf",
+        "definition": "family",
+        "freqIndex": 201
+    },
+    {
+        "spWord": "familiar",
+        "partOfSpeech": "adj",
+        "definition": "familiar, of the family",
+        "freqIndex": 744
+    },
+    {
+        "spWord": "familiar",
+        "partOfSpeech": "nm",
+        "definition": "relative",
+        "freqIndex": 1934
+    },
+    {
+        "spWord": "famoso",
+        "partOfSpeech": "adj",
+        "definition": "famous, well-known",
+        "freqIndex": 713
+    },
+    {
+        "spWord": "fantasía",
+        "partOfSpeech": "nf",
+        "definition": "fantasy, fancy",
+        "freqIndex": 2050
+    },
+    {
+        "spWord": "fantasma",
+        "partOfSpeech": "nm",
+        "definition": "ghost, phantom",
+        "freqIndex": 2449
+    },
+    {
+        "spWord": "fantástico",
+        "partOfSpeech": "adj",
+        "definition": "fantastic, unreal",
+        "freqIndex": 2360
+    },
+    {
+        "spWord": "farmacia",
+        "partOfSpeech": "nf",
+        "definition": "pharmacy, drugstore",
+        "freqIndex": 4290
+    },
+    {
+        "spWord": "fascinante",
+        "partOfSpeech": "adj",
+        "definition": "fascinating",
+        "freqIndex": 3853
+    },
+    {
+        "spWord": "fascinar",
+        "partOfSpeech": "v",
+        "definition": "to fascinate",
+        "freqIndex": 4854
+    },
+    {
+        "spWord": "fase",
+        "partOfSpeech": "nf",
+        "definition": "phase, stage",
+        "freqIndex": 2310
+    },
+    {
+        "spWord": "fatal",
+        "partOfSpeech": "adj",
+        "definition": "fateful, deadly, awful",
+        "freqIndex": 2539
+    },
+    {
+        "spWord": "fatiga",
+        "partOfSpeech": "nf",
+        "definition": "fatigue",
+        "freqIndex": 4303
+    },
+    {
+        "spWord": "favor",
+        "partOfSpeech": "nm",
+        "definition": "favor, benefit",
+        "freqIndex": 468
+    },
+    {
+        "spWord": "favorable",
+        "partOfSpeech": "adj",
+        "definition": "favorable, suitable",
+        "freqIndex": 2204
+    },
+    {
+        "spWord": "favorecer",
+        "partOfSpeech": "v",
+        "definition": "to favor, help",
+        "freqIndex": 2044
+    },
+    {
+        "spWord": "favorito",
+        "partOfSpeech": "adj",
+        "definition": "favorite",
+        "freqIndex": 2699
+    },
+    {
+        "spWord": "fe",
+        "partOfSpeech": "nf",
+        "definition": "faith",
+        "freqIndex": 1060
+    },
+    {
+        "spWord": "febrero",
+        "partOfSpeech": "nm",
+        "definition": "February",
+        "freqIndex": 1722
+    },
+    {
+        "spWord": "fecha",
+        "partOfSpeech": "nf",
+        "definition": "date, day",
+        "freqIndex": 749
+    },
+    {
+        "spWord": "felicidad",
+        "partOfSpeech": "nf",
+        "definition": "happiness",
+        "freqIndex": 1892
+    },
+    {
+        "spWord": "felicitar",
+        "partOfSpeech": "v",
+        "definition": "to congratulate",
+        "freqIndex": 3532
+    },
+    {
+        "spWord": "feliz",
+        "partOfSpeech": "adj",
+        "definition": "happy, fortunate",
+        "freqIndex": 956
+    },
+    {
+        "spWord": "femenino",
+        "partOfSpeech": "adj",
+        "definition": "feminine, female",
+        "freqIndex": 1345
+    },
+    {
+        "spWord": "fenómeno",
+        "partOfSpeech": "nm",
+        "definition": "phenomenon",
+        "freqIndex": 966
+    },
+    {
+        "spWord": "feo",
+        "partOfSpeech": "adj",
+        "definition": "ugly, nasty, rude",
+        "freqIndex": 2381
+    },
+    {
+        "spWord": "feria",
+        "partOfSpeech": "nf",
+        "definition": "fair, festival",
+        "freqIndex": 3358
+    },
+    {
+        "spWord": "feroz",
+        "partOfSpeech": "adj",
+        "definition": "ferocious, fierce",
+        "freqIndex": 3560
+    },
+    {
+        "spWord": "ferrocarril",
+        "partOfSpeech": "nm",
+        "definition": "railway",
+        "freqIndex": 2537
+    },
+    {
+        "spWord": "fértil",
+        "partOfSpeech": "adj",
+        "definition": "fertile, rich",
+        "freqIndex": 4765
+    },
+    {
+        "spWord": "fiar",
+        "partOfSpeech": "v",
+        "definition": "to vouch for, confide, trust",
+        "freqIndex": 4328
+    },
+    {
+        "spWord": "fibra",
+        "partOfSpeech": "nf",
+        "definition": "fiber, grain",
+        "freqIndex": 3424
+    },
+    {
+        "spWord": "ficción",
+        "partOfSpeech": "nf",
+        "definition": "fiction",
+        "freqIndex": 3165
+    },
+    {
+        "spWord": "ficha",
+        "partOfSpeech": "nf",
+        "definition": "index card, chip, token",
+        "freqIndex": 3736
+    },
+    {
+        "spWord": "fidelidad",
+        "partOfSpeech": "nf",
+        "definition": "faithfulness, accuracy",
+        "freqIndex": 3885
+    },
+    {
+        "spWord": "fiebre",
+        "partOfSpeech": "nf",
+        "definition": "fever, excitement",
+        "freqIndex": 2739
+    },
+    {
+        "spWord": "fiel",
+        "partOfSpeech": "adj",
+        "definition": "faithful, loyal",
+        "freqIndex": 1913
+    },
+    {
+        "spWord": "fiera",
+        "partOfSpeech": "nf",
+        "definition": "(wild) beast",
+        "freqIndex": 4923
+    },
+    {
+        "spWord": "fiesta",
+        "partOfSpeech": "nf",
+        "definition": "party, feast",
+        "freqIndex": 988
+    },
+    {
+        "spWord": "figura",
+        "partOfSpeech": "nf",
+        "definition": "figure",
+        "freqIndex": 495
+    },
+    {
+        "spWord": "figurar",
+        "partOfSpeech": "v",
+        "definition": "to appear, represent, figure (in)",
+        "freqIndex": 1227
+    },
+    {
+        "spWord": "fijar",
+        "partOfSpeech": "v",
+        "definition": "to set, fix, [se] notice",
+        "freqIndex": 407
+    },
+    {
+        "spWord": "fijo",
+        "partOfSpeech": "adj",
+        "definition": "fixed, steady",
+        "freqIndex": 1061
+    },
+    {
+        "spWord": "fila",
+        "partOfSpeech": "nf",
+        "definition": "line, row, file",
+        "freqIndex": 1647
+    },
+    {
+        "spWord": "filo",
+        "partOfSpeech": "nm",
+        "definition": "(cutting) edge",
+        "freqIndex": 3309
+    },
+    {
+        "spWord": "filosofía",
+        "partOfSpeech": "nf",
+        "definition": "philosophy",
+        "freqIndex": 1808
+    },
+    {
+        "spWord": "filosófico",
+        "partOfSpeech": "adj",
+        "definition": "philosophical",
+        "freqIndex": 2716
+    },
+    {
+        "spWord": "filósofo",
+        "partOfSpeech": "nm",
+        "definition": "philosopher",
+        "freqIndex": 2653
+    },
+    {
+        "spWord": "filtrar",
+        "partOfSpeech": "v",
+        "definition": "to seep, filter",
+        "freqIndex": 3781
+    },
+    {
+        "spWord": "fin",
+        "partOfSpeech": "nm",
+        "definition": "end",
+        "freqIndex": 156
+    },
+    {
+        "spWord": "al final",
+        "partOfSpeech": "adv",
+        "definition": "finally, in the end",
+        "freqIndex": 307
+    },
+    {
+        "spWord": "final",
+        "partOfSpeech": "nf",
+        "definition": "finalé, last round of a competition",
+        "freqIndex": 307
+    },
+    {
+        "spWord": "final",
+        "partOfSpeech": "nm",
+        "definition": "final exam (examen final)",
+        "freqIndex": 307
+    },
+    {
+        "spWord": "final",
+        "partOfSpeech": "adj",
+        "definition": "final",
+        "freqIndex": 771
+    },
+    {
+        "spWord": "finalidad",
+        "partOfSpeech": "nf",
+        "definition": "purpose, aim",
+        "freqIndex": 3287
+    },
+    {
+        "spWord": "finalizar",
+        "partOfSpeech": "v",
+        "definition": "to end, finalize",
+        "freqIndex": 3011
+    },
+    {
+        "spWord": "finalmente",
+        "partOfSpeech": "adv",
+        "definition": "finally, at last",
+        "freqIndex": 728
+    },
+    {
+        "spWord": "financiar",
+        "partOfSpeech": "v",
+        "definition": "to finance",
+        "freqIndex": 4615
+    },
+    {
+        "spWord": "financiero",
+        "partOfSpeech": "adj",
+        "definition": "financial",
+        "freqIndex": 3289
+    },
+    {
+        "spWord": "finca",
+        "partOfSpeech": "nf",
+        "definition": "property, estate",
+        "freqIndex": 4294
+    },
+    {
+        "spWord": "fingir",
+        "partOfSpeech": "v",
+        "definition": "to feign, pretend",
+        "freqIndex": 4113
+    },
+    {
+        "spWord": "fino",
+        "partOfSpeech": "adj",
+        "definition": "fine, delicate",
+        "freqIndex": 1348
+    },
+    {
+        "spWord": "firma",
+        "partOfSpeech": "nf",
+        "definition": "company, signature, signing",
+        "freqIndex": 1567
+    },
+    {
+        "spWord": "firmar",
+        "partOfSpeech": "v",
+        "definition": "to sign",
+        "freqIndex": 870
+    },
+    {
+        "spWord": "firme",
+        "partOfSpeech": "adj",
+        "definition": "firm, steady",
+        "freqIndex": 1570
+    },
+    {
+        "spWord": "firmemente",
+        "partOfSpeech": "adv",
+        "definition": "firmly",
+        "freqIndex": 4677
+    },
+    {
+        "spWord": "firmeza",
+        "partOfSpeech": "nf",
+        "definition": "firmness",
+        "freqIndex": 4001
+    },
+    {
+        "spWord": "fiscal",
+        "partOfSpeech": "adj",
+        "definition": "fiscal, treasury",
+        "freqIndex": 4423
+    },
+    {
+        "spWord": "fiscal",
+        "partOfSpeech": "nc",
+        "definition": "district attorney, prosecutor",
+        "freqIndex": 4612
+    },
+    {
+        "spWord": "físicamente",
+        "partOfSpeech": "adv",
+        "definition": "physically",
+        "freqIndex": 3852
+    },
+    {
+        "spWord": "físico",
+        "partOfSpeech": "adj",
+        "definition": "physical",
+        "freqIndex": 643
+    },
+    {
+        "spWord": "físico",
+        "partOfSpeech": "nm/f",
+        "definition": "physicist",
+        "freqIndex": 3868
+    },
+    {
+        "spWord": "flaco",
+        "partOfSpeech": "adj",
+        "definition": "thin, frail",
+        "freqIndex": 3673
+    },
+    {
+        "spWord": "flecha",
+        "partOfSpeech": "nf",
+        "definition": "arrow, dart",
+        "freqIndex": 4781
+    },
+    {
+        "spWord": "flexible",
+        "partOfSpeech": "adj",
+        "definition": "flexible",
+        "freqIndex": 3097
+    },
+    {
+        "spWord": "flor",
+        "partOfSpeech": "nf",
+        "definition": "flower",
+        "freqIndex": 950
+    },
+    {
+        "spWord": "florecer",
+        "partOfSpeech": "v",
+        "definition": "to flower, bloom, flourish",
+        "freqIndex": 3628
+    },
+    {
+        "spWord": "flotar",
+        "partOfSpeech": "v",
+        "definition": "to float, flutter",
+        "freqIndex": 2967
+    },
+    {
+        "spWord": "fluir",
+        "partOfSpeech": "v",
+        "definition": "to flow",
+        "freqIndex": 3350
+    },
+    {
+        "spWord": "flujo",
+        "partOfSpeech": "nm",
+        "definition": "flow, tide, discharge",
+        "freqIndex": 3624
+    },
+    {
+        "spWord": "foco",
+        "partOfSpeech": "nm",
+        "definition": "focus",
+        "freqIndex": 2843
+    },
+    {
+        "spWord": "fomentar",
+        "partOfSpeech": "v",
+        "definition": "to foster, promote, encourage",
+        "freqIndex": 3676
+    },
+    {
+        "spWord": "fondo",
+        "partOfSpeech": "nm",
+        "definition": "bottom, end",
+        "freqIndex": 318
+    },
+    {
+        "spWord": "forma",
+        "partOfSpeech": "nf",
+        "definition": "form, shape, way",
+        "freqIndex": 113
+    },
+    {
+        "spWord": "formación",
+        "partOfSpeech": "nf",
+        "definition": "formation, education",
+        "freqIndex": 938
+    },
+    {
+        "spWord": "formal",
+        "partOfSpeech": "adj",
+        "definition": "formal, polite",
+        "freqIndex": 2036
+    },
+    {
+        "spWord": "formar",
+        "partOfSpeech": "v",
+        "definition": "to form",
+        "freqIndex": 287
+    },
+    {
+        "spWord": "formidable",
+        "partOfSpeech": "adj",
+        "definition": "formidable, tremendous",
+        "freqIndex": 3414
+    },
+    {
+        "spWord": "fórmula",
+        "partOfSpeech": "nf",
+        "definition": "formula",
+        "freqIndex": 1546
+    },
+    {
+        "spWord": "formular",
+        "partOfSpeech": "v",
+        "definition": "to formulate",
+        "freqIndex": 2462
+    },
+    {
+        "spWord": "fortalecer",
+        "partOfSpeech": "v",
+        "definition": "to fortify",
+        "freqIndex": 4409
+    },
+    {
+        "spWord": "fortaleza",
+        "partOfSpeech": "nf",
+        "definition": "fortress, strength",
+        "freqIndex": 3205
+    },
+    {
+        "spWord": "fortuna",
+        "partOfSpeech": "nf",
+        "definition": "fortune, fate",
+        "freqIndex": 1782
+    },
+    {
+        "spWord": "forzar",
+        "partOfSpeech": "v",
+        "definition": "to force",
+        "freqIndex": 1959
+    },
+    {
+        "spWord": "fósforo",
+        "partOfSpeech": "nm",
+        "definition": "match, match stick",
+        "freqIndex": 4803
+    },
+    {
+        "spWord": "foto",
+        "partOfSpeech": "nf",
+        "definition": "photo, picture",
+        "freqIndex": 2054
+    },
+    {
+        "spWord": "fotografía",
+        "partOfSpeech": "nf",
+        "definition": "photograph",
+        "freqIndex": 1385
+    },
+    {
+        "spWord": "fotográfico",
+        "partOfSpeech": "adj",
+        "definition": "photographic",
+        "freqIndex": 4333
+    },
+    {
+        "spWord": "fotógrafo",
+        "partOfSpeech": "nm/f",
+        "definition": "photographer",
+        "freqIndex": 4027
+    },
+    {
+        "spWord": "fracasar",
+        "partOfSpeech": "v",
+        "definition": "to fail, to be unsuccessful",
+        "freqIndex": 2277
+    },
+    {
+        "spWord": "fracaso",
+        "partOfSpeech": "nm",
+        "definition": "failure, collapse",
+        "freqIndex": 1451
+    },
+    {
+        "spWord": "fracción",
+        "partOfSpeech": "nf",
+        "definition": "fraction",
+        "freqIndex": 4216
+    },
+    {
+        "spWord": "frágil",
+        "partOfSpeech": "adj",
+        "definition": "fragile, weak",
+        "freqIndex": 3202
+    },
+    {
+        "spWord": "fragmento",
+        "partOfSpeech": "nm",
+        "definition": "fragment, passage",
+        "freqIndex": 3004
+    },
+    {
+        "spWord": "francamente",
+        "partOfSpeech": "adv",
+        "definition": "frankly, openly",
+        "freqIndex": 2909
+    },
+    {
+        "spWord": "francés",
+        "partOfSpeech": "adj",
+        "definition": "French",
+        "freqIndex": 646
+    },
+    {
+        "spWord": "franco",
+        "partOfSpeech": "adj",
+        "definition": "open, frank, outspoken",
+        "freqIndex": 3878
+    },
+    {
+        "spWord": "franja",
+        "partOfSpeech": "nf",
+        "definition": "strip, stripe, fringe",
+        "freqIndex": 3670
+    },
+    {
+        "spWord": "frasco",
+        "partOfSpeech": "nm",
+        "definition": "bottle, jar, flask",
+        "freqIndex": 4477
+    },
+    {
+        "spWord": "frase",
+        "partOfSpeech": "nf",
+        "definition": "phrase",
+        "freqIndex": 809
+    },
+    {
+        "spWord": "frecuencia",
+        "partOfSpeech": "nf",
+        "definition": "frequency",
+        "freqIndex": 1137
+    },
+    {
+        "spWord": "frecuentar",
+        "partOfSpeech": "v",
+        "definition": "to frequent, visit",
+        "freqIndex": 4037
+    },
+    {
+        "spWord": "frecuente",
+        "partOfSpeech": "adj",
+        "definition": "frequent",
+        "freqIndex": 1693
+    },
+    {
+        "spWord": "frecuentemente",
+        "partOfSpeech": "adv",
+        "definition": "frequently, often",
+        "freqIndex": 3753
+    },
+    {
+        "spWord": "frenar",
+        "partOfSpeech": "v",
+        "definition": "to brake, restrain",
+        "freqIndex": 2952
+    },
+    {
+        "spWord": "freno",
+        "partOfSpeech": "nm",
+        "definition": "brake",
+        "freqIndex": 3513
+    },
+    {
+        "spWord": "al frente",
+        "partOfSpeech": "prep",
+        "definition": "facing",
+        "freqIndex": 260
+    },
+    {
+        "spWord": "frente a",
+        "partOfSpeech": "prep",
+        "definition": "across from",
+        "freqIndex": 260
+    },
+    {
+        "spWord": "frente",
+        "partOfSpeech": "nm",
+        "definition": "front (war);front (meteorological, such as cold front)",
+        "freqIndex": 260
+    },
+    {
+        "spWord": "frente",
+        "partOfSpeech": "nf",
+        "definition": "forehead",
+        "freqIndex": 260
+    },
+    {
+        "spWord": "fresco",
+        "partOfSpeech": "adj",
+        "definition": "cool, healthy, fresh",
+        "freqIndex": 2124
+    },
+    {
+        "spWord": "fresco",
+        "partOfSpeech": "nm",
+        "definition": "freshness, coolness",
+        "freqIndex": 2679
+    },
+    {
+        "spWord": "frialdad",
+        "partOfSpeech": "nf",
+        "definition": "coldness, indifference",
+        "freqIndex": 4827
+    },
+    {
+        "spWord": "frío",
+        "partOfSpeech": "adj",
+        "definition": "cold",
+        "freqIndex": 907
+    },
+    {
+        "spWord": "frío",
+        "partOfSpeech": "nm",
+        "definition": "cold",
+        "freqIndex": 1120
+    },
+    {
+        "spWord": "frívolo",
+        "partOfSpeech": "adj",
+        "definition": "trivial, frivolous",
+        "freqIndex": 4936
+    },
+    {
+        "spWord": "frontal",
+        "partOfSpeech": "adj",
+        "definition": "frontal",
+        "freqIndex": 4837
+    },
+    {
+        "spWord": "frontera",
+        "partOfSpeech": "nf",
+        "definition": "border, frontier",
+        "freqIndex": 1150
+    },
+    {
+        "spWord": "frustración",
+        "partOfSpeech": "nf",
+        "definition": "frustration",
+        "freqIndex": 3096
+    },
+    {
+        "spWord": "frustrado",
+        "partOfSpeech": "adj",
+        "definition": "frustrated",
+        "freqIndex": 2801
+    },
+    {
+        "spWord": "fruta",
+        "partOfSpeech": "nf",
+        "definition": "fruit",
+        "freqIndex": 1701
+    },
+    {
+        "spWord": "fruto",
+        "partOfSpeech": "nm",
+        "definition": "fruit, result",
+        "freqIndex": 1490
+    },
+    {
+        "spWord": "fuego",
+        "partOfSpeech": "nm",
+        "definition": "fire, gunfire",
+        "freqIndex": 1346
+    },
+    {
+        "spWord": "fuente",
+        "partOfSpeech": "nf",
+        "definition": "source; fountain",
+        "freqIndex": 801
+    },
+    {
+        "spWord": "fuera",
+        "partOfSpeech": "adv",
+        "definition": "out, outside, away",
+        "freqIndex": 451
+    },
+    {
+        "spWord": "fuerte",
+        "partOfSpeech": "adj",
+        "definition": "strong",
+        "freqIndex": 1010
+    },
+    {
+        "spWord": "fuertemente",
+        "partOfSpeech": "adv",
+        "definition": "strongly",
+        "freqIndex": 3759
+    },
+    {
+        "spWord": "fuerza",
+        "partOfSpeech": "nf",
+        "definition": "strength, force, power",
+        "freqIndex": 255
+    },
+    {
+        "spWord": "fuga",
+        "partOfSpeech": "nf",
+        "definition": "flight, escape",
+        "freqIndex": 2895
+    },
+    {
+        "spWord": "fumar",
+        "partOfSpeech": "v",
+        "definition": "to smoke",
+        "freqIndex": 2472
+    },
+    {
+        "spWord": "función",
+        "partOfSpeech": "nf",
+        "definition": "function, meeting",
+        "freqIndex": 543
+    },
+    {
+        "spWord": "funcional",
+        "partOfSpeech": "adj",
+        "definition": "functional",
+        "freqIndex": 3711
+    },
+    {
+        "spWord": "funcionamiento",
+        "partOfSpeech": "nm",
+        "definition": "functioning, operation",
+        "freqIndex": 2258
+    },
+    {
+        "spWord": "funcionar",
+        "partOfSpeech": "v",
+        "definition": "to work, function",
+        "freqIndex": 692
+    },
+    {
+        "spWord": "funcionario",
+        "partOfSpeech": "nm",
+        "definition": "civil servant",
+        "freqIndex": 1653
+    },
+    {
+        "spWord": "fundación",
+        "partOfSpeech": "nf",
+        "definition": "foundation",
+        "freqIndex": 4058
+    },
+    {
+        "spWord": "fundador",
+        "partOfSpeech": "nm",
+        "definition": "founder",
+        "freqIndex": 3577
+    },
+    {
+        "spWord": "fundamental",
+        "partOfSpeech": "adj",
+        "definition": "fundamental",
+        "freqIndex": 1086
+    },
+    {
+        "spWord": "fundamentalmente",
+        "partOfSpeech": "adv",
+        "definition": "fundamentally, basically",
+        "freqIndex": 1086
+    },
+    {
+        "spWord": "fundamento",
+        "partOfSpeech": "nm",
+        "definition": "foundation, ground",
+        "freqIndex": 2597
+    },
+    {
+        "spWord": "fundar",
+        "partOfSpeech": "v",
+        "definition": "to found, base",
+        "freqIndex": 1117
+    },
+    {
+        "spWord": "fundir",
+        "partOfSpeech": "v",
+        "definition": "to melt, cast, smelt",
+        "freqIndex": 3893
+    },
+    {
+        "spWord": "furia",
+        "partOfSpeech": "nf",
+        "definition": "fury, rage",
+        "freqIndex": 4095
+    },
+    {
+        "spWord": "furioso",
+        "partOfSpeech": "adj",
+        "definition": "furious",
+        "freqIndex": 3939
+    },
+    {
+        "spWord": "fútbol",
+        "partOfSpeech": "nm",
+        "definition": "soccer",
+        "freqIndex": 2513
+    },
+    {
+        "spWord": "futuro",
+        "partOfSpeech": "nm",
+        "definition": "future",
+        "freqIndex": 623
+    },
+    {
+        "spWord": "futuro",
+        "partOfSpeech": "adj",
+        "definition": "future",
+        "freqIndex": 1300
+    },
+    {
+        "spWord": "gabinete",
+        "partOfSpeech": "nm",
+        "definition": "cabinet, den, office",
+        "freqIndex": 4514
+    },
+    {
+        "spWord": "gala",
+        "partOfSpeech": "nf",
+        "definition": "gala (performance/dinner)",
+        "freqIndex": 4075
+    },
+    {
+        "spWord": "galería",
+        "partOfSpeech": "nf",
+        "definition": "gallery, balcony",
+        "freqIndex": 3191
+    },
+    {
+        "spWord": "gallina",
+        "partOfSpeech": "nf",
+        "definition": "hen, coward",
+        "freqIndex": 3023
+    },
+    {
+        "spWord": "gallo",
+        "partOfSpeech": "nm",
+        "definition": "rooster",
+        "freqIndex": 3872
+    },
+    {
+        "spWord": "gama",
+        "partOfSpeech": "nf",
+        "definition": "range, musical scale",
+        "freqIndex": 4512
+    },
+    {
+        "spWord": "gana",
+        "partOfSpeech": "nf",
+        "definition": "desire",
+        "freqIndex": 1177
+    },
+    {
+        "spWord": "ganado",
+        "partOfSpeech": "nm",
+        "definition": "livestock, cattle",
+        "freqIndex": 2425
+    },
+    {
+        "spWord": "ganador",
+        "partOfSpeech": "nm",
+        "definition": "winner",
+        "freqIndex": 4855
+    },
+    {
+        "spWord": "ganancia",
+        "partOfSpeech": "nf",
+        "definition": "gain, profit",
+        "freqIndex": 4155
+    },
+    {
+        "spWord": "ganar",
+        "partOfSpeech": "v",
+        "definition": "to win, earn",
+        "freqIndex": 286
+    },
+    {
+        "spWord": "garantía",
+        "partOfSpeech": "nf",
+        "definition": "guarantee, warranty",
+        "freqIndex": 2106
+    },
+    {
+        "spWord": "garantizar",
+        "partOfSpeech": "v",
+        "definition": "to guarantee",
+        "freqIndex": 2345
+    },
+    {
+        "spWord": "garganta",
+        "partOfSpeech": "nf",
+        "definition": "throat, gorge",
+        "freqIndex": 3090
+    },
+    {
+        "spWord": "garra",
+        "partOfSpeech": "nf",
+        "definition": "claw, fang",
+        "freqIndex": 4795
+    },
+    {
+        "spWord": "gas",
+        "partOfSpeech": "nm",
+        "definition": "gas",
+        "freqIndex": 2144
+    },
+    {
+        "spWord": "gastar",
+        "partOfSpeech": "v",
+        "definition": "to spend (money)",
+        "freqIndex": 1526
+    },
+    {
+        "spWord": "gasto",
+        "partOfSpeech": "nm",
+        "definition": "expense, expenditure",
+        "freqIndex": 1249
+    },
+    {
+        "spWord": "gato",
+        "partOfSpeech": "nm",
+        "definition": "cat",
+        "freqIndex": 1412
+    },
+    {
+        "spWord": "generación",
+        "partOfSpeech": "nf",
+        "definition": "generation",
+        "freqIndex": 906
+    },
+    {
+        "spWord": "general",
+        "partOfSpeech": "adj",
+        "definition": "general",
+        "freqIndex": 227
+    },
+    {
+        "spWord": "general",
+        "partOfSpeech": "nm",
+        "definition": "general",
+        "freqIndex": 1400
+    },
+    {
+        "spWord": "generalizar",
+        "partOfSpeech": "v",
+        "definition": "to generalize, popularize",
+        "freqIndex": 2621
+    },
+    {
+        "spWord": "generalmente",
+        "partOfSpeech": "adv",
+        "definition": "generally, usually",
+        "freqIndex": 1463
+    },
+    {
+        "spWord": "generar",
+        "partOfSpeech": "v",
+        "definition": "to generate",
+        "freqIndex": 2157
+    },
+    {
+        "spWord": "género",
+        "partOfSpeech": "nm",
+        "definition": "sort, gender, genre",
+        "freqIndex": 1501
+    },
+    {
+        "spWord": "generosidad",
+        "partOfSpeech": "nf",
+        "definition": "generosity",
+        "freqIndex": 3777
+    },
+    {
+        "spWord": "generoso",
+        "partOfSpeech": "adj",
+        "definition": "generous",
+        "freqIndex": 2398
+    },
+    {
+        "spWord": "genético",
+        "partOfSpeech": "adj",
+        "definition": "genetic",
+        "freqIndex": 4156
+    },
+    {
+        "spWord": "genial",
+        "partOfSpeech": "adj",
+        "definition": "brilliant, inspired",
+        "freqIndex": 3216
+    },
+    {
+        "spWord": "genio",
+        "partOfSpeech": "nm",
+        "definition": "genius, disposition",
+        "freqIndex": 2654
+    },
+    {
+        "spWord": "gente",
+        "partOfSpeech": "nf",
+        "definition": "people",
+        "freqIndex": 158
+    },
+    {
+        "spWord": "geografía",
+        "partOfSpeech": "nf",
+        "definition": "geography",
+        "freqIndex": 2670
+    },
+    {
+        "spWord": "geográfico",
+        "partOfSpeech": "adj",
+        "definition": "geographical",
+        "freqIndex": 3194
+    },
+    {
+        "spWord": "geométrico",
+        "partOfSpeech": "adj",
+        "definition": "geometric",
+        "freqIndex": 4557
+    },
+    {
+        "spWord": "gestión",
+        "partOfSpeech": "nf",
+        "definition": "management, step, negotiation",
+        "freqIndex": 2831
+    },
+    {
+        "spWord": "gesto",
+        "partOfSpeech": "nm",
+        "definition": "gesture",
+        "freqIndex": 1065
+    },
+    {
+        "spWord": "gigante",
+        "partOfSpeech": "adj",
+        "definition": "gigantic",
+        "freqIndex": 4264
+    },
+    {
+        "spWord": "gigante",
+        "partOfSpeech": "nc",
+        "definition": "giant",
+        "freqIndex": 4738
+    },
+    {
+        "spWord": "gigantesco",
+        "partOfSpeech": "adj",
+        "definition": "giant, gigantic",
+        "freqIndex": 2970
+    },
+    {
+        "spWord": "gira",
+        "partOfSpeech": "nf",
+        "definition": "tour",
+        "freqIndex": 3903
+    },
+    {
+        "spWord": "girar",
+        "partOfSpeech": "v",
+        "definition": "to rotate, revolve",
+        "freqIndex": 1371
+    },
+    {
+        "spWord": "giro",
+        "partOfSpeech": "nm",
+        "definition": "turn, draft, expression",
+        "freqIndex": 2465
+    },
+    {
+        "spWord": "global",
+        "partOfSpeech": "adj",
+        "definition": "global, overall",
+        "freqIndex": 3760
+    },
+    {
+        "spWord": "globo",
+        "partOfSpeech": "nm",
+        "definition": "balloon, globe",
+        "freqIndex": 3408
+    },
+    {
+        "spWord": "gloria",
+        "partOfSpeech": "nf",
+        "definition": "glory, fame",
+        "freqIndex": 2146
+    },
+    {
+        "spWord": "glorioso",
+        "partOfSpeech": "adj",
+        "definition": "glorious",
+        "freqIndex": 3689
+    },
+    {
+        "spWord": "gobernador",
+        "partOfSpeech": "nm",
+        "definition": "governor",
+        "freqIndex": 3907
+    },
+    {
+        "spWord": "gobernante",
+        "partOfSpeech": "nc",
+        "definition": "ruler, leader",
+        "freqIndex": 4396
+    },
+    {
+        "spWord": "gobernar",
+        "partOfSpeech": "v",
+        "definition": "to govern",
+        "freqIndex": 2322
+    },
+    {
+        "spWord": "gobierno",
+        "partOfSpeech": "nm",
+        "definition": "government",
+        "freqIndex": 476
+    },
+    {
+        "spWord": "golpe",
+        "partOfSpeech": "nm",
+        "definition": "hit, strike, punch",
+        "freqIndex": 657
+    },
+    {
+        "spWord": "golpear",
+        "partOfSpeech": "v",
+        "definition": "to hit, strike",
+        "freqIndex": 1904
+    },
+    {
+        "spWord": "goma",
+        "partOfSpeech": "nf",
+        "definition": "rubber",
+        "freqIndex": 3677
+    },
+    {
+        "spWord": "gordo",
+        "partOfSpeech": "adj",
+        "definition": "fat, thick",
+        "freqIndex": 2217
+    },
+    {
+        "spWord": "gota",
+        "partOfSpeech": "nf",
+        "definition": "drop",
+        "freqIndex": 2619
+    },
+    {
+        "spWord": "gozar",
+        "partOfSpeech": "v",
+        "definition": "to enjoy",
+        "freqIndex": 1304
+    },
+    {
+        "spWord": "grabación",
+        "partOfSpeech": "nf",
+        "definition": "recording",
+        "freqIndex": 4476
+    },
+    {
+        "spWord": "grabar",
+        "partOfSpeech": "v",
+        "definition": "to record, engrave",
+        "freqIndex": 1448
+    },
+    {
+        "spWord": "gracia",
+        "partOfSpeech": "nf",
+        "definition": "(pl) thank you; grace, favor",
+        "freqIndex": 272
+    },
+    {
+        "spWord": "gracioso",
+        "partOfSpeech": "adj",
+        "definition": "funny, charming, amusing",
+        "freqIndex": 3221
+    },
+    {
+        "spWord": "grado",
+        "partOfSpeech": "nm",
+        "definition": "degree, grade",
+        "freqIndex": 756
+    },
+    {
+        "spWord": "gráfico",
+        "partOfSpeech": "adj",
+        "definition": "graphic, explicit",
+        "freqIndex": 4336
+    },
+    {
+        "spWord": "grande",
+        "partOfSpeech": "adj",
+        "definition": "large, great, big",
+        "freqIndex": 62
+    },
+    {
+        "spWord": "grandeza",
+        "partOfSpeech": "nf",
+        "definition": "greatness, size",
+        "freqIndex": 3252
+    },
+    {
+        "spWord": "grandioso",
+        "partOfSpeech": "adj",
+        "definition": "magnificent, grandiose",
+        "freqIndex": 4491
+    },
+    {
+        "spWord": "grano",
+        "partOfSpeech": "nm",
+        "definition": "grain, kernel",
+        "freqIndex": 2748
+    },
+    {
+        "spWord": "grasa",
+        "partOfSpeech": "nf",
+        "definition": "grease, fat",
+        "freqIndex": 3275
+    },
+    {
+        "spWord": "gratitud",
+        "partOfSpeech": "nf",
+        "definition": "gratitude",
+        "freqIndex": 4682
+    },
+    {
+        "spWord": "grato",
+        "partOfSpeech": "adj",
+        "definition": "agreeable, pleasant",
+        "freqIndex": 3442
+    },
+    {
+        "spWord": "gratuito",
+        "partOfSpeech": "adj",
+        "definition": "free, arbitrary, gratuitous",
+        "freqIndex": 3299
+    },
+    {
+        "spWord": "grave",
+        "partOfSpeech": "adj",
+        "definition": "serious, solemn",
+        "freqIndex": 548
+    },
+    {
+        "spWord": "gravedad",
+        "partOfSpeech": "nf",
+        "definition": "seriousness, gravity",
+        "freqIndex": 2596
+    },
+    {
+        "spWord": "griego",
+        "partOfSpeech": "adj",
+        "definition": "Greek",
+        "freqIndex": 1467
+    },
+    {
+        "spWord": "grieta",
+        "partOfSpeech": "nf",
+        "definition": "crack, opening, slit",
+        "freqIndex": 4788
+    },
+    {
+        "spWord": "gris",
+        "partOfSpeech": "adj",
+        "definition": "gray, gloomy",
+        "freqIndex": 2290
+    },
+    {
+        "spWord": "gritar",
+        "partOfSpeech": "v",
+        "definition": "to shout",
+        "freqIndex": 1597
+    },
+    {
+        "spWord": "grito",
+        "partOfSpeech": "nm",
+        "definition": "cry, shout, scream",
+        "freqIndex": 1671
+    },
+    {
+        "spWord": "grosero",
+        "partOfSpeech": "adj",
+        "definition": "crude, rude, crass",
+        "freqIndex": 4096
+    },
+    {
+        "spWord": "grotesco",
+        "partOfSpeech": "adj",
+        "definition": "grotesque, ridiculous",
+        "freqIndex": 4874
+    },
+    {
+        "spWord": "grueso",
+        "partOfSpeech": "adj",
+        "definition": "thick",
+        "freqIndex": 2262
+    },
+    {
+        "spWord": "grueso",
+        "partOfSpeech": "nm",
+        "definition": "bulk, mass",
+        "freqIndex": 4474
+    },
+    {
+        "spWord": "grupo",
+        "partOfSpeech": "nm",
+        "definition": "group",
+        "freqIndex": 216
+    },
+    {
+        "spWord": "guante",
+        "partOfSpeech": "nm",
+        "definition": "glove",
+        "freqIndex": 3392
+    },
+    {
+        "spWord": "guapo",
+        "partOfSpeech": "adj",
+        "definition": "handsome, beautiful",
+        "freqIndex": 4140
+    },
+    {
+        "spWord": "guardar",
+        "partOfSpeech": "v",
+        "definition": "to keep, save",
+        "freqIndex": 566
+    },
+    {
+        "spWord": "guardia",
+        "partOfSpeech": "nc",
+        "definition": "guard, watch, lookout",
+        "freqIndex": 1842
+    },
+    {
+        "spWord": "guerra",
+        "partOfSpeech": "nf",
+        "definition": "war, warfare",
+        "freqIndex": 377
+    },
+    {
+        "spWord": "guerrero",
+        "partOfSpeech": "adj",
+        "definition": "warrior, warlike",
+        "freqIndex": 4787
+    },
+    {
+        "spWord": "guerrero",
+        "partOfSpeech": "nm/f",
+        "definition": "warrior, soldier",
+        "freqIndex": 4885
+    },
+    {
+        "spWord": "guía",
+        "partOfSpeech": "nc",
+        "definition": "guide, leader",
+        "freqIndex": 2318
+    },
+    {
+        "spWord": "guiar",
+        "partOfSpeech": "v",
+        "definition": "to guide, lead, steer",
+        "freqIndex": 2522
+    },
+    {
+        "spWord": "guitarra",
+        "partOfSpeech": "nf",
+        "definition": "guitar",
+        "freqIndex": 2885
+    },
+    {
+        "spWord": "gusano",
+        "partOfSpeech": "nm",
+        "definition": "worm, caterpillar",
+        "freqIndex": 4559
+    },
+    {
+        "spWord": "gustar",
+        "partOfSpeech": "v",
+        "definition": "to be pleasing to",
+        "freqIndex": 353
+    },
+    {
+        "spWord": "gusto",
+        "partOfSpeech": "nm",
+        "definition": "pleasure, taste, preference",
+        "freqIndex": 593
+    },
+    {
+        "spWord": "haber",
+        "partOfSpeech": "v",
+        "definition": "to have (+Ved)",
+        "freqIndex": 11
+    },
+    {
+        "spWord": "hábil",
+        "partOfSpeech": "adj",
+        "definition": "skillful, clever",
+        "freqIndex": 2997
+    },
+    {
+        "spWord": "habilidad",
+        "partOfSpeech": "nf",
+        "definition": "ability, skill, talent",
+        "freqIndex": 1582
+    },
+    {
+        "spWord": "habitación",
+        "partOfSpeech": "nf",
+        "definition": "room, bedroom, habitat",
+        "freqIndex": 1610
+    },
+    {
+        "spWord": "habitante",
+        "partOfSpeech": "nm",
+        "definition": "inhabitant",
+        "freqIndex": 1287
+    },
+    {
+        "spWord": "habitar",
+        "partOfSpeech": "v",
+        "definition": "to inhabit",
+        "freqIndex": 2624
+    },
+    {
+        "spWord": "hábito",
+        "partOfSpeech": "nm",
+        "definition": "habit",
+        "freqIndex": 1596
+    },
+    {
+        "spWord": "habitual",
+        "partOfSpeech": "adj",
+        "definition": "usual, habitual, customary",
+        "freqIndex": 1403
+    },
+    {
+        "spWord": "habitualmente",
+        "partOfSpeech": "adv",
+        "definition": "habitually",
+        "freqIndex": 3245
+    },
+    {
+        "spWord": "habla",
+        "partOfSpeech": "nf",
+        "definition": "(el) speech, talking",
+        "freqIndex": 2729
+    },
+    {
+        "spWord": "hablar",
+        "partOfSpeech": "v",
+        "definition": "to speak, talk",
+        "freqIndex": 92
+    },
+    {
+        "spWord": "hacer",
+        "partOfSpeech": "v",
+        "definition": "to do, make",
+        "freqIndex": 25
+    },
+    {
+        "spWord": "hacia",
+        "partOfSpeech": "prep",
+        "definition": "toward, towards",
+        "freqIndex": 125
+    },
+    {
+        "spWord": "hacienda",
+        "partOfSpeech": "nf",
+        "definition": "ranch",
+        "freqIndex": 3561
+    },
+    {
+        "spWord": "hallar",
+        "partOfSpeech": "v",
+        "definition": "to find (out)",
+        "freqIndex": 1166
+    },
+    {
+        "spWord": "hallazgo",
+        "partOfSpeech": "nm",
+        "definition": "finding, discovery",
+        "freqIndex": 3337
+    },
+    {
+        "spWord": "hambre",
+        "partOfSpeech": "nf",
+        "definition": "(el) hunger, starvation",
+        "freqIndex": 1204
+    },
+    {
+        "spWord": "harina",
+        "partOfSpeech": "nf",
+        "definition": "flour",
+        "freqIndex": 3614
+    },
+    {
+        "spWord": "harto",
+        "partOfSpeech": "adj",
+        "definition": "fed up with",
+        "freqIndex": 2600
+    },
+    {
+        "spWord": "hasta",
+        "partOfSpeech": "prep",
+        "definition": "until, up to, even (adv)",
+        "freqIndex": 54
+    },
+    {
+        "spWord": "hazaña",
+        "partOfSpeech": "nf",
+        "definition": "deed, heroic feat",
+        "freqIndex": 3857
+    },
+    {
+        "spWord": "hecho",
+        "partOfSpeech": "nm",
+        "definition": "fact, happening",
+        "freqIndex": 235
+    },
+    {
+        "spWord": "hectárea",
+        "partOfSpeech": "nf",
+        "definition": "hectare",
+        "freqIndex": 4991
+    },
+    {
+        "spWord": "helado",
+        "partOfSpeech": "adj",
+        "definition": "iced, freezing, icy",
+        "freqIndex": 2987
+    },
+    {
+        "spWord": "hembra",
+        "partOfSpeech": "nf",
+        "definition": "female, woman",
+        "freqIndex": 3379
+    },
+    {
+        "spWord": "heredar",
+        "partOfSpeech": "v",
+        "definition": "to inherit",
+        "freqIndex": 2555
+    },
+    {
+        "spWord": "heredero",
+        "partOfSpeech": "nm",
+        "definition": "heir, heiress",
+        "freqIndex": 3968
+    },
+    {
+        "spWord": "herencia",
+        "partOfSpeech": "nf",
+        "definition": "inheritance, legacy",
+        "freqIndex": 2016
+    },
+    {
+        "spWord": "herida",
+        "partOfSpeech": "nf",
+        "definition": "wound, injury",
+        "freqIndex": 2460
+    },
+    {
+        "spWord": "herido",
+        "partOfSpeech": "adj",
+        "definition": "wounded, injured",
+        "freqIndex": 2647
+    },
+    {
+        "spWord": "herido",
+        "partOfSpeech": "nm",
+        "definition": "wounded (person)",
+        "freqIndex": 4469
+    },
+    {
+        "spWord": "herir",
+        "partOfSpeech": "v",
+        "definition": "to wound, hurt",
+        "freqIndex": 3109
+    },
+    {
+        "spWord": "hermana",
+        "partOfSpeech": "nf",
+        "definition": "sister",
+        "freqIndex": 1256
+    },
+    {
+        "spWord": "hermano",
+        "partOfSpeech": "nm",
+        "definition": "brother, [pl] siblings",
+        "freqIndex": 539
+    },
+    {
+        "spWord": "hermoso",
+        "partOfSpeech": "adj",
+        "definition": "beautiful, lovely",
+        "freqIndex": 1224
+    },
+    {
+        "spWord": "héroe",
+        "partOfSpeech": "nm",
+        "definition": "hero",
+        "freqIndex": 2186
+    },
+    {
+        "spWord": "heroico",
+        "partOfSpeech": "adj",
+        "definition": "heroic",
+        "freqIndex": 3351
+    },
+    {
+        "spWord": "herramienta",
+        "partOfSpeech": "nf",
+        "definition": "tool",
+        "freqIndex": 2498
+    },
+    {
+        "spWord": "hervir",
+        "partOfSpeech": "v",
+        "definition": "to boil",
+        "freqIndex": 4065
+    },
+    {
+        "spWord": "hielo",
+        "partOfSpeech": "nm",
+        "definition": "ice",
+        "freqIndex": 2321
+    },
+    {
+        "spWord": "hierba",
+        "partOfSpeech": "nf",
+        "definition": "herb, grass, weed",
+        "freqIndex": 2850
+    },
+    {
+        "spWord": "hierro",
+        "partOfSpeech": "nm",
+        "definition": "iron",
+        "freqIndex": 1716
+    },
+    {
+        "spWord": "hígado",
+        "partOfSpeech": "nm",
+        "definition": "liver",
+        "freqIndex": 4203
+    },
+    {
+        "spWord": "higiene",
+        "partOfSpeech": "nf",
+        "definition": "hygiene",
+        "freqIndex": 4973
+    },
+    {
+        "spWord": "hija",
+        "partOfSpeech": "nf",
+        "definition": "daughter",
+        "freqIndex": 715
+    },
+    {
+        "spWord": "hijo",
+        "partOfSpeech": "nm",
+        "definition": "son, [pl] children",
+        "freqIndex": 166
+    },
+    {
+        "spWord": "hilo",
+        "partOfSpeech": "nm",
+        "definition": "thread, yarn, wire",
+        "freqIndex": 1851
+    },
+    {
+        "spWord": "himno",
+        "partOfSpeech": "nm",
+        "definition": "hymn, anthem",
+        "freqIndex": 3881
+    },
+    {
+        "spWord": "hipótesis",
+        "partOfSpeech": "nf",
+        "definition": "hypothesis",
+        "freqIndex": 2461
+    },
+    {
+        "spWord": "hispano",
+        "partOfSpeech": "adj",
+        "definition": "Hispanic",
+        "freqIndex": 4983
+    },
+    {
+        "spWord": "historia",
+        "partOfSpeech": "nf",
+        "definition": "history, story",
+        "freqIndex": 192
+    },
+    {
+        "spWord": "historiador",
+        "partOfSpeech": "nm/f",
+        "definition": "historian",
+        "freqIndex": 3159
+    },
+    {
+        "spWord": "histórico",
+        "partOfSpeech": "adj",
+        "definition": "historical",
+        "freqIndex": 980
+    },
+    {
+        "spWord": "hogar",
+        "partOfSpeech": "nm",
+        "definition": "home, hearth",
+        "freqIndex": 992
+    },
+    {
+        "spWord": "hoja",
+        "partOfSpeech": "nf",
+        "definition": "sheet, leaf",
+        "freqIndex": 1000
+    },
+    {
+        "spWord": "hola",
+        "partOfSpeech": "interj",
+        "definition": "hello, hi",
+        "freqIndex": 4752
+    },
+    {
+        "spWord": "holandés",
+        "partOfSpeech": "adj",
+        "definition": "Dutch",
+        "freqIndex": 4206
+    },
+    {
+        "spWord": "hombre",
+        "partOfSpeech": "nm",
+        "definition": "man, mankind, husband",
+        "freqIndex": 80
+    },
+    {
+        "spWord": "hombro",
+        "partOfSpeech": "nm",
+        "definition": "shoulder",
+        "freqIndex": 1927
+    },
+    {
+        "spWord": "homenaje",
+        "partOfSpeech": "nm",
+        "definition": "homage, tribute",
+        "freqIndex": 2396
+    },
+    {
+        "spWord": "hondo",
+        "partOfSpeech": "adj",
+        "definition": "deep",
+        "freqIndex": 2549
+    },
+    {
+        "spWord": "honesto",
+        "partOfSpeech": "adj",
+        "definition": "honest",
+        "freqIndex": 3326
+    },
+    {
+        "spWord": "honor",
+        "partOfSpeech": "nm",
+        "definition": "honor, honesty",
+        "freqIndex": 1211
+    },
+    {
+        "spWord": "honrado",
+        "partOfSpeech": "adj",
+        "definition": "honest, respectable",
+        "freqIndex": 4428
+    },
+    {
+        "spWord": "honrar",
+        "partOfSpeech": "v",
+        "definition": "to honor",
+        "freqIndex": 3931
+    },
+    {
+        "spWord": "hora",
+        "partOfSpeech": "nf",
+        "definition": "hour, time (specific)",
+        "freqIndex": 143
+    },
+    {
+        "spWord": "horario",
+        "partOfSpeech": "nm",
+        "definition": "schedule, timetable",
+        "freqIndex": 2095
+    },
+    {
+        "spWord": "horizontal",
+        "partOfSpeech": "adj",
+        "definition": "horizontal",
+        "freqIndex": 3728
+    },
+    {
+        "spWord": "horizonte",
+        "partOfSpeech": "nm",
+        "definition": "horizon",
+        "freqIndex": 2140
+    },
+    {
+        "spWord": "hormiga",
+        "partOfSpeech": "nf",
+        "definition": "ant",
+        "freqIndex": 4553
+    },
+    {
+        "spWord": "horno",
+        "partOfSpeech": "nm",
+        "definition": "oven, furnace",
+        "freqIndex": 3432
+    },
+    {
+        "spWord": "horrible",
+        "partOfSpeech": "adj",
+        "definition": "horrible",
+        "freqIndex": 2738
+    },
+    {
+        "spWord": "horror",
+        "partOfSpeech": "nm",
+        "definition": "horror, atrocity",
+        "freqIndex": 2334
+    },
+    {
+        "spWord": "hospital",
+        "partOfSpeech": "nm",
+        "definition": "hospital",
+        "freqIndex": 1298
+    },
+    {
+        "spWord": "hostil",
+        "partOfSpeech": "adj",
+        "definition": "hostile, unfriendly",
+        "freqIndex": 3871
+    },
+    {
+        "spWord": "hostilidad",
+        "partOfSpeech": "nf",
+        "definition": "hostility, enmity",
+        "freqIndex": 4667
+    },
+    {
+        "spWord": "hotel",
+        "partOfSpeech": "nm",
+        "definition": "hotel",
+        "freqIndex": 1643
+    },
+    {
+        "spWord": "hoy",
+        "partOfSpeech": "adv",
+        "definition": "today, nowadays",
+        "freqIndex": 164
+    },
+    {
+        "spWord": "hueco",
+        "partOfSpeech": "nm",
+        "definition": "hole, cavity",
+        "freqIndex": 2880
+    },
+    {
+        "spWord": "hueco",
+        "partOfSpeech": "adj",
+        "definition": "hollow",
+        "freqIndex": 4714
+    },
+    {
+        "spWord": "huelga",
+        "partOfSpeech": "nf",
+        "definition": "strike, protest",
+        "freqIndex": 2604
+    },
+    {
+        "spWord": "huella",
+        "partOfSpeech": "nf",
+        "definition": "trace, track, footstep",
+        "freqIndex": 2099
+    },
+    {
+        "spWord": "hueso",
+        "partOfSpeech": "nm",
+        "definition": "bone",
+        "freqIndex": 1695
+    },
+    {
+        "spWord": "huevo",
+        "partOfSpeech": "nm",
+        "definition": "egg",
+        "freqIndex": 1900
+    },
+    {
+        "spWord": "huir",
+        "partOfSpeech": "v",
+        "definition": "to flee, run away",
+        "freqIndex": 1574
+    },
+    {
+        "spWord": "humanidad",
+        "partOfSpeech": "nf",
+        "definition": "humanity, mankind",
+        "freqIndex": 1566
+    },
+    {
+        "spWord": "humano",
+        "partOfSpeech": "adj",
+        "definition": "human",
+        "freqIndex": 218
+    },
+    {
+        "spWord": "humano",
+        "partOfSpeech": "nm",
+        "definition": "human",
+        "freqIndex": 3586
+    },
+    {
+        "spWord": "humedad",
+        "partOfSpeech": "nf",
+        "definition": "humidity",
+        "freqIndex": 2777
+    },
+    {
+        "spWord": "húmedo",
+        "partOfSpeech": "adj",
+        "definition": "humid, damp",
+        "freqIndex": 2665
+    },
+    {
+        "spWord": "humilde",
+        "partOfSpeech": "adj",
+        "definition": "humble, modest",
+        "freqIndex": 2367
+    },
+    {
+        "spWord": "humillación",
+        "partOfSpeech": "nf",
+        "definition": "humiliation",
+        "freqIndex": 4456
+    },
+    {
+        "spWord": "humo",
+        "partOfSpeech": "nm",
+        "definition": "smoke",
+        "freqIndex": 2789
+    },
+    {
+        "spWord": "humor",
+        "partOfSpeech": "nm",
+        "definition": "mood, humor",
+        "freqIndex": 1889
+    },
+    {
+        "spWord": "hundido",
+        "partOfSpeech": "adj",
+        "definition": "buried, sunken",
+        "freqIndex": 4055
+    },
+    {
+        "spWord": "hundir",
+        "partOfSpeech": "v",
+        "definition": "to sink, submerge",
+        "freqIndex": 1850
+    },
+    {
+        "spWord": "ida",
+        "partOfSpeech": "nf",
+        "definition": "departure, first half of a trip",
+        "freqIndex": 4164
+    },
+    {
+        "spWord": "idea",
+        "partOfSpeech": "nf",
+        "definition": "idea",
+        "freqIndex": 193
+    },
+    {
+        "spWord": "ideal",
+        "partOfSpeech": "nm",
+        "definition": "ideal, goal",
+        "freqIndex": 1702
+    },
+    {
+        "spWord": "ideal",
+        "partOfSpeech": "adj",
+        "definition": "ideal",
+        "freqIndex": 1717
+    },
+    {
+        "spWord": "idéntico",
+        "partOfSpeech": "adj",
+        "definition": "identical",
+        "freqIndex": 2085
+    },
+    {
+        "spWord": "identidad",
+        "partOfSpeech": "nf",
+        "definition": "identity",
+        "freqIndex": 1583
+    },
+    {
+        "spWord": "identificación",
+        "partOfSpeech": "nf",
+        "definition": "identification",
+        "freqIndex": 2897
+    },
+    {
+        "spWord": "identificar",
+        "partOfSpeech": "v",
+        "definition": "to identify",
+        "freqIndex": 986
+    },
+    {
+        "spWord": "ideología",
+        "partOfSpeech": "nf",
+        "definition": "ideology",
+        "freqIndex": 3369
+    },
+    {
+        "spWord": "ideológico",
+        "partOfSpeech": "adj",
+        "definition": "ideological",
+        "freqIndex": 2917
+    },
+    {
+        "spWord": "idioma",
+        "partOfSpeech": "nm",
+        "definition": "(specific) language",
+        "freqIndex": 1027
+    },
+    {
+        "spWord": "idiota",
+        "partOfSpeech": "nc",
+        "definition": "idiot, dunce",
+        "freqIndex": 4769
+    },
+    {
+        "spWord": "iglesia",
+        "partOfSpeech": "nf",
+        "definition": "church",
+        "freqIndex": 1111
+    },
+    {
+        "spWord": "ignorancia",
+        "partOfSpeech": "nf",
+        "definition": "ignorance",
+        "freqIndex": 3076
+    },
+    {
+        "spWord": "ignorante",
+        "partOfSpeech": "adj",
+        "definition": "ignorant",
+        "freqIndex": 3467
+    },
+    {
+        "spWord": "ignorar",
+        "partOfSpeech": "v",
+        "definition": "to be unaware",
+        "freqIndex": 1247
+    },
+    {
+        "spWord": "igual",
+        "partOfSpeech": "adj",
+        "definition": "equal, same (as)",
+        "freqIndex": 239
+    },
+    {
+        "spWord": "igualar",
+        "partOfSpeech": "v",
+        "definition": "to equate, equalize",
+        "freqIndex": 4114
+    },
+    {
+        "spWord": "igualdad",
+        "partOfSpeech": "nf",
+        "definition": "equality",
+        "freqIndex": 2867
+    },
+    {
+        "spWord": "igualmente",
+        "partOfSpeech": "adv",
+        "definition": "equally",
+        "freqIndex": 1431
+    },
+    {
+        "spWord": "ilegal",
+        "partOfSpeech": "adj",
+        "definition": "illegal",
+        "freqIndex": 4659
+    },
+    {
+        "spWord": "ilimitado",
+        "partOfSpeech": "adj",
+        "definition": "unlimited",
+        "freqIndex": 4674
+    },
+    {
+        "spWord": "iluminación",
+        "partOfSpeech": "nf",
+        "definition": "illumination, lighting",
+        "freqIndex": 3989
+    },
+    {
+        "spWord": "iluminado",
+        "partOfSpeech": "adj",
+        "definition": "illuminated",
+        "freqIndex": 3342
+    },
+    {
+        "spWord": "iluminar",
+        "partOfSpeech": "v",
+        "definition": "to illuminate, light up",
+        "freqIndex": 2515
+    },
+    {
+        "spWord": "ilusión",
+        "partOfSpeech": "nf",
+        "definition": "illusion, hope, dream",
+        "freqIndex": 1372
+    },
+    {
+        "spWord": "ilustración",
+        "partOfSpeech": "nf",
+        "definition": "illustration",
+        "freqIndex": 4309
+    },
+    {
+        "spWord": "ilustrado",
+        "partOfSpeech": "adj",
+        "definition": "learned, illustrated",
+        "freqIndex": 3473
+    },
+    {
+        "spWord": "ilustrar",
+        "partOfSpeech": "v",
+        "definition": "to illustrate",
+        "freqIndex": 3941
+    },
+    {
+        "spWord": "ilustre",
+        "partOfSpeech": "adj",
+        "definition": "renowned, illustrious",
+        "freqIndex": 2771
+    },
+    {
+        "spWord": "imagen",
+        "partOfSpeech": "nf",
+        "definition": "image, picture",
+        "freqIndex": 484
+    },
+    {
+        "spWord": "imaginación",
+        "partOfSpeech": "nf",
+        "definition": "imagination, fantasy",
+        "freqIndex": 1838
+    },
+    {
+        "spWord": "imaginar",
+        "partOfSpeech": "v",
+        "definition": "to imagine",
+        "freqIndex": 486
+    },
+    {
+        "spWord": "imaginario",
+        "partOfSpeech": "adj",
+        "definition": "imaginary",
+        "freqIndex": 3504
+    },
+    {
+        "spWord": "imitación",
+        "partOfSpeech": "nf",
+        "definition": "imitation",
+        "freqIndex": 4209
+    },
+    {
+        "spWord": "imitar",
+        "partOfSpeech": "v",
+        "definition": "to imitate, copy, mimic",
+        "freqIndex": 2063
+    },
+    {
+        "spWord": "impacto",
+        "partOfSpeech": "nm",
+        "definition": "impact",
+        "freqIndex": 2390
+    },
+    {
+        "spWord": "impartir",
+        "partOfSpeech": "v",
+        "definition": "to impart, administer",
+        "freqIndex": 4736
+    },
+    {
+        "spWord": "impecable",
+        "partOfSpeech": "adj",
+        "definition": "impeccable, faultless",
+        "freqIndex": 4575
+    },
+    {
+        "spWord": "impedir",
+        "partOfSpeech": "v",
+        "definition": "to prevent, hinder",
+        "freqIndex": 751
+    },
+    {
+        "spWord": "imperial",
+        "partOfSpeech": "adj",
+        "definition": "imperial, imperialist",
+        "freqIndex": 4357
+    },
+    {
+        "spWord": "imperio",
+        "partOfSpeech": "nm",
+        "definition": "empire, fortune",
+        "freqIndex": 3032
+    },
+    {
+        "spWord": "implacable",
+        "partOfSpeech": "adj",
+        "definition": "relentless, implacable",
+        "freqIndex": 4584
+    },
+    {
+        "spWord": "implicar",
+        "partOfSpeech": "v",
+        "definition": "to implicate, imply",
+        "freqIndex": 1788
+    },
+    {
+        "spWord": "imponente",
+        "partOfSpeech": "adj",
+        "definition": "impressive, magnificent",
+        "freqIndex": 4909
+    },
+    {
+        "spWord": "imponer",
+        "partOfSpeech": "v",
+        "definition": "to impose, enforce",
+        "freqIndex": 641
+    },
+    {
+        "spWord": "importado",
+        "partOfSpeech": "adj",
+        "definition": "imported",
+        "freqIndex": 4753
+    },
+    {
+        "spWord": "importancia",
+        "partOfSpeech": "nf",
+        "definition": "importance",
+        "freqIndex": 429
+    },
+    {
+        "spWord": "importante",
+        "partOfSpeech": "adj",
+        "definition": "important",
+        "freqIndex": 207
+    },
+    {
+        "spWord": "importar",
+        "partOfSpeech": "v",
+        "definition": "to matter, import",
+        "freqIndex": 464
+    },
+    {
+        "spWord": "imposibilidad",
+        "partOfSpeech": "nf",
+        "definition": "impossibility",
+        "freqIndex": 4052
+    },
+    {
+        "spWord": "imposible",
+        "partOfSpeech": "adj",
+        "definition": "impossible",
+        "freqIndex": 592
+    },
+    {
+        "spWord": "imposición",
+        "partOfSpeech": "nf",
+        "definition": "imposition",
+        "freqIndex": 4028
+    },
+    {
+        "spWord": "impotencia",
+        "partOfSpeech": "nf",
+        "definition": "impotence",
+        "freqIndex": 4664
+    },
+    {
+        "spWord": "impreciso",
+        "partOfSpeech": "adj",
+        "definition": "imprecise",
+        "freqIndex": 4825
+    },
+    {
+        "spWord": "imprenta",
+        "partOfSpeech": "nf",
+        "definition": "printing house",
+        "freqIndex": 4453
+    },
+    {
+        "spWord": "imprescindible",
+        "partOfSpeech": "adj",
+        "definition": "essential, indispensable",
+        "freqIndex": 2617
+    },
+    {
+        "spWord": "impresión",
+        "partOfSpeech": "nf",
+        "definition": "impression, printing",
+        "freqIndex": 874
+    },
+    {
+        "spWord": "impresionante",
+        "partOfSpeech": "adj",
+        "definition": "impressive, astonishing",
+        "freqIndex": 2320
+    },
+    {
+        "spWord": "impresionar",
+        "partOfSpeech": "v",
+        "definition": "to impress",
+        "freqIndex": 2292
+    },
+    {
+        "spWord": "impreso",
+        "partOfSpeech": "adj",
+        "definition": "printed",
+        "freqIndex": 3697
+    },
+    {
+        "spWord": "imprevisto",
+        "partOfSpeech": "adj",
+        "definition": "unforeseen, unexpected",
+        "freqIndex": 4436
+    },
+    {
+        "spWord": "imprimir",
+        "partOfSpeech": "v",
+        "definition": "to print",
+        "freqIndex": 2502
+    },
+    {
+        "spWord": "improvisar",
+        "partOfSpeech": "v",
+        "definition": "to improvise",
+        "freqIndex": 3144
+    },
+    {
+        "spWord": "impuesto",
+        "partOfSpeech": "nm",
+        "definition": "tax",
+        "freqIndex": 2806
+    },
+    {
+        "spWord": "impulsar",
+        "partOfSpeech": "v",
+        "definition": "to push, promote, drive",
+        "freqIndex": 1875
+    },
+    {
+        "spWord": "impulso",
+        "partOfSpeech": "nm",
+        "definition": "impulse, momentum",
+        "freqIndex": 1520
+    },
+    {
+        "spWord": "inaugurar",
+        "partOfSpeech": "v",
+        "definition": "to inaugurate, start",
+        "freqIndex": 2403
+    },
+    {
+        "spWord": "incapacidad",
+        "partOfSpeech": "nf",
+        "definition": "inability, incompetence",
+        "freqIndex": 3730
+    },
+    {
+        "spWord": "incapaz",
+        "partOfSpeech": "adj",
+        "definition": "incapable",
+        "freqIndex": 1733
+    },
+    {
+        "spWord": "incendio",
+        "partOfSpeech": "nm",
+        "definition": "fire, conflagration",
+        "freqIndex": 2695
+    },
+    {
+        "spWord": "incertidumbre",
+        "partOfSpeech": "nf",
+        "definition": "uncertainty",
+        "freqIndex": 2972
+    },
+    {
+        "spWord": "incidencia",
+        "partOfSpeech": "nf",
+        "definition": "ocurrence, impact",
+        "freqIndex": 4832
+    },
+    {
+        "spWord": "incidente",
+        "partOfSpeech": "nm",
+        "definition": "incident",
+        "freqIndex": 3003
+    },
+    {
+        "spWord": "incidir",
+        "partOfSpeech": "v",
+        "definition": "to influence, affect",
+        "freqIndex": 4841
+    },
+    {
+        "spWord": "incierto",
+        "partOfSpeech": "adj",
+        "definition": "uncertain",
+        "freqIndex": 3536
+    },
+    {
+        "spWord": "incipiente",
+        "partOfSpeech": "adj",
+        "definition": "incipient, beginning",
+        "freqIndex": 4178
+    },
+    {
+        "spWord": "incitar",
+        "partOfSpeech": "v",
+        "definition": "to incite",
+        "freqIndex": 3877
+    },
+    {
+        "spWord": "inclinación",
+        "partOfSpeech": "nf",
+        "definition": "slope, incline, tendency",
+        "freqIndex": 2035
+    },
+    {
+        "spWord": "inclinado",
+        "partOfSpeech": "adj",
+        "definition": "inclined, slanting",
+        "freqIndex": 2835
+    },
+    {
+        "spWord": "inclinar",
+        "partOfSpeech": "v",
+        "definition": "to bow, tilt, incline",
+        "freqIndex": 1814
+    },
+    {
+        "spWord": "incluir",
+        "partOfSpeech": "v",
+        "definition": "to include",
+        "freqIndex": 720
+    },
+    {
+        "spWord": "inclusive",
+        "partOfSpeech": "adv",
+        "definition": "including, even",
+        "freqIndex": 3568
+    },
+    {
+        "spWord": "incluso",
+        "partOfSpeech": "adv",
+        "definition": "including, even (adv)",
+        "freqIndex": 294
+    },
+    {
+        "spWord": "incómodo",
+        "partOfSpeech": "adj",
+        "definition": "uncomfortable",
+        "freqIndex": 2535
+    },
+    {
+        "spWord": "incomprensible",
+        "partOfSpeech": "adj",
+        "definition": "incomprehensible",
+        "freqIndex": 4134
+    },
+    {
+        "spWord": "inconsciente",
+        "partOfSpeech": "adj",
+        "definition": "unconscious, thoughtless",
+        "freqIndex": 2705
+    },
+    {
+        "spWord": "inconveniente",
+        "partOfSpeech": "nm",
+        "definition": "inconvenience, drawback",
+        "freqIndex": 2151
+    },
+    {
+        "spWord": "incorporación",
+        "partOfSpeech": "nf",
+        "definition": "inclusion, incorporation",
+        "freqIndex": 4301
+    },
+    {
+        "spWord": "incorporar",
+        "partOfSpeech": "v",
+        "definition": "to incorporate, include",
+        "freqIndex": 1087
+    },
+    {
+        "spWord": "increíble",
+        "partOfSpeech": "adj",
+        "definition": "incredible, unbelievable",
+        "freqIndex": 1669
+    },
+    {
+        "spWord": "incrementar",
+        "partOfSpeech": "v",
+        "definition": "to increase",
+        "freqIndex": 3964
+    },
+    {
+        "spWord": "incremento",
+        "partOfSpeech": "nm",
+        "definition": "increase, raise",
+        "freqIndex": 4866
+    },
+    {
+        "spWord": "incurrir",
+        "partOfSpeech": "v",
+        "definition": "to incur, fall into",
+        "freqIndex": 4867
+    },
+    {
+        "spWord": "incursión",
+        "partOfSpeech": "nf",
+        "definition": "invasion, incursion",
+        "freqIndex": 4965
+    },
+    {
+        "spWord": "indagar",
+        "partOfSpeech": "v",
+        "definition": "to investigate",
+        "freqIndex": 4515
+    },
+    {
+        "spWord": "indefinido",
+        "partOfSpeech": "adj",
+        "definition": "vague, indefinite",
+        "freqIndex": 4471
+    },
+    {
+        "spWord": "independencia",
+        "partOfSpeech": "nf",
+        "definition": "independence",
+        "freqIndex": 1767
+    },
+    {
+        "spWord": "independiente",
+        "partOfSpeech": "adj",
+        "definition": "independent, self-sufficient",
+        "freqIndex": 1291
+    },
+    {
+        "spWord": "independientemente",
+        "partOfSpeech": "adv",
+        "definition": "independently",
+        "freqIndex": 4135
+    },
+    {
+        "spWord": "indicación",
+        "partOfSpeech": "nf",
+        "definition": "indication",
+        "freqIndex": 4084
+    },
+    {
+        "spWord": "indicar",
+        "partOfSpeech": "v",
+        "definition": "to indicate",
+        "freqIndex": 479
+    },
+    {
+        "spWord": "índice",
+        "partOfSpeech": "nm",
+        "definition": "index, forefinger",
+        "freqIndex": 2000
+    },
+    {
+        "spWord": "indicio",
+        "partOfSpeech": "nm",
+        "definition": "indication, sign",
+        "freqIndex": 3184
+    },
+    {
+        "spWord": "indiferencia",
+        "partOfSpeech": "nf",
+        "definition": "indifference",
+        "freqIndex": 3217
+    },
+    {
+        "spWord": "indiferente",
+        "partOfSpeech": "adj",
+        "definition": "indifferent",
+        "freqIndex": 2902
+    },
+    {
+        "spWord": "indígena",
+        "partOfSpeech": "adj",
+        "definition": "indigenous, native",
+        "freqIndex": 2302
+    },
+    {
+        "spWord": "indignación",
+        "partOfSpeech": "nf",
+        "definition": "indignation",
+        "freqIndex": 4122
+    },
+    {
+        "spWord": "indio",
+        "partOfSpeech": "nm",
+        "definition": "Indian",
+        "freqIndex": 1411
+    },
+    {
+        "spWord": "indirecto",
+        "partOfSpeech": "adj",
+        "definition": "indirect",
+        "freqIndex": 3061
+    },
+    {
+        "spWord": "indiscutible",
+        "partOfSpeech": "adj",
+        "definition": "indisputable, unquestionable",
+        "freqIndex": 4452
+    },
+    {
+        "spWord": "indispensable",
+        "partOfSpeech": "adj",
+        "definition": "indispensable, essential",
+        "freqIndex": 1949
+    },
+    {
+        "spWord": "individual",
+        "partOfSpeech": "adj",
+        "definition": "individual",
+        "freqIndex": 1482
+    },
+    {
+        "spWord": "individuo",
+        "partOfSpeech": "nm",
+        "definition": "individual, person",
+        "freqIndex": 1037
+    },
+    {
+        "spWord": "índole",
+        "partOfSpeech": "nf",
+        "definition": "nature, temperament",
+        "freqIndex": 2927
+    },
+    {
+        "spWord": "inducir",
+        "partOfSpeech": "v",
+        "definition": "to lead to",
+        "freqIndex": 2857
+    },
+    {
+        "spWord": "indudable",
+        "partOfSpeech": "adj",
+        "definition": "unquestionable",
+        "freqIndex": 4002
+    },
+    {
+        "spWord": "indudablemente",
+        "partOfSpeech": "adv",
+        "definition": "doubtless, undoubtedly",
+        "freqIndex": 3360
+    },
+    {
+        "spWord": "industria",
+        "partOfSpeech": "nf",
+        "definition": "industry, factory",
+        "freqIndex": 1884
+    },
+    {
+        "spWord": "industrial",
+        "partOfSpeech": "adj",
+        "definition": "industrial",
+        "freqIndex": 2005
+    },
+    {
+        "spWord": "inédito",
+        "partOfSpeech": "adj",
+        "definition": "unpublished",
+        "freqIndex": 3879
+    },
+    {
+        "spWord": "inesperado",
+        "partOfSpeech": "adj",
+        "definition": "unexpected, unforeseen",
+        "freqIndex": 2904
+    },
+    {
+        "spWord": "inestable",
+        "partOfSpeech": "adj",
+        "definition": "unstable, unsteady",
+        "freqIndex": 4926
+    },
+    {
+        "spWord": "inevitable",
+        "partOfSpeech": "adj",
+        "definition": "inevitable, unavoidable",
+        "freqIndex": 1694
+    },
+    {
+        "spWord": "inevitablemente",
+        "partOfSpeech": "adv",
+        "definition": "inevitably",
+        "freqIndex": 3842
+    },
+    {
+        "spWord": "inexistente",
+        "partOfSpeech": "adj",
+        "definition": "non-existent",
+        "freqIndex": 4792
+    },
+    {
+        "spWord": "inexplicable",
+        "partOfSpeech": "adj",
+        "definition": "unexplainable",
+        "freqIndex": 4358
+    },
+    {
+        "spWord": "infancia",
+        "partOfSpeech": "nf",
+        "definition": "infancy, childhood",
+        "freqIndex": 1928
+    },
+    {
+        "spWord": "infantil",
+        "partOfSpeech": "adj",
+        "definition": "of children, childlike, infantile",
+        "freqIndex": 1186
+    },
+    {
+        "spWord": "infección",
+        "partOfSpeech": "nf",
+        "definition": "infection",
+        "freqIndex": 4703
+    },
+    {
+        "spWord": "infeliz",
+        "partOfSpeech": "adj",
+        "definition": "unhappy, unfortunate",
+        "freqIndex": 4161
+    },
+    {
+        "spWord": "inferior",
+        "partOfSpeech": "adj",
+        "definition": "lower, inferior",
+        "freqIndex": 1350
+    },
+    {
+        "spWord": "infierno",
+        "partOfSpeech": "nm",
+        "definition": "hell, inferno",
+        "freqIndex": 3062
+    },
+    {
+        "spWord": "infinidad",
+        "partOfSpeech": "nf",
+        "definition": "infinity, countless",
+        "freqIndex": 4127
+    },
+    {
+        "spWord": "infinito",
+        "partOfSpeech": "adj",
+        "definition": "infinite",
+        "freqIndex": 2215
+    },
+    {
+        "spWord": "infinito",
+        "partOfSpeech": "nm",
+        "definition": "infinite, infinity",
+        "freqIndex": 4839
+    },
+    {
+        "spWord": "influencia",
+        "partOfSpeech": "nf",
+        "definition": "influence",
+        "freqIndex": 1102
+    },
+    {
+        "spWord": "influir",
+        "partOfSpeech": "v",
+        "definition": "to (have) influence",
+        "freqIndex": 2022
+    },
+    {
+        "spWord": "información",
+        "partOfSpeech": "nf",
+        "definition": "information",
+        "freqIndex": 682
+    },
+    {
+        "spWord": "informar",
+        "partOfSpeech": "v",
+        "definition": "to inform",
+        "freqIndex": 835
+    },
+    {
+        "spWord": "informativo",
+        "partOfSpeech": "adj",
+        "definition": "informative",
+        "freqIndex": 4744
+    },
+    {
+        "spWord": "informe",
+        "partOfSpeech": "nm",
+        "definition": "report",
+        "freqIndex": 1548
+    },
+    {
+        "spWord": "ingeniero",
+        "partOfSpeech": "nm/f",
+        "definition": "engineer",
+        "freqIndex": 1761
+    },
+    {
+        "spWord": "ingenio",
+        "partOfSpeech": "nm",
+        "definition": "ingenuity, talent, wit",
+        "freqIndex": 3378
+    },
+    {
+        "spWord": "ingenioso",
+        "partOfSpeech": "adj",
+        "definition": "ingenious, clever",
+        "freqIndex": 4549
+    },
+    {
+        "spWord": "ingenuo",
+        "partOfSpeech": "adj",
+        "definition": "naive, ingenuous",
+        "freqIndex": 3507
+    },
+    {
+        "spWord": "inglés",
+        "partOfSpeech": "adj",
+        "definition": "English",
+        "freqIndex": 608
+    },
+    {
+        "spWord": "ingrediente",
+        "partOfSpeech": "nm",
+        "definition": "ingredient",
+        "freqIndex": 4708
+    },
+    {
+        "spWord": "ingresar",
+        "partOfSpeech": "v",
+        "definition": "to join, deposit, admit",
+        "freqIndex": 1791
+    },
+    {
+        "spWord": "ingreso",
+        "partOfSpeech": "nm",
+        "definition": "entrance, admission, income",
+        "freqIndex": 1690
+    },
+    {
+        "spWord": "inicial",
+        "partOfSpeech": "adj",
+        "definition": "initial",
+        "freqIndex": 1879
+    },
+    {
+        "spWord": "inicial",
+        "partOfSpeech": "nf",
+        "definition": "initial (letters)",
+        "freqIndex": 4830
+    },
+    {
+        "spWord": "inicialmente",
+        "partOfSpeech": "adv",
+        "definition": "initially",
+        "freqIndex": 4920
+    },
+    {
+        "spWord": "iniciar",
+        "partOfSpeech": "v",
+        "definition": "to initiate, start",
+        "freqIndex": 568
+    },
+    {
+        "spWord": "iniciativa",
+        "partOfSpeech": "nf",
+        "definition": "initiative",
+        "freqIndex": 1668
+    },
+    {
+        "spWord": "inicio",
+        "partOfSpeech": "nm",
+        "definition": "beginning, start",
+        "freqIndex": 2512
+    },
+    {
+        "spWord": "injusticia",
+        "partOfSpeech": "nf",
+        "definition": "injustice",
+        "freqIndex": 2554
+    },
+    {
+        "spWord": "injusto",
+        "partOfSpeech": "adj",
+        "definition": "unfair, unjust",
+        "freqIndex": 2378
+    },
+    {
+        "spWord": "inmediatamente",
+        "partOfSpeech": "adv",
+        "definition": "immediately",
+        "freqIndex": 882
+    },
+    {
+        "spWord": "inmediato",
+        "partOfSpeech": "adj",
+        "definition": "immediate",
+        "freqIndex": 724
+    },
+    {
+        "spWord": "inmenso",
+        "partOfSpeech": "adj",
+        "definition": "immense, vast, huge",
+        "freqIndex": 1074
+    },
+    {
+        "spWord": "inmerso",
+        "partOfSpeech": "adj",
+        "definition": "engrossed, immersed",
+        "freqIndex": 4144
+    },
+    {
+        "spWord": "inmigrante",
+        "partOfSpeech": "nc",
+        "definition": "immigrant",
+        "freqIndex": 4993
+    },
+    {
+        "spWord": "inminente",
+        "partOfSpeech": "adj",
+        "definition": "imminent",
+        "freqIndex": 4351
+    },
+    {
+        "spWord": "inmóvil",
+        "partOfSpeech": "adj",
+        "definition": "immovable, motionless",
+        "freqIndex": 4093
+    },
+    {
+        "spWord": "innecesario",
+        "partOfSpeech": "adj",
+        "definition": "unnecessary",
+        "freqIndex": 3248
+    },
+    {
+        "spWord": "innovación",
+        "partOfSpeech": "nf",
+        "definition": "innovation",
+        "freqIndex": 4482
+    },
+    {
+        "spWord": "innumerable",
+        "partOfSpeech": "adj",
+        "definition": "innumerable, countless",
+        "freqIndex": 3399
+    },
+    {
+        "spWord": "inocencia",
+        "partOfSpeech": "nf",
+        "definition": "innocence",
+        "freqIndex": 3520
+    },
+    {
+        "spWord": "inocente",
+        "partOfSpeech": "adj",
+        "definition": "innocent, naïve",
+        "freqIndex": 2538
+    },
+    {
+        "spWord": "inolvidable",
+        "partOfSpeech": "adj",
+        "definition": "unforgettable",
+        "freqIndex": 4251
+    },
+    {
+        "spWord": "inquietante",
+        "partOfSpeech": "adj",
+        "definition": "disquieting",
+        "freqIndex": 4478
+    },
+    {
+        "spWord": "inquietar",
+        "partOfSpeech": "v",
+        "definition": "to make uneasy, disturb",
+        "freqIndex": 4490
+    },
+    {
+        "spWord": "inquieto",
+        "partOfSpeech": "adj",
+        "definition": "restless, anxious",
+        "freqIndex": 2986
+    },
+    {
+        "spWord": "inquietud",
+        "partOfSpeech": "nf",
+        "definition": "restlessness, anxiety",
+        "freqIndex": 1453
+    },
+    {
+        "spWord": "inscribir",
+        "partOfSpeech": "v",
+        "definition": "to register, record",
+        "freqIndex": 3993
+    },
+    {
+        "spWord": "inscripción",
+        "partOfSpeech": "nf",
+        "definition": "inscription, registration",
+        "freqIndex": 3684
+    },
+    {
+        "spWord": "insecto",
+        "partOfSpeech": "nm",
+        "definition": "insect",
+        "freqIndex": 3542
+    },
+    {
+        "spWord": "inseguridad",
+        "partOfSpeech": "nf",
+        "definition": "insecurity",
+        "freqIndex": 3738
+    },
+    {
+        "spWord": "inseguro",
+        "partOfSpeech": "adj",
+        "definition": "unsure, unsafe",
+        "freqIndex": 4529
+    },
+    {
+        "spWord": "inseparable",
+        "partOfSpeech": "adj",
+        "definition": "inseparable",
+        "freqIndex": 4922
+    },
+    {
+        "spWord": "insertar",
+        "partOfSpeech": "v",
+        "definition": "to insert, put in",
+        "freqIndex": 4785
+    },
+    {
+        "spWord": "insignificante",
+        "partOfSpeech": "adj",
+        "definition": "insignificant",
+        "freqIndex": 3747
+    },
+    {
+        "spWord": "insinuar",
+        "partOfSpeech": "v",
+        "definition": "to insinuate, hint",
+        "freqIndex": 3453
+    },
+    {
+        "spWord": "insistencia",
+        "partOfSpeech": "nf",
+        "definition": "insistence, persistence",
+        "freqIndex": 3587
+    },
+    {
+        "spWord": "insistir",
+        "partOfSpeech": "v",
+        "definition": "to insist on",
+        "freqIndex": 699
+    },
+    {
+        "spWord": "insólito",
+        "partOfSpeech": "adj",
+        "definition": "unusual, uncommon",
+        "freqIndex": 3951
+    },
+    {
+        "spWord": "insoportable",
+        "partOfSpeech": "adj",
+        "definition": "unbearable, intolerable",
+        "freqIndex": 3401
+    },
+    {
+        "spWord": "inspección",
+        "partOfSpeech": "nf",
+        "definition": "inspection",
+        "freqIndex": 4829
+    },
+    {
+        "spWord": "inspector",
+        "partOfSpeech": "nm/f",
+        "definition": "inspector",
+        "freqIndex": 4521
+    },
+    {
+        "spWord": "inspiración",
+        "partOfSpeech": "nf",
+        "definition": "inspiration, inhalation",
+        "freqIndex": 3055
+    },
+    {
+        "spWord": "inspirar",
+        "partOfSpeech": "v",
+        "definition": "to inspire, inhale",
+        "freqIndex": 2072
+    },
+    {
+        "spWord": "instalación",
+        "partOfSpeech": "nf",
+        "definition": "installation, facilities",
+        "freqIndex": 2395
+    },
+    {
+        "spWord": "instalar",
+        "partOfSpeech": "v",
+        "definition": "to install",
+        "freqIndex": 958
+    },
+    {
+        "spWord": "instancia",
+        "partOfSpeech": "nf",
+        "definition": "instance",
+        "freqIndex": 2495
+    },
+    {
+        "spWord": "instante",
+        "partOfSpeech": "nm",
+        "definition": "instant, moment",
+        "freqIndex": 1215
+    },
+    {
+        "spWord": "instinto",
+        "partOfSpeech": "nm",
+        "definition": "instinct",
+        "freqIndex": 2914
+    },
+    {
+        "spWord": "institución",
+        "partOfSpeech": "nf",
+        "definition": "institution",
+        "freqIndex": 1115
+    },
+    {
+        "spWord": "institucional",
+        "partOfSpeech": "adj",
+        "definition": "institutional",
+        "freqIndex": 4595
+    },
+    {
+        "spWord": "instituto",
+        "partOfSpeech": "nm",
+        "definition": "institute",
+        "freqIndex": 3699
+    },
+    {
+        "spWord": "instrucción",
+        "partOfSpeech": "nf",
+        "definition": "instruction",
+        "freqIndex": 1611
+    },
+    {
+        "spWord": "instruir",
+        "partOfSpeech": "v",
+        "definition": "to instruct",
+        "freqIndex": 4918
+    },
+    {
+        "spWord": "instrumento",
+        "partOfSpeech": "nm",
+        "definition": "instrument",
+        "freqIndex": 813
+    },
+    {
+        "spWord": "insuficiente",
+        "partOfSpeech": "adj",
+        "definition": "insufficient",
+        "freqIndex": 3278
+    },
+    {
+        "spWord": "insultar",
+        "partOfSpeech": "v",
+        "definition": "to insult, berate",
+        "freqIndex": 4390
+    },
+    {
+        "spWord": "insulto",
+        "partOfSpeech": "nm",
+        "definition": "insult",
+        "freqIndex": 3622
+    },
+    {
+        "spWord": "intacto",
+        "partOfSpeech": "adj",
+        "definition": "intact",
+        "freqIndex": 3259
+    },
+    {
+        "spWord": "integración",
+        "partOfSpeech": "nf",
+        "definition": "integration",
+        "freqIndex": 4174
+    },
+    {
+        "spWord": "integrante",
+        "partOfSpeech": "adj",
+        "definition": "integral, part of a group",
+        "freqIndex": 3889
+    },
+    {
+        "spWord": "integrar",
+        "partOfSpeech": "v",
+        "definition": "to integrate, fit in",
+        "freqIndex": 1439
+    },
+    {
+        "spWord": "integridad",
+        "partOfSpeech": "nf",
+        "definition": "integrity",
+        "freqIndex": 4105
+    },
+    {
+        "spWord": "íntegro",
+        "partOfSpeech": "adj",
+        "definition": "whole, entire, honest",
+        "freqIndex": 4754
+    },
+    {
+        "spWord": "intelectual",
+        "partOfSpeech": "adj",
+        "definition": "intellectual",
+        "freqIndex": 1103
+    },
+    {
+        "spWord": "inteligencia",
+        "partOfSpeech": "nf",
+        "definition": "intelligence",
+        "freqIndex": 1375
+    },
+    {
+        "spWord": "inteligente",
+        "partOfSpeech": "adj",
+        "definition": "intelligent",
+        "freqIndex": 1447
+    },
+    {
+        "spWord": "intención",
+        "partOfSpeech": "nf",
+        "definition": "intention",
+        "freqIndex": 876
+    },
+    {
+        "spWord": "intensamente",
+        "partOfSpeech": "adv",
+        "definition": "intensely",
+        "freqIndex": 3914
+    },
+    {
+        "spWord": "intensidad",
+        "partOfSpeech": "nf",
+        "definition": "intensity, force",
+        "freqIndex": 2174
+    },
+    {
+        "spWord": "intenso",
+        "partOfSpeech": "adj",
+        "definition": "intense, acute",
+        "freqIndex": 1119
+    },
+    {
+        "spWord": "intentar",
+        "partOfSpeech": "v",
+        "definition": "to try, attempt",
+        "freqIndex": 376
+    },
+    {
+        "spWord": "intento",
+        "partOfSpeech": "nm",
+        "definition": "attempt, try",
+        "freqIndex": 1012
+    },
+    {
+        "spWord": "intercambiar",
+        "partOfSpeech": "v",
+        "definition": "to exchange",
+        "freqIndex": 3704
+    },
+    {
+        "spWord": "intercambio",
+        "partOfSpeech": "nm",
+        "definition": "exchange, interchange",
+        "freqIndex": 2490
+    },
+    {
+        "spWord": "interés",
+        "partOfSpeech": "nm",
+        "definition": "interest",
+        "freqIndex": 308
+    },
+    {
+        "spWord": "interesado",
+        "partOfSpeech": "adj",
+        "definition": "(self-) interested",
+        "freqIndex": 1605
+    },
+    {
+        "spWord": "interesante",
+        "partOfSpeech": "adj",
+        "definition": "interesting",
+        "freqIndex": 762
+    },
+    {
+        "spWord": "interesar",
+        "partOfSpeech": "v",
+        "definition": "to interest",
+        "freqIndex": 448
+    },
+    {
+        "spWord": "interior",
+        "partOfSpeech": "nm",
+        "definition": "interior, inside",
+        "freqIndex": 614
+    },
+    {
+        "spWord": "interior",
+        "partOfSpeech": "adj",
+        "definition": "interior, inside",
+        "freqIndex": 1263
+    },
+    {
+        "spWord": "interlocutor",
+        "partOfSpeech": "nm",
+        "definition": "participant in a dialog",
+        "freqIndex": 3657
+    },
+    {
+        "spWord": "intermedio",
+        "partOfSpeech": "adj",
+        "definition": "interim, intermediate",
+        "freqIndex": 3223
+    },
+    {
+        "spWord": "intermedio",
+        "partOfSpeech": "nm",
+        "definition": "means, interval",
+        "freqIndex": 4777
+    },
+    {
+        "spWord": "interminable",
+        "partOfSpeech": "adj",
+        "definition": "endless, interminable",
+        "freqIndex": 3235
+    },
+    {
+        "spWord": "internacional",
+        "partOfSpeech": "adj",
+        "definition": "international",
+        "freqIndex": 1189
+    },
+    {
+        "spWord": "internar",
+        "partOfSpeech": "v",
+        "definition": "to confine",
+        "freqIndex": 4899
+    },
+    {
+        "spWord": "interno",
+        "partOfSpeech": "adj",
+        "definition": "internal",
+        "freqIndex": 783
+    },
+    {
+        "spWord": "interponer",
+        "partOfSpeech": "v",
+        "definition": "to interpose, intervene",
+        "freqIndex": 4229
+    },
+    {
+        "spWord": "interpretación",
+        "partOfSpeech": "nf",
+        "definition": "interpretation, interpreting",
+        "freqIndex": 1468
+    },
+    {
+        "spWord": "interpretar",
+        "partOfSpeech": "v",
+        "definition": "to interpret",
+        "freqIndex": 983
+    },
+    {
+        "spWord": "intérprete",
+        "partOfSpeech": "nc",
+        "definition": "performer, interpreter",
+        "freqIndex": 4716
+    },
+    {
+        "spWord": "interrogante",
+        "partOfSpeech": "nc",
+        "definition": "question, interrogator",
+        "freqIndex": 4190
+    },
+    {
+        "spWord": "interrogar",
+        "partOfSpeech": "v",
+        "definition": "to question, interrogate",
+        "freqIndex": 3746
+    },
+    {
+        "spWord": "interrumpir",
+        "partOfSpeech": "v",
+        "definition": "to interrupt",
+        "freqIndex": 1405
+    },
+    {
+        "spWord": "interrupción",
+        "partOfSpeech": "nf",
+        "definition": "interruption",
+        "freqIndex": 3518
+    },
+    {
+        "spWord": "intervalo",
+        "partOfSpeech": "nm",
+        "definition": "interval, gap",
+        "freqIndex": 4214
+    },
+    {
+        "spWord": "intervención",
+        "partOfSpeech": "nf",
+        "definition": "intervention",
+        "freqIndex": 1615
+    },
+    {
+        "spWord": "intervenir",
+        "partOfSpeech": "v",
+        "definition": "to intervene",
+        "freqIndex": 847
+    },
+    {
+        "spWord": "íntimamente",
+        "partOfSpeech": "adv",
+        "definition": "intimately",
+        "freqIndex": 4083
+    },
+    {
+        "spWord": "intimidad",
+        "partOfSpeech": "nf",
+        "definition": "private life, intimacy",
+        "freqIndex": 2540
+    },
+    {
+        "spWord": "íntimo",
+        "partOfSpeech": "adj",
+        "definition": "close, intimate",
+        "freqIndex": 1684
+    },
+    {
+        "spWord": "introducción",
+        "partOfSpeech": "nf",
+        "definition": "introduction",
+        "freqIndex": 3346
+    },
+    {
+        "spWord": "introducir",
+        "partOfSpeech": "v",
+        "definition": "to introduce, bring in",
+        "freqIndex": 949
+    },
+    {
+        "spWord": "intuición",
+        "partOfSpeech": "nf",
+        "definition": "intuition",
+        "freqIndex": 3509
+    },
+    {
+        "spWord": "intuir",
+        "partOfSpeech": "v",
+        "definition": "to sense",
+        "freqIndex": 4368
+    },
+    {
+        "spWord": "inundación",
+        "partOfSpeech": "nf",
+        "definition": "flood, deluge",
+        "freqIndex": 4902
+    },
+    {
+        "spWord": "inundar",
+        "partOfSpeech": "v",
+        "definition": "to flood, inundate",
+        "freqIndex": 4090
+    },
+    {
+        "spWord": "inútil",
+        "partOfSpeech": "adj",
+        "definition": "useless",
+        "freqIndex": 1564
+    },
+    {
+        "spWord": "invadir",
+        "partOfSpeech": "v",
+        "definition": "to invade, overcome",
+        "freqIndex": 1764
+    },
+    {
+        "spWord": "invasión",
+        "partOfSpeech": "nf",
+        "definition": "invasion",
+        "freqIndex": 2573
+    },
+    {
+        "spWord": "invención",
+        "partOfSpeech": "nf",
+        "definition": "invention, contrivance",
+        "freqIndex": 3510
+    },
+    {
+        "spWord": "inventar",
+        "partOfSpeech": "v",
+        "definition": "to invent, make up",
+        "freqIndex": 1018
+    },
+    {
+        "spWord": "invento",
+        "partOfSpeech": "nm",
+        "definition": "invention",
+        "freqIndex": 3086
+    },
+    {
+        "spWord": "inversión",
+        "partOfSpeech": "nf",
+        "definition": "investment, outlay",
+        "freqIndex": 2458
+    },
+    {
+        "spWord": "inverso",
+        "partOfSpeech": "adj",
+        "definition": "inverse, opposite",
+        "freqIndex": 3703
+    },
+    {
+        "spWord": "invertido",
+        "partOfSpeech": "adj",
+        "definition": "reversed, inverted",
+        "freqIndex": 4374
+    },
+    {
+        "spWord": "invertir",
+        "partOfSpeech": "v",
+        "definition": "to invest",
+        "freqIndex": 1945
+    },
+    {
+        "spWord": "investigación",
+        "partOfSpeech": "nf",
+        "definition": "investigation",
+        "freqIndex": 890
+    },
+    {
+        "spWord": "investigador",
+        "partOfSpeech": "nm/f",
+        "definition": "researcher, investigator",
+        "freqIndex": 2981
+    },
+    {
+        "spWord": "investigar",
+        "partOfSpeech": "v",
+        "definition": "to investigate",
+        "freqIndex": 1749
+    },
+    {
+        "spWord": "invierno",
+        "partOfSpeech": "nm",
+        "definition": "winter",
+        "freqIndex": 1340
+    },
+    {
+        "spWord": "invisible",
+        "partOfSpeech": "adj",
+        "definition": "invisible",
+        "freqIndex": 3572
+    },
+    {
+        "spWord": "invitación",
+        "partOfSpeech": "nf",
+        "definition": "invitation",
+        "freqIndex": 2300
+    },
+    {
+        "spWord": "invitado",
+        "partOfSpeech": "nm",
+        "definition": "guest",
+        "freqIndex": 2583
+    },
+    {
+        "spWord": "invitar",
+        "partOfSpeech": "v",
+        "definition": "to invite",
+        "freqIndex": 954
+    },
+    {
+        "spWord": "invocar",
+        "partOfSpeech": "v",
+        "definition": "to invoke",
+        "freqIndex": 4252
+    },
+    {
+        "spWord": "involuntario",
+        "partOfSpeech": "adj",
+        "definition": "involuntary",
+        "freqIndex": 4790
+    },
+    {
+        "spWord": "inyección",
+        "partOfSpeech": "nf",
+        "definition": "shot, injection",
+        "freqIndex": 4658
+    },
+    {
+        "spWord": "ir",
+        "partOfSpeech": "v",
+        "definition": "to go",
+        "freqIndex": 30
+    },
+    {
+        "spWord": "ira",
+        "partOfSpeech": "nf",
+        "definition": "rage, wrath",
+        "freqIndex": 3545
+    },
+    {
+        "spWord": "ironía",
+        "partOfSpeech": "nf",
+        "definition": "irony",
+        "freqIndex": 3531
+    },
+    {
+        "spWord": "irónico",
+        "partOfSpeech": "adj",
+        "definition": "ironic, mocking",
+        "freqIndex": 4536
+    },
+    {
+        "spWord": "irracional",
+        "partOfSpeech": "adj",
+        "definition": "irrational",
+        "freqIndex": 4053
+    },
+    {
+        "spWord": "irreal",
+        "partOfSpeech": "adj",
+        "definition": "unreal",
+        "freqIndex": 4966
+    },
+    {
+        "spWord": "irregular",
+        "partOfSpeech": "adj",
+        "definition": "irregular",
+        "freqIndex": 3214
+    },
+    {
+        "spWord": "irreversible",
+        "partOfSpeech": "adj",
+        "definition": "irreversible",
+        "freqIndex": 4847
+    },
+    {
+        "spWord": "irritar",
+        "partOfSpeech": "v",
+        "definition": "to irritate",
+        "freqIndex": 4711
+    },
+    {
+        "spWord": "irrumpir",
+        "partOfSpeech": "v",
+        "definition": "to burst in, raid",
+        "freqIndex": 4994
+    },
+    {
+        "spWord": "isla",
+        "partOfSpeech": "nf",
+        "definition": "island",
+        "freqIndex": 1229
+    },
+    {
+        "spWord": "italiano",
+        "partOfSpeech": "adj",
+        "definition": "Italian",
+        "freqIndex": 953
+    },
+    {
+        "spWord": "izquierda",
+        "partOfSpeech": "nf",
+        "definition": "left",
+        "freqIndex": 940
+    },
+    {
+        "spWord": "izquierdo",
+        "partOfSpeech": "adj",
+        "definition": "left (opposite of right)",
+        "freqIndex": 1703
+    },
+    {
+        "spWord": "jamás",
+        "partOfSpeech": "adv",
+        "definition": "never",
+        "freqIndex": 788
+    },
+    {
+        "spWord": "japonés",
+        "partOfSpeech": "adj",
+        "definition": "Japanese",
+        "freqIndex": 2169
+    },
+    {
+        "spWord": "jardín",
+        "partOfSpeech": "nm",
+        "definition": "garden",
+        "freqIndex": 1837
+    },
+    {
+        "spWord": "jaula",
+        "partOfSpeech": "nf",
+        "definition": "cage, crate, playpen",
+        "freqIndex": 4005
+    },
+    {
+        "spWord": "jefe",
+        "partOfSpeech": "nm/f",
+        "definition": "leader, boss, manager",
+        "freqIndex": 761
+    },
+    {
+        "spWord": "jerarquía",
+        "partOfSpeech": "nf",
+        "definition": "hierarchy, rank",
+        "freqIndex": 3335
+    },
+    {
+        "spWord": "jinete",
+        "partOfSpeech": "nm",
+        "definition": "rider, horseman",
+        "freqIndex": 4789
+    },
+    {
+        "spWord": "joder",
+        "partOfSpeech": "v",
+        "definition": "to f**k, screw (around/up)",
+        "freqIndex": 4535
+    },
+    {
+        "spWord": "jornada",
+        "partOfSpeech": "nf",
+        "definition": "(working) day, shift",
+        "freqIndex": 2007
+    },
+    {
+        "spWord": "joven",
+        "partOfSpeech": "adj",
+        "definition": "young",
+        "freqIndex": 442
+    },
+    {
+        "spWord": "joven",
+        "partOfSpeech": "nc",
+        "definition": "teenager, young person",
+        "freqIndex": 581
+    },
+    {
+        "spWord": "jovencito",
+        "partOfSpeech": "nm",
+        "definition": "young person",
+        "freqIndex": 4300
+    },
+    {
+        "spWord": "joya",
+        "partOfSpeech": "nf",
+        "definition": "jewel, treasure",
+        "freqIndex": 2698
+    },
+    {
+        "spWord": "judicial",
+        "partOfSpeech": "adj",
+        "definition": "judicial",
+        "freqIndex": 2957
+    },
+    {
+        "spWord": "judío",
+        "partOfSpeech": "adj",
+        "definition": "Jewish",
+        "freqIndex": 2319
+    },
+    {
+        "spWord": "juego",
+        "partOfSpeech": "nm",
+        "definition": "game, play, sport",
+        "freqIndex": 371
+    },
+    {
+        "spWord": "jueves",
+        "partOfSpeech": "nm",
+        "definition": "Thursday",
+        "freqIndex": 2606
+    },
+    {
+        "spWord": "juez",
+        "partOfSpeech": "nc",
+        "definition": "judge",
+        "freqIndex": 1259
+    },
+    {
+        "spWord": "jugada",
+        "partOfSpeech": "nf",
+        "definition": "move, play",
+        "freqIndex": 4998
+    },
+    {
+        "spWord": "jugador",
+        "partOfSpeech": "nm",
+        "definition": "player, gambler",
+        "freqIndex": 3168
+    },
+    {
+        "spWord": "jugar",
+        "partOfSpeech": "v",
+        "definition": "to play (sport/game)",
+        "freqIndex": 355
+    },
+    {
+        "spWord": "jugo",
+        "partOfSpeech": "nm",
+        "definition": "juice",
+        "freqIndex": 3712
+    },
+    {
+        "spWord": "juguete",
+        "partOfSpeech": "nm",
+        "definition": "toy",
+        "freqIndex": 2672
+    },
+    {
+        "spWord": "juicio",
+        "partOfSpeech": "nm",
+        "definition": "judgment",
+        "freqIndex": 795
+    },
+    {
+        "spWord": "julio",
+        "partOfSpeech": "nm",
+        "definition": "July",
+        "freqIndex": 1559
+    },
+    {
+        "spWord": "junio",
+        "partOfSpeech": "nm",
+        "definition": "June",
+        "freqIndex": 2349
+    },
+    {
+        "spWord": "junta",
+        "partOfSpeech": "nf",
+        "definition": "meeting, conference, seam",
+        "freqIndex": 3213
+    },
+    {
+        "spWord": "juntar",
+        "partOfSpeech": "v",
+        "definition": "to bring together",
+        "freqIndex": 2280
+    },
+    {
+        "spWord": "junto",
+        "partOfSpeech": "adv",
+        "definition": "together with, next to",
+        "freqIndex": 378
+    },
+    {
+        "spWord": "junto",
+        "partOfSpeech": "adj",
+        "definition": "together",
+        "freqIndex": 729
+    },
+    {
+        "spWord": "jurar",
+        "partOfSpeech": "v",
+        "definition": "to swear, take an oath",
+        "freqIndex": 2846
+    },
+    {
+        "spWord": "jurídico",
+        "partOfSpeech": "adj",
+        "definition": "legal, juridical",
+        "freqIndex": 2769
+    },
+    {
+        "spWord": "justamente",
+        "partOfSpeech": "adv",
+        "definition": "just, exactly",
+        "freqIndex": 1485
+    },
+    {
+        "spWord": "justicia",
+        "partOfSpeech": "nf",
+        "definition": "justice, fairness",
+        "freqIndex": 1290
+    },
+    {
+        "spWord": "justificación",
+        "partOfSpeech": "nf",
+        "definition": "justification",
+        "freqIndex": 3211
+    },
+    {
+        "spWord": "justificado",
+        "partOfSpeech": "adj",
+        "definition": "justifiable, justified",
+        "freqIndex": 4331
+    },
+    {
+        "spWord": "justificar",
+        "partOfSpeech": "v",
+        "definition": "to justify, excuse",
+        "freqIndex": 1308
+    },
+    {
+        "spWord": "justo",
+        "partOfSpeech": "adv",
+        "definition": "just",
+        "freqIndex": 915
+    },
+    {
+        "spWord": "justo",
+        "partOfSpeech": "adj",
+        "definition": "fair, just",
+        "freqIndex": 1834
+    },
+    {
+        "spWord": "juvenil",
+        "partOfSpeech": "adj",
+        "definition": "young, juvenile",
+        "freqIndex": 2561
+    },
+    {
+        "spWord": "juventud",
+        "partOfSpeech": "nf",
+        "definition": "youth",
+        "freqIndex": 1311
+    },
+    {
+        "spWord": "juzgar",
+        "partOfSpeech": "v",
+        "definition": "to judge",
+        "freqIndex": 1396
+    },
+    {
+        "spWord": "kilo",
+        "partOfSpeech": "nm",
+        "definition": "kilogram",
+        "freqIndex": 2648
+    },
+    {
+        "spWord": "kilómetro",
+        "partOfSpeech": "nm",
+        "definition": "kilometer",
+        "freqIndex": 1297
+    },
+    {
+        "spWord": "la",
+        "partOfSpeech": "pron",
+        "definition": "[3rd person] (dir obj-f)",
+        "freqIndex": 33
+    },
+    {
+        "spWord": "laberinto",
+        "partOfSpeech": "nm",
+        "definition": "maze, labyrinth",
+        "freqIndex": 4348
+    },
+    {
+        "spWord": "labio",
+        "partOfSpeech": "nm",
+        "definition": "lip",
+        "freqIndex": 2759
+    },
+    {
+        "spWord": "labor",
+        "partOfSpeech": "nf",
+        "definition": "labor, work, task",
+        "freqIndex": 930
+    },
+    {
+        "spWord": "laboral",
+        "partOfSpeech": "adj",
+        "definition": "labor, industry",
+        "freqIndex": 3268
+    },
+    {
+        "spWord": "laboratorio",
+        "partOfSpeech": "nm",
+        "definition": "laboratory",
+        "freqIndex": 2264
+    },
+    {
+        "spWord": "laborioso",
+        "partOfSpeech": "adj",
+        "definition": "laborious, industrious",
+        "freqIndex": 4941
+    },
+    {
+        "spWord": "lado",
+        "partOfSpeech": "nm",
+        "definition": "side",
+        "freqIndex": 165
+    },
+    {
+        "spWord": "ladrillo",
+        "partOfSpeech": "nm",
+        "definition": "brick",
+        "freqIndex": 3056
+    },
+    {
+        "spWord": "ladrón",
+        "partOfSpeech": "nm",
+        "definition": "thief",
+        "freqIndex": 4204
+    },
+    {
+        "spWord": "lago",
+        "partOfSpeech": "nm",
+        "definition": "lake",
+        "freqIndex": 2680
+    },
+    {
+        "spWord": "lágrima",
+        "partOfSpeech": "nf",
+        "definition": "tear, teardrop",
+        "freqIndex": 2386
+    },
+    {
+        "spWord": "laguna",
+        "partOfSpeech": "nf",
+        "definition": "lagoon",
+        "freqIndex": 2961
+    },
+    {
+        "spWord": "lamentable",
+        "partOfSpeech": "adj",
+        "definition": "regrettable",
+        "freqIndex": 3232
+    },
+    {
+        "spWord": "lamentablemente",
+        "partOfSpeech": "adv",
+        "definition": "regrettably",
+        "freqIndex": 3919
+    },
+    {
+        "spWord": "lamentar",
+        "partOfSpeech": "v",
+        "definition": "to regret",
+        "freqIndex": 2509
+    },
+    {
+        "spWord": "lámina",
+        "partOfSpeech": "nf",
+        "definition": "sheet (of metal)",
+        "freqIndex": 3770
+    },
+    {
+        "spWord": "lámpara",
+        "partOfSpeech": "nf",
+        "definition": "lamp",
+        "freqIndex": 3347
+    },
+    {
+        "spWord": "lana",
+        "partOfSpeech": "nf",
+        "definition": "wool",
+        "freqIndex": 3060
+    },
+    {
+        "spWord": "lanzar",
+        "partOfSpeech": "v",
+        "definition": "to throw, launch",
+        "freqIndex": 611
+    },
+    {
+        "spWord": "lápiz",
+        "partOfSpeech": "nm",
+        "definition": "pencil",
+        "freqIndex": 3296
+    },
+    {
+        "spWord": "lapso",
+        "partOfSpeech": "nm",
+        "definition": "lapse",
+        "freqIndex": 4080
+    },
+    {
+        "spWord": "largamente",
+        "partOfSpeech": "adv",
+        "definition": "for a long time, at length",
+        "freqIndex": 4888
+    },
+    {
+        "spWord": "largar",
+        "partOfSpeech": "v",
+        "definition": "to let go, start out",
+        "freqIndex": 4767
+    },
+    {
+        "spWord": "largo",
+        "partOfSpeech": "adj",
+        "definition": "long",
+        "freqIndex": 175
+    },
+    {
+        "spWord": "largo",
+        "partOfSpeech": "nm",
+        "definition": "length",
+        "freqIndex": 1640
+    },
+    {
+        "spWord": "a lo largo",
+        "partOfSpeech": "prep",
+        "definition": "throughout",
+        "freqIndex": 1640
+    },
+    {
+        "spWord": "larguísimo",
+        "partOfSpeech": "adj",
+        "definition": "very long",
+        "freqIndex": 4608
+    },
+    {
+        "spWord": "lástima",
+        "partOfSpeech": "nf",
+        "definition": "shame, pity",
+        "freqIndex": 3294
+    },
+    {
+        "spWord": "lata",
+        "partOfSpeech": "nf",
+        "definition": "(tin) can",
+        "freqIndex": 2493
+    },
+    {
+        "spWord": "latente",
+        "partOfSpeech": "adj",
+        "definition": "latent",
+        "freqIndex": 4201
+    },
+    {
+        "spWord": "lateral",
+        "partOfSpeech": "adj",
+        "definition": "side, lateral",
+        "freqIndex": 4007
+    },
+    {
+        "spWord": "latín",
+        "partOfSpeech": "nm",
+        "definition": "Latin",
+        "freqIndex": 3040
+    },
+    {
+        "spWord": "latino",
+        "partOfSpeech": "adj",
+        "definition": "Latin",
+        "freqIndex": 1862
+    },
+    {
+        "spWord": "latinoamericano",
+        "partOfSpeech": "adj",
+        "definition": "Latin American",
+        "freqIndex": 3971
+    },
+    {
+        "spWord": "latir",
+        "partOfSpeech": "v",
+        "definition": "to beat (heart)",
+        "freqIndex": 4379
+    },
+    {
+        "spWord": "latitud",
+        "partOfSpeech": "nf",
+        "definition": "latitude",
+        "freqIndex": 4771
+    },
+    {
+        "spWord": "lavar",
+        "partOfSpeech": "v",
+        "definition": "to wash",
+        "freqIndex": 1762
+    },
+    {
+        "spWord": "lazo",
+        "partOfSpeech": "nm",
+        "definition": "bow, knot, tie, lasso",
+        "freqIndex": 2612
+    },
+    {
+        "spWord": "le",
+        "partOfSpeech": "pron",
+        "definition": "[3rd person] (indir obj)",
+        "freqIndex": 19
+    },
+    {
+        "spWord": "leal",
+        "partOfSpeech": "adj",
+        "definition": "loyal, faithful",
+        "freqIndex": 3897
+    },
+    {
+        "spWord": "lealtad",
+        "partOfSpeech": "nf",
+        "definition": "loyalty, faithfulness",
+        "freqIndex": 3996
+    },
+    {
+        "spWord": "lección",
+        "partOfSpeech": "nf",
+        "definition": "lesson",
+        "freqIndex": 1977
+    },
+    {
+        "spWord": "leche",
+        "partOfSpeech": "nf",
+        "definition": "milk",
+        "freqIndex": 1334
+    },
+    {
+        "spWord": "lecho",
+        "partOfSpeech": "nm",
+        "definition": "(river) bed, couch",
+        "freqIndex": 3732
+    },
+    {
+        "spWord": "lector",
+        "partOfSpeech": "nm",
+        "definition": "reader, lecturer",
+        "freqIndex": 1810
+    },
+    {
+        "spWord": "lectura",
+        "partOfSpeech": "nf",
+        "definition": "reading",
+        "freqIndex": 839
+    },
+    {
+        "spWord": "leer",
+        "partOfSpeech": "v",
+        "definition": "to read",
+        "freqIndex": 244
+    },
+    {
+        "spWord": "legal",
+        "partOfSpeech": "adj",
+        "definition": "legal",
+        "freqIndex": 2017
+    },
+    {
+        "spWord": "legislación",
+        "partOfSpeech": "nf",
+        "definition": "legislation",
+        "freqIndex": 4760
+    },
+    {
+        "spWord": "legítimo",
+        "partOfSpeech": "adj",
+        "definition": "legitimate",
+        "freqIndex": 2966
+    },
+    {
+        "spWord": "lejano",
+        "partOfSpeech": "adj",
+        "definition": "distant",
+        "freqIndex": 1152
+    },
+    {
+        "spWord": "lejos",
+        "partOfSpeech": "adv",
+        "definition": "far (away, off)",
+        "freqIndex": 469
+    },
+    {
+        "spWord": "lema",
+        "partOfSpeech": "nm",
+        "definition": "motto, slogan",
+        "freqIndex": 3838
+    },
+    {
+        "spWord": "leña",
+        "partOfSpeech": "nf",
+        "definition": "firewood",
+        "freqIndex": 4185
+    },
+    {
+        "spWord": "lengua",
+        "partOfSpeech": "nf",
+        "definition": "language, tongue, strip (of land)",
+        "freqIndex": 596
+    },
+    {
+        "spWord": "lenguaje",
+        "partOfSpeech": "nm",
+        "definition": "language, speech",
+        "freqIndex": 841
+    },
+    {
+        "spWord": "lentamente",
+        "partOfSpeech": "adv",
+        "definition": "slowly",
+        "freqIndex": 1975
+    },
+    {
+        "spWord": "lente",
+        "partOfSpeech": "nmf",
+        "definition": "lens",
+        "freqIndex": 4193
+    },
+    {
+        "spWord": "lentes",
+        "partOfSpeech": "nm",
+        "definition": "[pl] glasses",
+        "freqIndex": 4193
+    },
+    {
+        "spWord": "lentitud",
+        "partOfSpeech": "nf",
+        "definition": "slowness",
+        "freqIndex": 3875
+    },
+    {
+        "spWord": "lento",
+        "partOfSpeech": "adj",
+        "definition": "slow",
+        "freqIndex": 1128
+    },
+    {
+        "spWord": "león",
+        "partOfSpeech": "nm",
+        "definition": "lion",
+        "freqIndex": 2756
+    },
+    {
+        "spWord": "lesión",
+        "partOfSpeech": "nf",
+        "definition": "injury, wound, harm",
+        "freqIndex": 4527
+    },
+    {
+        "spWord": "letra",
+        "partOfSpeech": "nf",
+        "definition": "letter, handwriting, lyrics",
+        "freqIndex": 865
+    },
+    {
+        "spWord": "levantar",
+        "partOfSpeech": "v",
+        "definition": "to raise, lift",
+        "freqIndex": 372
+    },
+    {
+        "spWord": "leve",
+        "partOfSpeech": "adj",
+        "definition": "slight, trifling, light",
+        "freqIndex": 2671
+    },
+    {
+        "spWord": "ley",
+        "partOfSpeech": "nf",
+        "definition": "law, bill, rule",
+        "freqIndex": 384
+    },
+    {
+        "spWord": "leyenda",
+        "partOfSpeech": "nf",
+        "definition": "legend",
+        "freqIndex": 2031
+    },
+    {
+        "spWord": "liberación",
+        "partOfSpeech": "nf",
+        "definition": "liberation",
+        "freqIndex": 2361
+    },
+    {
+        "spWord": "liberal",
+        "partOfSpeech": "adj",
+        "definition": "liberal",
+        "freqIndex": 2014
+    },
+    {
+        "spWord": "liberar",
+        "partOfSpeech": "v",
+        "definition": "to free, liberate",
+        "freqIndex": 1363
+    },
+    {
+        "spWord": "libertad",
+        "partOfSpeech": "nf",
+        "definition": "freedom, liberty",
+        "freqIndex": 435
+    },
+    {
+        "spWord": "libra",
+        "partOfSpeech": "nf",
+        "definition": "pound (money/weight)",
+        "freqIndex": 4964
+    },
+    {
+        "spWord": "librar",
+        "partOfSpeech": "v",
+        "definition": "to liberate, set free",
+        "freqIndex": 2556
+    },
+    {
+        "spWord": "libre",
+        "partOfSpeech": "adj",
+        "definition": "free, vacant",
+        "freqIndex": 413
+    },
+    {
+        "spWord": "libremente",
+        "partOfSpeech": "adv",
+        "definition": "freely",
+        "freqIndex": 2804
+    },
+    {
+        "spWord": "librería",
+        "partOfSpeech": "nf",
+        "definition": "bookstore",
+        "freqIndex": 4577
+    },
+    {
+        "spWord": "libro",
+        "partOfSpeech": "nm",
+        "definition": "book",
+        "freqIndex": 253
+    },
+    {
+        "spWord": "licencia",
+        "partOfSpeech": "nf",
+        "definition": "license, permission",
+        "freqIndex": 3415
+    },
+    {
+        "spWord": "líder",
+        "partOfSpeech": "nc",
+        "definition": "leader",
+        "freqIndex": 2427
+    },
+    {
+        "spWord": "ligado",
+        "partOfSpeech": "adj",
+        "definition": "linked, joined",
+        "freqIndex": 2926
+    },
+    {
+        "spWord": "ligar",
+        "partOfSpeech": "v",
+        "definition": "to tie, link, bind",
+        "freqIndex": 4645
+    },
+    {
+        "spWord": "ligeramente",
+        "partOfSpeech": "adv",
+        "definition": "slightly, lightly",
+        "freqIndex": 2974
+    },
+    {
+        "spWord": "ligero",
+        "partOfSpeech": "adj",
+        "definition": "light (in weight), slight",
+        "freqIndex": 1696
+    },
+    {
+        "spWord": "limitación",
+        "partOfSpeech": "nf",
+        "definition": "limitation",
+        "freqIndex": 2581
+    },
+    {
+        "spWord": "limitado",
+        "partOfSpeech": "adj",
+        "definition": "limited",
+        "freqIndex": 1866
+    },
+    {
+        "spWord": "limitar",
+        "partOfSpeech": "v",
+        "definition": "to limit",
+        "freqIndex": 1021
+    },
+    {
+        "spWord": "límite",
+        "partOfSpeech": "nm",
+        "definition": "limit",
+        "freqIndex": 934
+    },
+    {
+        "spWord": "limosna",
+        "partOfSpeech": "nf",
+        "definition": "alms, charity",
+        "freqIndex": 4779
+    },
+    {
+        "spWord": "limpiar",
+        "partOfSpeech": "v",
+        "definition": "to clean",
+        "freqIndex": 1537
+    },
+    {
+        "spWord": "limpieza",
+        "partOfSpeech": "nf",
+        "definition": "cleanliness, purity",
+        "freqIndex": 2447
+    },
+    {
+        "spWord": "limpio",
+        "partOfSpeech": "adj",
+        "definition": "clean",
+        "freqIndex": 1397
+    },
+    {
+        "spWord": "lindo",
+        "partOfSpeech": "adj",
+        "definition": "pretty, nice, lovely",
+        "freqIndex": 2582
+    },
+    {
+        "spWord": "línea",
+        "partOfSpeech": "nf",
+        "definition": "line, course",
+        "freqIndex": 473
+    },
+    {
+        "spWord": "lingüístico",
+        "partOfSpeech": "adj",
+        "definition": "linguistic",
+        "freqIndex": 3890
+    },
+    {
+        "spWord": "lío",
+        "partOfSpeech": "nm",
+        "definition": "mess, problem, bad situation",
+        "freqIndex": 4235
+    },
+    {
+        "spWord": "liquidar",
+        "partOfSpeech": "v",
+        "definition": "to liquidate, sell (off)",
+        "freqIndex": 4347
+    },
+    {
+        "spWord": "líquido",
+        "partOfSpeech": "nm",
+        "definition": "liquid",
+        "freqIndex": 2438
+    },
+    {
+        "spWord": "liso",
+        "partOfSpeech": "adj",
+        "definition": "smooth, flat, straight",
+        "freqIndex": 3632
+    },
+    {
+        "spWord": "lista",
+        "partOfSpeech": "nf",
+        "definition": "list, roster, roll",
+        "freqIndex": 1049
+    },
+    {
+        "spWord": "listo",
+        "partOfSpeech": "adj",
+        "definition": "ready, clever, smart",
+        "freqIndex": 1456
+    },
+    {
+        "spWord": "literalmente",
+        "partOfSpeech": "adv",
+        "definition": "literally",
+        "freqIndex": 3750
+    },
+    {
+        "spWord": "literario",
+        "partOfSpeech": "adj",
+        "definition": "literary",
+        "freqIndex": 1494
+    },
+    {
+        "spWord": "literatura",
+        "partOfSpeech": "nf",
+        "definition": "literature",
+        "freqIndex": 1090
+    },
+    {
+        "spWord": "litro",
+        "partOfSpeech": "nm",
+        "definition": "liter",
+        "freqIndex": 4239
+    },
+    {
+        "spWord": "liviano",
+        "partOfSpeech": "adj",
+        "definition": "light, frivolous",
+        "freqIndex": 4242
+    },
+    {
+        "spWord": "llama",
+        "partOfSpeech": "nf",
+        "definition": "flame, llama",
+        "freqIndex": 3835
+    },
+    {
+        "spWord": "llamada",
+        "partOfSpeech": "nf",
+        "definition": "call, knock",
+        "freqIndex": 1022
+    },
+    {
+        "spWord": "llamado",
+        "partOfSpeech": "nm",
+        "definition": "call, calling",
+        "freqIndex": 1510
+    },
+    {
+        "spWord": "llamar",
+        "partOfSpeech": "v",
+        "definition": "to call, name",
+        "freqIndex": 104
+    },
+    {
+        "spWord": "llamativo",
+        "partOfSpeech": "adj",
+        "definition": "striking",
+        "freqIndex": 4322
+    },
+    {
+        "spWord": "llano",
+        "partOfSpeech": "adj",
+        "definition": "flat, level, plain",
+        "freqIndex": 4694
+    },
+    {
+        "spWord": "llanto",
+        "partOfSpeech": "nm",
+        "definition": "crying, weeping",
+        "freqIndex": 4163
+    },
+    {
+        "spWord": "llanura",
+        "partOfSpeech": "nf",
+        "definition": "plain, prairie, plainness",
+        "freqIndex": 4196
+    },
+    {
+        "spWord": "llave",
+        "partOfSpeech": "nf",
+        "definition": "key, faucet, wrench",
+        "freqIndex": 2150
+    },
+    {
+        "spWord": "llegada",
+        "partOfSpeech": "nf",
+        "definition": "arrival",
+        "freqIndex": 1616
+    },
+    {
+        "spWord": "llegar",
+        "partOfSpeech": "v",
+        "definition": "to arrive",
+        "freqIndex": 66
+    },
+    {
+        "spWord": "llenar",
+        "partOfSpeech": "v",
+        "definition": "to fill",
+        "freqIndex": 925
+    },
+    {
+        "spWord": "lleno",
+        "partOfSpeech": "adj",
+        "definition": "full, filled",
+        "freqIndex": 508
+    },
+    {
+        "spWord": "llevar",
+        "partOfSpeech": "v",
+        "definition": "to take, carry",
+        "freqIndex": 93
+    },
+    {
+        "spWord": "llorar",
+        "partOfSpeech": "v",
+        "definition": "to cry",
+        "freqIndex": 1466
+    },
+    {
+        "spWord": "llover",
+        "partOfSpeech": "v",
+        "definition": "to rain",
+        "freqIndex": 2053
+    },
+    {
+        "spWord": "lluvia",
+        "partOfSpeech": "nf",
+        "definition": "rain",
+        "freqIndex": 1217
+    },
+    {
+        "spWord": "lo",
+        "partOfSpeech": "art",
+        "definition": "the (+ neuter)",
+        "freqIndex": 20
+    },
+    {
+        "spWord": "lo",
+        "partOfSpeech": "pron",
+        "definition": "[3rd person] (dir obj-m)",
+        "freqIndex": 21
+    },
+    {
+        "spWord": "lobo",
+        "partOfSpeech": "nm",
+        "definition": "wolf",
+        "freqIndex": 3898
+    },
+    {
+        "spWord": "local",
+        "partOfSpeech": "adj",
+        "definition": "local",
+        "freqIndex": 1516
+    },
+    {
+        "spWord": "local",
+        "partOfSpeech": "nm",
+        "definition": "place, quarters",
+        "freqIndex": 1880
+    },
+    {
+        "spWord": "localidad",
+        "partOfSpeech": "nf",
+        "definition": "town, locality",
+        "freqIndex": 3894
+    },
+    {
+        "spWord": "localizar",
+        "partOfSpeech": "v",
+        "definition": "to locate, find, localize",
+        "freqIndex": 3102
+    },
+    {
+        "spWord": "loco",
+        "partOfSpeech": "adj",
+        "definition": "crazy, insane",
+        "freqIndex": 1377
+    },
+    {
+        "spWord": "locura",
+        "partOfSpeech": "nf",
+        "definition": "madness, insanity",
+        "freqIndex": 2441
+    },
+    {
+        "spWord": "lógica",
+        "partOfSpeech": "nf",
+        "definition": "logic",
+        "freqIndex": 2015
+    },
+    {
+        "spWord": "lógicamente",
+        "partOfSpeech": "adv",
+        "definition": "logically",
+        "freqIndex": 3470
+    },
+    {
+        "spWord": "lógico",
+        "partOfSpeech": "adj",
+        "definition": "logical",
+        "freqIndex": 1214
+    },
+    {
+        "spWord": "lograr",
+        "partOfSpeech": "v",
+        "definition": "to achieve, get, manage",
+        "freqIndex": 311
+    },
+    {
+        "spWord": "logro",
+        "partOfSpeech": "nm",
+        "definition": "success, achievement",
+        "freqIndex": 3433
+    },
+    {
+        "spWord": "lomo",
+        "partOfSpeech": "nm",
+        "definition": "back, loin, spine",
+        "freqIndex": 4868
+    },
+    {
+        "spWord": "longitud",
+        "partOfSpeech": "nf",
+        "definition": "length, longitude",
+        "freqIndex": 4434
+    },
+    {
+        "spWord": "lucha",
+        "partOfSpeech": "nf",
+        "definition": "fight, struggle, wrestle",
+        "freqIndex": 758
+    },
+    {
+        "spWord": "luchar",
+        "partOfSpeech": "v",
+        "definition": "to fight, wrestle",
+        "freqIndex": 1026
+    },
+    {
+        "spWord": "lucir",
+        "partOfSpeech": "v",
+        "definition": "to show (off), shine",
+        "freqIndex": 2741
+    },
+    {
+        "spWord": "luego",
+        "partOfSpeech": "adv",
+        "definition": "later, afterwards",
+        "freqIndex": 132
+    },
+    {
+        "spWord": "lugar",
+        "partOfSpeech": "nm",
+        "definition": "place, position",
+        "freqIndex": 135
+    },
+    {
+        "spWord": "lujo",
+        "partOfSpeech": "nm",
+        "definition": "luxury",
+        "freqIndex": 1614
+    },
+    {
+        "spWord": "lujoso",
+        "partOfSpeech": "adj",
+        "definition": "luxurious",
+        "freqIndex": 3866
+    },
+    {
+        "spWord": "luminoso",
+        "partOfSpeech": "adj",
+        "definition": "bright, luminous",
+        "freqIndex": 2651
+    },
+    {
+        "spWord": "luna",
+        "partOfSpeech": "nf",
+        "definition": "moon",
+        "freqIndex": 2394
+    },
+    {
+        "spWord": "lunes",
+        "partOfSpeech": "nm",
+        "definition": "Monday",
+        "freqIndex": 2187
+    },
+    {
+        "spWord": "luz",
+        "partOfSpeech": "nf",
+        "definition": "light",
+        "freqIndex": 256
+    },
+    {
+        "spWord": "macho",
+        "partOfSpeech": "nm",
+        "definition": "male, manliness",
+        "freqIndex": 3239
+    },
+    {
+        "spWord": "madera",
+        "partOfSpeech": "nf",
+        "definition": "wood",
+        "freqIndex": 987
+    },
+    {
+        "spWord": "madre",
+        "partOfSpeech": "nf",
+        "definition": "mother",
+        "freqIndex": 278
+    },
+    {
+        "spWord": "madrugada",
+        "partOfSpeech": "nf",
+        "definition": "dawn, daybreak",
+        "freqIndex": 2241
+    },
+    {
+        "spWord": "madurar",
+        "partOfSpeech": "v",
+        "definition": "to mature, ripen",
+        "freqIndex": 3819
+    },
+    {
+        "spWord": "madurez",
+        "partOfSpeech": "nf",
+        "definition": "maturity, ripeness",
+        "freqIndex": 2684
+    },
+    {
+        "spWord": "maduro",
+        "partOfSpeech": "adj",
+        "definition": "mature, ripe",
+        "freqIndex": 2578
+    },
+    {
+        "spWord": "maestra",
+        "partOfSpeech": "nf",
+        "definition": "teacher (f)",
+        "freqIndex": 3966
+    },
+    {
+        "spWord": "maestro",
+        "partOfSpeech": "nm",
+        "definition": "teacher (m), master",
+        "freqIndex": 961
+    },
+    {
+        "spWord": "maestro",
+        "partOfSpeech": "adj",
+        "definition": "master",
+        "freqIndex": 1469
+    },
+    {
+        "spWord": "magia",
+        "partOfSpeech": "nf",
+        "definition": "magic",
+        "freqIndex": 3019
+    },
+    {
+        "spWord": "mágico",
+        "partOfSpeech": "adj",
+        "definition": "magic, magical",
+        "freqIndex": 2708
+    },
+    {
+        "spWord": "magnífico",
+        "partOfSpeech": "adj",
+        "definition": "magnificent, splendid",
+        "freqIndex": 1812
+    },
+    {
+        "spWord": "magnitud",
+        "partOfSpeech": "nf",
+        "definition": "magnitude, extent",
+        "freqIndex": 2863
+    },
+    {
+        "spWord": "maíz",
+        "partOfSpeech": "nm",
+        "definition": "corn, maize",
+        "freqIndex": 3314
+    },
+    {
+        "spWord": "mal",
+        "partOfSpeech": "adv",
+        "definition": "badly",
+        "freqIndex": 301
+    },
+    {
+        "spWord": "mal",
+        "partOfSpeech": "nm",
+        "definition": "evil",
+        "freqIndex": 1580
+    },
+    {
+        "spWord": "maldad",
+        "partOfSpeech": "nf",
+        "definition": "evil, wickedness",
+        "freqIndex": 4646
+    },
+    {
+        "spWord": "maldición",
+        "partOfSpeech": "nf",
+        "definition": "damnation, curse",
+        "freqIndex": 4948
+    },
+    {
+        "spWord": "maldito",
+        "partOfSpeech": "adj",
+        "definition": "damned, wretched",
+        "freqIndex": 4088
+    },
+    {
+        "spWord": "malestar",
+        "partOfSpeech": "nm",
+        "definition": "discomfort, unease, unrest",
+        "freqIndex": 3496
+    },
+    {
+        "spWord": "maleta",
+        "partOfSpeech": "nf",
+        "definition": "suitcase, case",
+        "freqIndex": 4146
+    },
+    {
+        "spWord": "maligno",
+        "partOfSpeech": "adj",
+        "definition": "evil, malignant",
+        "freqIndex": 4710
+    },
+    {
+        "spWord": "malo",
+        "partOfSpeech": "adj",
+        "definition": "bad",
+        "freqIndex": 275
+    },
+    {
+        "spWord": "mamá",
+        "partOfSpeech": "nf",
+        "definition": "mom",
+        "freqIndex": 2286
+    },
+    {
+        "spWord": "mañana",
+        "partOfSpeech": "nf",
+        "definition": "morning, tomorrow",
+        "freqIndex": 401
+    },
+    {
+        "spWord": "mañana",
+        "partOfSpeech": "adv",
+        "definition": "tomorrow",
+        "freqIndex": 1235
+    },
+    {
+        "spWord": "mancha",
+        "partOfSpeech": "nf",
+        "definition": "stain, spot",
+        "freqIndex": 2491
+    },
+    {
+        "spWord": "mandar",
+        "partOfSpeech": "v",
+        "definition": "to send, order",
+        "freqIndex": 529
+    },
+    {
+        "spWord": "mandato",
+        "partOfSpeech": "nm",
+        "definition": "mandate, order, command",
+        "freqIndex": 3443
+    },
+    {
+        "spWord": "mando",
+        "partOfSpeech": "nm",
+        "definition": "command, authority",
+        "freqIndex": 2125
+    },
+    {
+        "spWord": "manejar",
+        "partOfSpeech": "v",
+        "definition": "to drive, handle",
+        "freqIndex": 916
+    },
+    {
+        "spWord": "manejo",
+        "partOfSpeech": "nm",
+        "definition": "handling, management",
+        "freqIndex": 2385
+    },
+    {
+        "spWord": "manera",
+        "partOfSpeech": "nf",
+        "definition": "way, manner",
+        "freqIndex": 152
+    },
+    {
+        "spWord": "manga",
+        "partOfSpeech": "nf",
+        "definition": "sleeve",
+        "freqIndex": 3266
+    },
+    {
+        "spWord": "mango",
+        "partOfSpeech": "nm",
+        "definition": "handle, mango",
+        "freqIndex": 4256
+    },
+    {
+        "spWord": "manía",
+        "partOfSpeech": "nf",
+        "definition": "obsession, mania",
+        "freqIndex": 4562
+    },
+    {
+        "spWord": "manifestación",
+        "partOfSpeech": "nf",
+        "definition": "protest, manifestation",
+        "freqIndex": 1551
+    },
+    {
+        "spWord": "manifestar",
+        "partOfSpeech": "v",
+        "definition": "to express, show",
+        "freqIndex": 1069
+    },
+    {
+        "spWord": "manifiesto",
+        "partOfSpeech": "nm",
+        "definition": "manifesto",
+        "freqIndex": 3111
+    },
+    {
+        "spWord": "poner de manifiesto",
+        "partOfSpeech": "v",
+        "definition": "to show",
+        "freqIndex": 3111
+    },
+    {
+        "spWord": "maniobra",
+        "partOfSpeech": "nf",
+        "definition": "maneuver, operation",
+        "freqIndex": 2903
+    },
+    {
+        "spWord": "manipular",
+        "partOfSpeech": "v",
+        "definition": "to manipulate, handle",
+        "freqIndex": 4145
+    },
+    {
+        "spWord": "mano",
+        "partOfSpeech": "nf",
+        "definition": "hand",
+        "freqIndex": 150
+    },
+    {
+        "spWord": "manta",
+        "partOfSpeech": "nf",
+        "definition": "blanket",
+        "freqIndex": 4063
+    },
+    {
+        "spWord": "mantener",
+        "partOfSpeech": "v",
+        "definition": "to keep, maintain",
+        "freqIndex": 234
+    },
+    {
+        "spWord": "mantenimiento",
+        "partOfSpeech": "nm",
+        "definition": "maintenance, sustenance",
+        "freqIndex": 3720
+    },
+    {
+        "spWord": "manto",
+        "partOfSpeech": "nm",
+        "definition": "cloak",
+        "freqIndex": 3904
+    },
+    {
+        "spWord": "manual",
+        "partOfSpeech": "nm",
+        "definition": "manual, handbook",
+        "freqIndex": 3929
+    },
+    {
+        "spWord": "manual",
+        "partOfSpeech": "adj",
+        "definition": "manual",
+        "freqIndex": 4271
+    },
+    {
+        "spWord": "manzana",
+        "partOfSpeech": "nf",
+        "definition": "apple, (city) block",
+        "freqIndex": 2853
+    },
+    {
+        "spWord": "mapa",
+        "partOfSpeech": "nm",
+        "definition": "map",
+        "freqIndex": 2185
+    },
+    {
+        "spWord": "máquina",
+        "partOfSpeech": "nf",
+        "definition": "machine",
+        "freqIndex": 806
+    },
+    {
+        "spWord": "maquinaria",
+        "partOfSpeech": "nf",
+        "definition": "machinery",
+        "freqIndex": 3582
+    },
+    {
+        "spWord": "mar",
+        "partOfSpeech": "nmf",
+        "definition": "sea",
+        "freqIndex": 645
+    },
+    {
+        "spWord": "maravilla",
+        "partOfSpeech": "nf",
+        "definition": "wonder, marvel",
+        "freqIndex": 2023
+    },
+    {
+        "spWord": "maravilloso",
+        "partOfSpeech": "adj",
+        "definition": "wonderful, marvelous",
+        "freqIndex": 1743
+    },
+    {
+        "spWord": "marca",
+        "partOfSpeech": "nf",
+        "definition": "mark, brand, trademark",
+        "freqIndex": 1370
+    },
+    {
+        "spWord": "marcar",
+        "partOfSpeech": "v",
+        "definition": "to mark, note, dial",
+        "freqIndex": 677
+    },
+    {
+        "spWord": "marcha",
+        "partOfSpeech": "nf",
+        "definition": "march, progress",
+        "freqIndex": 785
+    },
+    {
+        "spWord": "marchar",
+        "partOfSpeech": "v",
+        "definition": "to go, leave, march",
+        "freqIndex": 1203
+    },
+    {
+        "spWord": "marco",
+        "partOfSpeech": "nm",
+        "definition": "frame, mark, setting",
+        "freqIndex": 1316
+    },
+    {
+        "spWord": "marea",
+        "partOfSpeech": "nf",
+        "definition": "wave, tide, ebb",
+        "freqIndex": 4109
+    },
+    {
+        "spWord": "margen",
+        "partOfSpeech": "nmf",
+        "definition": "border, edge, brink",
+        "freqIndex": 1413
+    },
+    {
+        "spWord": "margen del río",
+        "partOfSpeech": "nf",
+        "definition": "river bank",
+        "freqIndex": 1413
+    },
+    {
+        "spWord": "margen del tiempo",
+        "partOfSpeech": "nm",
+        "definition": "margin of time",
+        "freqIndex": 1413
+    },
+    {
+        "spWord": "margen",
+        "partOfSpeech": "nm",
+        "definition": "margin (of a paper), range, profit margin",
+        "freqIndex": 1413
+    },
+    {
+        "spWord": "marginal",
+        "partOfSpeech": "adj",
+        "definition": "marginal, minor",
+        "freqIndex": 3721
+    },
+    {
+        "spWord": "marido",
+        "partOfSpeech": "nm",
+        "definition": "husband",
+        "freqIndex": 1032
+    },
+    {
+        "spWord": "marinero",
+        "partOfSpeech": "nm/f",
+        "definition": "sailor",
+        "freqIndex": 4949
+    },
+    {
+        "spWord": "marino",
+        "partOfSpeech": "adj",
+        "definition": "marine, naval",
+        "freqIndex": 2720
+    },
+    {
+        "spWord": "mariposa",
+        "partOfSpeech": "nf",
+        "definition": "butterfly, wing nut",
+        "freqIndex": 3883
+    },
+    {
+        "spWord": "mármol",
+        "partOfSpeech": "nm",
+        "definition": "marble",
+        "freqIndex": 4199
+    },
+    {
+        "spWord": "marrón",
+        "partOfSpeech": "adj",
+        "definition": "brown",
+        "freqIndex": 4951
+    },
+    {
+        "spWord": "martes",
+        "partOfSpeech": "nm",
+        "definition": "Tuesday",
+        "freqIndex": 3490
+    },
+    {
+        "spWord": "martillo",
+        "partOfSpeech": "nm",
+        "definition": "hammer",
+        "freqIndex": 4688
+    },
+    {
+        "spWord": "marzo",
+        "partOfSpeech": "nm",
+        "definition": "March",
+        "freqIndex": 2002
+    },
+    {
+        "spWord": "mas",
+        "partOfSpeech": "conj",
+        "definition": "but, however",
+        "freqIndex": 777
+    },
+    {
+        "spWord": "más",
+        "partOfSpeech": "adj",
+        "definition": "more",
+        "freqIndex": 24
+    },
+    {
+        "spWord": "masa",
+        "partOfSpeech": "nf",
+        "definition": "mass, dough, bulk, crowd",
+        "freqIndex": 935
+    },
+    {
+        "spWord": "máscara",
+        "partOfSpeech": "nf",
+        "definition": "mask",
+        "freqIndex": 3449
+    },
+    {
+        "spWord": "masculino",
+        "partOfSpeech": "adj",
+        "definition": "masculine, manly, male",
+        "freqIndex": 2142
+    },
+    {
+        "spWord": "masivo",
+        "partOfSpeech": "adj",
+        "definition": "mass, massive",
+        "freqIndex": 3778
+    },
+    {
+        "spWord": "matanza",
+        "partOfSpeech": "nf",
+        "definition": "slaughter, carnage",
+        "freqIndex": 4626
+    },
+    {
+        "spWord": "matar",
+        "partOfSpeech": "v",
+        "definition": "to kill",
+        "freqIndex": 557
+    },
+    {
+        "spWord": "mate",
+        "partOfSpeech": "nm",
+        "definition": "mate (beverage)",
+        "freqIndex": 3865
+    },
+    {
+        "spWord": "matemática",
+        "partOfSpeech": "nf",
+        "definition": "mathematics",
+        "freqIndex": 3257
+    },
+    {
+        "spWord": "matemático",
+        "partOfSpeech": "adj",
+        "definition": "mathematical",
+        "freqIndex": 3912
+    },
+    {
+        "spWord": "materia",
+        "partOfSpeech": "nf",
+        "definition": "matter, subject",
+        "freqIndex": 668
+    },
+    {
+        "spWord": "material",
+        "partOfSpeech": "nm",
+        "definition": "material, element",
+        "freqIndex": 656
+    },
+    {
+        "spWord": "material",
+        "partOfSpeech": "adj",
+        "definition": "material",
+        "freqIndex": 1414
+    },
+    {
+        "spWord": "materno",
+        "partOfSpeech": "adj",
+        "definition": "maternal",
+        "freqIndex": 3167
+    },
+    {
+        "spWord": "matiz",
+        "partOfSpeech": "nm",
+        "definition": "shade, tint, nuance",
+        "freqIndex": 2291
+    },
+    {
+        "spWord": "matrimonial",
+        "partOfSpeech": "adj",
+        "definition": "matrimonial",
+        "freqIndex": 4307
+    },
+    {
+        "spWord": "matrimonio",
+        "partOfSpeech": "nm",
+        "definition": "marriage, married couple",
+        "freqIndex": 1109
+    },
+    {
+        "spWord": "máximo",
+        "partOfSpeech": "adj",
+        "definition": "maximum",
+        "freqIndex": 1089
+    },
+    {
+        "spWord": "máximo",
+        "partOfSpeech": "nm",
+        "definition": "maximum",
+        "freqIndex": 2308
+    },
+    {
+        "spWord": "mayo",
+        "partOfSpeech": "nm",
+        "definition": "May",
+        "freqIndex": 1422
+    },
+    {
+        "spWord": "mayor",
+        "partOfSpeech": "adj",
+        "definition": "larger, older, main",
+        "freqIndex": 138
+    },
+    {
+        "spWord": "mayoría",
+        "partOfSpeech": "nf",
+        "definition": "majority",
+        "freqIndex": 531
+    },
+    {
+        "spWord": "me",
+        "partOfSpeech": "pron",
+        "definition": "me (obj)",
+        "freqIndex": 35
+    },
+    {
+        "spWord": "mecánica",
+        "partOfSpeech": "nf",
+        "definition": "mechanics, mechanism",
+        "freqIndex": 3949
+    },
+    {
+        "spWord": "mecánico",
+        "partOfSpeech": "adj",
+        "definition": "mechanical",
+        "freqIndex": 1973
+    },
+    {
+        "spWord": "mecanismo",
+        "partOfSpeech": "nm",
+        "definition": "mechanism",
+        "freqIndex": 1599
+    },
+    {
+        "spWord": "medalla",
+        "partOfSpeech": "nf",
+        "definition": "medal, medallion",
+        "freqIndex": 3995
+    },
+    {
+        "spWord": "media",
+        "partOfSpeech": "nf",
+        "definition": "average",
+        "freqIndex": 2342
+    },
+    {
+        "spWord": "a media(s)",
+        "partOfSpeech": "adj",
+        "definition": "halfways",
+        "freqIndex": 2342
+    },
+    {
+        "spWord": "mediado",
+        "partOfSpeech": "adj",
+        "definition": "mid, middle",
+        "freqIndex": 2566
+    },
+    {
+        "spWord": "mediano",
+        "partOfSpeech": "adj",
+        "definition": "average, medium, ordinary",
+        "freqIndex": 3103
+    },
+    {
+        "spWord": "mediante",
+        "partOfSpeech": "prep",
+        "definition": "by means of",
+        "freqIndex": 896
+    },
+    {
+        "spWord": "mediar",
+        "partOfSpeech": "v",
+        "definition": "to mediate",
+        "freqIndex": 4655
+    },
+    {
+        "spWord": "medicamento",
+        "partOfSpeech": "nm",
+        "definition": "medicine, drug",
+        "freqIndex": 4669
+    },
+    {
+        "spWord": "medicina",
+        "partOfSpeech": "nf",
+        "definition": "medicine",
+        "freqIndex": 1725
+    },
+    {
+        "spWord": "médico",
+        "partOfSpeech": "nm/f",
+        "definition": "doctor",
+        "freqIndex": 564
+    },
+    {
+        "spWord": "médico",
+        "partOfSpeech": "adj",
+        "definition": "medical",
+        "freqIndex": 1170
+    },
+    {
+        "spWord": "medida",
+        "partOfSpeech": "nf",
+        "definition": "measure",
+        "freqIndex": 333
+    },
+    {
+        "spWord": "a medida que",
+        "partOfSpeech": "conj",
+        "definition": "to the extent",
+        "freqIndex": 333
+    },
+    {
+        "spWord": "medieval",
+        "partOfSpeech": "adj",
+        "definition": "medieval",
+        "freqIndex": 4426
+    },
+    {
+        "spWord": "medio",
+        "partOfSpeech": "nm",
+        "definition": "means, middle",
+        "freqIndex": 171
+    },
+    {
+        "spWord": "por medio",
+        "partOfSpeech": "prep",
+        "definition": "through",
+        "freqIndex": 171
+    },
+    {
+        "spWord": "medio",
+        "partOfSpeech": "adj",
+        "definition": "half, middle",
+        "freqIndex": 208
+    },
+    {
+        "spWord": "mediocre",
+        "partOfSpeech": "adj",
+        "definition": "mediocre",
+        "freqIndex": 4042
+    },
+    {
+        "spWord": "mediodía",
+        "partOfSpeech": "nm",
+        "definition": "noon, midday",
+        "freqIndex": 2618
+    },
+    {
+        "spWord": "medir",
+        "partOfSpeech": "v",
+        "definition": "to measure",
+        "freqIndex": 929
+    },
+    {
+        "spWord": "meditar",
+        "partOfSpeech": "v",
+        "definition": "to meditate, ponder",
+        "freqIndex": 3901
+    },
+    {
+        "spWord": "mejilla",
+        "partOfSpeech": "nf",
+        "definition": "cheek",
+        "freqIndex": 4528
+    },
+    {
+        "spWord": "mejor",
+        "partOfSpeech": "adj",
+        "definition": "best, better (adv)",
+        "freqIndex": 121
+    },
+    {
+        "spWord": "mejora",
+        "partOfSpeech": "nf",
+        "definition": "improvement",
+        "freqIndex": 3044
+    },
+    {
+        "spWord": "mejorar",
+        "partOfSpeech": "v",
+        "definition": "to improve, get better",
+        "freqIndex": 960
+    },
+    {
+        "spWord": "melancólico",
+        "partOfSpeech": "adj",
+        "definition": "melancholy",
+        "freqIndex": 4684
+    },
+    {
+        "spWord": "melodía",
+        "partOfSpeech": "nf",
+        "definition": "melody",
+        "freqIndex": 4311
+    },
+    {
+        "spWord": "memoria",
+        "partOfSpeech": "nf",
+        "definition": "memory",
+        "freqIndex": 605
+    },
+    {
+        "spWord": "mención",
+        "partOfSpeech": "nf",
+        "definition": "mention",
+        "freqIndex": 3291
+    },
+    {
+        "spWord": "mencionar",
+        "partOfSpeech": "v",
+        "definition": "to mention, cite",
+        "freqIndex": 905
+    },
+    {
+        "spWord": "menor",
+        "partOfSpeech": "adj",
+        "definition": "younger, youngest",
+        "freqIndex": 334
+    },
+    {
+        "spWord": "menos",
+        "partOfSpeech": "adj",
+        "definition": "less, fewer",
+        "freqIndex": 98
+    },
+    {
+        "spWord": "mensaje",
+        "partOfSpeech": "nm",
+        "definition": "message",
+        "freqIndex": 1047
+    },
+    {
+        "spWord": "mensual",
+        "partOfSpeech": "adj",
+        "definition": "monthly",
+        "freqIndex": 3618
+    },
+    {
+        "spWord": "mental",
+        "partOfSpeech": "adj",
+        "definition": "mental",
+        "freqIndex": 1674
+    },
+    {
+        "spWord": "mentalidad",
+        "partOfSpeech": "nf",
+        "definition": "mindset, mind",
+        "freqIndex": 3334
+    },
+    {
+        "spWord": "mentalmente",
+        "partOfSpeech": "adv",
+        "definition": "mentally",
+        "freqIndex": 4932
+    },
+    {
+        "spWord": "mente",
+        "partOfSpeech": "nf",
+        "definition": "mind",
+        "freqIndex": 993
+    },
+    {
+        "spWord": "mentir",
+        "partOfSpeech": "v",
+        "definition": "to (tell a) lie",
+        "freqIndex": 2416
+    },
+    {
+        "spWord": "mentira",
+        "partOfSpeech": "nf",
+        "definition": "lie",
+        "freqIndex": 1768
+    },
+    {
+        "spWord": "menudo",
+        "partOfSpeech": "adj",
+        "definition": "thin, slight, small",
+        "freqIndex": 1944
+    },
+    {
+        "spWord": "a menudo",
+        "partOfSpeech": "adv",
+        "definition": "often",
+        "freqIndex": 1944
+    },
+    {
+        "spWord": "mercado",
+        "partOfSpeech": "nm",
+        "definition": "market",
+        "freqIndex": 609
+    },
+    {
+        "spWord": "mercancía",
+        "partOfSpeech": "nf",
+        "definition": "goods, merchandise",
+        "freqIndex": 2935
+    },
+    {
+        "spWord": "merced",
+        "partOfSpeech": "nf",
+        "definition": "favor, mercy",
+        "freqIndex": 4397
+    },
+    {
+        "spWord": "merecer",
+        "partOfSpeech": "v",
+        "definition": "to deserve, be worthy (of)",
+        "freqIndex": 716
+    },
+    {
+        "spWord": "mérito",
+        "partOfSpeech": "nm",
+        "definition": "worth, merit",
+        "freqIndex": 1935
+    },
+    {
+        "spWord": "mero",
+        "partOfSpeech": "adj",
+        "definition": "mere",
+        "freqIndex": 2060
+    },
+    {
+        "spWord": "mes",
+        "partOfSpeech": "nm",
+        "definition": "month",
+        "freqIndex": 210
+    },
+    {
+        "spWord": "mesa",
+        "partOfSpeech": "nf",
+        "definition": "table, board",
+        "freqIndex": 461
+    },
+    {
+        "spWord": "meta",
+        "partOfSpeech": "nf",
+        "definition": "goal, aim, purpose",
+        "freqIndex": 2293
+    },
+    {
+        "spWord": "metáfora",
+        "partOfSpeech": "nf",
+        "definition": "metaphor",
+        "freqIndex": 4568
+    },
+    {
+        "spWord": "metal",
+        "partOfSpeech": "nm",
+        "definition": "metal",
+        "freqIndex": 2075
+    },
+    {
+        "spWord": "metálico",
+        "partOfSpeech": "adj",
+        "definition": "metallic",
+        "freqIndex": 2842
+    },
+    {
+        "spWord": "meter",
+        "partOfSpeech": "v",
+        "definition": "to put (into)",
+        "freqIndex": 573
+    },
+    {
+        "spWord": "método",
+        "partOfSpeech": "nm",
+        "definition": "method",
+        "freqIndex": 1129
+    },
+    {
+        "spWord": "metro",
+        "partOfSpeech": "nm",
+        "definition": "meter, subway",
+        "freqIndex": 563
+    },
+    {
+        "spWord": "mexicano",
+        "partOfSpeech": "adj",
+        "definition": "Mexican",
+        "freqIndex": 3892
+    },
+    {
+        "spWord": "mezcla",
+        "partOfSpeech": "nf",
+        "definition": "mixture, blend",
+        "freqIndex": 1606
+    },
+    {
+        "spWord": "mezclado",
+        "partOfSpeech": "adj",
+        "definition": "mixed",
+        "freqIndex": 2579
+    },
+    {
+        "spWord": "mezclar",
+        "partOfSpeech": "v",
+        "definition": "to mix",
+        "freqIndex": 1500
+    },
+    {
+        "spWord": "mi",
+        "partOfSpeech": "adj",
+        "definition": "my",
+        "freqIndex": 49
+    },
+    {
+        "spWord": "mí",
+        "partOfSpeech": "pron",
+        "definition": "me (obj prep)",
+        "freqIndex": 357
+    },
+    {
+        "spWord": "micrófono",
+        "partOfSpeech": "nm",
+        "definition": "microphone",
+        "freqIndex": 4834
+    },
+    {
+        "spWord": "miedo",
+        "partOfSpeech": "nm",
+        "definition": "fear",
+        "freqIndex": 450
+    },
+    {
+        "spWord": "miel",
+        "partOfSpeech": "nf",
+        "definition": "honey",
+        "freqIndex": 2990
+    },
+    {
+        "spWord": "miembro",
+        "partOfSpeech": "nm",
+        "definition": "member, limb",
+        "freqIndex": 732
+    },
+    {
+        "spWord": "mientras",
+        "partOfSpeech": "conj",
+        "definition": "while, whereas, as long as",
+        "freqIndex": 154
+    },
+    {
+        "spWord": "miércoles",
+        "partOfSpeech": "nm",
+        "definition": "Wednesday",
+        "freqIndex": 3431
+    },
+    {
+        "spWord": "mierda",
+        "partOfSpeech": "nf",
+        "definition": "shit, crap, excrement",
+        "freqIndex": 4355
+    },
+    {
+        "spWord": "mil",
+        "partOfSpeech": "num",
+        "definition": "thousand",
+        "freqIndex": 217
+    },
+    {
+        "spWord": "milagro",
+        "partOfSpeech": "nm",
+        "definition": "miracle",
+        "freqIndex": 2181
+    },
+    {
+        "spWord": "militar",
+        "partOfSpeech": "adj",
+        "definition": "military",
+        "freqIndex": 856
+    },
+    {
+        "spWord": "militar",
+        "partOfSpeech": "nm",
+        "definition": "soldier, military person",
+        "freqIndex": 1697
+    },
+    {
+        "spWord": "millón",
+        "partOfSpeech": "num",
+        "definition": "million, fortune",
+        "freqIndex": 523
+    },
+    {
+        "spWord": "mina",
+        "partOfSpeech": "nf",
+        "definition": "mine",
+        "freqIndex": 3013
+    },
+    {
+        "spWord": "mínimo",
+        "partOfSpeech": "adj",
+        "definition": "minimum",
+        "freqIndex": 990
+    },
+    {
+        "spWord": "mínimo",
+        "partOfSpeech": "nm",
+        "definition": "minimum",
+        "freqIndex": 2343
+    },
+    {
+        "spWord": "ministerio",
+        "partOfSpeech": "nm",
+        "definition": "ministry",
+        "freqIndex": 3136
+    },
+    {
+        "spWord": "ministro",
+        "partOfSpeech": "nm/f",
+        "definition": "(government) secretary, minister",
+        "freqIndex": 1519
+    },
+    {
+        "spWord": "minoría",
+        "partOfSpeech": "nf",
+        "definition": "minority",
+        "freqIndex": 4137
+    },
+    {
+        "spWord": "minucioso",
+        "partOfSpeech": "adj",
+        "definition": "meticulous, thorough",
+        "freqIndex": 4394
+    },
+    {
+        "spWord": "minúsculo",
+        "partOfSpeech": "adj",
+        "definition": "minute, insignificant",
+        "freqIndex": 4636
+    },
+    {
+        "spWord": "minuto",
+        "partOfSpeech": "nm",
+        "definition": "minute",
+        "freqIndex": 459
+    },
+    {
+        "spWord": "mío",
+        "partOfSpeech": "pron",
+        "definition": "mine",
+        "freqIndex": 872
+    },
+    {
+        "spWord": "mirada",
+        "partOfSpeech": "nf",
+        "definition": "gaze, look",
+        "freqIndex": 1197
+    },
+    {
+        "spWord": "mirar",
+        "partOfSpeech": "v",
+        "definition": "to look, watch",
+        "freqIndex": 142
+    },
+    {
+        "spWord": "misa",
+        "partOfSpeech": "nf",
+        "definition": "(religious) mass",
+        "freqIndex": 2510
+    },
+    {
+        "spWord": "miserable",
+        "partOfSpeech": "adj",
+        "definition": "wretched, miserable",
+        "freqIndex": 3441
+    },
+    {
+        "spWord": "miseria",
+        "partOfSpeech": "nf",
+        "definition": "misery, wretchedness",
+        "freqIndex": 1963
+    },
+    {
+        "spWord": "misión",
+        "partOfSpeech": "nf",
+        "definition": "mission, task",
+        "freqIndex": 1432
+    },
+    {
+        "spWord": "mismísimo",
+        "partOfSpeech": "adj",
+        "definition": "very same",
+        "freqIndex": 4900
+    },
+    {
+        "spWord": "mismo",
+        "partOfSpeech": "adj",
+        "definition": "same",
+        "freqIndex": 51
+    },
+    {
+        "spWord": "misterio",
+        "partOfSpeech": "nm",
+        "definition": "mystery",
+        "freqIndex": 2223
+    },
+    {
+        "spWord": "misterioso",
+        "partOfSpeech": "adj",
+        "definition": "mysterious",
+        "freqIndex": 2849
+    },
+    {
+        "spWord": "místico",
+        "partOfSpeech": "adj",
+        "definition": "mystical",
+        "freqIndex": 4881
+    },
+    {
+        "spWord": "mitad",
+        "partOfSpeech": "nf",
+        "definition": "half, middle",
+        "freqIndex": 625
+    },
+    {
+        "spWord": "mito",
+        "partOfSpeech": "nm",
+        "definition": "myth",
+        "freqIndex": 2467
+    },
+    {
+        "spWord": "mixto",
+        "partOfSpeech": "adj",
+        "definition": "mixed, co-ed",
+        "freqIndex": 4277
+    },
+    {
+        "spWord": "moda",
+        "partOfSpeech": "nf",
+        "definition": "fashion, form",
+        "freqIndex": 1180
+    },
+    {
+        "spWord": "modalidad",
+        "partOfSpeech": "nf",
+        "definition": "mode, manner",
+        "freqIndex": 4506
+    },
+    {
+        "spWord": "modelo",
+        "partOfSpeech": "nc",
+        "definition": "model, pattern",
+        "freqIndex": 747
+    },
+    {
+        "spWord": "moderno",
+        "partOfSpeech": "adj",
+        "definition": "modern",
+        "freqIndex": 671
+    },
+    {
+        "spWord": "modesto",
+        "partOfSpeech": "adj",
+        "definition": "modest, humble",
+        "freqIndex": 2024
+    },
+    {
+        "spWord": "modificación",
+        "partOfSpeech": "nf",
+        "definition": "modification, alteration",
+        "freqIndex": 3717
+    },
+    {
+        "spWord": "modificar",
+        "partOfSpeech": "v",
+        "definition": "to modify",
+        "freqIndex": 1758
+    },
+    {
+        "spWord": "modo",
+        "partOfSpeech": "nm",
+        "definition": "way, manner",
+        "freqIndex": 198
+    },
+    {
+        "spWord": "mojado",
+        "partOfSpeech": "adj",
+        "definition": "wet",
+        "freqIndex": 4383
+    },
+    {
+        "spWord": "mojar",
+        "partOfSpeech": "v",
+        "definition": "to make wet, dampen",
+        "freqIndex": 3766
+    },
+    {
+        "spWord": "molde",
+        "partOfSpeech": "nm",
+        "definition": "mold, cast, pattern",
+        "freqIndex": 3800
+    },
+    {
+        "spWord": "molestar",
+        "partOfSpeech": "v",
+        "definition": "to bother, disturb, upset",
+        "freqIndex": 1272
+    },
+    {
+        "spWord": "molestia",
+        "partOfSpeech": "nf",
+        "definition": "bother, nuisance, trouble",
+        "freqIndex": 3481
+    },
+    {
+        "spWord": "molesto",
+        "partOfSpeech": "adj",
+        "definition": "annoyed, bothered, upset",
+        "freqIndex": 3371
+    },
+    {
+        "spWord": "molino",
+        "partOfSpeech": "nm",
+        "definition": "mill, windmill",
+        "freqIndex": 4893
+    },
+    {
+        "spWord": "momento",
+        "partOfSpeech": "nm",
+        "definition": "moment, time",
+        "freqIndex": 108
+    },
+    {
+        "spWord": "moneda",
+        "partOfSpeech": "nf",
+        "definition": "coins, currency",
+        "freqIndex": 1107
+    },
+    {
+        "spWord": "monja",
+        "partOfSpeech": "nf",
+        "definition": "nun",
+        "freqIndex": 3548
+    },
+    {
+        "spWord": "mono",
+        "partOfSpeech": "nm",
+        "definition": "monkey",
+        "freqIndex": 3471
+    },
+    {
+        "spWord": "monótono",
+        "partOfSpeech": "adj",
+        "definition": "monotonous",
+        "freqIndex": 4433
+    },
+    {
+        "spWord": "monstruo",
+        "partOfSpeech": "nm",
+        "definition": "monster, monstrosity",
+        "freqIndex": 3405
+    },
+    {
+        "spWord": "monstruoso",
+        "partOfSpeech": "adj",
+        "definition": "monstrous",
+        "freqIndex": 4842
+    },
+    {
+        "spWord": "montaña",
+        "partOfSpeech": "nf",
+        "definition": "mountain",
+        "freqIndex": 1212
+    },
+    {
+        "spWord": "montar",
+        "partOfSpeech": "v",
+        "definition": "to ride, mount, assemble",
+        "freqIndex": 998
+    },
+    {
+        "spWord": "monte",
+        "partOfSpeech": "nm",
+        "definition": "mountain",
+        "freqIndex": 1844
+    },
+    {
+        "spWord": "montón",
+        "partOfSpeech": "nm",
+        "definition": "lot of, heap, pile",
+        "freqIndex": 1946
+    },
+    {
+        "spWord": "monumental",
+        "partOfSpeech": "adj",
+        "definition": "monumental",
+        "freqIndex": 4990
+    },
+    {
+        "spWord": "monumento",
+        "partOfSpeech": "nm",
+        "definition": "monument",
+        "freqIndex": 2889
+    },
+    {
+        "spWord": "moral",
+        "partOfSpeech": "adj",
+        "definition": "moral",
+        "freqIndex": 1082
+    },
+    {
+        "spWord": "moral",
+        "partOfSpeech": "nf",
+        "definition": "morals, ethics",
+        "freqIndex": 1756
+    },
+    {
+        "spWord": "morder",
+        "partOfSpeech": "v",
+        "definition": "to bite",
+        "freqIndex": 3588
+    },
+    {
+        "spWord": "moreno",
+        "partOfSpeech": "adj",
+        "definition": "dark, brown",
+        "freqIndex": 2303
+    },
+    {
+        "spWord": "morir",
+        "partOfSpeech": "v",
+        "definition": "to die",
+        "freqIndex": 293
+    },
+    {
+        "spWord": "mortal",
+        "partOfSpeech": "adj",
+        "definition": "mortal, lethal, deadly",
+        "freqIndex": 3112
+    },
+    {
+        "spWord": "mortal",
+        "partOfSpeech": "nc",
+        "definition": "mortal",
+        "freqIndex": 4879
+    },
+    {
+        "spWord": "mosaico",
+        "partOfSpeech": "nm",
+        "definition": "mosaic",
+        "freqIndex": 4861
+    },
+    {
+        "spWord": "mosca",
+        "partOfSpeech": "nf",
+        "definition": "fly (insect)",
+        "freqIndex": 2956
+    },
+    {
+        "spWord": "mostrar",
+        "partOfSpeech": "v",
+        "definition": "to show",
+        "freqIndex": 392
+    },
+    {
+        "spWord": "motivación",
+        "partOfSpeech": "nf",
+        "definition": "motivation",
+        "freqIndex": 3416
+    },
+    {
+        "spWord": "motivar",
+        "partOfSpeech": "v",
+        "definition": "to motivate, cause",
+        "freqIndex": 3071
+    },
+    {
+        "spWord": "motivo",
+        "partOfSpeech": "nm",
+        "definition": "motive, cause",
+        "freqIndex": 504
+    },
+    {
+        "spWord": "motor",
+        "partOfSpeech": "nm",
+        "definition": "engine, motor",
+        "freqIndex": 1698
+    },
+    {
+        "spWord": "mover",
+        "partOfSpeech": "v",
+        "definition": "to move, incite",
+        "freqIndex": 402
+    },
+    {
+        "spWord": "móvil",
+        "partOfSpeech": "adj",
+        "definition": "mobile",
+        "freqIndex": 4686
+    },
+    {
+        "spWord": "movilizar",
+        "partOfSpeech": "v",
+        "definition": "to mobilize",
+        "freqIndex": 3787
+    },
+    {
+        "spWord": "movimiento",
+        "partOfSpeech": "nm",
+        "definition": "movement",
+        "freqIndex": 362
+    },
+    {
+        "spWord": "mozo",
+        "partOfSpeech": "nm",
+        "definition": "waiter, youth, bellboy",
+        "freqIndex": 4324
+    },
+    {
+        "spWord": "muchacha",
+        "partOfSpeech": "nf",
+        "definition": "girl",
+        "freqIndex": 2506
+    },
+    {
+        "spWord": "muchacho",
+        "partOfSpeech": "nm",
+        "definition": "boy",
+        "freqIndex": 1687
+    },
+    {
+        "spWord": "muchísimo",
+        "partOfSpeech": "adj",
+        "definition": "great many, great amount",
+        "freqIndex": 1305
+    },
+    {
+        "spWord": "mucho",
+        "partOfSpeech": "adj",
+        "definition": "much, many, a lot (adv)",
+        "freqIndex": 45
+    },
+    {
+        "spWord": "mudar",
+        "partOfSpeech": "v",
+        "definition": "to move, change",
+        "freqIndex": 3688
+    },
+    {
+        "spWord": "mudo",
+        "partOfSpeech": "adj",
+        "definition": "mute, silent",
+        "freqIndex": 3118
+    },
+    {
+        "spWord": "mueble",
+        "partOfSpeech": "nm",
+        "definition": "(piece of) furniture",
+        "freqIndex": 1952
+    },
+    {
+        "spWord": "muelle",
+        "partOfSpeech": "nm",
+        "definition": "wharf, dock",
+        "freqIndex": 4530
+    },
+    {
+        "spWord": "muerte",
+        "partOfSpeech": "nf",
+        "definition": "death",
+        "freqIndex": 424
+    },
+    {
+        "spWord": "muerto",
+        "partOfSpeech": "adj",
+        "definition": "dead",
+        "freqIndex": 687
+    },
+    {
+        "spWord": "muerto",
+        "partOfSpeech": "nm",
+        "definition": "dead person",
+        "freqIndex": 2032
+    },
+    {
+        "spWord": "muestra",
+        "partOfSpeech": "nf",
+        "definition": "proof, sample, sign",
+        "freqIndex": 1594
+    },
+    {
+        "spWord": "mujer",
+        "partOfSpeech": "nf",
+        "definition": "woman, wife",
+        "freqIndex": 127
+    },
+    {
+        "spWord": "múltiple",
+        "partOfSpeech": "adj",
+        "definition": "multiple, many",
+        "freqIndex": 1556
+    },
+    {
+        "spWord": "multiplicar",
+        "partOfSpeech": "v",
+        "definition": "to multiply",
+        "freqIndex": 2034
+    },
+    {
+        "spWord": "multitud",
+        "partOfSpeech": "nf",
+        "definition": "multitude",
+        "freqIndex": 2424
+    },
+    {
+        "spWord": "mundial",
+        "partOfSpeech": "adj",
+        "definition": "worldwide",
+        "freqIndex": 1951
+    },
+    {
+        "spWord": "mundo",
+        "partOfSpeech": "nm",
+        "definition": "world",
+        "freqIndex": 118
+    },
+    {
+        "spWord": "muñeca",
+        "partOfSpeech": "nf",
+        "definition": "doll, wrist",
+        "freqIndex": 3082
+    },
+    {
+        "spWord": "municipal",
+        "partOfSpeech": "adj",
+        "definition": "municipal, town",
+        "freqIndex": 2686
+    },
+    {
+        "spWord": "muralla",
+        "partOfSpeech": "nf",
+        "definition": "city wall",
+        "freqIndex": 3812
+    },
+    {
+        "spWord": "muro",
+        "partOfSpeech": "nm",
+        "definition": "(outer) wall, rampart",
+        "freqIndex": 1942
+    },
+    {
+        "spWord": "músculo",
+        "partOfSpeech": "nm",
+        "definition": "muscle",
+        "freqIndex": 3029
+    },
+    {
+        "spWord": "museo",
+        "partOfSpeech": "nm",
+        "definition": "museum",
+        "freqIndex": 2525
+    },
+    {
+        "spWord": "música",
+        "partOfSpeech": "nf",
+        "definition": "music",
+        "freqIndex": 550
+    },
+    {
+        "spWord": "musical",
+        "partOfSpeech": "adj",
+        "definition": "musical",
+        "freqIndex": 1752
+    },
+    {
+        "spWord": "músico",
+        "partOfSpeech": "nm/f",
+        "definition": "musician",
+        "freqIndex": 2518
+    },
+    {
+        "spWord": "muslo",
+        "partOfSpeech": "nm",
+        "definition": "thigh",
+        "freqIndex": 4807
+    },
+    {
+        "spWord": "mutuamente",
+        "partOfSpeech": "adv",
+        "definition": "mutually, each other",
+        "freqIndex": 4117
+    },
+    {
+        "spWord": "mutuo",
+        "partOfSpeech": "adj",
+        "definition": "mutual",
+        "freqIndex": 2326
+    },
+    {
+        "spWord": "muy",
+        "partOfSpeech": "adv",
+        "definition": "very, really",
+        "freqIndex": 42
+    },
+    {
+        "spWord": "nacer",
+        "partOfSpeech": "v",
+        "definition": "to be born",
+        "freqIndex": 330
+    },
+    {
+        "spWord": "nacimiento",
+        "partOfSpeech": "nm",
+        "definition": "birth, origin",
+        "freqIndex": 1339
+    },
+    {
+        "spWord": "nación",
+        "partOfSpeech": "nf",
+        "definition": "nation",
+        "freqIndex": 1891
+    },
+    {
+        "spWord": "nacional",
+        "partOfSpeech": "adj",
+        "definition": "national",
+        "freqIndex": 507
+    },
+    {
+        "spWord": "nacionalidad",
+        "partOfSpeech": "nf",
+        "definition": "nationality",
+        "freqIndex": 4321
+    },
+    {
+        "spWord": "nada",
+        "partOfSpeech": "pron",
+        "definition": "nothing, (not) at all",
+        "freqIndex": 95
+    },
+    {
+        "spWord": "nadar",
+        "partOfSpeech": "v",
+        "definition": "to swim",
+        "freqIndex": 3050
+    },
+    {
+        "spWord": "nadie",
+        "partOfSpeech": "pron",
+        "definition": "nobody, anybody",
+        "freqIndex": 233
+    },
+    {
+        "spWord": "naranja",
+        "partOfSpeech": "nf",
+        "definition": "orange (fruit)",
+        "freqIndex": 2950
+    },
+    {
+        "spWord": "nariz",
+        "partOfSpeech": "nf",
+        "definition": "nose",
+        "freqIndex": 2119
+    },
+    {
+        "spWord": "narración",
+        "partOfSpeech": "nf",
+        "definition": "narration, account",
+        "freqIndex": 4283
+    },
+    {
+        "spWord": "narrar",
+        "partOfSpeech": "v",
+        "definition": "to narrate, tell",
+        "freqIndex": 3623
+    },
+    {
+        "spWord": "nativo",
+        "partOfSpeech": "adj",
+        "definition": "native",
+        "freqIndex": 3381
+    },
+    {
+        "spWord": "natural",
+        "partOfSpeech": "adj",
+        "definition": "natural",
+        "freqIndex": 414
+    },
+    {
+        "spWord": "naturaleza",
+        "partOfSpeech": "nf",
+        "definition": "nature, character",
+        "freqIndex": 674
+    },
+    {
+        "spWord": "naturalidad",
+        "partOfSpeech": "nf",
+        "definition": "ease, spontaneity",
+        "freqIndex": 3742
+    },
+    {
+        "spWord": "naturalmente",
+        "partOfSpeech": "adv",
+        "definition": "naturally",
+        "freqIndex": 1523
+    },
+    {
+        "spWord": "navaja",
+        "partOfSpeech": "nf",
+        "definition": "razor, blade, navaja",
+        "freqIndex": 4947
+    },
+    {
+        "spWord": "nave",
+        "partOfSpeech": "nf",
+        "definition": "spacecraft, ship",
+        "freqIndex": 2542
+    },
+    {
+        "spWord": "navegación",
+        "partOfSpeech": "nf",
+        "definition": "navigation, shipping",
+        "freqIndex": 4870
+    },
+    {
+        "spWord": "navegar",
+        "partOfSpeech": "v",
+        "definition": "to navigate, sail",
+        "freqIndex": 3375
+    },
+    {
+        "spWord": "necesariamente",
+        "partOfSpeech": "adv",
+        "definition": "necessarily",
+        "freqIndex": 2282
+    },
+    {
+        "spWord": "necesario",
+        "partOfSpeech": "adj",
+        "definition": "necessary",
+        "freqIndex": 322
+    },
+    {
+        "spWord": "necesidad",
+        "partOfSpeech": "nf",
+        "definition": "necessity, need",
+        "freqIndex": 340
+    },
+    {
+        "spWord": "necesitado",
+        "partOfSpeech": "adj",
+        "definition": "poor, needy",
+        "freqIndex": 4470
+    },
+    {
+        "spWord": "necesitar",
+        "partOfSpeech": "v",
+        "definition": "to need",
+        "freqIndex": 229
+    },
+    {
+        "spWord": "negar",
+        "partOfSpeech": "v",
+        "definition": "to deny, refuse",
+        "freqIndex": 617
+    },
+    {
+        "spWord": "negativa",
+        "partOfSpeech": "nf",
+        "definition": "negative, denial",
+        "freqIndex": 3142
+    },
+    {
+        "spWord": "negativo",
+        "partOfSpeech": "adj",
+        "definition": "negative, pessimistic",
+        "freqIndex": 1631
+    },
+    {
+        "spWord": "negociación",
+        "partOfSpeech": "nf",
+        "definition": "negotiation",
+        "freqIndex": 4538
+    },
+    {
+        "spWord": "negociar",
+        "partOfSpeech": "v",
+        "definition": "to negotiate, deal (with/in)",
+        "freqIndex": 3921
+    },
+    {
+        "spWord": "negocio",
+        "partOfSpeech": "nm",
+        "definition": "business, transaction",
+        "freqIndex": 864
+    },
+    {
+        "spWord": "negro",
+        "partOfSpeech": "adj",
+        "definition": "black",
+        "freqIndex": 317
+    },
+    {
+        "spWord": "nervio",
+        "partOfSpeech": "nm",
+        "definition": "nerve",
+        "freqIndex": 2744
+    },
+    {
+        "spWord": "nervioso",
+        "partOfSpeech": "adj",
+        "definition": "nervous, uptight",
+        "freqIndex": 1410
+    },
+    {
+        "spWord": "neutro",
+        "partOfSpeech": "adj",
+        "definition": "neutral",
+        "freqIndex": 4801
+    },
+    {
+        "spWord": "ni",
+        "partOfSpeech": "conj",
+        "definition": "not even, neither, nor",
+        "freqIndex": 64
+    },
+    {
+        "spWord": "nido",
+        "partOfSpeech": "nm",
+        "definition": "nest",
+        "freqIndex": 3298
+    },
+    {
+        "spWord": "niebla",
+        "partOfSpeech": "nf",
+        "definition": "fog",
+        "freqIndex": 4274
+    },
+    {
+        "spWord": "nieto",
+        "partOfSpeech": "nm",
+        "definition": "grandchild",
+        "freqIndex": 2615
+    },
+    {
+        "spWord": "nieve",
+        "partOfSpeech": "nf",
+        "definition": "snow",
+        "freqIndex": 2423
+    },
+    {
+        "spWord": "niña",
+        "partOfSpeech": "nf",
+        "definition": "child, young girl",
+        "freqIndex": 1052
+    },
+    {
+        "spWord": "niñez",
+        "partOfSpeech": "nf",
+        "definition": "childhood, infancy",
+        "freqIndex": 4184
+    },
+    {
+        "spWord": "ninguno",
+        "partOfSpeech": "adj",
+        "definition": "no, none, nobody (pron)",
+        "freqIndex": 144
+    },
+    {
+        "spWord": "niño",
+        "partOfSpeech": "nm",
+        "definition": "child, little boy",
+        "freqIndex": 178
+    },
+    {
+        "spWord": "nítido",
+        "partOfSpeech": "adj",
+        "definition": "clear, clean, neat",
+        "freqIndex": 4908
+    },
+    {
+        "spWord": "nivel",
+        "partOfSpeech": "nm",
+        "definition": "level",
+        "freqIndex": 475
+    },
+    {
+        "spWord": "no",
+        "partOfSpeech": "adv",
+        "definition": "no",
+        "freqIndex": 10
+    },
+    {
+        "spWord": "noble",
+        "partOfSpeech": "adj",
+        "definition": "noble",
+        "freqIndex": 2545
+    },
+    {
+        "spWord": "noble",
+        "partOfSpeech": "nc",
+        "definition": "nobleman, noble",
+        "freqIndex": 4463
+    },
+    {
+        "spWord": "nobleza",
+        "partOfSpeech": "nf",
+        "definition": "nobility, uprightness",
+        "freqIndex": 4662
+    },
+    {
+        "spWord": "noche",
+        "partOfSpeech": "nf",
+        "definition": "night, evening",
+        "freqIndex": 196
+    },
+    {
+        "spWord": "noción",
+        "partOfSpeech": "nf",
+        "definition": "notion, idea",
+        "freqIndex": 2871
+    },
+    {
+        "spWord": "nocturno",
+        "partOfSpeech": "adj",
+        "definition": "nocturnal, evening",
+        "freqIndex": 1979
+    },
+    {
+        "spWord": "nombrar",
+        "partOfSpeech": "v",
+        "definition": "to name, appoint",
+        "freqIndex": 1147
+    },
+    {
+        "spWord": "nombre",
+        "partOfSpeech": "nm",
+        "definition": "name, noun",
+        "freqIndex": 199
+    },
+    {
+        "spWord": "norma",
+        "partOfSpeech": "nf",
+        "definition": "standard, pattern, norm",
+        "freqIndex": 1349
+    },
+    {
+        "spWord": "normal",
+        "partOfSpeech": "adj",
+        "definition": "normal, usual, regular",
+        "freqIndex": 664
+    },
+    {
+        "spWord": "normalidad",
+        "partOfSpeech": "nf",
+        "definition": "normality",
+        "freqIndex": 4367
+    },
+    {
+        "spWord": "normalmente",
+        "partOfSpeech": "adv",
+        "definition": "normally",
+        "freqIndex": 2212
+    },
+    {
+        "spWord": "norte",
+        "partOfSpeech": "nm",
+        "definition": "north",
+        "freqIndex": 895
+    },
+    {
+        "spWord": "norteamericano",
+        "partOfSpeech": "adj",
+        "definition": "North American",
+        "freqIndex": 1246
+    },
+    {
+        "spWord": "nos",
+        "partOfSpeech": "pron",
+        "definition": "us (obj)",
+        "freqIndex": 65
+    },
+    {
+        "spWord": "nosotros",
+        "partOfSpeech": "pron",
+        "definition": "we (subj)",
+        "freqIndex": 191
+    },
+    {
+        "spWord": "nostalgia",
+        "partOfSpeech": "nf",
+        "definition": "nostalgia, homesickness",
+        "freqIndex": 3290
+    },
+    {
+        "spWord": "nota",
+        "partOfSpeech": "nf",
+        "definition": "note, grade",
+        "freqIndex": 853
+    },
+    {
+        "spWord": "notable",
+        "partOfSpeech": "adj",
+        "definition": "outstanding, noteworthy",
+        "freqIndex": 1475
+    },
+    {
+        "spWord": "notar",
+        "partOfSpeech": "v",
+        "definition": "to notice",
+        "freqIndex": 571
+    },
+    {
+        "spWord": "noticia",
+        "partOfSpeech": "nf",
+        "definition": "news",
+        "freqIndex": 703
+    },
+    {
+        "spWord": "notorio",
+        "partOfSpeech": "adj",
+        "definition": "notorious, noticeable",
+        "freqIndex": 3138
+    },
+    {
+        "spWord": "novedad",
+        "partOfSpeech": "nf",
+        "definition": "latest news, newness",
+        "freqIndex": 1864
+    },
+    {
+        "spWord": "novela",
+        "partOfSpeech": "nf",
+        "definition": "novel",
+        "freqIndex": 1080
+    },
+    {
+        "spWord": "novelista",
+        "partOfSpeech": "nc",
+        "definition": "novelist",
+        "freqIndex": 4468
+    },
+    {
+        "spWord": "noventa",
+        "partOfSpeech": "num",
+        "definition": "ninety",
+        "freqIndex": 3417
+    },
+    {
+        "spWord": "novia",
+        "partOfSpeech": "nf",
+        "definition": "girlfriend, bride",
+        "freqIndex": 2726
+    },
+    {
+        "spWord": "noviembre",
+        "partOfSpeech": "nm",
+        "definition": "November",
+        "freqIndex": 2148
+    },
+    {
+        "spWord": "novio",
+        "partOfSpeech": "nm",
+        "definition": "boyfriend, groom",
+        "freqIndex": 2730
+    },
+    {
+        "spWord": "nube",
+        "partOfSpeech": "nf",
+        "definition": "cloud",
+        "freqIndex": 1961
+    },
+    {
+        "spWord": "núcleo",
+        "partOfSpeech": "nm",
+        "definition": "nucleus, core",
+        "freqIndex": 2238
+    },
+    {
+        "spWord": "nudo",
+        "partOfSpeech": "nm",
+        "definition": "knot",
+        "freqIndex": 3488
+    },
+    {
+        "spWord": "nuestro",
+        "partOfSpeech": "adj",
+        "definition": "our",
+        "freqIndex": 82
+    },
+    {
+        "spWord": "nuevamente",
+        "partOfSpeech": "adv",
+        "definition": "anew, again",
+        "freqIndex": 1454
+    },
+    {
+        "spWord": "nueve",
+        "partOfSpeech": "num",
+        "definition": "nine",
+        "freqIndex": 786
+    },
+    {
+        "spWord": "nuevo",
+        "partOfSpeech": "adj",
+        "definition": "new",
+        "freqIndex": 99
+    },
+    {
+        "spWord": "nulo",
+        "partOfSpeech": "adj",
+        "definition": "void, null",
+        "freqIndex": 4581
+    },
+    {
+        "spWord": "número",
+        "partOfSpeech": "nm",
+        "definition": "number",
+        "freqIndex": 315
+    },
+    {
+        "spWord": "numeroso",
+        "partOfSpeech": "adj",
+        "definition": "numerous",
+        "freqIndex": 1101
+    },
+    {
+        "spWord": "nunca",
+        "partOfSpeech": "adv",
+        "definition": "never, ever",
+        "freqIndex": 151
+    },
+    {
+        "spWord": "o",
+        "partOfSpeech": "conj",
+        "definition": "or",
+        "freqIndex": 26
+    },
+    {
+        "spWord": "obedecer",
+        "partOfSpeech": "v",
+        "definition": "to obey",
+        "freqIndex": 1513
+    },
+    {
+        "spWord": "obediencia",
+        "partOfSpeech": "nf",
+        "definition": "obedience",
+        "freqIndex": 4647
+    },
+    {
+        "spWord": "obispo",
+        "partOfSpeech": "nm",
+        "definition": "bishop",
+        "freqIndex": 3363
+    },
+    {
+        "spWord": "objetivo",
+        "partOfSpeech": "nm",
+        "definition": "objective",
+        "freqIndex": 1210
+    },
+    {
+        "spWord": "objetivo",
+        "partOfSpeech": "adj",
+        "definition": "objective, impartial",
+        "freqIndex": 2027
+    },
+    {
+        "spWord": "objeto",
+        "partOfSpeech": "nm",
+        "definition": "object, thing",
+        "freqIndex": 419
+    },
+    {
+        "spWord": "obligación",
+        "partOfSpeech": "nf",
+        "definition": "obligation",
+        "freqIndex": 1040
+    },
+    {
+        "spWord": "obligado",
+        "partOfSpeech": "adj",
+        "definition": "obliged, required",
+        "freqIndex": 1255
+    },
+    {
+        "spWord": "obligar",
+        "partOfSpeech": "v",
+        "definition": "to obligate, force",
+        "freqIndex": 642
+    },
+    {
+        "spWord": "obligatorio",
+        "partOfSpeech": "adj",
+        "definition": "obligatory, compulsory",
+        "freqIndex": 3007
+    },
+    {
+        "spWord": "obra",
+        "partOfSpeech": "nf",
+        "definition": "work, book, deed",
+        "freqIndex": 206
+    },
+    {
+        "spWord": "obrar",
+        "partOfSpeech": "v",
+        "definition": "to work, act",
+        "freqIndex": 4344
+    },
+    {
+        "spWord": "obrero",
+        "partOfSpeech": "nm/f",
+        "definition": "worker, laborer",
+        "freqIndex": 2243
+    },
+    {
+        "spWord": "obrero",
+        "partOfSpeech": "adj",
+        "definition": "working class",
+        "freqIndex": 2851
+    },
+    {
+        "spWord": "observación",
+        "partOfSpeech": "nf",
+        "definition": "observation",
+        "freqIndex": 1535
+    },
+    {
+        "spWord": "observador",
+        "partOfSpeech": "nm",
+        "definition": "observer",
+        "freqIndex": 3208
+    },
+    {
+        "spWord": "observar",
+        "partOfSpeech": "v",
+        "definition": "to observe",
+        "freqIndex": 478
+    },
+    {
+        "spWord": "obsesión",
+        "partOfSpeech": "nf",
+        "definition": "mania, obsession",
+        "freqIndex": 3412
+    },
+    {
+        "spWord": "obstáculo",
+        "partOfSpeech": "nm",
+        "definition": "obstacle",
+        "freqIndex": 2588
+    },
+    {
+        "spWord": "no obstante",
+        "partOfSpeech": "adv",
+        "definition": "nevertheless",
+        "freqIndex": 1679
+    },
+    {
+        "spWord": "obtener",
+        "partOfSpeech": "v",
+        "definition": "to obtain",
+        "freqIndex": 466
+    },
+    {
+        "spWord": "obviamente",
+        "partOfSpeech": "adv",
+        "definition": "obviously",
+        "freqIndex": 3811
+    },
+    {
+        "spWord": "obvio",
+        "partOfSpeech": "adj",
+        "definition": "obvious",
+        "freqIndex": 2586
+    },
+    {
+        "spWord": "ocasión",
+        "partOfSpeech": "nf",
+        "definition": "opportunity, occasion",
+        "freqIndex": 463
+    },
+    {
+        "spWord": "ocasional",
+        "partOfSpeech": "adj",
+        "definition": "occasional, random",
+        "freqIndex": 4987
+    },
+    {
+        "spWord": "ocasionar",
+        "partOfSpeech": "v",
+        "definition": "to occasion, bring about",
+        "freqIndex": 3464
+    },
+    {
+        "spWord": "occidental",
+        "partOfSpeech": "adj",
+        "definition": "occidental, western",
+        "freqIndex": 2323
+    },
+    {
+        "spWord": "océano",
+        "partOfSpeech": "nm",
+        "definition": "ocean",
+        "freqIndex": 3646
+    },
+    {
+        "spWord": "ochenta",
+        "partOfSpeech": "num",
+        "definition": "eighty",
+        "freqIndex": 2120
+    },
+    {
+        "spWord": "ocho",
+        "partOfSpeech": "num",
+        "definition": "eight",
+        "freqIndex": 492
+    },
+    {
+        "spWord": "ocio",
+        "partOfSpeech": "nm",
+        "definition": "leisure (time)",
+        "freqIndex": 4366
+    },
+    {
+        "spWord": "octubre",
+        "partOfSpeech": "nm",
+        "definition": "October",
+        "freqIndex": 1688
+    },
+    {
+        "spWord": "ocultar",
+        "partOfSpeech": "v",
+        "definition": "to hide",
+        "freqIndex": 1541
+    },
+    {
+        "spWord": "oculto",
+        "partOfSpeech": "adj",
+        "definition": "hidden, occult",
+        "freqIndex": 2039
+    },
+    {
+        "spWord": "ocupación",
+        "partOfSpeech": "nf",
+        "definition": "occupation, use",
+        "freqIndex": 2059
+    },
+    {
+        "spWord": "ocupado",
+        "partOfSpeech": "adj",
+        "definition": "busy, occupied",
+        "freqIndex": 1601
+    },
+    {
+        "spWord": "ocupar",
+        "partOfSpeech": "v",
+        "definition": "to occupy, use",
+        "freqIndex": 397
+    },
+    {
+        "spWord": "ocurrencia",
+        "partOfSpeech": "nf",
+        "definition": "idea, witty remark",
+        "freqIndex": 4648
+    },
+    {
+        "spWord": "ocurrir",
+        "partOfSpeech": "v",
+        "definition": "to happen, occur",
+        "freqIndex": 200
+    },
+    {
+        "spWord": "odiar",
+        "partOfSpeech": "v",
+        "definition": "to hate",
+        "freqIndex": 3444
+    },
+    {
+        "spWord": "odio",
+        "partOfSpeech": "nm",
+        "definition": "hatred",
+        "freqIndex": 2177
+    },
+    {
+        "spWord": "oeste",
+        "partOfSpeech": "nm",
+        "definition": "West",
+        "freqIndex": 3821
+    },
+    {
+        "spWord": "ofender",
+        "partOfSpeech": "v",
+        "definition": "to offend",
+        "freqIndex": 3936
+    },
+    {
+        "spWord": "oferta",
+        "partOfSpeech": "nf",
+        "definition": "offer, bid, supply",
+        "freqIndex": 2205
+    },
+    {
+        "spWord": "oficial",
+        "partOfSpeech": "adj",
+        "definition": "official, authorized",
+        "freqIndex": 1099
+    },
+    {
+        "spWord": "oficial",
+        "partOfSpeech": "nc",
+        "definition": "official, officer",
+        "freqIndex": 1781
+    },
+    {
+        "spWord": "oficialmente",
+        "partOfSpeech": "adv",
+        "definition": "officially",
+        "freqIndex": 4545
+    },
+    {
+        "spWord": "oficina",
+        "partOfSpeech": "nf",
+        "definition": "office",
+        "freqIndex": 1113
+    },
+    {
+        "spWord": "oficio",
+        "partOfSpeech": "nm",
+        "definition": "job, occupation, function",
+        "freqIndex": 1644
+    },
+    {
+        "spWord": "ofrecer",
+        "partOfSpeech": "v",
+        "definition": "to offer, present",
+        "freqIndex": 368
+    },
+    {
+        "spWord": "oh",
+        "partOfSpeech": "interj",
+        "definition": "oh",
+        "freqIndex": 2736
+    },
+    {
+        "spWord": "oído",
+        "partOfSpeech": "nm",
+        "definition": "hearing, ear",
+        "freqIndex": 1969
+    },
+    {
+        "spWord": "oír",
+        "partOfSpeech": "v",
+        "definition": "to hear",
+        "freqIndex": 263
+    },
+    {
+        "spWord": "ojalá",
+        "partOfSpeech": "adv",
+        "definition": "I hope that",
+        "freqIndex": 3067
+    },
+    {
+        "spWord": "ojo",
+        "partOfSpeech": "nm",
+        "definition": "eye",
+        "freqIndex": 247
+    },
+    {
+        "spWord": "ola",
+        "partOfSpeech": "nf",
+        "definition": "wave, billow",
+        "freqIndex": 2406
+    },
+    {
+        "spWord": "oler",
+        "partOfSpeech": "v",
+        "definition": "to smell",
+        "freqIndex": 3036
+    },
+    {
+        "spWord": "olfato",
+        "partOfSpeech": "nm",
+        "definition": "sense of smell",
+        "freqIndex": 4913
+    },
+    {
+        "spWord": "olla",
+        "partOfSpeech": "nf",
+        "definition": "pot, kettle",
+        "freqIndex": 4927
+    },
+    {
+        "spWord": "olor",
+        "partOfSpeech": "nm",
+        "definition": "smell, odor, fragrance",
+        "freqIndex": 1986
+    },
+    {
+        "spWord": "olvidar",
+        "partOfSpeech": "v",
+        "definition": "to forget",
+        "freqIndex": 383
+    },
+    {
+        "spWord": "olvido",
+        "partOfSpeech": "nm",
+        "definition": "forgetfulness, omission",
+        "freqIndex": 2504
+    },
+    {
+        "spWord": "once",
+        "partOfSpeech": "num",
+        "definition": "eleven",
+        "freqIndex": 1455
+    },
+    {
+        "spWord": "onda",
+        "partOfSpeech": "nf",
+        "definition": "wave, ripple",
+        "freqIndex": 2160
+    },
+    {
+        "spWord": "opaco",
+        "partOfSpeech": "adj",
+        "definition": "dull, opaque, heavy",
+        "freqIndex": 4362
+    },
+    {
+        "spWord": "opción",
+        "partOfSpeech": "nf",
+        "definition": "option, choice",
+        "freqIndex": 2305
+    },
+    {
+        "spWord": "ópera",
+        "partOfSpeech": "nf",
+        "definition": "opera",
+        "freqIndex": 3757
+    },
+    {
+        "spWord": "operación",
+        "partOfSpeech": "nf",
+        "definition": "operation",
+        "freqIndex": 848
+    },
+    {
+        "spWord": "operar",
+        "partOfSpeech": "v",
+        "definition": "to operate",
+        "freqIndex": 1424
+    },
+    {
+        "spWord": "opinar",
+        "partOfSpeech": "v",
+        "definition": "to think, be of the opinion",
+        "freqIndex": 1209
+    },
+    {
+        "spWord": "opinión",
+        "partOfSpeech": "nf",
+        "definition": "opinion, view",
+        "freqIndex": 632
+    },
+    {
+        "spWord": "oponer",
+        "partOfSpeech": "v",
+        "definition": "to oppose",
+        "freqIndex": 1225
+    },
+    {
+        "spWord": "oportunidad",
+        "partOfSpeech": "nf",
+        "definition": "opportunity, chance",
+        "freqIndex": 624
+    },
+    {
+        "spWord": "oportuno",
+        "partOfSpeech": "adj",
+        "definition": "opportune, timely",
+        "freqIndex": 1937
+    },
+    {
+        "spWord": "oposición",
+        "partOfSpeech": "nf",
+        "definition": "opposition",
+        "freqIndex": 1699
+    },
+    {
+        "spWord": "optar",
+        "partOfSpeech": "v",
+        "definition": "to choose, opt for",
+        "freqIndex": 2384
+    },
+    {
+        "spWord": "optimismo",
+        "partOfSpeech": "nm",
+        "definition": "optimism",
+        "freqIndex": 3864
+    },
+    {
+        "spWord": "optimista",
+        "partOfSpeech": "adj",
+        "definition": "optimistic",
+        "freqIndex": 3030
+    },
+    {
+        "spWord": "óptimo",
+        "partOfSpeech": "adj",
+        "definition": "optimum",
+        "freqIndex": 4129
+    },
+    {
+        "spWord": "opuesto",
+        "partOfSpeech": "adj",
+        "definition": "opposite, contrary",
+        "freqIndex": 1785
+    },
+    {
+        "spWord": "oración",
+        "partOfSpeech": "nf",
+        "definition": "prayer",
+        "freqIndex": 2543
+    },
+    {
+        "spWord": "oral",
+        "partOfSpeech": "adj",
+        "definition": "oral",
+        "freqIndex": 3773
+    },
+    {
+        "spWord": "órbita",
+        "partOfSpeech": "nf",
+        "definition": "orbit, socket, field",
+        "freqIndex": 4522
+    },
+    {
+        "spWord": "orden",
+        "partOfSpeech": "nm",
+        "definition": "order, sequence",
+        "freqIndex": 302
+    },
+    {
+        "spWord": "orden",
+        "partOfSpeech": "nf",
+        "definition": "order (religious)",
+        "freqIndex": 302
+    },
+    {
+        "spWord": "ordenado",
+        "partOfSpeech": "adj",
+        "definition": "organized, clean",
+        "freqIndex": 2417
+    },
+    {
+        "spWord": "ordenar",
+        "partOfSpeech": "v",
+        "definition": "to put in order, organize",
+        "freqIndex": 1167
+    },
+    {
+        "spWord": "ordinario",
+        "partOfSpeech": "adj",
+        "definition": "vulgar, ordinary",
+        "freqIndex": 2478
+    },
+    {
+        "spWord": "oreja",
+        "partOfSpeech": "nf",
+        "definition": "ear",
+        "freqIndex": 2407
+    },
+    {
+        "spWord": "orgánico",
+        "partOfSpeech": "adj",
+        "definition": "organic",
+        "freqIndex": 3716
+    },
+    {
+        "spWord": "organismo",
+        "partOfSpeech": "nm",
+        "definition": "organization, organism, (human) body",
+        "freqIndex": 1458
+    },
+    {
+        "spWord": "organización",
+        "partOfSpeech": "nf",
+        "definition": "organization",
+        "freqIndex": 1243
+    },
+    {
+        "spWord": "organizado",
+        "partOfSpeech": "adj",
+        "definition": "organized",
+        "freqIndex": 2058
+    },
+    {
+        "spWord": "organizar",
+        "partOfSpeech": "v",
+        "definition": "to organize",
+        "freqIndex": 825
+    },
+    {
+        "spWord": "órgano",
+        "partOfSpeech": "nm",
+        "definition": "organ",
+        "freqIndex": 1563
+    },
+    {
+        "spWord": "orgullo",
+        "partOfSpeech": "nm",
+        "definition": "pride",
+        "freqIndex": 2006
+    },
+    {
+        "spWord": "orgulloso",
+        "partOfSpeech": "adj",
+        "definition": "proud, arrogant",
+        "freqIndex": 2388
+    },
+    {
+        "spWord": "orientación",
+        "partOfSpeech": "nf",
+        "definition": "orientation, direction",
+        "freqIndex": 2683
+    },
+    {
+        "spWord": "orientado",
+        "partOfSpeech": "adj",
+        "definition": "positioned, guided",
+        "freqIndex": 4385
+    },
+    {
+        "spWord": "oriental",
+        "partOfSpeech": "adj",
+        "definition": "eastern, oriental",
+        "freqIndex": 1955
+    },
+    {
+        "spWord": "orientar",
+        "partOfSpeech": "v",
+        "definition": "guide, show the way",
+        "freqIndex": 2250
+    },
+    {
+        "spWord": "oriente",
+        "partOfSpeech": "nm",
+        "definition": "East",
+        "freqIndex": 2413
+    },
+    {
+        "spWord": "origen",
+        "partOfSpeech": "nm",
+        "definition": "origin, cause",
+        "freqIndex": 606
+    },
+    {
+        "spWord": "original",
+        "partOfSpeech": "adj",
+        "definition": "original",
+        "freqIndex": 1191
+    },
+    {
+        "spWord": "original",
+        "partOfSpeech": "nm",
+        "definition": "original",
+        "freqIndex": 3581
+    },
+    {
+        "spWord": "originar",
+        "partOfSpeech": "v",
+        "definition": "to give rise (to), cause",
+        "freqIndex": 2819
+    },
+    {
+        "spWord": "orilla",
+        "partOfSpeech": "nf",
+        "definition": "shore, edge",
+        "freqIndex": 2096
+    },
+    {
+        "spWord": "oro",
+        "partOfSpeech": "nm",
+        "definition": "gold",
+        "freqIndex": 914
+    },
+    {
+        "spWord": "orquesta",
+        "partOfSpeech": "nf",
+        "definition": "orchestra, dance band",
+        "freqIndex": 3301
+    },
+    {
+        "spWord": "os",
+        "partOfSpeech": "pron",
+        "definition": "you (obj-pl/+fam)",
+        "freqIndex": 1373
+    },
+    {
+        "spWord": "oscilar",
+        "partOfSpeech": "v",
+        "definition": "oscillate",
+        "freqIndex": 3578
+    },
+    {
+        "spWord": "oscurecer",
+        "partOfSpeech": "v",
+        "definition": "to get dark",
+        "freqIndex": 4212
+    },
+    {
+        "spWord": "oscuridad",
+        "partOfSpeech": "nf",
+        "definition": "darkness",
+        "freqIndex": 2468
+    },
+    {
+        "spWord": "oscuro",
+        "partOfSpeech": "adj",
+        "definition": "dark, obscure",
+        "freqIndex": 888
+    },
+    {
+        "spWord": "oso",
+        "partOfSpeech": "nm",
+        "definition": "bear",
+        "freqIndex": 4555
+    },
+    {
+        "spWord": "ostentar",
+        "partOfSpeech": "v",
+        "definition": "to flaunt, show off",
+        "freqIndex": 4254
+    },
+    {
+        "spWord": "otoño",
+        "partOfSpeech": "nm",
+        "definition": "autumn",
+        "freqIndex": 3357
+    },
+    {
+        "spWord": "otorgar",
+        "partOfSpeech": "v",
+        "definition": "to give, grant, award",
+        "freqIndex": 2224
+    },
+    {
+        "spWord": "otro",
+        "partOfSpeech": "adj",
+        "definition": "other, another",
+        "freqIndex": 31
+    },
+    {
+        "spWord": "oveja",
+        "partOfSpeech": "nf",
+        "definition": "sheep, ewe",
+        "freqIndex": 3556
+    },
+    {
+        "spWord": "oxígeno",
+        "partOfSpeech": "nm",
+        "definition": "oxygen",
+        "freqIndex": 4844
+    },
+    {
+        "spWord": "pabellón",
+        "partOfSpeech": "nm",
+        "definition": "pavilion, sports hall",
+        "freqIndex": 4740
+    },
+    {
+        "spWord": "paciencia",
+        "partOfSpeech": "nf",
+        "definition": "patience",
+        "freqIndex": 2336
+    },
+    {
+        "spWord": "paciente",
+        "partOfSpeech": "nc",
+        "definition": "patient",
+        "freqIndex": 1511
+    },
+    {
+        "spWord": "pacífico",
+        "partOfSpeech": "adj",
+        "definition": "peaceful",
+        "freqIndex": 3105
+    },
+    {
+        "spWord": "pacto",
+        "partOfSpeech": "nm",
+        "definition": "pact, agreement",
+        "freqIndex": 2530
+    },
+    {
+        "spWord": "padecer",
+        "partOfSpeech": "v",
+        "definition": "to suffer",
+        "freqIndex": 1590
+    },
+    {
+        "spWord": "padre",
+        "partOfSpeech": "nm",
+        "definition": "father",
+        "freqIndex": 182
+    },
+    {
+        "spWord": "padrino",
+        "partOfSpeech": "nm",
+        "definition": "godparent, sponsor",
+        "freqIndex": 4732
+    },
+    {
+        "spWord": "pagar",
+        "partOfSpeech": "v",
+        "definition": "to pay",
+        "freqIndex": 342
+    },
+    {
+        "spWord": "página",
+        "partOfSpeech": "nf",
+        "definition": "page",
+        "freqIndex": 1135
+    },
+    {
+        "spWord": "pago",
+        "partOfSpeech": "nm",
+        "definition": "payment",
+        "freqIndex": 1807
+    },
+    {
+        "spWord": "país",
+        "partOfSpeech": "nm",
+        "definition": "country",
+        "freqIndex": 133
+    },
+    {
+        "spWord": "paisaje",
+        "partOfSpeech": "nm",
+        "definition": "landscape",
+        "freqIndex": 1508
+    },
+    {
+        "spWord": "paja",
+        "partOfSpeech": "nf",
+        "definition": "straw, thatching",
+        "freqIndex": 3483
+    },
+    {
+        "spWord": "pájaro",
+        "partOfSpeech": "nm",
+        "definition": "bird",
+        "freqIndex": 1824
+    },
+    {
+        "spWord": "pala",
+        "partOfSpeech": "nf",
+        "definition": "shovel",
+        "freqIndex": 4601
+    },
+    {
+        "spWord": "palabra",
+        "partOfSpeech": "nf",
+        "definition": "word",
+        "freqIndex": 176
+    },
+    {
+        "spWord": "palacio",
+        "partOfSpeech": "nm",
+        "definition": "palace",
+        "freqIndex": 1968
+    },
+    {
+        "spWord": "pálido",
+        "partOfSpeech": "adj",
+        "definition": "pale, ghastly, faded",
+        "freqIndex": 3161
+    },
+    {
+        "spWord": "palma",
+        "partOfSpeech": "nf",
+        "definition": "palm tree, palm",
+        "freqIndex": 2938
+    },
+    {
+        "spWord": "palo",
+        "partOfSpeech": "nm",
+        "definition": "stick, pole",
+        "freqIndex": 2012
+    },
+    {
+        "spWord": "paloma",
+        "partOfSpeech": "nf",
+        "definition": "dove",
+        "freqIndex": 3700
+    },
+    {
+        "spWord": "palpar",
+        "partOfSpeech": "v",
+        "definition": "to feel, touch, fondle",
+        "freqIndex": 4191
+    },
+    {
+        "spWord": "pan",
+        "partOfSpeech": "nm",
+        "definition": "bread",
+        "freqIndex": 1392
+    },
+    {
+        "spWord": "pánico",
+        "partOfSpeech": "nm",
+        "definition": "panic",
+        "freqIndex": 3227
+    },
+    {
+        "spWord": "panorama",
+        "partOfSpeech": "nm",
+        "definition": "panorama, landscape",
+        "freqIndex": 2500
+    },
+    {
+        "spWord": "pantalla",
+        "partOfSpeech": "nf",
+        "definition": "screen, monitor",
+        "freqIndex": 2330
+    },
+    {
+        "spWord": "pantalón",
+        "partOfSpeech": "nm",
+        "definition": "pants, trousers",
+        "freqIndex": 2489
+    },
+    {
+        "spWord": "pañuelo",
+        "partOfSpeech": "nm",
+        "definition": "handkerchief, shawl",
+        "freqIndex": 3900
+    },
+    {
+        "spWord": "papa",
+        "partOfSpeech": "nm",
+        "definition": "Pope",
+        "freqIndex": 2669
+    },
+    {
+        "spWord": "papa",
+        "partOfSpeech": "nf",
+        "definition": "potato",
+        "freqIndex": 2669
+    },
+    {
+        "spWord": "papá",
+        "partOfSpeech": "nm",
+        "definition": "dad",
+        "freqIndex": 2281
+    },
+    {
+        "spWord": "papel",
+        "partOfSpeech": "nm",
+        "definition": "paper, role, part",
+        "freqIndex": 277
+    },
+    {
+        "spWord": "paquete",
+        "partOfSpeech": "nm",
+        "definition": "package, packet",
+        "freqIndex": 2166
+    },
+    {
+        "spWord": "par",
+        "partOfSpeech": "nm",
+        "definition": "pair, couple",
+        "freqIndex": 768
+    },
+    {
+        "spWord": "a la par",
+        "partOfSpeech": "adv",
+        "definition": "at the same time",
+        "freqIndex": 768
+    },
+    {
+        "spWord": "para",
+        "partOfSpeech": "prep",
+        "definition": "for, to, in order to",
+        "freqIndex": 15
+    },
+    {
+        "spWord": "parada",
+        "partOfSpeech": "nf",
+        "definition": "(transportation) stop",
+        "freqIndex": 3649
+    },
+    {
+        "spWord": "parado",
+        "partOfSpeech": "adj",
+        "definition": "stopped, standing",
+        "freqIndex": 2244
+    },
+    {
+        "spWord": "paraíso",
+        "partOfSpeech": "nm",
+        "definition": "paradise",
+        "freqIndex": 2983
+    },
+    {
+        "spWord": "paraje",
+        "partOfSpeech": "nm",
+        "definition": "place, spot",
+        "freqIndex": 4935
+    },
+    {
+        "spWord": "paralelo",
+        "partOfSpeech": "adj",
+        "definition": "parallel",
+        "freqIndex": 2477
+    },
+    {
+        "spWord": "paralizado",
+        "partOfSpeech": "adj",
+        "definition": "paralyzed",
+        "freqIndex": 4473
+    },
+    {
+        "spWord": "paralizar",
+        "partOfSpeech": "v",
+        "definition": "to paralyze",
+        "freqIndex": 3962
+    },
+    {
+        "spWord": "parar",
+        "partOfSpeech": "v",
+        "definition": "to stop (moving)",
+        "freqIndex": 1001
+    },
+    {
+        "spWord": "parcela",
+        "partOfSpeech": "nf",
+        "definition": "piece of property",
+        "freqIndex": 4004
+    },
+    {
+        "spWord": "parcial",
+        "partOfSpeech": "adj",
+        "definition": "partial, biased",
+        "freqIndex": 3775
+    },
+    {
+        "spWord": "parcialmente",
+        "partOfSpeech": "adv",
+        "definition": "partially",
+        "freqIndex": 4894
+    },
+    {
+        "spWord": "pardo",
+        "partOfSpeech": "adj",
+        "definition": "brown, dark, dim",
+        "freqIndex": 3722
+    },
+    {
+        "spWord": "parecer",
+        "partOfSpeech": "v",
+        "definition": "to seem, look like",
+        "freqIndex": 81
+    },
+    {
+        "spWord": "parecer",
+        "partOfSpeech": "nm",
+        "definition": "opinion, looks",
+        "freqIndex": 1933
+    },
+    {
+        "spWord": "parecido",
+        "partOfSpeech": "adj",
+        "definition": "similar",
+        "freqIndex": 837
+    },
+    {
+        "spWord": "pared",
+        "partOfSpeech": "nf",
+        "definition": "(interior) wall",
+        "freqIndex": 736
+    },
+    {
+        "spWord": "pareja",
+        "partOfSpeech": "nf",
+        "definition": "couple, pair",
+        "freqIndex": 901
+    },
+    {
+        "spWord": "parentesco",
+        "partOfSpeech": "nm",
+        "definition": "kinship",
+        "freqIndex": 3975
+    },
+    {
+        "spWord": "paréntesis",
+        "partOfSpeech": "nm",
+        "definition": "parenthesis, digression",
+        "freqIndex": 4525
+    },
+    {
+        "spWord": "pariente",
+        "partOfSpeech": "nc",
+        "definition": "relative",
+        "freqIndex": 2297
+    },
+    {
+        "spWord": "parir",
+        "partOfSpeech": "v",
+        "definition": "to give birth",
+        "freqIndex": 3602
+    },
+    {
+        "spWord": "parlamentario",
+        "partOfSpeech": "adj",
+        "definition": "parliamentary",
+        "freqIndex": 4961
+    },
+    {
+        "spWord": "parque",
+        "partOfSpeech": "nm",
+        "definition": "park",
+        "freqIndex": 1760
+    },
+    {
+        "spWord": "párrafo",
+        "partOfSpeech": "nm",
+        "definition": "paragraph",
+        "freqIndex": 3461
+    },
+    {
+        "spWord": "parroquia",
+        "partOfSpeech": "nf",
+        "definition": "parish",
+        "freqIndex": 4260
+    },
+    {
+        "spWord": "parte",
+        "partOfSpeech": "nf",
+        "definition": "part, portion",
+        "freqIndex": 86
+    },
+    {
+        "spWord": "participación",
+        "partOfSpeech": "nf",
+        "definition": "participation, involvement",
+        "freqIndex": 1438
+    },
+    {
+        "spWord": "participante",
+        "partOfSpeech": "nm",
+        "definition": "participant",
+        "freqIndex": 4616
+    },
+    {
+        "spWord": "participar",
+        "partOfSpeech": "v",
+        "definition": "to participate",
+        "freqIndex": 750
+    },
+    {
+        "spWord": "partícula",
+        "partOfSpeech": "nf",
+        "definition": "particle",
+        "freqIndex": 4776
+    },
+    {
+        "spWord": "particular",
+        "partOfSpeech": "adj",
+        "definition": "particular, peculiar",
+        "freqIndex": 854
+    },
+    {
+        "spWord": "particular",
+        "partOfSpeech": "nm",
+        "definition": "particular, detail, individual",
+        "freqIndex": 1260
+    },
+    {
+        "spWord": "particularmente",
+        "partOfSpeech": "adv",
+        "definition": "particularly, personally",
+        "freqIndex": 2652
+    },
+    {
+        "spWord": "partida",
+        "partOfSpeech": "nf",
+        "definition": "game, match, departure",
+        "freqIndex": 1165
+    },
+    {
+        "spWord": "partidario",
+        "partOfSpeech": "nm",
+        "definition": "supporter, partisan",
+        "freqIndex": 2436
+    },
+    {
+        "spWord": "partido",
+        "partOfSpeech": "nm",
+        "definition": "party, group, (sports) match",
+        "freqIndex": 425
+    },
+    {
+        "spWord": "partir",
+        "partOfSpeech": "v",
+        "definition": "to divide, leave",
+        "freqIndex": 290
+    },
+    {
+        "spWord": "a partir de",
+        "partOfSpeech": "prep",
+        "definition": "starting at, since",
+        "freqIndex": 290
+    },
+    {
+        "spWord": "parto",
+        "partOfSpeech": "nm",
+        "definition": "birth",
+        "freqIndex": 3550
+    },
+    {
+        "spWord": "pasado",
+        "partOfSpeech": "adj",
+        "definition": "past, last",
+        "freqIndex": 445
+    },
+    {
+        "spWord": "pasado",
+        "partOfSpeech": "nm",
+        "definition": "past",
+        "freqIndex": 902
+    },
+    {
+        "spWord": "pasaje",
+        "partOfSpeech": "nm",
+        "definition": "fare, passage, lane",
+        "freqIndex": 2446
+    },
+    {
+        "spWord": "pasajero",
+        "partOfSpeech": "nm",
+        "definition": "passenger",
+        "freqIndex": 3354
+    },
+    {
+        "spWord": "pasajero",
+        "partOfSpeech": "adj",
+        "definition": "fleeting, transitory",
+        "freqIndex": 4570
+    },
+    {
+        "spWord": "pasar",
+        "partOfSpeech": "v",
+        "definition": "to pass, spend (time)",
+        "freqIndex": 67
+    },
+    {
+        "spWord": "pasear",
+        "partOfSpeech": "v",
+        "definition": "to go for a walk, ride",
+        "freqIndex": 1985
+    },
+    {
+        "spWord": "paseo",
+        "partOfSpeech": "nm",
+        "definition": "walk, ride",
+        "freqIndex": 2209
+    },
+    {
+        "spWord": "pasillo",
+        "partOfSpeech": "nm",
+        "definition": "hall, corridor",
+        "freqIndex": 2666
+    },
+    {
+        "spWord": "pasión",
+        "partOfSpeech": "nf",
+        "definition": "passion, desire",
+        "freqIndex": 1445
+    },
+    {
+        "spWord": "pasivo",
+        "partOfSpeech": "adj",
+        "definition": "passive",
+        "freqIndex": 4317
+    },
+    {
+        "spWord": "paso",
+        "partOfSpeech": "nm",
+        "definition": "step, pace",
+        "freqIndex": 267
+    },
+    {
+        "spWord": "pasta",
+        "partOfSpeech": "nf",
+        "definition": "pasta, dough",
+        "freqIndex": 3771
+    },
+    {
+        "spWord": "pastilla",
+        "partOfSpeech": "nf",
+        "definition": "pill, capsule",
+        "freqIndex": 4354
+    },
+    {
+        "spWord": "pasto",
+        "partOfSpeech": "nm",
+        "definition": "grass, pasture",
+        "freqIndex": 3870
+    },
+    {
+        "spWord": "pastor",
+        "partOfSpeech": "nm/f",
+        "definition": "shepherd, pastor",
+        "freqIndex": 3474
+    },
+    {
+        "spWord": "pata",
+        "partOfSpeech": "nf",
+        "definition": "leg, paw",
+        "freqIndex": 2052
+    },
+    {
+        "spWord": "patada",
+        "partOfSpeech": "nf",
+        "definition": "kick, punt",
+        "freqIndex": 4078
+    },
+    {
+        "spWord": "paterno",
+        "partOfSpeech": "adj",
+        "definition": "paternal",
+        "freqIndex": 4628
+    },
+    {
+        "spWord": "patio",
+        "partOfSpeech": "nm",
+        "definition": "courtyard, playground, yard",
+        "freqIndex": 1700
+    },
+    {
+        "spWord": "pato",
+        "partOfSpeech": "nm",
+        "definition": "duck",
+        "freqIndex": 4786
+    },
+    {
+        "spWord": "patria",
+        "partOfSpeech": "nf",
+        "definition": "native land, fatherland",
+        "freqIndex": 2135
+    },
+    {
+        "spWord": "patrimonio",
+        "partOfSpeech": "nm",
+        "definition": "patrimony, inheritance",
+        "freqIndex": 3114
+    },
+    {
+        "spWord": "patriótico",
+        "partOfSpeech": "adj",
+        "definition": "patriotic",
+        "freqIndex": 4972
+    },
+    {
+        "spWord": "patrón",
+        "partOfSpeech": "nm",
+        "definition": "employer, landlord, patron saint",
+        "freqIndex": 1648
+    },
+    {
+        "spWord": "pausa",
+        "partOfSpeech": "nf",
+        "definition": "pause",
+        "freqIndex": 2802
+    },
+    {
+        "spWord": "pauta",
+        "partOfSpeech": "nf",
+        "definition": "guideline, rule, standard",
+        "freqIndex": 3325
+    },
+    {
+        "spWord": "paz",
+        "partOfSpeech": "nf",
+        "definition": "peace",
+        "freqIndex": 702
+    },
+    {
+        "spWord": "pecado",
+        "partOfSpeech": "nm",
+        "definition": "sin",
+        "freqIndex": 2551
+    },
+    {
+        "spWord": "pecar",
+        "partOfSpeech": "v",
+        "definition": "to sin",
+        "freqIndex": 3828
+    },
+    {
+        "spWord": "pecho",
+        "partOfSpeech": "nm",
+        "definition": "chest, breast",
+        "freqIndex": 1649
+    },
+    {
+        "spWord": "peculiar",
+        "partOfSpeech": "adj",
+        "definition": "peculiar",
+        "freqIndex": 2746
+    },
+    {
+        "spWord": "pedagógico",
+        "partOfSpeech": "adj",
+        "definition": "pedagogical, teaching",
+        "freqIndex": 4864
+    },
+    {
+        "spWord": "pedazo",
+        "partOfSpeech": "nm",
+        "definition": "piece, bit",
+        "freqIndex": 2855
+    },
+    {
+        "spWord": "pedir",
+        "partOfSpeech": "v",
+        "definition": "to ask for, request",
+        "freqIndex": 204
+    },
+    {
+        "spWord": "pegar",
+        "partOfSpeech": "v",
+        "definition": "to hit, stick (on)",
+        "freqIndex": 1395
+    },
+    {
+        "spWord": "pelea",
+        "partOfSpeech": "nf",
+        "definition": "fight, quarrel",
+        "freqIndex": 3034
+    },
+    {
+        "spWord": "pelear",
+        "partOfSpeech": "v",
+        "definition": "to fight, struggle",
+        "freqIndex": 1823
+    },
+    {
+        "spWord": "película",
+        "partOfSpeech": "nf",
+        "definition": "movie, film",
+        "freqIndex": 826
+    },
+    {
+        "spWord": "peligro",
+        "partOfSpeech": "nm",
+        "definition": "danger, menace",
+        "freqIndex": 913
+    },
+    {
+        "spWord": "peligroso",
+        "partOfSpeech": "adj",
+        "definition": "dangerous",
+        "freqIndex": 1127
+    },
+    {
+        "spWord": "pelo",
+        "partOfSpeech": "nm",
+        "definition": "hair",
+        "freqIndex": 1056
+    },
+    {
+        "spWord": "pelota",
+        "partOfSpeech": "nf",
+        "definition": "ball",
+        "freqIndex": 2445
+    },
+    {
+        "spWord": "pena",
+        "partOfSpeech": "nf",
+        "definition": "trouble",
+        "freqIndex": 575
+    },
+    {
+        "spWord": "valer la pena",
+        "partOfSpeech": "v",
+        "definition": "be of worth",
+        "freqIndex": 575
+    },
+    {
+        "spWord": "penal",
+        "partOfSpeech": "adj",
+        "definition": "penal",
+        "freqIndex": 4285
+    },
+    {
+        "spWord": "pendiente",
+        "partOfSpeech": "adj",
+        "definition": "aware of, pending",
+        "freqIndex": 1296
+    },
+    {
+        "spWord": "penetración",
+        "partOfSpeech": "nf",
+        "definition": "penetration, insight",
+        "freqIndex": 4569
+    },
+    {
+        "spWord": "penetrar",
+        "partOfSpeech": "v",
+        "definition": "to penetrate, come in",
+        "freqIndex": 1531
+    },
+    {
+        "spWord": "penoso",
+        "partOfSpeech": "adj",
+        "definition": "painful, laborious",
+        "freqIndex": 3737
+    },
+    {
+        "spWord": "pensado",
+        "partOfSpeech": "adj",
+        "definition": "thought-out, designed",
+        "freqIndex": 2734
+    },
+    {
+        "spWord": "pensamiento",
+        "partOfSpeech": "nm",
+        "definition": "thought, thinking",
+        "freqIndex": 789
+    },
+    {
+        "spWord": "pensar",
+        "partOfSpeech": "v",
+        "definition": "to think",
+        "freqIndex": 106
+    },
+    {
+        "spWord": "pensión",
+        "partOfSpeech": "nf",
+        "definition": "boarding house",
+        "freqIndex": 2469
+    },
+    {
+        "spWord": "penumbra",
+        "partOfSpeech": "nf",
+        "definition": "semidarkness, twilight",
+        "freqIndex": 4997
+    },
+    {
+        "spWord": "peón",
+        "partOfSpeech": "nm",
+        "definition": "unskilled laborer, field hand",
+        "freqIndex": 4519
+    },
+    {
+        "spWord": "peor",
+        "partOfSpeech": "adv",
+        "definition": "worse",
+        "freqIndex": 866
+    },
+    {
+        "spWord": "peor",
+        "partOfSpeech": "adj",
+        "definition": "worse, worst",
+        "freqIndex": 1965
+    },
+    {
+        "spWord": "pequeñito",
+        "partOfSpeech": "adj",
+        "definition": "very small, tiny",
+        "freqIndex": 4566
+    },
+    {
+        "spWord": "pequeño",
+        "partOfSpeech": "adj",
+        "definition": "little, small, young",
+        "freqIndex": 184
+    },
+    {
+        "spWord": "percatar",
+        "partOfSpeech": "v",
+        "definition": "to inform, become aware",
+        "freqIndex": 4826
+    },
+    {
+        "spWord": "percepción",
+        "partOfSpeech": "nf",
+        "definition": "perception",
+        "freqIndex": 4136
+    },
+    {
+        "spWord": "percibir",
+        "partOfSpeech": "v",
+        "definition": "to perceive, notice",
+        "freqIndex": 1575
+    },
+    {
+        "spWord": "perder",
+        "partOfSpeech": "v",
+        "definition": "to lose, miss",
+        "freqIndex": 190
+    },
+    {
+        "spWord": "pérdida",
+        "partOfSpeech": "nf",
+        "definition": "loss",
+        "freqIndex": 1417
+    },
+    {
+        "spWord": "perdido",
+        "partOfSpeech": "adj",
+        "definition": "lost",
+        "freqIndex": 931
+    },
+    {
+        "spWord": "perdón",
+        "partOfSpeech": "nm",
+        "definition": "forgiveness, pardon",
+        "freqIndex": 2240
+    },
+    {
+        "spWord": "perdonar",
+        "partOfSpeech": "v",
+        "definition": "to forgive, excuse",
+        "freqIndex": 1678
+    },
+    {
+        "spWord": "perdurar",
+        "partOfSpeech": "v",
+        "definition": "to last, live on, endure",
+        "freqIndex": 4085
+    },
+    {
+        "spWord": "perfección",
+        "partOfSpeech": "nf",
+        "definition": "perfection",
+        "freqIndex": 2776
+    },
+    {
+        "spWord": "perfeccionar",
+        "partOfSpeech": "v",
+        "definition": "to perfect",
+        "freqIndex": 3366
+    },
+    {
+        "spWord": "perfectamente",
+        "partOfSpeech": "adv",
+        "definition": "perfectly",
+        "freqIndex": 850
+    },
+    {
+        "spWord": "perfecto",
+        "partOfSpeech": "adj",
+        "definition": "perfect",
+        "freqIndex": 810
+    },
+    {
+        "spWord": "perfil",
+        "partOfSpeech": "nm",
+        "definition": "profile, outline",
+        "freqIndex": 2108
+    },
+    {
+        "spWord": "perfilar",
+        "partOfSpeech": "v",
+        "definition": "to outline, shape",
+        "freqIndex": 4969
+    },
+    {
+        "spWord": "perfume",
+        "partOfSpeech": "nm",
+        "definition": "perfume",
+        "freqIndex": 3843
+    },
+    {
+        "spWord": "periódico",
+        "partOfSpeech": "nm",
+        "definition": "newspaper, periodical",
+        "freqIndex": 765
+    },
+    {
+        "spWord": "periodismo",
+        "partOfSpeech": "nm",
+        "definition": "journalism",
+        "freqIndex": 4652
+    },
+    {
+        "spWord": "periodista",
+        "partOfSpeech": "nc",
+        "definition": "journalist",
+        "freqIndex": 1464
+    },
+    {
+        "spWord": "periodístico",
+        "partOfSpeech": "adj",
+        "definition": "journalistic",
+        "freqIndex": 4032
+    },
+    {
+        "spWord": "período",
+        "partOfSpeech": "nm",
+        "definition": "period, time",
+        "freqIndex": 1440
+    },
+    {
+        "spWord": "perjudicar",
+        "partOfSpeech": "v",
+        "definition": "to endanger",
+        "freqIndex": 3267
+    },
+    {
+        "spWord": "perjuicio",
+        "partOfSpeech": "nm",
+        "definition": "damage, loss",
+        "freqIndex": 3994
+    },
+    {
+        "spWord": "perla",
+        "partOfSpeech": "nf",
+        "definition": "pearl",
+        "freqIndex": 4172
+    },
+    {
+        "spWord": "permanecer",
+        "partOfSpeech": "v",
+        "definition": "to stay, remain",
+        "freqIndex": 821
+    },
+    {
+        "spWord": "permanencia",
+        "partOfSpeech": "nf",
+        "definition": "permanence, tenure",
+        "freqIndex": 3429
+    },
+    {
+        "spWord": "permanente",
+        "partOfSpeech": "adj",
+        "definition": "permanent",
+        "freqIndex": 1239
+    },
+    {
+        "spWord": "permanentemente",
+        "partOfSpeech": "adv",
+        "definition": "permanently",
+        "freqIndex": 3462
+    },
+    {
+        "spWord": "permiso",
+        "partOfSpeech": "nm",
+        "definition": "permission, permit",
+        "freqIndex": 1753
+    },
+    {
+        "spWord": "permitir",
+        "partOfSpeech": "v",
+        "definition": "to allow, permit",
+        "freqIndex": 220
+    },
+    {
+        "spWord": "pero",
+        "partOfSpeech": "conj",
+        "definition": "but, yet, except",
+        "freqIndex": 23
+    },
+    {
+        "spWord": "perpetuo",
+        "partOfSpeech": "adj",
+        "definition": "continual, perpetual",
+        "freqIndex": 4192
+    },
+    {
+        "spWord": "perro",
+        "partOfSpeech": "nm",
+        "definition": "dog",
+        "freqIndex": 939
+    },
+    {
+        "spWord": "persecución",
+        "partOfSpeech": "nf",
+        "definition": "pursuit, persecution",
+        "freqIndex": 3031
+    },
+    {
+        "spWord": "perseguir",
+        "partOfSpeech": "v",
+        "definition": "to persecute, pursue, chase",
+        "freqIndex": 1094
+    },
+    {
+        "spWord": "persistente",
+        "partOfSpeech": "adj",
+        "definition": "persistent",
+        "freqIndex": 4843
+    },
+    {
+        "spWord": "persistir",
+        "partOfSpeech": "v",
+        "definition": "to persist",
+        "freqIndex": 3254
+    },
+    {
+        "spWord": "persona",
+        "partOfSpeech": "nf",
+        "definition": "person",
+        "freqIndex": 137
+    },
+    {
+        "spWord": "personaje",
+        "partOfSpeech": "nm",
+        "definition": "character (e.g. movie)",
+        "freqIndex": 712
+    },
+    {
+        "spWord": "personal",
+        "partOfSpeech": "adj",
+        "definition": "personal",
+        "freqIndex": 590
+    },
+    {
+        "spWord": "personal",
+        "partOfSpeech": "nm",
+        "definition": "personnel, staff, staffing",
+        "freqIndex": 1404
+    },
+    {
+        "spWord": "personalidad",
+        "partOfSpeech": "nf",
+        "definition": "personality, celebrity",
+        "freqIndex": 1421
+    },
+    {
+        "spWord": "personalmente",
+        "partOfSpeech": "adv",
+        "definition": "personally",
+        "freqIndex": 1964
+    },
+    {
+        "spWord": "perspectiva",
+        "partOfSpeech": "nf",
+        "definition": "perspective",
+        "freqIndex": 1066
+    },
+    {
+        "spWord": "pertenecer",
+        "partOfSpeech": "v",
+        "definition": "to belong",
+        "freqIndex": 654
+    },
+    {
+        "spWord": "perteneciente",
+        "partOfSpeech": "adj",
+        "definition": "pertaining, belonging",
+        "freqIndex": 4467
+    },
+    {
+        "spWord": "pertenencia",
+        "partOfSpeech": "nf",
+        "definition": "membership, property",
+        "freqIndex": 3846
+    },
+    {
+        "spWord": "perturbar",
+        "partOfSpeech": "v",
+        "definition": "to perturb, upset",
+        "freqIndex": 4627
+    },
+    {
+        "spWord": "peruano",
+        "partOfSpeech": "adj",
+        "definition": "Peruvian",
+        "freqIndex": 4359
+    },
+    {
+        "spWord": "perverso",
+        "partOfSpeech": "adj",
+        "definition": "perverse, wicked",
+        "freqIndex": 4444
+    },
+    {
+        "spWord": "pesadilla",
+        "partOfSpeech": "nf",
+        "definition": "nightmare",
+        "freqIndex": 3479
+    },
+    {
+        "spWord": "pesado",
+        "partOfSpeech": "adj",
+        "definition": "heavy, boring, tiresome",
+        "freqIndex": 1367
+    },
+    {
+        "spWord": "pesar",
+        "partOfSpeech": "nm",
+        "definition": "sorrow",
+        "freqIndex": 366
+    },
+    {
+        "spWord": "a pesar de",
+        "partOfSpeech": "prep",
+        "definition": "in spite of",
+        "freqIndex": 366
+    },
+    {
+        "spWord": "pesar",
+        "partOfSpeech": "v",
+        "definition": "to weigh",
+        "freqIndex": 770
+    },
+    {
+        "spWord": "pesca",
+        "partOfSpeech": "nf",
+        "definition": "fishing",
+        "freqIndex": 3495
+    },
+    {
+        "spWord": "pescado",
+        "partOfSpeech": "nm",
+        "definition": "fish",
+        "freqIndex": 2584
+    },
+    {
+        "spWord": "pescador",
+        "partOfSpeech": "nm/f",
+        "definition": "fisherman",
+        "freqIndex": 3824
+    },
+    {
+        "spWord": "pescar",
+        "partOfSpeech": "v",
+        "definition": "to fish",
+        "freqIndex": 2958
+    },
+    {
+        "spWord": "peseta",
+        "partOfSpeech": "nf",
+        "definition": "peseta (money)",
+        "freqIndex": 3725
+    },
+    {
+        "spWord": "pésimo",
+        "partOfSpeech": "adj",
+        "definition": "dreadful, awful",
+        "freqIndex": 3817
+    },
+    {
+        "spWord": "peso",
+        "partOfSpeech": "nm",
+        "definition": "peso (money), weight, load",
+        "freqIndex": 417
+    },
+    {
+        "spWord": "peste",
+        "partOfSpeech": "nf",
+        "definition": "plague, pestilence, pest",
+        "freqIndex": 3943
+    },
+    {
+        "spWord": "petición",
+        "partOfSpeech": "nf",
+        "definition": "request, petition",
+        "freqIndex": 3435
+    },
+    {
+        "spWord": "petróleo",
+        "partOfSpeech": "nm",
+        "definition": "oil, petroleum",
+        "freqIndex": 3427
+    },
+    {
+        "spWord": "pez",
+        "partOfSpeech": "nm",
+        "definition": "(alive) fish",
+        "freqIndex": 2426
+    },
+    {
+        "spWord": "piadoso",
+        "partOfSpeech": "adj",
+        "definition": "devout, pious, merciful",
+        "freqIndex": 4671
+    },
+    {
+        "spWord": "piano",
+        "partOfSpeech": "nm",
+        "definition": "piano",
+        "freqIndex": 2727
+    },
+    {
+        "spWord": "picar",
+        "partOfSpeech": "v",
+        "definition": "to bite, sting, itch",
+        "freqIndex": 2840
+    },
+    {
+        "spWord": "pico",
+        "partOfSpeech": "nm",
+        "definition": "beak, peak",
+        "freqIndex": 1553
+    },
+    {
+        "spWord": "y pico",
+        "partOfSpeech": "expr",
+        "definition": "and a bit",
+        "freqIndex": 1553
+    },
+    {
+        "spWord": "pie",
+        "partOfSpeech": "nm",
+        "definition": "foot, base",
+        "freqIndex": 386
+    },
+    {
+        "spWord": "piedad",
+        "partOfSpeech": "nf",
+        "definition": "pity, mercy",
+        "freqIndex": 4267
+    },
+    {
+        "spWord": "piedra",
+        "partOfSpeech": "nf",
+        "definition": "stone, rock",
+        "freqIndex": 719
+    },
+    {
+        "spWord": "piel",
+        "partOfSpeech": "nf",
+        "definition": "skin, hide, fur",
+        "freqIndex": 884
+    },
+    {
+        "spWord": "pierna",
+        "partOfSpeech": "nf",
+        "definition": "leg",
+        "freqIndex": 1201
+    },
+    {
+        "spWord": "pieza",
+        "partOfSpeech": "nf",
+        "definition": "piece, part",
+        "freqIndex": 639
+    },
+    {
+        "spWord": "pila",
+        "partOfSpeech": "nf",
+        "definition": "(baptismal) font, battery, heap",
+        "freqIndex": 3672
+    },
+    {
+        "spWord": "pilar",
+        "partOfSpeech": "nm",
+        "definition": "pillar, column",
+        "freqIndex": 4128
+    },
+    {
+        "spWord": "piloto",
+        "partOfSpeech": "nm/f",
+        "definition": "pilot, driver",
+        "freqIndex": 4249
+    },
+    {
+        "spWord": "pino",
+        "partOfSpeech": "nm",
+        "definition": "pine (tree)",
+        "freqIndex": 4157
+    },
+    {
+        "spWord": "pinta",
+        "partOfSpeech": "nf",
+        "definition": "appearance, look, aspect",
+        "freqIndex": 4630
+    },
+    {
+        "spWord": "pintado",
+        "partOfSpeech": "adj",
+        "definition": "painted",
+        "freqIndex": 2347
+    },
+    {
+        "spWord": "pintar",
+        "partOfSpeech": "v",
+        "definition": "to paint",
+        "freqIndex": 1158
+    },
+    {
+        "spWord": "pintor",
+        "partOfSpeech": "nm/f",
+        "definition": "painter",
+        "freqIndex": 2218
+    },
+    {
+        "spWord": "pintoresco",
+        "partOfSpeech": "adj",
+        "definition": "picturesque",
+        "freqIndex": 4293
+    },
+    {
+        "spWord": "pintura",
+        "partOfSpeech": "nf",
+        "definition": "painting, paint",
+        "freqIndex": 1097
+    },
+    {
+        "spWord": "pionero",
+        "partOfSpeech": "nm",
+        "definition": "pioneer",
+        "freqIndex": 4980
+    },
+    {
+        "spWord": "pirámide",
+        "partOfSpeech": "nf",
+        "definition": "pyramid",
+        "freqIndex": 4799
+    },
+    {
+        "spWord": "pisar",
+        "partOfSpeech": "v",
+        "definition": "to step on",
+        "freqIndex": 2667
+    },
+    {
+        "spWord": "piscina",
+        "partOfSpeech": "nf",
+        "definition": "swimming pool",
+        "freqIndex": 4653
+    },
+    {
+        "spWord": "piso",
+        "partOfSpeech": "nm",
+        "definition": "floor, story",
+        "freqIndex": 797
+    },
+    {
+        "spWord": "pista",
+        "partOfSpeech": "nf",
+        "definition": "clue, track, trace",
+        "freqIndex": 2065
+    },
+    {
+        "spWord": "pistola",
+        "partOfSpeech": "nf",
+        "definition": "gun, pistol",
+        "freqIndex": 3745
+    },
+    {
+        "spWord": "placa",
+        "partOfSpeech": "nf",
+        "definition": "plaque, plate, badge",
+        "freqIndex": 3330
+    },
+    {
+        "spWord": "placer",
+        "partOfSpeech": "nm",
+        "definition": "pleasure",
+        "freqIndex": 1205
+    },
+    {
+        "spWord": "plan",
+        "partOfSpeech": "nm",
+        "definition": "plan",
+        "freqIndex": 598
+    },
+    {
+        "spWord": "plancha",
+        "partOfSpeech": "nf",
+        "definition": "(electric) iron, plate, sheet",
+        "freqIndex": 4073
+    },
+    {
+        "spWord": "planear",
+        "partOfSpeech": "v",
+        "definition": "to plan",
+        "freqIndex": 2872
+    },
+    {
+        "spWord": "planeta",
+        "partOfSpeech": "nm",
+        "definition": "planet",
+        "freqIndex": 2004
+    },
+    {
+        "spWord": "plano",
+        "partOfSpeech": "nm",
+        "definition": "plane, map, level",
+        "freqIndex": 875
+    },
+    {
+        "spWord": "plano",
+        "partOfSpeech": "adj",
+        "definition": "flat, plain, even, level",
+        "freqIndex": 3005
+    },
+    {
+        "spWord": "planta",
+        "partOfSpeech": "nf",
+        "definition": "plant, floor",
+        "freqIndex": 711
+    },
+    {
+        "spWord": "plantar",
+        "partOfSpeech": "v",
+        "definition": "to plant",
+        "freqIndex": 2949
+    },
+    {
+        "spWord": "planteamiento",
+        "partOfSpeech": "nm",
+        "definition": "proposal, exposition",
+        "freqIndex": 3626
+    },
+    {
+        "spWord": "plantear",
+        "partOfSpeech": "v",
+        "definition": "to propose, present",
+        "freqIndex": 910
+    },
+    {
+        "spWord": "plástico",
+        "partOfSpeech": "nm",
+        "definition": "plastic",
+        "freqIndex": 2947
+    },
+    {
+        "spWord": "plástico",
+        "partOfSpeech": "adj",
+        "definition": "plastic",
+        "freqIndex": 2988
+    },
+    {
+        "spWord": "plata",
+        "partOfSpeech": "nf",
+        "definition": "silver, money",
+        "freqIndex": 1281
+    },
+    {
+        "spWord": "plataforma",
+        "partOfSpeech": "nf",
+        "definition": "platform, springboard",
+        "freqIndex": 3965
+    },
+    {
+        "spWord": "plato",
+        "partOfSpeech": "nm",
+        "definition": "plate, dish",
+        "freqIndex": 1836
+    },
+    {
+        "spWord": "playa",
+        "partOfSpeech": "nf",
+        "definition": "beach, seaside",
+        "freqIndex": 1713
+    },
+    {
+        "spWord": "plaza",
+        "partOfSpeech": "nf",
+        "definition": "square, marketplace",
+        "freqIndex": 1020
+    },
+    {
+        "spWord": "plazo",
+        "partOfSpeech": "nm",
+        "definition": "deadline, installment",
+        "freqIndex": 1295
+    },
+    {
+        "spWord": "pleito",
+        "partOfSpeech": "nm",
+        "definition": "litigation, suit, dispute",
+        "freqIndex": 4378
+    },
+    {
+        "spWord": "plenamente",
+        "partOfSpeech": "adv",
+        "definition": "fully",
+        "freqIndex": 2340
+    },
+    {
+        "spWord": "plenitud",
+        "partOfSpeech": "nf",
+        "definition": "fullness, abundance",
+        "freqIndex": 3383
+    },
+    {
+        "spWord": "pleno",
+        "partOfSpeech": "adj",
+        "definition": "complete, full",
+        "freqIndex": 679
+    },
+    {
+        "spWord": "plomo",
+        "partOfSpeech": "nm",
+        "definition": "lead, bullet",
+        "freqIndex": 3386
+    },
+    {
+        "spWord": "pluma",
+        "partOfSpeech": "nf",
+        "definition": "pen, feather",
+        "freqIndex": 2444
+    },
+    {
+        "spWord": "población",
+        "partOfSpeech": "nf",
+        "definition": "population",
+        "freqIndex": 900
+    },
+    {
+        "spWord": "poblado",
+        "partOfSpeech": "adj",
+        "definition": "populated",
+        "freqIndex": 3695
+    },
+    {
+        "spWord": "poblar",
+        "partOfSpeech": "v",
+        "definition": "to populate, inhabit",
+        "freqIndex": 4142
+    },
+    {
+        "spWord": "pobre",
+        "partOfSpeech": "adj",
+        "definition": "poor",
+        "freqIndex": 373
+    },
+    {
+        "spWord": "pobreza",
+        "partOfSpeech": "nf",
+        "definition": "poverty, lack, scarcity",
+        "freqIndex": 1874
+    },
+    {
+        "spWord": "poco",
+        "partOfSpeech": "adj",
+        "definition": "little, few, a little bit (adv)",
+        "freqIndex": 74
+    },
+    {
+        "spWord": "poder",
+        "partOfSpeech": "v",
+        "definition": "to be able to; can",
+        "freqIndex": 27
+    },
+    {
+        "spWord": "poder",
+        "partOfSpeech": "nm",
+        "definition": "power",
+        "freqIndex": 428
+    },
+    {
+        "spWord": "poderoso",
+        "partOfSpeech": "adj",
+        "definition": "powerful",
+        "freqIndex": 1560
+    },
+    {
+        "spWord": "poema",
+        "partOfSpeech": "nm",
+        "definition": "poem",
+        "freqIndex": 1855
+    },
+    {
+        "spWord": "poesía",
+        "partOfSpeech": "nf",
+        "definition": "poetry, poem",
+        "freqIndex": 1841
+    },
+    {
+        "spWord": "poeta",
+        "partOfSpeech": "nc",
+        "definition": "poet",
+        "freqIndex": 1262
+    },
+    {
+        "spWord": "poético",
+        "partOfSpeech": "adj",
+        "definition": "poetic",
+        "freqIndex": 3312
+    },
+    {
+        "spWord": "polémica",
+        "partOfSpeech": "nf",
+        "definition": "polemics, argument",
+        "freqIndex": 3774
+    },
+    {
+        "spWord": "policía",
+        "partOfSpeech": "nc",
+        "definition": "police, police force, police officer",
+        "freqIndex": 1017
+    },
+    {
+        "spWord": "policial",
+        "partOfSpeech": "adj",
+        "definition": "police",
+        "freqIndex": 3311
+    },
+    {
+        "spWord": "política",
+        "partOfSpeech": "nf",
+        "definition": "politics, policy",
+        "freqIndex": 506
+    },
+    {
+        "spWord": "político",
+        "partOfSpeech": "adj",
+        "definition": "political",
+        "freqIndex": 284
+    },
+    {
+        "spWord": "político",
+        "partOfSpeech": "nm/f",
+        "definition": "politician",
+        "freqIndex": 1237
+    },
+    {
+        "spWord": "pollo",
+        "partOfSpeech": "nm",
+        "definition": "chicken",
+        "freqIndex": 3231
+    },
+    {
+        "spWord": "polo",
+        "partOfSpeech": "nm",
+        "definition": "pole, polo, polo shirt",
+        "freqIndex": 3609
+    },
+    {
+        "spWord": "polvo",
+        "partOfSpeech": "nm",
+        "definition": "dust, powder",
+        "freqIndex": 1971
+    },
+    {
+        "spWord": "pólvora",
+        "partOfSpeech": "nf",
+        "definition": "gunpowder, powder",
+        "freqIndex": 4763
+    },
+    {
+        "spWord": "poner",
+        "partOfSpeech": "v",
+        "definition": "to put (on), get (+adj)",
+        "freqIndex": 77
+    },
+    {
+        "spWord": "popular",
+        "partOfSpeech": "adj",
+        "definition": "popular",
+        "freqIndex": 709
+    },
+    {
+        "spWord": "poquito",
+        "partOfSpeech": "adj",
+        "definition": "little bit",
+        "freqIndex": 2463
+    },
+    {
+        "spWord": "por",
+        "partOfSpeech": "prep",
+        "definition": "by, for, through",
+        "freqIndex": 12
+    },
+    {
+        "spWord": "porcentaje",
+        "partOfSpeech": "nm",
+        "definition": "percentage",
+        "freqIndex": 3015
+    },
+    {
+        "spWord": "porción",
+        "partOfSpeech": "nf",
+        "definition": "part, portion, share",
+        "freqIndex": 3403
+    },
+    {
+        "spWord": "porque",
+        "partOfSpeech": "conj",
+        "definition": "because",
+        "freqIndex": 38
+    },
+    {
+        "spWord": "porquería",
+        "partOfSpeech": "nf",
+        "definition": "filth, junk",
+        "freqIndex": 3046
+    },
+    {
+        "spWord": "portador",
+        "partOfSpeech": "nm",
+        "definition": "bearer, carrier",
+        "freqIndex": 3362
+    },
+    {
+        "spWord": "portar",
+        "partOfSpeech": "v",
+        "definition": "to behave [se], carry",
+        "freqIndex": 2254
+    },
+    {
+        "spWord": "portero",
+        "partOfSpeech": "nm/f",
+        "definition": "porter, doorkeeper, goalkeeper",
+        "freqIndex": 4315
+    },
+    {
+        "spWord": "portugués",
+        "partOfSpeech": "adj",
+        "definition": "Portuguese",
+        "freqIndex": 3913
+    },
+    {
+        "spWord": "porvenir",
+        "partOfSpeech": "nm",
+        "definition": "future, time to come",
+        "freqIndex": 2766
+    },
+    {
+        "spWord": "posar",
+        "partOfSpeech": "v",
+        "definition": "to rest, pose, land",
+        "freqIndex": 4709
+    },
+    {
+        "spWord": "poseer",
+        "partOfSpeech": "v",
+        "definition": "to possess, own",
+        "freqIndex": 1005
+    },
+    {
+        "spWord": "posesión",
+        "partOfSpeech": "nf",
+        "definition": "possession",
+        "freqIndex": 2158
+    },
+    {
+        "spWord": "posibilidad",
+        "partOfSpeech": "nf",
+        "definition": "possibility",
+        "freqIndex": 367
+    },
+    {
+        "spWord": "posible",
+        "partOfSpeech": "adj",
+        "definition": "possible",
+        "freqIndex": 225
+    },
+    {
+        "spWord": "posiblemente",
+        "partOfSpeech": "adv",
+        "definition": "possibly",
+        "freqIndex": 1980
+    },
+    {
+        "spWord": "posición",
+        "partOfSpeech": "nf",
+        "definition": "position",
+        "freqIndex": 503
+    },
+    {
+        "spWord": "positivo",
+        "partOfSpeech": "adj",
+        "definition": "positive",
+        "freqIndex": 1356
+    },
+    {
+        "spWord": "posterior",
+        "partOfSpeech": "adj",
+        "definition": "rear, backside",
+        "freqIndex": 1399
+    },
+    {
+        "spWord": "posteriormente",
+        "partOfSpeech": "adv",
+        "definition": "afterwards",
+        "freqIndex": 2430
+    },
+    {
+        "spWord": "postre",
+        "partOfSpeech": "nm",
+        "definition": "dessert",
+        "freqIndex": 2985
+    },
+    {
+        "spWord": "a la postre",
+        "partOfSpeech": "adv",
+        "definition": "in the end",
+        "freqIndex": 2985
+    },
+    {
+        "spWord": "postura",
+        "partOfSpeech": "nf",
+        "definition": "posture, position, attitude",
+        "freqIndex": 1636
+    },
+    {
+        "spWord": "potencia",
+        "partOfSpeech": "nf",
+        "definition": "power, potential",
+        "freqIndex": 1779
+    },
+    {
+        "spWord": "potencial",
+        "partOfSpeech": "adj",
+        "definition": "potential",
+        "freqIndex": 4439
+    },
+    {
+        "spWord": "potente",
+        "partOfSpeech": "adj",
+        "definition": "potent, powerful",
+        "freqIndex": 3133
+    },
+    {
+        "spWord": "pozo",
+        "partOfSpeech": "nm",
+        "definition": "well, shaft",
+        "freqIndex": 2625
+    },
+    {
+        "spWord": "práctica",
+        "partOfSpeech": "nf",
+        "definition": "practice, skill",
+        "freqIndex": 933
+    },
+    {
+        "spWord": "prácticamente",
+        "partOfSpeech": "adv",
+        "definition": "practically",
+        "freqIndex": 1106
+    },
+    {
+        "spWord": "practicar",
+        "partOfSpeech": "v",
+        "definition": "to practice",
+        "freqIndex": 1303
+    },
+    {
+        "spWord": "práctico",
+        "partOfSpeech": "adj",
+        "definition": "practical, skillful",
+        "freqIndex": 1270
+    },
+    {
+        "spWord": "precario",
+        "partOfSpeech": "adj",
+        "definition": "precarious",
+        "freqIndex": 4046
+    },
+    {
+        "spWord": "precaución",
+        "partOfSpeech": "nf",
+        "definition": "caution, forethought",
+        "freqIndex": 2918
+    },
+    {
+        "spWord": "precedente",
+        "partOfSpeech": "nm",
+        "definition": "precedent",
+        "freqIndex": 4858
+    },
+    {
+        "spWord": "preceder",
+        "partOfSpeech": "v",
+        "definition": "to precede",
+        "freqIndex": 3288
+    },
+    {
+        "spWord": "precio",
+        "partOfSpeech": "nm",
+        "definition": "price, cost, value",
+        "freqIndex": 708
+    },
+    {
+        "spWord": "precioso",
+        "partOfSpeech": "adj",
+        "definition": "beautiful, precious",
+        "freqIndex": 1839
+    },
+    {
+        "spWord": "precipitar",
+        "partOfSpeech": "v",
+        "definition": "to plunge, hurl, rush",
+        "freqIndex": 3119
+    },
+    {
+        "spWord": "precisamente",
+        "partOfSpeech": "adv",
+        "definition": "precisely",
+        "freqIndex": 580
+    },
+    {
+        "spWord": "precisar",
+        "partOfSpeech": "v",
+        "definition": "to do exactly, specify",
+        "freqIndex": 1923
+    },
+    {
+        "spWord": "precisión",
+        "partOfSpeech": "nf",
+        "definition": "precision",
+        "freqIndex": 1847
+    },
+    {
+        "spWord": "preciso",
+        "partOfSpeech": "adj",
+        "definition": "precise, necessary",
+        "freqIndex": 739
+    },
+    {
+        "spWord": "predecir",
+        "partOfSpeech": "v",
+        "definition": "to predict",
+        "freqIndex": 4496
+    },
+    {
+        "spWord": "predicar",
+        "partOfSpeech": "v",
+        "definition": "to preach",
+        "freqIndex": 3917
+    },
+    {
+        "spWord": "predominar",
+        "partOfSpeech": "v",
+        "definition": "to predominate",
+        "freqIndex": 4567
+    },
+    {
+        "spWord": "preferencia",
+        "partOfSpeech": "nf",
+        "definition": "preference",
+        "freqIndex": 2623
+    },
+    {
+        "spWord": "preferible",
+        "partOfSpeech": "adj",
+        "definition": "preferable",
+        "freqIndex": 3126
+    },
+    {
+        "spWord": "preferido",
+        "partOfSpeech": "adj",
+        "definition": "preferred, favorite",
+        "freqIndex": 3744
+    },
+    {
+        "spWord": "preferir",
+        "partOfSpeech": "v",
+        "definition": "to prefer",
+        "freqIndex": 541
+    },
+    {
+        "spWord": "pregunta",
+        "partOfSpeech": "nf",
+        "definition": "question",
+        "freqIndex": 481
+    },
+    {
+        "spWord": "preguntar",
+        "partOfSpeech": "v",
+        "definition": "to ask (a question)",
+        "freqIndex": 323
+    },
+    {
+        "spWord": "prejuicio",
+        "partOfSpeech": "nm",
+        "definition": "prejudice",
+        "freqIndex": 2906
+    },
+    {
+        "spWord": "prematuro",
+        "partOfSpeech": "adj",
+        "definition": "premature",
+        "freqIndex": 4853
+    },
+    {
+        "spWord": "premiar",
+        "partOfSpeech": "v",
+        "definition": "to award",
+        "freqIndex": 4583
+    },
+    {
+        "spWord": "premio",
+        "partOfSpeech": "nm",
+        "definition": "prize, reward",
+        "freqIndex": 1337
+    },
+    {
+        "spWord": "prenda",
+        "partOfSpeech": "nf",
+        "definition": "piece of clothing",
+        "freqIndex": 2939
+    },
+    {
+        "spWord": "prender",
+        "partOfSpeech": "v",
+        "definition": "to turn on, apprehend",
+        "freqIndex": 2454
+    },
+    {
+        "spWord": "prensa",
+        "partOfSpeech": "nf",
+        "definition": "press",
+        "freqIndex": 1318
+    },
+    {
+        "spWord": "preocupación",
+        "partOfSpeech": "nf",
+        "definition": "worry, concern",
+        "freqIndex": 995
+    },
+    {
+        "spWord": "preocupado",
+        "partOfSpeech": "adj",
+        "definition": "worried, concerned",
+        "freqIndex": 1677
+    },
+    {
+        "spWord": "preocupar",
+        "partOfSpeech": "v",
+        "definition": "to worry",
+        "freqIndex": 766
+    },
+    {
+        "spWord": "preparación",
+        "partOfSpeech": "nf",
+        "definition": "preparation, training",
+        "freqIndex": 2128
+    },
+    {
+        "spWord": "preparado",
+        "partOfSpeech": "adj",
+        "definition": "prepared",
+        "freqIndex": 1067
+    },
+    {
+        "spWord": "preparar",
+        "partOfSpeech": "v",
+        "definition": "to prepare",
+        "freqIndex": 499
+    },
+    {
+        "spWord": "presa",
+        "partOfSpeech": "nf",
+        "definition": "dam, prisoner (f)",
+        "freqIndex": 2635
+    },
+    {
+        "spWord": "prescindir",
+        "partOfSpeech": "v",
+        "definition": "to do without",
+        "freqIndex": 3692
+    },
+    {
+        "spWord": "presencia",
+        "partOfSpeech": "nf",
+        "definition": "presence, appearance",
+        "freqIndex": 519
+    },
+    {
+        "spWord": "presenciar",
+        "partOfSpeech": "v",
+        "definition": "to be present at, witness",
+        "freqIndex": 3538
+    },
+    {
+        "spWord": "presentación",
+        "partOfSpeech": "nf",
+        "definition": "presentation, introduction",
+        "freqIndex": 1990
+    },
+    {
+        "spWord": "presentar",
+        "partOfSpeech": "v",
+        "definition": "to introduce, present",
+        "freqIndex": 249
+    },
+    {
+        "spWord": "presente",
+        "partOfSpeech": "nm",
+        "definition": "present",
+        "freqIndex": 802
+    },
+    {
+        "spWord": "presente",
+        "partOfSpeech": "adj",
+        "definition": "present, current",
+        "freqIndex": 1088
+    },
+    {
+        "spWord": "presentir",
+        "partOfSpeech": "v",
+        "definition": "to sense in advance",
+        "freqIndex": 4783
+    },
+    {
+        "spWord": "preservar",
+        "partOfSpeech": "v",
+        "definition": "to preserve",
+        "freqIndex": 3361
+    },
+    {
+        "spWord": "presidencia",
+        "partOfSpeech": "nf",
+        "definition": "presidency",
+        "freqIndex": 4087
+    },
+    {
+        "spWord": "presidencial",
+        "partOfSpeech": "adj",
+        "definition": "presidential",
+        "freqIndex": 4388
+    },
+    {
+        "spWord": "presidente",
+        "partOfSpeech": "nm",
+        "definition": "president",
+        "freqIndex": 831
+    },
+    {
+        "spWord": "presidir",
+        "partOfSpeech": "v",
+        "definition": "to preside over",
+        "freqIndex": 3020
+    },
+    {
+        "spWord": "presión",
+        "partOfSpeech": "nf",
+        "definition": "pressure",
+        "freqIndex": 967
+    },
+    {
+        "spWord": "presionar",
+        "partOfSpeech": "v",
+        "definition": "to press, pressure",
+        "freqIndex": 2896
+    },
+    {
+        "spWord": "preso",
+        "partOfSpeech": "nm",
+        "definition": "prisoner",
+        "freqIndex": 3069
+    },
+    {
+        "spWord": "preso",
+        "partOfSpeech": "adj",
+        "definition": "imprisoned, confined",
+        "freqIndex": 3756
+    },
+    {
+        "spWord": "prestado",
+        "partOfSpeech": "adj",
+        "definition": "borrowed, lent",
+        "freqIndex": 2682
+    },
+    {
+        "spWord": "préstamo",
+        "partOfSpeech": "nm",
+        "definition": "loan, borrowing",
+        "freqIndex": 3694
+    },
+    {
+        "spWord": "prestar",
+        "partOfSpeech": "v",
+        "definition": "to lend",
+        "freqIndex": 767
+    },
+    {
+        "spWord": "prestigio",
+        "partOfSpeech": "nm",
+        "definition": "prestige",
+        "freqIndex": 1908
+    },
+    {
+        "spWord": "prestigioso",
+        "partOfSpeech": "adj",
+        "definition": "prestigious",
+        "freqIndex": 4620
+    },
+    {
+        "spWord": "presumir",
+        "partOfSpeech": "v",
+        "definition": "to boast, show off, suppose",
+        "freqIndex": 3340
+    },
+    {
+        "spWord": "presunto",
+        "partOfSpeech": "adj",
+        "definition": "alleged, presumed",
+        "freqIndex": 4501
+    },
+    {
+        "spWord": "presupuesto",
+        "partOfSpeech": "nm",
+        "definition": "budget",
+        "freqIndex": 2630
+    },
+    {
+        "spWord": "pretender",
+        "partOfSpeech": "v",
+        "definition": "to attempt",
+        "freqIndex": 584
+    },
+    {
+        "spWord": "pretensión",
+        "partOfSpeech": "nf",
+        "definition": "pretension, claim",
+        "freqIndex": 2728
+    },
+    {
+        "spWord": "pretexto",
+        "partOfSpeech": "nm",
+        "definition": "pretext, excuse",
+        "freqIndex": 2737
+    },
+    {
+        "spWord": "prevalecer",
+        "partOfSpeech": "v",
+        "definition": "to prevail",
+        "freqIndex": 4265
+    },
+    {
+        "spWord": "prevención",
+        "partOfSpeech": "nf",
+        "definition": "prevention, warning",
+        "freqIndex": 4995
+    },
+    {
+        "spWord": "prevenir",
+        "partOfSpeech": "v",
+        "definition": "to avoid, prevent",
+        "freqIndex": 3270
+    },
+    {
+        "spWord": "prever",
+        "partOfSpeech": "v",
+        "definition": "to foresee, anticipate, forecast",
+        "freqIndex": 2105
+    },
+    {
+        "spWord": "previamente",
+        "partOfSpeech": "adv",
+        "definition": "previously",
+        "freqIndex": 2891
+    },
+    {
+        "spWord": "previo",
+        "partOfSpeech": "adj",
+        "definition": "previous",
+        "freqIndex": 1437
+    },
+    {
+        "spWord": "previsible",
+        "partOfSpeech": "adj",
+        "definition": "foreseeable",
+        "freqIndex": 4835
+    },
+    {
+        "spWord": "previsión",
+        "partOfSpeech": "nf",
+        "definition": "forecast, precaution",
+        "freqIndex": 3440
+    },
+    {
+        "spWord": "previsto",
+        "partOfSpeech": "adj",
+        "definition": "foreseen, planned",
+        "freqIndex": 2086
+    },
+    {
+        "spWord": "prima",
+        "partOfSpeech": "nf",
+        "definition": "female cousin, down payment",
+        "freqIndex": 3283
+    },
+    {
+        "spWord": "primario",
+        "partOfSpeech": "adj",
+        "definition": "primary",
+        "freqIndex": 1715
+    },
+    {
+        "spWord": "primavera",
+        "partOfSpeech": "nf",
+        "definition": "spring, spring-like",
+        "freqIndex": 2325
+    },
+    {
+        "spWord": "primero",
+        "partOfSpeech": "adj",
+        "definition": "first",
+        "freqIndex": 60
+    },
+    {
+        "spWord": "primitivo",
+        "partOfSpeech": "adj",
+        "definition": "primitive",
+        "freqIndex": 2038
+    },
+    {
+        "spWord": "primo",
+        "partOfSpeech": "nm",
+        "definition": "cousin",
+        "freqIndex": 1860
+    },
+    {
+        "spWord": "primordial",
+        "partOfSpeech": "adj",
+        "definition": "fundamental, primary",
+        "freqIndex": 4152
+    },
+    {
+        "spWord": "princesa",
+        "partOfSpeech": "nf",
+        "definition": "princess",
+        "freqIndex": 4402
+    },
+    {
+        "spWord": "principal",
+        "partOfSpeech": "adj",
+        "definition": "main, principal",
+        "freqIndex": 496
+    },
+    {
+        "spWord": "principalmente",
+        "partOfSpeech": "adv",
+        "definition": "principally, mainly",
+        "freqIndex": 2226
+    },
+    {
+        "spWord": "príncipe",
+        "partOfSpeech": "nm",
+        "definition": "prince",
+        "freqIndex": 2616
+    },
+    {
+        "spWord": "principio",
+        "partOfSpeech": "nm",
+        "definition": "beginning, principle",
+        "freqIndex": 237
+    },
+    {
+        "spWord": "prioridad",
+        "partOfSpeech": "nf",
+        "definition": "priority",
+        "freqIndex": 4505
+    },
+    {
+        "spWord": "prisa",
+        "partOfSpeech": "nf",
+        "definition": "hurry",
+        "freqIndex": 3253
+    },
+    {
+        "spWord": "prisión",
+        "partOfSpeech": "nf",
+        "definition": "prison, imprisonment",
+        "freqIndex": 2980
+    },
+    {
+        "spWord": "prisionero",
+        "partOfSpeech": "nm",
+        "definition": "prisoner",
+        "freqIndex": 3176
+    },
+    {
+        "spWord": "privado",
+        "partOfSpeech": "adj",
+        "definition": "private",
+        "freqIndex": 706
+    },
+    {
+        "spWord": "privar",
+        "partOfSpeech": "v",
+        "definition": "to deprive (of)",
+        "freqIndex": 2868
+    },
+    {
+        "spWord": "privilegiado",
+        "partOfSpeech": "adj",
+        "definition": "privileged",
+        "freqIndex": 3579
+    },
+    {
+        "spWord": "privilegio",
+        "partOfSpeech": "nm",
+        "definition": "privilege",
+        "freqIndex": 1843
+    },
+    {
+        "spWord": "probabilidad",
+        "partOfSpeech": "nf",
+        "definition": "probability",
+        "freqIndex": 4393
+    },
+    {
+        "spWord": "probable",
+        "partOfSpeech": "adj",
+        "definition": "probable",
+        "freqIndex": 1840
+    },
+    {
+        "spWord": "probablemente",
+        "partOfSpeech": "adv",
+        "definition": "probably",
+        "freqIndex": 971
+    },
+    {
+        "spWord": "probar",
+        "partOfSpeech": "v",
+        "definition": "to test, prove, try",
+        "freqIndex": 911
+    },
+    {
+        "spWord": "problema",
+        "partOfSpeech": "nm",
+        "definition": "problem",
+        "freqIndex": 169
+    },
+    {
+        "spWord": "procedencia",
+        "partOfSpeech": "nf",
+        "definition": "origin, source",
+        "freqIndex": 4611
+    },
+    {
+        "spWord": "procedente",
+        "partOfSpeech": "adj",
+        "definition": "coming (from)",
+        "freqIndex": 3260
+    },
+    {
+        "spWord": "proceder",
+        "partOfSpeech": "v",
+        "definition": "to proceed, start",
+        "freqIndex": 1322
+    },
+    {
+        "spWord": "procedimiento",
+        "partOfSpeech": "nm",
+        "definition": "procedure, proceedings",
+        "freqIndex": 1544
+    },
+    {
+        "spWord": "procesión",
+        "partOfSpeech": "nf",
+        "definition": "procession",
+        "freqIndex": 4280
+    },
+    {
+        "spWord": "proceso",
+        "partOfSpeech": "nm",
+        "definition": "process, procedure",
+        "freqIndex": 452
+    },
+    {
+        "spWord": "proclamar",
+        "partOfSpeech": "v",
+        "definition": "to proclaim",
+        "freqIndex": 2944
+    },
+    {
+        "spWord": "procurar",
+        "partOfSpeech": "v",
+        "definition": "to try, seek",
+        "freqIndex": 1100
+    },
+    {
+        "spWord": "prodigioso",
+        "partOfSpeech": "adj",
+        "definition": "prodigious, famous",
+        "freqIndex": 4938
+    },
+    {
+        "spWord": "producción",
+        "partOfSpeech": "nf",
+        "definition": "production",
+        "freqIndex": 1721
+    },
+    {
+        "spWord": "producir",
+        "partOfSpeech": "v",
+        "definition": "to produce, cause",
+        "freqIndex": 195
+    },
+    {
+        "spWord": "productivo",
+        "partOfSpeech": "adj",
+        "definition": "productive, profitable",
+        "freqIndex": 4589
+    },
+    {
+        "spWord": "producto",
+        "partOfSpeech": "nm",
+        "definition": "product",
+        "freqIndex": 589
+    },
+    {
+        "spWord": "productor",
+        "partOfSpeech": "nm",
+        "definition": "producer",
+        "freqIndex": 4312
+    },
+    {
+        "spWord": "profesión",
+        "partOfSpeech": "nf",
+        "definition": "profession, occupation",
+        "freqIndex": 1206
+    },
+    {
+        "spWord": "profesional",
+        "partOfSpeech": "adj",
+        "definition": "professional",
+        "freqIndex": 640
+    },
+    {
+        "spWord": "profesor",
+        "partOfSpeech": "nm/f",
+        "definition": "professor, teacher",
+        "freqIndex": 621
+    },
+    {
+        "spWord": "profeta",
+        "partOfSpeech": "nm",
+        "definition": "prophet",
+        "freqIndex": 4804
+    },
+    {
+        "spWord": "profundamente",
+        "partOfSpeech": "adv",
+        "definition": "profoundly, deeply",
+        "freqIndex": 1365
+    },
+    {
+        "spWord": "profundidad",
+        "partOfSpeech": "nf",
+        "definition": "depth, profundity",
+        "freqIndex": 1330
+    },
+    {
+        "spWord": "profundizar",
+        "partOfSpeech": "v",
+        "definition": "to deepen, analyze in depth",
+        "freqIndex": 3634
+    },
+    {
+        "spWord": "profundo",
+        "partOfSpeech": "adj",
+        "definition": "deep, profound",
+        "freqIndex": 489
+    },
+    {
+        "spWord": "programa",
+        "partOfSpeech": "nm",
+        "definition": "program, plan",
+        "freqIndex": 467
+    },
+    {
+        "spWord": "programar",
+        "partOfSpeech": "v",
+        "definition": "to plan, program",
+        "freqIndex": 3162
+    },
+    {
+        "spWord": "progresar",
+        "partOfSpeech": "v",
+        "definition": "to progress",
+        "freqIndex": 2916
+    },
+    {
+        "spWord": "progresivo",
+        "partOfSpeech": "adj",
+        "definition": "progressive",
+        "freqIndex": 3685
+    },
+    {
+        "spWord": "progreso",
+        "partOfSpeech": "nm",
+        "definition": "progress",
+        "freqIndex": 1591
+    },
+    {
+        "spWord": "prohibición",
+        "partOfSpeech": "nf",
+        "definition": "prohibition",
+        "freqIndex": 4343
+    },
+    {
+        "spWord": "prohibido",
+        "partOfSpeech": "adj",
+        "definition": "prohibited",
+        "freqIndex": 2257
+    },
+    {
+        "spWord": "prohibir",
+        "partOfSpeech": "v",
+        "definition": "to prohibit, forbid",
+        "freqIndex": 1741
+    },
+    {
+        "spWord": "prolongación",
+        "partOfSpeech": "nf",
+        "definition": "extension",
+        "freqIndex": 4749
+    },
+    {
+        "spWord": "prolongado",
+        "partOfSpeech": "adj",
+        "definition": "prolonged, lengthy",
+        "freqIndex": 2929
+    },
+    {
+        "spWord": "prolongar",
+        "partOfSpeech": "v",
+        "definition": "to extend, prolong",
+        "freqIndex": 2077
+    },
+    {
+        "spWord": "promesa",
+        "partOfSpeech": "nf",
+        "definition": "promise",
+        "freqIndex": 2051
+    },
+    {
+        "spWord": "prometer",
+        "partOfSpeech": "v",
+        "definition": "to promise",
+        "freqIndex": 1641
+    },
+    {
+        "spWord": "promoción",
+        "partOfSpeech": "nf",
+        "definition": "promotion",
+        "freqIndex": 2706
+    },
+    {
+        "spWord": "promover",
+        "partOfSpeech": "v",
+        "definition": "to promote",
+        "freqIndex": 2767
+    },
+    {
+        "spWord": "pronto",
+        "partOfSpeech": "adv",
+        "definition": "soon, quick",
+        "freqIndex": 396
+    },
+    {
+        "spWord": "pronunciar",
+        "partOfSpeech": "v",
+        "definition": "to pronounce",
+        "freqIndex": 944
+    },
+    {
+        "spWord": "propaganda",
+        "partOfSpeech": "nf",
+        "definition": "advertising, propaganda",
+        "freqIndex": 2508
+    },
+    {
+        "spWord": "propagar",
+        "partOfSpeech": "v",
+        "definition": "to propagate, spread",
+        "freqIndex": 4958
+    },
+    {
+        "spWord": "propiamente",
+        "partOfSpeech": "adv",
+        "definition": "exactly, properly",
+        "freqIndex": 3079
+    },
+    {
+        "spWord": "propiciar",
+        "partOfSpeech": "v",
+        "definition": "to favor, foster, aid",
+        "freqIndex": 3884
+    },
+    {
+        "spWord": "propicio",
+        "partOfSpeech": "adj",
+        "definition": "appropriate, suitable",
+        "freqIndex": 3636
+    },
+    {
+        "spWord": "propiedad",
+        "partOfSpeech": "nf",
+        "definition": "property",
+        "freqIndex": 588
+    },
+    {
+        "spWord": "propietario",
+        "partOfSpeech": "nm",
+        "definition": "owner",
+        "freqIndex": 2526
+    },
+    {
+        "spWord": "propio",
+        "partOfSpeech": "adj",
+        "definition": "own, proper, typical",
+        "freqIndex": 140
+    },
+    {
+        "spWord": "proponer",
+        "partOfSpeech": "v",
+        "definition": "to propose",
+        "freqIndex": 500
+    },
+    {
+        "spWord": "proporción",
+        "partOfSpeech": "nf",
+        "definition": "proportion",
+        "freqIndex": 2109
+    },
+    {
+        "spWord": "proporcionar",
+        "partOfSpeech": "v",
+        "definition": "to supply",
+        "freqIndex": 1742
+    },
+    {
+        "spWord": "proposición",
+        "partOfSpeech": "nf",
+        "definition": "proposition",
+        "freqIndex": 3647
+    },
+    {
+        "spWord": "propósito",
+        "partOfSpeech": "nm",
+        "definition": "intention, purpose",
+        "freqIndex": 752
+    },
+    {
+        "spWord": "propuesta",
+        "partOfSpeech": "nf",
+        "definition": "proposal, proposition",
+        "freqIndex": 2173
+    },
+    {
+        "spWord": "prosa",
+        "partOfSpeech": "nf",
+        "definition": "prose",
+        "freqIndex": 4524
+    },
+    {
+        "spWord": "proseguir",
+        "partOfSpeech": "v",
+        "definition": "to continue, carry on",
+        "freqIndex": 2534
+    },
+    {
+        "spWord": "prosperar",
+        "partOfSpeech": "v",
+        "definition": "to prosper, thrive",
+        "freqIndex": 4154
+    },
+    {
+        "spWord": "protagonista",
+        "partOfSpeech": "nc",
+        "definition": "protagonist, main character",
+        "freqIndex": 2536
+    },
+    {
+        "spWord": "protección",
+        "partOfSpeech": "nf",
+        "definition": "protection",
+        "freqIndex": 1652
+    },
+    {
+        "spWord": "protector",
+        "partOfSpeech": "nm",
+        "definition": "protector, defender",
+        "freqIndex": 4288
+    },
+    {
+        "spWord": "proteger",
+        "partOfSpeech": "v",
+        "definition": "to protect",
+        "freqIndex": 1006
+    },
+    {
+        "spWord": "protesta",
+        "partOfSpeech": "nf",
+        "definition": "objection, protest",
+        "freqIndex": 2134
+    },
+    {
+        "spWord": "protestar",
+        "partOfSpeech": "v",
+        "definition": "to protest, object",
+        "freqIndex": 2288
+    },
+    {
+        "spWord": "provecho",
+        "partOfSpeech": "nm",
+        "definition": "benefit, use",
+        "freqIndex": 3617
+    },
+    {
+        "spWord": "proveer",
+        "partOfSpeech": "v",
+        "definition": "to provide",
+        "freqIndex": 2911
+    },
+    {
+        "spWord": "proveniente",
+        "partOfSpeech": "adj",
+        "definition": "coming from",
+        "freqIndex": 4151
+    },
+    {
+        "spWord": "provenir",
+        "partOfSpeech": "v",
+        "definition": "to come from, be from",
+        "freqIndex": 1958
+    },
+    {
+        "spWord": "provincia",
+        "partOfSpeech": "nf",
+        "definition": "province, region",
+        "freqIndex": 1624
+    },
+    {
+        "spWord": "provincial",
+        "partOfSpeech": "adj",
+        "definition": "provincial",
+        "freqIndex": 4654
+    },
+    {
+        "spWord": "provocar",
+        "partOfSpeech": "v",
+        "definition": "to cause, provoke",
+        "freqIndex": 663
+    },
+    {
+        "spWord": "proximidad",
+        "partOfSpeech": "nf",
+        "definition": "proximity",
+        "freqIndex": 3338
+    },
+    {
+        "spWord": "próximo",
+        "partOfSpeech": "adj",
+        "definition": "next",
+        "freqIndex": 440
+    },
+    {
+        "spWord": "proyección",
+        "partOfSpeech": "nf",
+        "definition": "projection, screening",
+        "freqIndex": 3057
+    },
+    {
+        "spWord": "proyectar",
+        "partOfSpeech": "v",
+        "definition": "to project",
+        "freqIndex": 1471
+    },
+    {
+        "spWord": "proyecto",
+        "partOfSpeech": "nm",
+        "definition": "project, plan",
+        "freqIndex": 604
+    },
+    {
+        "spWord": "prudencia",
+        "partOfSpeech": "nf",
+        "definition": "prudence, moderation",
+        "freqIndex": 3621
+    },
+    {
+        "spWord": "prudente",
+        "partOfSpeech": "adj",
+        "definition": "sensible, prudent",
+        "freqIndex": 2884
+    },
+    {
+        "spWord": "prueba",
+        "partOfSpeech": "nf",
+        "definition": "proof, trial, test",
+        "freqIndex": 505
+    },
+    {
+        "spWord": "psicología",
+        "partOfSpeech": "nf",
+        "definition": "psychology",
+        "freqIndex": 4437
+    },
+    {
+        "spWord": "psicológico",
+        "partOfSpeech": "adj",
+        "definition": "psychological",
+        "freqIndex": 3123
+    },
+    {
+        "spWord": "psicólogo",
+        "partOfSpeech": "nm/f",
+        "definition": "psychologist",
+        "freqIndex": 4604
+    },
+    {
+        "spWord": "publicación",
+        "partOfSpeech": "nf",
+        "definition": "publication",
+        "freqIndex": 2702
+    },
+    {
+        "spWord": "públicamente",
+        "partOfSpeech": "adv",
+        "definition": "publicly, in public",
+        "freqIndex": 4877
+    },
+    {
+        "spWord": "publicar",
+        "partOfSpeech": "v",
+        "definition": "to publish",
+        "freqIndex": 743
+    },
+    {
+        "spWord": "publicidad",
+        "partOfSpeech": "nf",
+        "definition": "advertising, publicity",
+        "freqIndex": 2925
+    },
+    {
+        "spWord": "publicitario",
+        "partOfSpeech": "adj",
+        "definition": "advertising",
+        "freqIndex": 4297
+    },
+    {
+        "spWord": "público",
+        "partOfSpeech": "adj",
+        "definition": "public",
+        "freqIndex": 465
+    },
+    {
+        "spWord": "público",
+        "partOfSpeech": "nm",
+        "definition": "public, audience",
+        "freqIndex": 769
+    },
+    {
+        "spWord": "pueblo",
+        "partOfSpeech": "nm",
+        "definition": "people, village",
+        "freqIndex": 241
+    },
+    {
+        "spWord": "puente",
+        "partOfSpeech": "nm",
+        "definition": "bridge",
+        "freqIndex": 1353
+    },
+    {
+        "spWord": "puerta",
+        "partOfSpeech": "nf",
+        "definition": "door",
+        "freqIndex": 354
+    },
+    {
+        "spWord": "puerto",
+        "partOfSpeech": "nm",
+        "definition": "port, harbor",
+        "freqIndex": 1364
+    },
+    {
+        "spWord": "pues",
+        "partOfSpeech": "conj",
+        "definition": "then, well then",
+        "freqIndex": 103
+    },
+    {
+        "spWord": "puesto",
+        "partOfSpeech": "nm",
+        "definition": "job, place, position",
+        "freqIndex": 755
+    },
+    {
+        "spWord": "pugna",
+        "partOfSpeech": "nf",
+        "definition": "battle, struggle",
+        "freqIndex": 4712
+    },
+    {
+        "spWord": "pulmón",
+        "partOfSpeech": "nm",
+        "definition": "lung",
+        "freqIndex": 3420
+    },
+    {
+        "spWord": "pulso",
+        "partOfSpeech": "nm",
+        "definition": "pulse, pulsation",
+        "freqIndex": 3762
+    },
+    {
+        "spWord": "puñado",
+        "partOfSpeech": "nm",
+        "definition": "fistful, small group",
+        "freqIndex": 4693
+    },
+    {
+        "spWord": "puño",
+        "partOfSpeech": "nm",
+        "definition": "fist, handle, cuff",
+        "freqIndex": 3563
+    },
+    {
+        "spWord": "punta",
+        "partOfSpeech": "nf",
+        "definition": "tip, point",
+        "freqIndex": 1427
+    },
+    {
+        "spWord": "punto",
+        "partOfSpeech": "nm",
+        "definition": "point, dot, period",
+        "freqIndex": 147
+    },
+    {
+        "spWord": "puntual",
+        "partOfSpeech": "adj",
+        "definition": "punctual",
+        "freqIndex": 3498
+    },
+    {
+        "spWord": "puramente",
+        "partOfSpeech": "adv",
+        "definition": "purely, simply",
+        "freqIndex": 2753
+    },
+    {
+        "spWord": "pureza",
+        "partOfSpeech": "nf",
+        "definition": "purity, chastity",
+        "freqIndex": 3455
+    },
+    {
+        "spWord": "puro",
+        "partOfSpeech": "adj",
+        "definition": "pure, clean",
+        "freqIndex": 637
+    },
+    {
+        "spWord": "puta",
+        "partOfSpeech": "nf",
+        "definition": "whore, prostitute",
+        "freqIndex": 4982
+    },
+    {
+        "spWord": "que",
+        "partOfSpeech": "conj",
+        "definition": "that, which",
+        "freqIndex": 3
+    },
+    {
+        "spWord": "qué",
+        "partOfSpeech": "pron",
+        "definition": "what?, which?, how (+ adj)!",
+        "freqIndex": 47
+    },
+    {
+        "spWord": "quebrar",
+        "partOfSpeech": "v",
+        "definition": "to break, bend, weaken",
+        "freqIndex": 2375
+    },
+    {
+        "spWord": "quedar",
+        "partOfSpeech": "v",
+        "definition": "to remain, stay",
+        "freqIndex": 89
+    },
+    {
+        "spWord": "quehacer",
+        "partOfSpeech": "nm",
+        "definition": "task, job, chore",
+        "freqIndex": 3410
+    },
+    {
+        "spWord": "queja",
+        "partOfSpeech": "nf",
+        "definition": "complaint",
+        "freqIndex": 2922
+    },
+    {
+        "spWord": "quejar",
+        "partOfSpeech": "v",
+        "definition": "to complain",
+        "freqIndex": 1530
+    },
+    {
+        "spWord": "quemado",
+        "partOfSpeech": "adj",
+        "definition": "burned, burnt",
+        "freqIndex": 3365
+    },
+    {
+        "spWord": "quemar",
+        "partOfSpeech": "v",
+        "definition": "to burn",
+        "freqIndex": 1509
+    },
+    {
+        "spWord": "querer",
+        "partOfSpeech": "v",
+        "definition": "to want, love",
+        "freqIndex": 57
+    },
+    {
+        "spWord": "querido",
+        "partOfSpeech": "adj",
+        "definition": "dear, beloved",
+        "freqIndex": 2009
+    },
+    {
+        "spWord": "queso",
+        "partOfSpeech": "nm",
+        "definition": "cheese",
+        "freqIndex": 3182
+    },
+    {
+        "spWord": "quien",
+        "partOfSpeech": "pron",
+        "definition": "who, whom",
+        "freqIndex": 141
+    },
+    {
+        "spWord": "quién",
+        "partOfSpeech": "pron",
+        "definition": "who?, whom?",
+        "freqIndex": 292
+    },
+    {
+        "spWord": "quieto",
+        "partOfSpeech": "adj",
+        "definition": "still, motionless, calm",
+        "freqIndex": 3154
+    },
+    {
+        "spWord": "químico",
+        "partOfSpeech": "adj",
+        "definition": "chemical",
+        "freqIndex": 2864
+    },
+    {
+        "spWord": "quince",
+        "partOfSpeech": "num",
+        "definition": "fifteen",
+        "freqIndex": 1033
+    },
+    {
+        "spWord": "quinientos",
+        "partOfSpeech": "num",
+        "definition": "five hundred",
+        "freqIndex": 3426
+    },
+    {
+        "spWord": "quinto",
+        "partOfSpeech": "adj",
+        "definition": "fifth",
+        "freqIndex": 1179
+    },
+    {
+        "spWord": "quitar",
+        "partOfSpeech": "v",
+        "definition": "to remove, take away",
+        "freqIndex": 669
+    },
+    {
+        "spWord": "quizás",
+        "partOfSpeech": "adv",
+        "definition": "perhaps, maybe",
+        "freqIndex": 297
+    },
+    {
+        "spWord": "rabia",
+        "partOfSpeech": "nf",
+        "definition": "rage",
+        "freqIndex": 2887
+    },
+    {
+        "spWord": "racional",
+        "partOfSpeech": "adj",
+        "definition": "rational",
+        "freqIndex": 2890
+    },
+    {
+        "spWord": "radical",
+        "partOfSpeech": "adj",
+        "definition": "radical",
+        "freqIndex": 1987
+    },
+    {
+        "spWord": "radicalmente",
+        "partOfSpeech": "adv",
+        "definition": "radically",
+        "freqIndex": 4464
+    },
+    {
+        "spWord": "radicar",
+        "partOfSpeech": "v",
+        "definition": "to lie, be situated",
+        "freqIndex": 3763
+    },
+    {
+        "spWord": "radio",
+        "partOfSpeech": "nm",
+        "definition": "radio; set",
+        "freqIndex": 824
+    },
+    {
+        "spWord": "radio",
+        "partOfSpeech": "nf",
+        "definition": "communication",
+        "freqIndex": 824
+    },
+    {
+        "spWord": "raíz",
+        "partOfSpeech": "nf",
+        "definition": "root",
+        "freqIndex": 1028
+    },
+    {
+        "spWord": "rama",
+        "partOfSpeech": "nf",
+        "definition": "branch, bough, limb",
+        "freqIndex": 1160
+    },
+    {
+        "spWord": "ramo",
+        "partOfSpeech": "nm",
+        "definition": "bunch (of flowers), branch",
+        "freqIndex": 4284
+    },
+    {
+        "spWord": "rancho",
+        "partOfSpeech": "nm",
+        "definition": "ranch, farm",
+        "freqIndex": 4533
+    },
+    {
+        "spWord": "rango",
+        "partOfSpeech": "nm",
+        "definition": "rank, range",
+        "freqIndex": 3085
+    },
+    {
+        "spWord": "rápidamente",
+        "partOfSpeech": "adv",
+        "definition": "rapidly, quickly",
+        "freqIndex": 1008
+    },
+    {
+        "spWord": "rapidez",
+        "partOfSpeech": "nf",
+        "definition": "speed, velocity",
+        "freqIndex": 1899
+    },
+    {
+        "spWord": "rápido",
+        "partOfSpeech": "adj",
+        "definition": "quick, fast",
+        "freqIndex": 652
+    },
+    {
+        "spWord": "raro",
+        "partOfSpeech": "adj",
+        "definition": "strange, rare, scarce",
+        "freqIndex": 849
+    },
+    {
+        "spWord": "rascar",
+        "partOfSpeech": "v",
+        "definition": "to scratch, scrape",
+        "freqIndex": 4542
+    },
+    {
+        "spWord": "rasgo",
+        "partOfSpeech": "nm",
+        "definition": "feature, trait",
+        "freqIndex": 1355
+    },
+    {
+        "spWord": "rastro",
+        "partOfSpeech": "nm",
+        "definition": "track, sign, flea market",
+        "freqIndex": 3465
+    },
+    {
+        "spWord": "rata",
+        "partOfSpeech": "nf",
+        "definition": "rat",
+        "freqIndex": 3497
+    },
+    {
+        "spWord": "ratificar",
+        "partOfSpeech": "v",
+        "definition": "to ratify",
+        "freqIndex": 3942
+    },
+    {
+        "spWord": "rato",
+        "partOfSpeech": "nm",
+        "definition": "moment, while, time",
+        "freqIndex": 1478
+    },
+    {
+        "spWord": "ratón",
+        "partOfSpeech": "nm",
+        "definition": "mouse, rat",
+        "freqIndex": 3856
+    },
+    {
+        "spWord": "raya",
+        "partOfSpeech": "nf",
+        "definition": "line, ray, stripe",
+        "freqIndex": 3249
+    },
+    {
+        "spWord": "rayo",
+        "partOfSpeech": "nm",
+        "definition": "ray, beam, lightning",
+        "freqIndex": 2197
+    },
+    {
+        "spWord": "raza",
+        "partOfSpeech": "nf",
+        "definition": "race, lineage",
+        "freqIndex": 1620
+    },
+    {
+        "spWord": "razón",
+        "partOfSpeech": "nf",
+        "definition": "reason",
+        "freqIndex": 212
+    },
+    {
+        "spWord": "tener razón",
+        "partOfSpeech": "v",
+        "definition": "to be right",
+        "freqIndex": 212
+    },
+    {
+        "spWord": "razonable",
+        "partOfSpeech": "adj",
+        "definition": "reasonable",
+        "freqIndex": 2405
+    },
+    {
+        "spWord": "razonamiento",
+        "partOfSpeech": "nm",
+        "definition": "reasoning",
+        "freqIndex": 3472
+    },
+    {
+        "spWord": "razonar",
+        "partOfSpeech": "v",
+        "definition": "to reason (out), think",
+        "freqIndex": 4680
+    },
+    {
+        "spWord": "reacción",
+        "partOfSpeech": "nf",
+        "definition": "reaction",
+        "freqIndex": 1122
+    },
+    {
+        "spWord": "reaccionar",
+        "partOfSpeech": "v",
+        "definition": "to react",
+        "freqIndex": 1521
+    },
+    {
+        "spWord": "real",
+        "partOfSpeech": "adj",
+        "definition": "royal, real, authentic",
+        "freqIndex": 462
+    },
+    {
+        "spWord": "realidad",
+        "partOfSpeech": "nf",
+        "definition": "reality, actuality",
+        "freqIndex": 202
+    },
+    {
+        "spWord": "realismo",
+        "partOfSpeech": "nm",
+        "definition": "realism",
+        "freqIndex": 3780
+    },
+    {
+        "spWord": "realista",
+        "partOfSpeech": "adj",
+        "definition": "realistic",
+        "freqIndex": 2678
+    },
+    {
+        "spWord": "realización",
+        "partOfSpeech": "nf",
+        "definition": "fulfillment, realization",
+        "freqIndex": 2790
+    },
+    {
+        "spWord": "realizar",
+        "partOfSpeech": "v",
+        "definition": "to fulfill, carry out",
+        "freqIndex": 299
+    },
+    {
+        "spWord": "realmente",
+        "partOfSpeech": "adv",
+        "definition": "really, actually, in fact",
+        "freqIndex": 416
+    },
+    {
+        "spWord": "reanudar",
+        "partOfSpeech": "v",
+        "definition": "to renew, resume",
+        "freqIndex": 3686
+    },
+    {
+        "spWord": "reaparecer",
+        "partOfSpeech": "v",
+        "definition": "to reappear",
+        "freqIndex": 4337
+    },
+    {
+        "spWord": "rebajar",
+        "partOfSpeech": "v",
+        "definition": "to discount",
+        "freqIndex": 4159
+    },
+    {
+        "spWord": "rebaño",
+        "partOfSpeech": "nm",
+        "definition": "herd, flock",
+        "freqIndex": 4919
+    },
+    {
+        "spWord": "rebasar",
+        "partOfSpeech": "v",
+        "definition": "to exceed, pass over",
+        "freqIndex": 4813
+    },
+    {
+        "spWord": "rebelde",
+        "partOfSpeech": "adj",
+        "definition": "rebel",
+        "freqIndex": 3576
+    },
+    {
+        "spWord": "rebelde",
+        "partOfSpeech": "nc",
+        "definition": "rebel, insurgent",
+        "freqIndex": 4400
+    },
+    {
+        "spWord": "rebeldía",
+        "partOfSpeech": "nf",
+        "definition": "rebelliousness, defiance",
+        "freqIndex": 3977
+    },
+    {
+        "spWord": "rebelión",
+        "partOfSpeech": "nf",
+        "definition": "rebellion",
+        "freqIndex": 4202
+    },
+    {
+        "spWord": "recelo",
+        "partOfSpeech": "nm",
+        "definition": "mistrust, suspicion",
+        "freqIndex": 4817
+    },
+    {
+        "spWord": "recepción",
+        "partOfSpeech": "nf",
+        "definition": "reception, waiting-room",
+        "freqIndex": 3327
+    },
+    {
+        "spWord": "receta",
+        "partOfSpeech": "nf",
+        "definition": "recipe, prescription",
+        "freqIndex": 3196
+    },
+    {
+        "spWord": "rechazar",
+        "partOfSpeech": "v",
+        "definition": "to reject",
+        "freqIndex": 1182
+    },
+    {
+        "spWord": "rechazo",
+        "partOfSpeech": "nm",
+        "definition": "rejection, refusal",
+        "freqIndex": 2275
+    },
+    {
+        "spWord": "recibir",
+        "partOfSpeech": "v",
+        "definition": "to receive",
+        "freqIndex": 205
+    },
+    {
+        "spWord": "recién",
+        "partOfSpeech": "adv",
+        "definition": "recently, just",
+        "freqIndex": 863
+    },
+    {
+        "spWord": "reciente",
+        "partOfSpeech": "adj",
+        "definition": "recent",
+        "freqIndex": 1332
+    },
+    {
+        "spWord": "recientemente",
+        "partOfSpeech": "adv",
+        "definition": "recently",
+        "freqIndex": 2749
+    },
+    {
+        "spWord": "recinto",
+        "partOfSpeech": "nm",
+        "definition": "grounds, precincts",
+        "freqIndex": 3088
+    },
+    {
+        "spWord": "recipiente",
+        "partOfSpeech": "nm",
+        "definition": "container, recipient, tank",
+        "freqIndex": 4960
+    },
+    {
+        "spWord": "recíproco",
+        "partOfSpeech": "adj",
+        "definition": "reciprocal",
+        "freqIndex": 4761
+    },
+    {
+        "spWord": "recitar",
+        "partOfSpeech": "v",
+        "definition": "to recite",
+        "freqIndex": 3594
+    },
+    {
+        "spWord": "reclamar",
+        "partOfSpeech": "v",
+        "definition": "to demand, require",
+        "freqIndex": 1507
+    },
+    {
+        "spWord": "reclamo",
+        "partOfSpeech": "nm",
+        "definition": "claim, complaint, protest",
+        "freqIndex": 4465
+    },
+    {
+        "spWord": "recobrar",
+        "partOfSpeech": "v",
+        "definition": "to recover, regain",
+        "freqIndex": 3580
+    },
+    {
+        "spWord": "recoger",
+        "partOfSpeech": "v",
+        "definition": "to pick up",
+        "freqIndex": 634
+    },
+    {
+        "spWord": "recomendación",
+        "partOfSpeech": "nf",
+        "definition": "recommendation",
+        "freqIndex": 2908
+    },
+    {
+        "spWord": "recomendar",
+        "partOfSpeech": "v",
+        "definition": "to recommend",
+        "freqIndex": 1581
+    },
+    {
+        "spWord": "recompensa",
+        "partOfSpeech": "nf",
+        "definition": "reward, recompense",
+        "freqIndex": 4815
+    },
+    {
+        "spWord": "reconocer",
+        "partOfSpeech": "v",
+        "definition": "to recognize, admit",
+        "freqIndex": 327
+    },
+    {
+        "spWord": "reconocimiento",
+        "partOfSpeech": "nm",
+        "definition": "recognition, acknowledgment",
+        "freqIndex": 327
+    },
+    {
+        "spWord": "reconstrucción",
+        "partOfSpeech": "nf",
+        "definition": "reconstruction",
+        "freqIndex": 4259
+    },
+    {
+        "spWord": "reconstruir",
+        "partOfSpeech": "v",
+        "definition": "to reconstruct",
+        "freqIndex": 2328
+    },
+    {
+        "spWord": "recordar",
+        "partOfSpeech": "v",
+        "definition": "to remember, remind",
+        "freqIndex": 215
+    },
+    {
+        "spWord": "recorrer",
+        "partOfSpeech": "v",
+        "definition": "to travel, cover (distance)",
+        "freqIndex": 808
+    },
+    {
+        "spWord": "recorrido",
+        "partOfSpeech": "nm",
+        "definition": "journey, itinerary, route",
+        "freqIndex": 2231
+    },
+    {
+        "spWord": "recortar",
+        "partOfSpeech": "v",
+        "definition": "to trim, cut off, clip",
+        "freqIndex": 3643
+    },
+    {
+        "spWord": "recorte",
+        "partOfSpeech": "nm",
+        "definition": "clipping, cutting, trimming",
+        "freqIndex": 3804
+    },
+    {
+        "spWord": "recrear",
+        "partOfSpeech": "v",
+        "definition": "to recreate, amuse",
+        "freqIndex": 4728
+    },
+    {
+        "spWord": "rectificar",
+        "partOfSpeech": "v",
+        "definition": "to rectify, straighten (out)",
+        "freqIndex": 4683
+    },
+    {
+        "spWord": "recto",
+        "partOfSpeech": "adj",
+        "definition": "right, straight, honest",
+        "freqIndex": 2816
+    },
+    {
+        "spWord": "recuerdo",
+        "partOfSpeech": "nm",
+        "definition": "memory, keepsake",
+        "freqIndex": 628
+    },
+    {
+        "spWord": "recuperación",
+        "partOfSpeech": "nf",
+        "definition": "recovery, recuperation",
+        "freqIndex": 3101
+    },
+    {
+        "spWord": "recuperar",
+        "partOfSpeech": "v",
+        "definition": "to recuperate, recover",
+        "freqIndex": 965
+    },
+    {
+        "spWord": "recurrir",
+        "partOfSpeech": "v",
+        "definition": "to resort to",
+        "freqIndex": 1555
+    },
+    {
+        "spWord": "recurso",
+        "partOfSpeech": "nm",
+        "definition": "resource, recourse, means",
+        "freqIndex": 735
+    },
+    {
+        "spWord": "red",
+        "partOfSpeech": "nf",
+        "definition": "network, net, system",
+        "freqIndex": 1658
+    },
+    {
+        "spWord": "redacción",
+        "partOfSpeech": "nf",
+        "definition": "editing, wording, essay",
+        "freqIndex": 3735
+    },
+    {
+        "spWord": "redactar",
+        "partOfSpeech": "v",
+        "definition": "to edit, write, compose",
+        "freqIndex": 2870
+    },
+    {
+        "spWord": "redondo",
+        "partOfSpeech": "adj",
+        "definition": "round",
+        "freqIndex": 1757
+    },
+    {
+        "spWord": "reducción",
+        "partOfSpeech": "nf",
+        "definition": "reduction",
+        "freqIndex": 3815
+    },
+    {
+        "spWord": "reducido",
+        "partOfSpeech": "adj",
+        "definition": "reduced, limited",
+        "freqIndex": 1736
+    },
+    {
+        "spWord": "reducir",
+        "partOfSpeech": "v",
+        "definition": "to reduce",
+        "freqIndex": 996
+    },
+    {
+        "spWord": "reemplazar",
+        "partOfSpeech": "v",
+        "definition": "to replace",
+        "freqIndex": 3198
+    },
+    {
+        "spWord": "referencia",
+        "partOfSpeech": "nf",
+        "definition": "reference, allusion",
+        "freqIndex": 1063
+    },
+    {
+        "spWord": "referente",
+        "partOfSpeech": "adj",
+        "definition": "concerning",
+        "freqIndex": 3073
+    },
+    {
+        "spWord": "referir",
+        "partOfSpeech": "v",
+        "definition": "to refer (to)",
+        "freqIndex": 409
+    },
+    {
+        "spWord": "refinado",
+        "partOfSpeech": "adj",
+        "definition": "refined",
+        "freqIndex": 4071
+    },
+    {
+        "spWord": "reflejado",
+        "partOfSpeech": "adj",
+        "definition": "reflected",
+        "freqIndex": 4224
+    },
+    {
+        "spWord": "reflejar",
+        "partOfSpeech": "v",
+        "definition": "to reflect",
+        "freqIndex": 1176
+    },
+    {
+        "spWord": "reflejo",
+        "partOfSpeech": "nm",
+        "definition": "reflection",
+        "freqIndex": 1675
+    },
+    {
+        "spWord": "reflexión",
+        "partOfSpeech": "nf",
+        "definition": "reflection",
+        "freqIndex": 1826
+    },
+    {
+        "spWord": "reflexionar",
+        "partOfSpeech": "v",
+        "definition": "to reflect, consider on",
+        "freqIndex": 2788
+    },
+    {
+        "spWord": "reforma",
+        "partOfSpeech": "nf",
+        "definition": "reform, improvement",
+        "freqIndex": 2641
+    },
+    {
+        "spWord": "reforzar",
+        "partOfSpeech": "v",
+        "definition": "to reinforce, strengthen",
+        "freqIndex": 3012
+    },
+    {
+        "spWord": "refugiar",
+        "partOfSpeech": "v",
+        "definition": "to take shelter, give refuge",
+        "freqIndex": 3603
+    },
+    {
+        "spWord": "refugio",
+        "partOfSpeech": "nm",
+        "definition": "shelter, refuge",
+        "freqIndex": 2964
+    },
+    {
+        "spWord": "regalar",
+        "partOfSpeech": "v",
+        "definition": "to give (as a gift)",
+        "freqIndex": 1528
+    },
+    {
+        "spWord": "regalo",
+        "partOfSpeech": "nm",
+        "definition": "gift, present",
+        "freqIndex": 2067
+    },
+    {
+        "spWord": "regar",
+        "partOfSpeech": "v",
+        "definition": "to water, irrigate",
+        "freqIndex": 4148
+    },
+    {
+        "spWord": "régimen",
+        "partOfSpeech": "nm",
+        "definition": "regime, diet",
+        "freqIndex": 1426
+    },
+    {
+        "spWord": "región",
+        "partOfSpeech": "nf",
+        "definition": "region",
+        "freqIndex": 1050
+    },
+    {
+        "spWord": "regional",
+        "partOfSpeech": "adj",
+        "definition": "regional",
+        "freqIndex": 3484
+    },
+    {
+        "spWord": "regir",
+        "partOfSpeech": "v",
+        "definition": "to rule, govern, manage",
+        "freqIndex": 3222
+    },
+    {
+        "spWord": "registrar",
+        "partOfSpeech": "v",
+        "definition": "to register, record",
+        "freqIndex": 1536
+    },
+    {
+        "spWord": "registro",
+        "partOfSpeech": "nm",
+        "definition": "register, record",
+        "freqIndex": 2214
+    },
+    {
+        "spWord": "regla",
+        "partOfSpeech": "nf",
+        "definition": "rule, ruler, regulation",
+        "freqIndex": 1014
+    },
+    {
+        "spWord": "reglamento",
+        "partOfSpeech": "nm",
+        "definition": "regulations, rules",
+        "freqIndex": 3805
+    },
+    {
+        "spWord": "regresar",
+        "partOfSpeech": "v",
+        "definition": "to return (to a place)",
+        "freqIndex": 799
+    },
+    {
+        "spWord": "regreso",
+        "partOfSpeech": "nm",
+        "definition": "return",
+        "freqIndex": 1557
+    },
+    {
+        "spWord": "regular",
+        "partOfSpeech": "adj",
+        "definition": "regular",
+        "freqIndex": 1956
+    },
+    {
+        "spWord": "regular",
+        "partOfSpeech": "v",
+        "definition": "to regulate, adjust",
+        "freqIndex": 4131
+    },
+    {
+        "spWord": "reina",
+        "partOfSpeech": "nf",
+        "definition": "queen",
+        "freqIndex": 2020
+    },
+    {
+        "spWord": "reinar",
+        "partOfSpeech": "v",
+        "definition": "to reign, prevail",
+        "freqIndex": 4054
+    },
+    {
+        "spWord": "reino",
+        "partOfSpeech": "nm",
+        "definition": "kingdom, reign",
+        "freqIndex": 2255
+    },
+    {
+        "spWord": "reír",
+        "partOfSpeech": "v",
+        "definition": "to laugh (at)",
+        "freqIndex": 1493
+    },
+    {
+        "spWord": "reiterar",
+        "partOfSpeech": "v",
+        "definition": "to reiterate, repeat",
+        "freqIndex": 2900
+    },
+    {
+        "spWord": "reivindicación",
+        "partOfSpeech": "nf",
+        "definition": "claim, demand, redemption",
+        "freqIndex": 4702
+    },
+    {
+        "spWord": "relación",
+        "partOfSpeech": "nf",
+        "definition": "relationship, relation",
+        "freqIndex": 230
+    },
+    {
+        "spWord": "relacionado",
+        "partOfSpeech": "adj",
+        "definition": "related, regarding",
+        "freqIndex": 1402
+    },
+    {
+        "spWord": "relacionar",
+        "partOfSpeech": "v",
+        "definition": "to relate",
+        "freqIndex": 1745
+    },
+    {
+        "spWord": "relajar",
+        "partOfSpeech": "v",
+        "definition": "to relax",
+        "freqIndex": 4724
+    },
+    {
+        "spWord": "relatar",
+        "partOfSpeech": "v",
+        "definition": "to tell, narrate",
+        "freqIndex": 2733
+    },
+    {
+        "spWord": "relativamente",
+        "partOfSpeech": "adv",
+        "definition": "relatively",
+        "freqIndex": 2519
+    },
+    {
+        "spWord": "relativo",
+        "partOfSpeech": "adj",
+        "definition": "relative",
+        "freqIndex": 1747
+    },
+    {
+        "spWord": "relato",
+        "partOfSpeech": "nm",
+        "definition": "tale, story",
+        "freqIndex": 2221
+    },
+    {
+        "spWord": "relevante",
+        "partOfSpeech": "adj",
+        "definition": "relevant, significant",
+        "freqIndex": 4104
+    },
+    {
+        "spWord": "relieve",
+        "partOfSpeech": "nm",
+        "definition": "relief",
+        "freqIndex": 3521
+    },
+    {
+        "spWord": "poner de relieve",
+        "partOfSpeech": "v",
+        "definition": "to emphasize",
+        "freqIndex": 3521
+    },
+    {
+        "spWord": "religión",
+        "partOfSpeech": "nf",
+        "definition": "religion",
+        "freqIndex": 1460
+    },
+    {
+        "spWord": "religioso",
+        "partOfSpeech": "adj",
+        "definition": "religious",
+        "freqIndex": 886
+    },
+    {
+        "spWord": "reloj",
+        "partOfSpeech": "nm",
+        "definition": "clock, watch",
+        "freqIndex": 1685
+    },
+    {
+        "spWord": "rematar",
+        "partOfSpeech": "v",
+        "definition": "to finish off, finish up",
+        "freqIndex": 4133
+    },
+    {
+        "spWord": "remediar",
+        "partOfSpeech": "v",
+        "definition": "to heal, cure",
+        "freqIndex": 4327
+    },
+    {
+        "spWord": "remedio",
+        "partOfSpeech": "nm",
+        "definition": "alternative, cure, solution",
+        "freqIndex": 1379
+    },
+    {
+        "spWord": "remitir",
+        "partOfSpeech": "v",
+        "definition": "to remit",
+        "freqIndex": 3234
+    },
+    {
+        "spWord": "remontar",
+        "partOfSpeech": "v",
+        "definition": "to go back to (time)",
+        "freqIndex": 2580
+    },
+    {
+        "spWord": "remoto",
+        "partOfSpeech": "adj",
+        "definition": "remote, far-off",
+        "freqIndex": 2313
+    },
+    {
+        "spWord": "remover",
+        "partOfSpeech": "v",
+        "definition": "to remove",
+        "freqIndex": 3827
+    },
+    {
+        "spWord": "renacer",
+        "partOfSpeech": "v",
+        "definition": "to be reborn, reappear",
+        "freqIndex": 4805
+    },
+    {
+        "spWord": "rencor",
+        "partOfSpeech": "nm",
+        "definition": "grudge, spite",
+        "freqIndex": 4387
+    },
+    {
+        "spWord": "rendimiento",
+        "partOfSpeech": "nm",
+        "definition": "yield, output, efficiency",
+        "freqIndex": 3874
+    },
+    {
+        "spWord": "rendir",
+        "partOfSpeech": "v",
+        "definition": "[se] to give in; to render",
+        "freqIndex": 1534
+    },
+    {
+        "spWord": "renovación",
+        "partOfSpeech": "nf",
+        "definition": "renewal, renovation",
+        "freqIndex": 3937
+    },
+    {
+        "spWord": "renovar",
+        "partOfSpeech": "v",
+        "definition": "to renew, renovate",
+        "freqIndex": 2269
+    },
+    {
+        "spWord": "renta",
+        "partOfSpeech": "nf",
+        "definition": "income",
+        "freqIndex": 3210
+    },
+    {
+        "spWord": "renuncia",
+        "partOfSpeech": "nf",
+        "definition": "resignation, renunciation",
+        "freqIndex": 3693
+    },
+    {
+        "spWord": "renunciar",
+        "partOfSpeech": "v",
+        "definition": "to give up, renounce",
+        "freqIndex": 1621
+    },
+    {
+        "spWord": "reparar",
+        "partOfSpeech": "v",
+        "definition": "to repair, restore",
+        "freqIndex": 2770
+    },
+    {
+        "spWord": "repartir",
+        "partOfSpeech": "v",
+        "definition": "to divide, deliver, distribute",
+        "freqIndex": 1161
+    },
+    {
+        "spWord": "reparto",
+        "partOfSpeech": "nm",
+        "definition": "distribution, delivery",
+        "freqIndex": 3437
+    },
+    {
+        "spWord": "repasar",
+        "partOfSpeech": "v",
+        "definition": "to review, revise",
+        "freqIndex": 4353
+    },
+    {
+        "spWord": "repente",
+        "partOfSpeech": "nm",
+        "definition": "sudden impulse",
+        "freqIndex": 2183
+    },
+    {
+        "spWord": "de repente",
+        "partOfSpeech": "adv",
+        "definition": "suddenly",
+        "freqIndex": 2183
+    },
+    {
+        "spWord": "repentino",
+        "partOfSpeech": "adj",
+        "definition": "sudden",
+        "freqIndex": 3394
+    },
+    {
+        "spWord": "repercusión",
+        "partOfSpeech": "nf",
+        "definition": "repercussion, impact",
+        "freqIndex": 4852
+    },
+    {
+        "spWord": "repertorio",
+        "partOfSpeech": "nm",
+        "definition": "repertoire, list, index",
+        "freqIndex": 4072
+    },
+    {
+        "spWord": "repetición",
+        "partOfSpeech": "nf",
+        "definition": "repetition",
+        "freqIndex": 3113
+    },
+    {
+        "spWord": "repetido",
+        "partOfSpeech": "adj",
+        "definition": "repeated",
+        "freqIndex": 2471
+    },
+    {
+        "spWord": "repetir",
+        "partOfSpeech": "v",
+        "definition": "to repeat",
+        "freqIndex": 382
+    },
+    {
+        "spWord": "repleto",
+        "partOfSpeech": "adj",
+        "definition": "full, overcrowded",
+        "freqIndex": 3515
+    },
+    {
+        "spWord": "réplica",
+        "partOfSpeech": "nf",
+        "definition": "answer, retort, copy",
+        "freqIndex": 3758
+    },
+    {
+        "spWord": "replicar",
+        "partOfSpeech": "v",
+        "definition": "to reply",
+        "freqIndex": 4177
+    },
+    {
+        "spWord": "reponer",
+        "partOfSpeech": "v",
+        "definition": "to replace, restore",
+        "freqIndex": 3423
+    },
+    {
+        "spWord": "reportaje",
+        "partOfSpeech": "nm",
+        "definition": "news report",
+        "freqIndex": 4056
+    },
+    {
+        "spWord": "reposar",
+        "partOfSpeech": "v",
+        "definition": "to rest, lie down",
+        "freqIndex": 4632
+    },
+    {
+        "spWord": "reposo",
+        "partOfSpeech": "nm",
+        "definition": "rest, peace",
+        "freqIndex": 3769
+    },
+    {
+        "spWord": "representación",
+        "partOfSpeech": "nf",
+        "definition": "representation",
+        "freqIndex": 1425
+    },
+    {
+        "spWord": "representante",
+        "partOfSpeech": "nc",
+        "definition": "representative",
+        "freqIndex": 1491
+    },
+    {
+        "spWord": "representar",
+        "partOfSpeech": "v",
+        "definition": "to represent",
+        "freqIndex": 527
+    },
+    {
+        "spWord": "representativo",
+        "partOfSpeech": "adj",
+        "definition": "representative",
+        "freqIndex": 3930
+    },
+    {
+        "spWord": "represión",
+        "partOfSpeech": "nf",
+        "definition": "repression",
+        "freqIndex": 3814
+    },
+    {
+        "spWord": "reprimir",
+        "partOfSpeech": "v",
+        "definition": "to repress",
+        "freqIndex": 3895
+    },
+    {
+        "spWord": "reprochar",
+        "partOfSpeech": "v",
+        "definition": "to reproach",
+        "freqIndex": 3982
+    },
+    {
+        "spWord": "reproche",
+        "partOfSpeech": "nm",
+        "definition": "reproach, criticism",
+        "freqIndex": 4660
+    },
+    {
+        "spWord": "reproducción",
+        "partOfSpeech": "nf",
+        "definition": "reproduction",
+        "freqIndex": 3637
+    },
+    {
+        "spWord": "reproducir",
+        "partOfSpeech": "v",
+        "definition": "to reproduce, repeat",
+        "freqIndex": 1654
+    },
+    {
+        "spWord": "república",
+        "partOfSpeech": "nf",
+        "definition": "republic",
+        "freqIndex": 3389
+    },
+    {
+        "spWord": "republicano",
+        "partOfSpeech": "adj",
+        "definition": "republican",
+        "freqIndex": 4486
+    },
+    {
+        "spWord": "requerir",
+        "partOfSpeech": "v",
+        "definition": "to require",
+        "freqIndex": 1081
+    },
+    {
+        "spWord": "requisito",
+        "partOfSpeech": "nm",
+        "definition": "prerequisite, requirement",
+        "freqIndex": 2644
+    },
+    {
+        "spWord": "resaltar",
+        "partOfSpeech": "v",
+        "definition": "to emphasize",
+        "freqIndex": 3701
+    },
+    {
+        "spWord": "rescatar",
+        "partOfSpeech": "v",
+        "definition": "to rescue, save",
+        "freqIndex": 2559
+    },
+    {
+        "spWord": "rescate",
+        "partOfSpeech": "nm",
+        "definition": "rescue, ransom",
+        "freqIndex": 4617
+    },
+    {
+        "spWord": "resentimiento",
+        "partOfSpeech": "nm",
+        "definition": "resentment",
+        "freqIndex": 4110
+    },
+    {
+        "spWord": "reserva",
+        "partOfSpeech": "nf",
+        "definition": "reservation, reserve",
+        "freqIndex": 1527
+    },
+    {
+        "spWord": "reservado",
+        "partOfSpeech": "adj",
+        "definition": "reserved, booked",
+        "freqIndex": 2960
+    },
+    {
+        "spWord": "reservar",
+        "partOfSpeech": "v",
+        "definition": "to reserve, book",
+        "freqIndex": 2750
+    },
+    {
+        "spWord": "residencia",
+        "partOfSpeech": "nf",
+        "definition": "residence",
+        "freqIndex": 2844
+    },
+    {
+        "spWord": "residir",
+        "partOfSpeech": "v",
+        "definition": "to reside, live (in)",
+        "freqIndex": 2764
+    },
+    {
+        "spWord": "residuo",
+        "partOfSpeech": "nm",
+        "definition": "residue, waste",
+        "freqIndex": 3934
+    },
+    {
+        "spWord": "resignación",
+        "partOfSpeech": "nf",
+        "definition": "resignation, acceptance",
+        "freqIndex": 4759
+    },
+    {
+        "spWord": "resignar",
+        "partOfSpeech": "v",
+        "definition": "to resign, relinquish",
+        "freqIndex": 4878
+    },
+    {
+        "spWord": "resistencia",
+        "partOfSpeech": "nf",
+        "definition": "resistance, opposition",
+        "freqIndex": 1415
+    },
+    {
+        "spWord": "resistir",
+        "partOfSpeech": "v",
+        "definition": "to resist, endure",
+        "freqIndex": 1312
+    },
+    {
+        "spWord": "resolución",
+        "partOfSpeech": "nf",
+        "definition": "resolution",
+        "freqIndex": 2711
+    },
+    {
+        "spWord": "resolver",
+        "partOfSpeech": "v",
+        "definition": "to resolve, settle, work out",
+        "freqIndex": 622
+    },
+    {
+        "spWord": "resonancia",
+        "partOfSpeech": "nf",
+        "definition": "resonance, repercussion",
+        "freqIndex": 4369
+    },
+    {
+        "spWord": "respaldo",
+        "partOfSpeech": "nm",
+        "definition": "support, backing, back",
+        "freqIndex": 2692
+    },
+    {
+        "spWord": "respectivo",
+        "partOfSpeech": "adj",
+        "definition": "respective",
+        "freqIndex": 1797
+    },
+    {
+        "spWord": "respecto",
+        "partOfSpeech": "nm",
+        "definition": "respect",
+        "freqIndex": 433
+    },
+    {
+        "spWord": "con respecto a",
+        "partOfSpeech": "prep",
+        "definition": "with regards to",
+        "freqIndex": 433
+    },
+    {
+        "spWord": "respetable",
+        "partOfSpeech": "adj",
+        "definition": "respectable",
+        "freqIndex": 4021
+    },
+    {
+        "spWord": "respetar",
+        "partOfSpeech": "v",
+        "definition": "to respect",
+        "freqIndex": 880
+    },
+    {
+        "spWord": "respeto",
+        "partOfSpeech": "nm",
+        "definition": "respect, regard",
+        "freqIndex": 894
+    },
+    {
+        "spWord": "respetuoso",
+        "partOfSpeech": "adj",
+        "definition": "respectful",
+        "freqIndex": 3653
+    },
+    {
+        "spWord": "respiración",
+        "partOfSpeech": "nf",
+        "definition": "respiration, breath",
+        "freqIndex": 3171
+    },
+    {
+        "spWord": "respirar",
+        "partOfSpeech": "v",
+        "definition": "to breathe",
+        "freqIndex": 1792
+    },
+    {
+        "spWord": "responder",
+        "partOfSpeech": "v",
+        "definition": "to answer, respond",
+        "freqIndex": 456
+    },
+    {
+        "spWord": "responsabilidad",
+        "partOfSpeech": "nf",
+        "definition": "responsibility",
+        "freqIndex": 781
+    },
+    {
+        "spWord": "responsable",
+        "partOfSpeech": "adj",
+        "definition": "responsible",
+        "freqIndex": 955
+    },
+    {
+        "spWord": "respuesta",
+        "partOfSpeech": "nf",
+        "definition": "answer, reply",
+        "freqIndex": 472
+    },
+    {
+        "spWord": "restablecer",
+        "partOfSpeech": "v",
+        "definition": "to reestablish, restore",
+        "freqIndex": 4806
+    },
+    {
+        "spWord": "restante",
+        "partOfSpeech": "adj",
+        "definition": "remaining",
+        "freqIndex": 3482
+    },
+    {
+        "spWord": "restar",
+        "partOfSpeech": "v",
+        "definition": "to subtract, minimize",
+        "freqIndex": 2836
+    },
+    {
+        "spWord": "restaurante",
+        "partOfSpeech": "nm",
+        "definition": "restaurant",
+        "freqIndex": 3014
+    },
+    {
+        "spWord": "restaurar",
+        "partOfSpeech": "v",
+        "definition": "to restore, reinstate",
+        "freqIndex": 4187
+    },
+    {
+        "spWord": "resto",
+        "partOfSpeech": "nm",
+        "definition": "rest, remainder, leftover",
+        "freqIndex": 447
+    },
+    {
+        "spWord": "restricción",
+        "partOfSpeech": "nf",
+        "definition": "restriction",
+        "freqIndex": 4819
+    },
+    {
+        "spWord": "resucitar",
+        "partOfSpeech": "v",
+        "definition": "to resuscitate",
+        "freqIndex": 4603
+    },
+    {
+        "spWord": "resuelto",
+        "partOfSpeech": "adj",
+        "definition": "resolved, determined",
+        "freqIndex": 2428
+    },
+    {
+        "spWord": "resultado",
+        "partOfSpeech": "nm",
+        "definition": "result, outcome",
+        "freqIndex": 379
+    },
+    {
+        "spWord": "resultar",
+        "partOfSpeech": "v",
+        "definition": "to result, turn out",
+        "freqIndex": 238
+    },
+    {
+        "spWord": "resumen",
+        "partOfSpeech": "nm",
+        "definition": "summary",
+        "freqIndex": 2593
+    },
+    {
+        "spWord": "resumir",
+        "partOfSpeech": "v",
+        "definition": "to summarize",
+        "freqIndex": 3041
+    },
+    {
+        "spWord": "retener",
+        "partOfSpeech": "v",
+        "definition": "to keep, retain",
+        "freqIndex": 2452
+    },
+    {
+        "spWord": "retirada",
+        "partOfSpeech": "nf",
+        "definition": "retreat, withdrawal",
+        "freqIndex": 3861
+    },
+    {
+        "spWord": "retirado",
+        "partOfSpeech": "adj",
+        "definition": "retired, remote, secluded",
+        "freqIndex": 4067
+    },
+    {
+        "spWord": "retirar",
+        "partOfSpeech": "v",
+        "definition": "to take away, retire",
+        "freqIndex": 817
+    },
+    {
+        "spWord": "retiro",
+        "partOfSpeech": "nm",
+        "definition": "withdrawal, retreat",
+        "freqIndex": 4809
+    },
+    {
+        "spWord": "reto",
+        "partOfSpeech": "nm",
+        "definition": "challenge, defiance",
+        "freqIndex": 3476
+    },
+    {
+        "spWord": "retomar",
+        "partOfSpeech": "v",
+        "definition": "to retake, restart",
+        "freqIndex": 3489
+    },
+    {
+        "spWord": "retornar",
+        "partOfSpeech": "v",
+        "definition": "to return, give back",
+        "freqIndex": 3754
+    },
+    {
+        "spWord": "retorno",
+        "partOfSpeech": "nm",
+        "definition": "return",
+        "freqIndex": 3035
+    },
+    {
+        "spWord": "retrasar",
+        "partOfSpeech": "v",
+        "definition": "to delay, fall behind",
+        "freqIndex": 4188
+    },
+    {
+        "spWord": "retraso",
+        "partOfSpeech": "nm",
+        "definition": "delay",
+        "freqIndex": 3886
+    },
+    {
+        "spWord": "retrato",
+        "partOfSpeech": "nm",
+        "definition": "portrait, photograph",
+        "freqIndex": 2492
+    },
+    {
+        "spWord": "retroceder",
+        "partOfSpeech": "v",
+        "definition": "to go back",
+        "freqIndex": 2724
+    },
+    {
+        "spWord": "retroceso",
+        "partOfSpeech": "nm",
+        "definition": "movement backwards",
+        "freqIndex": 4833
+    },
+    {
+        "spWord": "reunión",
+        "partOfSpeech": "nf",
+        "definition": "meeting, reunion",
+        "freqIndex": 746
+    },
+    {
+        "spWord": "reunir",
+        "partOfSpeech": "v",
+        "definition": "to gather, meet, collect",
+        "freqIndex": 509
+    },
+    {
+        "spWord": "revelación",
+        "partOfSpeech": "nf",
+        "definition": "revelation",
+        "freqIndex": 3724
+    },
+    {
+        "spWord": "revelar",
+        "partOfSpeech": "v",
+        "definition": "to reveal, disclose",
+        "freqIndex": 1691
+    },
+    {
+        "spWord": "reventar",
+        "partOfSpeech": "v",
+        "definition": "to burst, puncture",
+        "freqIndex": 4009
+    },
+    {
+        "spWord": "revés",
+        "partOfSpeech": "nm",
+        "definition": "back; setback",
+        "freqIndex": 1993
+    },
+    {
+        "spWord": "al revés",
+        "partOfSpeech": "prep",
+        "definition": "backwards, upside down, inside out",
+        "freqIndex": 1993
+    },
+    {
+        "spWord": "revisar",
+        "partOfSpeech": "v",
+        "definition": "to check, revise, inspect",
+        "freqIndex": 1632
+    },
+    {
+        "spWord": "revisión",
+        "partOfSpeech": "nf",
+        "definition": "checking revision",
+        "freqIndex": 3860
+    },
+    {
+        "spWord": "revista",
+        "partOfSpeech": "nf",
+        "definition": "magazine, journal",
+        "freqIndex": 804
+    },
+    {
+        "spWord": "revivir",
+        "partOfSpeech": "v",
+        "definition": "to revive",
+        "freqIndex": 3662
+    },
+    {
+        "spWord": "revolución",
+        "partOfSpeech": "nf",
+        "definition": "revolution",
+        "freqIndex": 957
+    },
+    {
+        "spWord": "revolucionario",
+        "partOfSpeech": "adj",
+        "definition": "revolutionary",
+        "freqIndex": 1947
+    },
+    {
+        "spWord": "revolver",
+        "partOfSpeech": "v",
+        "definition": "to stir, mix, scramble",
+        "freqIndex": 3752
+    },
+    {
+        "spWord": "revuelto",
+        "partOfSpeech": "adj",
+        "definition": "confused, messed up",
+        "freqIndex": 4338
+    },
+    {
+        "spWord": "rey",
+        "partOfSpeech": "nm",
+        "definition": "king",
+        "freqIndex": 1238
+    },
+    {
+        "spWord": "rezar",
+        "partOfSpeech": "v",
+        "definition": "to pray, recite",
+        "freqIndex": 2847
+    },
+    {
+        "spWord": "rico",
+        "partOfSpeech": "adj",
+        "definition": "rich, tasty",
+        "freqIndex": 627
+    },
+    {
+        "spWord": "ridículo",
+        "partOfSpeech": "adj",
+        "definition": "ridiculous, absurd",
+        "freqIndex": 3209
+    },
+    {
+        "spWord": "ridículo",
+        "partOfSpeech": "nm",
+        "definition": "ridicule",
+        "freqIndex": 3543
+    },
+    {
+        "spWord": "rienda",
+        "partOfSpeech": "nf",
+        "definition": "rein, restraint",
+        "freqIndex": 3829
+    },
+    {
+        "spWord": "riesgo",
+        "partOfSpeech": "nm",
+        "definition": "risk",
+        "freqIndex": 1016
+    },
+    {
+        "spWord": "rigidez",
+        "partOfSpeech": "nf",
+        "definition": "rigidity",
+        "freqIndex": 4845
+    },
+    {
+        "spWord": "rígido",
+        "partOfSpeech": "adj",
+        "definition": "rigid, stiff, firm",
+        "freqIndex": 2411
+    },
+    {
+        "spWord": "rigor",
+        "partOfSpeech": "nm",
+        "definition": "harshness, rigor",
+        "freqIndex": 2249
+    },
+    {
+        "spWord": "riguroso",
+        "partOfSpeech": "adj",
+        "definition": "rigorous, severe",
+        "freqIndex": 2528
+    },
+    {
+        "spWord": "rincón",
+        "partOfSpeech": "nm",
+        "definition": "corner, nook",
+        "freqIndex": 2118
+    },
+    {
+        "spWord": "riñón",
+        "partOfSpeech": "nm",
+        "definition": "kidney",
+        "freqIndex": 4292
+    },
+    {
+        "spWord": "río",
+        "partOfSpeech": "nm",
+        "definition": "river",
+        "freqIndex": 559
+    },
+    {
+        "spWord": "riqueza",
+        "partOfSpeech": "nf",
+        "definition": "riches, wealth",
+        "freqIndex": 1474
+    },
+    {
+        "spWord": "risa",
+        "partOfSpeech": "nf",
+        "definition": "laugh, chuckle",
+        "freqIndex": 2192
+    },
+    {
+        "spWord": "rítmico",
+        "partOfSpeech": "adj",
+        "definition": "rhythmic",
+        "freqIndex": 4978
+    },
+    {
+        "spWord": "ritmo",
+        "partOfSpeech": "nm",
+        "definition": "rhythm",
+        "freqIndex": 877
+    },
+    {
+        "spWord": "rito",
+        "partOfSpeech": "nm",
+        "definition": "rite, ritual",
+        "freqIndex": 3093
+    },
+    {
+        "spWord": "ritual",
+        "partOfSpeech": "nm",
+        "definition": "ritual, rite",
+        "freqIndex": 3534
+    },
+    {
+        "spWord": "rival",
+        "partOfSpeech": "nc",
+        "definition": "rival",
+        "freqIndex": 3796
+    },
+    {
+        "spWord": "robar",
+        "partOfSpeech": "v",
+        "definition": "to rob, steal",
+        "freqIndex": 1492
+    },
+    {
+        "spWord": "robo",
+        "partOfSpeech": "nm",
+        "definition": "theft, robbery",
+        "freqIndex": 2919
+    },
+    {
+        "spWord": "robusto",
+        "partOfSpeech": "adj",
+        "definition": "strong, robust, sturdy",
+        "freqIndex": 4689
+    },
+    {
+        "spWord": "roca",
+        "partOfSpeech": "nf",
+        "definition": "rock",
+        "freqIndex": 2497
+    },
+    {
+        "spWord": "roce",
+        "partOfSpeech": "nm",
+        "definition": "brush, graze",
+        "freqIndex": 4748
+    },
+    {
+        "spWord": "rodar",
+        "partOfSpeech": "v",
+        "definition": "to roll, run, scatter",
+        "freqIndex": 3179
+    },
+    {
+        "spWord": "rodeado",
+        "partOfSpeech": "adj",
+        "definition": "surrounded",
+        "freqIndex": 1801
+    },
+    {
+        "spWord": "rodear",
+        "partOfSpeech": "v",
+        "definition": "to surround",
+        "freqIndex": 1174
+    },
+    {
+        "spWord": "rodilla",
+        "partOfSpeech": "nf",
+        "definition": "knee",
+        "freqIndex": 2208
+    },
+    {
+        "spWord": "rogar",
+        "partOfSpeech": "v",
+        "definition": "to implore, pray, ask",
+        "freqIndex": 3160
+    },
+    {
+        "spWord": "rojo",
+        "partOfSpeech": "adj",
+        "definition": "red",
+        "freqIndex": 533
+    },
+    {
+        "spWord": "rol",
+        "partOfSpeech": "nm",
+        "definition": "role",
+        "freqIndex": 4764
+    },
+    {
+        "spWord": "rollo",
+        "partOfSpeech": "nm",
+        "definition": "roll, coil",
+        "freqIndex": 4014
+    },
+    {
+        "spWord": "romano",
+        "partOfSpeech": "adj",
+        "definition": "Roman",
+        "freqIndex": 1774
+    },
+    {
+        "spWord": "romántico",
+        "partOfSpeech": "adj",
+        "definition": "romantic",
+        "freqIndex": 2338
+    },
+    {
+        "spWord": "romper",
+        "partOfSpeech": "v",
+        "definition": "to break",
+        "freqIndex": 601
+    },
+    {
+        "spWord": "ronda",
+        "partOfSpeech": "nf",
+        "definition": "round",
+        "freqIndex": 3786
+    },
+    {
+        "spWord": "ropa",
+        "partOfSpeech": "nf",
+        "definition": "clothes, clothing",
+        "freqIndex": 1285
+    },
+    {
+        "spWord": "rosa",
+        "partOfSpeech": "nf",
+        "definition": "rose",
+        "freqIndex": 1978
+    },
+    {
+        "spWord": "rosado",
+        "partOfSpeech": "adj",
+        "definition": "pink, rosy",
+        "freqIndex": 4461
+    },
+    {
+        "spWord": "rosario",
+        "partOfSpeech": "nm",
+        "definition": "rosary, beads, string",
+        "freqIndex": 4258
+    },
+    {
+        "spWord": "rostro",
+        "partOfSpeech": "nm",
+        "definition": "face, countenance",
+        "freqIndex": 2040
+    },
+    {
+        "spWord": "roto",
+        "partOfSpeech": "adj",
+        "definition": "broken, torn",
+        "freqIndex": 1914
+    },
+    {
+        "spWord": "rotundo",
+        "partOfSpeech": "adj",
+        "definition": "categorical",
+        "freqIndex": 3388
+    },
+    {
+        "spWord": "rozar",
+        "partOfSpeech": "v",
+        "definition": "to touch (lightly)",
+        "freqIndex": 3226
+    },
+    {
+        "spWord": "rubio",
+        "partOfSpeech": "adj",
+        "definition": "blonde, fair",
+        "freqIndex": 3269
+    },
+    {
+        "spWord": "rudo",
+        "partOfSpeech": "adj",
+        "definition": "rude, crude, coarse",
+        "freqIndex": 4859
+    },
+    {
+        "spWord": "rueda",
+        "partOfSpeech": "nf",
+        "definition": "wheel",
+        "freqIndex": 1352
+    },
+    {
+        "spWord": "ruido",
+        "partOfSpeech": "nm",
+        "definition": "noise",
+        "freqIndex": 1184
+    },
+    {
+        "spWord": "ruidoso",
+        "partOfSpeech": "adj",
+        "definition": "noisy",
+        "freqIndex": 4261
+    },
+    {
+        "spWord": "ruina",
+        "partOfSpeech": "nf",
+        "definition": "ruin, collapse",
+        "freqIndex": 2397
+    },
+    {
+        "spWord": "rumbo",
+        "partOfSpeech": "nm",
+        "definition": "direction, course, bearing",
+        "freqIndex": 2414
+    },
+    {
+        "spWord": "rumor",
+        "partOfSpeech": "nm",
+        "definition": "rumor, murmur",
+        "freqIndex": 2626
+    },
+    {
+        "spWord": "ruptura",
+        "partOfSpeech": "nf",
+        "definition": "break-up, rupture",
+        "freqIndex": 2457
+    },
+    {
+        "spWord": "rural",
+        "partOfSpeech": "adj",
+        "definition": "rural, country",
+        "freqIndex": 2631
+    },
+    {
+        "spWord": "ruso",
+        "partOfSpeech": "adj",
+        "definition": "Russian",
+        "freqIndex": 2307
+    },
+    {
+        "spWord": "rústico",
+        "partOfSpeech": "adj",
+        "definition": "rustic, rural",
+        "freqIndex": 4395
+    },
+    {
+        "spWord": "ruta",
+        "partOfSpeech": "nf",
+        "definition": "route",
+        "freqIndex": 2113
+    },
+    {
+        "spWord": "rutina",
+        "partOfSpeech": "nf",
+        "definition": "routine",
+        "freqIndex": 3042
+    },
+    {
+        "spWord": "sábado",
+        "partOfSpeech": "nm",
+        "definition": "Saturday",
+        "freqIndex": 1816
+    },
+    {
+        "spWord": "sábana",
+        "partOfSpeech": "nf",
+        "definition": "(bed) sheet",
+        "freqIndex": 3859
+    },
+    {
+        "spWord": "saber",
+        "partOfSpeech": "v",
+        "definition": "to know (a fact), find out",
+        "freqIndex": 46
+    },
+    {
+        "spWord": "saber",
+        "partOfSpeech": "nm",
+        "definition": "knowledge",
+        "freqIndex": 1625
+    },
+    {
+        "spWord": "sabiduría",
+        "partOfSpeech": "nf",
+        "definition": "wisdom, knowledge",
+        "freqIndex": 2856
+    },
+    {
+        "spWord": "sabio",
+        "partOfSpeech": "adj",
+        "definition": "wise, learned",
+        "freqIndex": 1790
+    },
+    {
+        "spWord": "sabor",
+        "partOfSpeech": "nm",
+        "definition": "taste, flavor, sensation",
+        "freqIndex": 2126
+    },
+    {
+        "spWord": "sabroso",
+        "partOfSpeech": "adj",
+        "definition": "delicious, tasty",
+        "freqIndex": 4605
+    },
+    {
+        "spWord": "sacar",
+        "partOfSpeech": "v",
+        "definition": "to take out",
+        "freqIndex": 228
+    },
+    {
+        "spWord": "sacerdote",
+        "partOfSpeech": "nm",
+        "definition": "priest",
+        "freqIndex": 1974
+    },
+    {
+        "spWord": "saco",
+        "partOfSpeech": "nm",
+        "definition": "sack, bag, plunder",
+        "freqIndex": 2798
+    },
+    {
+        "spWord": "sacrificar",
+        "partOfSpeech": "v",
+        "definition": "to sacrifice",
+        "freqIndex": 2752
+    },
+    {
+        "spWord": "sacrificio",
+        "partOfSpeech": "nm",
+        "definition": "sacrifice",
+        "freqIndex": 1848
+    },
+    {
+        "spWord": "sacudir",
+        "partOfSpeech": "v",
+        "definition": "to shake, jolt",
+        "freqIndex": 2969
+    },
+    {
+        "spWord": "sagrado",
+        "partOfSpeech": "adj",
+        "definition": "sacred",
+        "freqIndex": 1775
+    },
+    {
+        "spWord": "sal",
+        "partOfSpeech": "nf",
+        "definition": "salt",
+        "freqIndex": 2608
+    },
+    {
+        "spWord": "sala",
+        "partOfSpeech": "nf",
+        "definition": "room, hall",
+        "freqIndex": 811
+    },
+    {
+        "spWord": "salario",
+        "partOfSpeech": "nm",
+        "definition": "salary, wages",
+        "freqIndex": 3307
+    },
+    {
+        "spWord": "salida",
+        "partOfSpeech": "nf",
+        "definition": "exit, escape, outcome",
+        "freqIndex": 694
+    },
+    {
+        "spWord": "salir",
+        "partOfSpeech": "v",
+        "definition": "to leave, go out",
+        "freqIndex": 111
+    },
+    {
+        "spWord": "salón",
+        "partOfSpeech": "nm",
+        "definition": "hall, room",
+        "freqIndex": 1637
+    },
+    {
+        "spWord": "saltar",
+        "partOfSpeech": "v",
+        "definition": "to jump, leap, hop",
+        "freqIndex": 1071
+    },
+    {
+        "spWord": "salto",
+        "partOfSpeech": "nm",
+        "definition": "jump, hop, skip",
+        "freqIndex": 1391
+    },
+    {
+        "spWord": "salud",
+        "partOfSpeech": "nf",
+        "definition": "health",
+        "freqIndex": 973
+    },
+    {
+        "spWord": "saludable",
+        "partOfSpeech": "adj",
+        "definition": "healthy, wholesome",
+        "freqIndex": 3803
+    },
+    {
+        "spWord": "saludar",
+        "partOfSpeech": "v",
+        "definition": "to greet, say hello",
+        "freqIndex": 1744
+    },
+    {
+        "spWord": "saludo",
+        "partOfSpeech": "nm",
+        "definition": "greeting",
+        "freqIndex": 2661
+    },
+    {
+        "spWord": "salvación",
+        "partOfSpeech": "nf",
+        "definition": "salvation, rescue",
+        "freqIndex": 3575
+    },
+    {
+        "spWord": "salvaje",
+        "partOfSpeech": "adj",
+        "definition": "wild, savage, uncultivated",
+        "freqIndex": 2001
+    },
+    {
+        "spWord": "salvar",
+        "partOfSpeech": "v",
+        "definition": "to save, rescue",
+        "freqIndex": 753
+    },
+    {
+        "spWord": "salvo",
+        "partOfSpeech": "adv",
+        "definition": "except (for), but",
+        "freqIndex": 924
+    },
+    {
+        "spWord": "sanción",
+        "partOfSpeech": "nf",
+        "definition": "sanction, approval, penalty",
+        "freqIndex": 4141
+    },
+    {
+        "spWord": "sangre",
+        "partOfSpeech": "nf",
+        "definition": "blood",
+        "freqIndex": 613
+    },
+    {
+        "spWord": "sangriento",
+        "partOfSpeech": "adj",
+        "definition": "bloody",
+        "freqIndex": 3911
+    },
+    {
+        "spWord": "sanitario",
+        "partOfSpeech": "adj",
+        "definition": "health, sanitary, clean",
+        "freqIndex": 4047
+    },
+    {
+        "spWord": "sano",
+        "partOfSpeech": "adj",
+        "definition": "healthy, wholesome",
+        "freqIndex": 1394
+    },
+    {
+        "spWord": "santa",
+        "partOfSpeech": "nf",
+        "definition": "saint (f)",
+        "freqIndex": 793
+    },
+    {
+        "spWord": "santo",
+        "partOfSpeech": "nm",
+        "definition": "saint (m)",
+        "freqIndex": 258
+    },
+    {
+        "spWord": "sargento",
+        "partOfSpeech": "nm",
+        "definition": "sergeant",
+        "freqIndex": 4727
+    },
+    {
+        "spWord": "satisfacción",
+        "partOfSpeech": "nf",
+        "definition": "satisfaction",
+        "freqIndex": 1299
+    },
+    {
+        "spWord": "satisfacer",
+        "partOfSpeech": "v",
+        "definition": "to satisfy",
+        "freqIndex": 1517
+    },
+    {
+        "spWord": "satisfactorio",
+        "partOfSpeech": "adj",
+        "definition": "satisfactory",
+        "freqIndex": 3316
+    },
+    {
+        "spWord": "satisfecho",
+        "partOfSpeech": "adj",
+        "definition": "satisfied",
+        "freqIndex": 1735
+    },
+    {
+        "spWord": "se",
+        "partOfSpeech": "pron",
+        "definition": "[“reflexive” marker]",
+        "freqIndex": 9
+    },
+    {
+        "spWord": "secar",
+        "partOfSpeech": "v",
+        "definition": "to dry",
+        "freqIndex": 2496
+    },
+    {
+        "spWord": "sección",
+        "partOfSpeech": "nf",
+        "definition": "section, cut",
+        "freqIndex": 1910
+    },
+    {
+        "spWord": "seco",
+        "partOfSpeech": "adj",
+        "definition": "dry, arid",
+        "freqIndex": 1178
+    },
+    {
+        "spWord": "secretario",
+        "partOfSpeech": "nm/f",
+        "definition": "secretary",
+        "freqIndex": 1245
+    },
+    {
+        "spWord": "secreto",
+        "partOfSpeech": "adj",
+        "definition": "secret",
+        "freqIndex": 1731
+    },
+    {
+        "spWord": "secreto",
+        "partOfSpeech": "nm",
+        "definition": "secret",
+        "freqIndex": 1954
+    },
+    {
+        "spWord": "sector",
+        "partOfSpeech": "nm",
+        "definition": "sector, area, section",
+        "freqIndex": 1096
+    },
+    {
+        "spWord": "secuencia",
+        "partOfSpeech": "nf",
+        "definition": "sequence",
+        "freqIndex": 3241
+    },
+    {
+        "spWord": "secular",
+        "partOfSpeech": "adj",
+        "definition": "secular, lay",
+        "freqIndex": 4911
+    },
+    {
+        "spWord": "secundario",
+        "partOfSpeech": "adj",
+        "definition": "secondary",
+        "freqIndex": 2213
+    },
+    {
+        "spWord": "sed",
+        "partOfSpeech": "nf",
+        "definition": "thirst",
+        "freqIndex": 3080
+    },
+    {
+        "spWord": "seda",
+        "partOfSpeech": "nf",
+        "definition": "silk",
+        "freqIndex": 3271
+    },
+    {
+        "spWord": "sede",
+        "partOfSpeech": "nf",
+        "definition": "headquarters, seat",
+        "freqIndex": 4236
+    },
+    {
+        "spWord": "seducir",
+        "partOfSpeech": "v",
+        "definition": "to seduce, tempt",
+        "freqIndex": 4831
+    },
+    {
+        "spWord": "seguida",
+        "partOfSpeech": "adj",
+        "definition": "continuous",
+        "freqIndex": 2818
+    },
+    {
+        "spWord": "en seguida",
+        "partOfSpeech": "adv",
+        "definition": "right away, at once",
+        "freqIndex": 2818
+    },
+    {
+        "spWord": "seguido",
+        "partOfSpeech": "adj",
+        "definition": "in a row, successive",
+        "freqIndex": 1465
+    },
+    {
+        "spWord": "seguidor",
+        "partOfSpeech": "nm",
+        "definition": "follower, supporter, fan",
+        "freqIndex": 4170
+    },
+    {
+        "spWord": "seguir",
+        "partOfSpeech": "v",
+        "definition": "to follow, keep on",
+        "freqIndex": 97
+    },
+    {
+        "spWord": "según",
+        "partOfSpeech": "prep",
+        "definition": "according to",
+        "freqIndex": 257
+    },
+    {
+        "spWord": "segundo",
+        "partOfSpeech": "adj",
+        "definition": "second",
+        "freqIndex": 243
+    },
+    {
+        "spWord": "segundo",
+        "partOfSpeech": "nm",
+        "definition": "second",
+        "freqIndex": 577
+    },
+    {
+        "spWord": "seguramente",
+        "partOfSpeech": "adv",
+        "definition": "surely, securely",
+        "freqIndex": 994
+    },
+    {
+        "spWord": "seguridad",
+        "partOfSpeech": "nf",
+        "definition": "security, safety",
+        "freqIndex": 560
+    },
+    {
+        "spWord": "seguro",
+        "partOfSpeech": "adj",
+        "definition": "safe, sure, secure",
+        "freqIndex": 1118
+    },
+    {
+        "spWord": "seguro",
+        "partOfSpeech": "nm",
+        "definition": "insurance",
+        "freqIndex": 3377
+    },
+    {
+        "spWord": "seis",
+        "partOfSpeech": "num",
+        "definition": "six",
+        "freqIndex": 375
+    },
+    {
+        "spWord": "selección",
+        "partOfSpeech": "nf",
+        "definition": "selection, choice",
+        "freqIndex": 2533
+    },
+    {
+        "spWord": "seleccionar",
+        "partOfSpeech": "v",
+        "definition": "to select",
+        "freqIndex": 2912
+    },
+    {
+        "spWord": "sello",
+        "partOfSpeech": "nm",
+        "definition": "stamp, seal",
+        "freqIndex": 2999
+    },
+    {
+        "spWord": "selva",
+        "partOfSpeech": "nf",
+        "definition": "forest, jungle",
+        "freqIndex": 2138
+    },
+    {
+        "spWord": "semana",
+        "partOfSpeech": "nf",
+        "definition": "week",
+        "freqIndex": 304
+    },
+    {
+        "spWord": "semanal",
+        "partOfSpeech": "adj",
+        "definition": "weekly",
+        "freqIndex": 4268
+    },
+    {
+        "spWord": "sembrar",
+        "partOfSpeech": "v",
+        "definition": "to sow, plant",
+        "freqIndex": 2717
+    },
+    {
+        "spWord": "semejante",
+        "partOfSpeech": "adj",
+        "definition": "similar, such, alike",
+        "freqIndex": 1039
+    },
+    {
+        "spWord": "semejanza",
+        "partOfSpeech": "nf",
+        "definition": "similarity, likeness",
+        "freqIndex": 3522
+    },
+    {
+        "spWord": "semilla",
+        "partOfSpeech": "nf",
+        "definition": "seed",
+        "freqIndex": 2875
+    },
+    {
+        "spWord": "seminario",
+        "partOfSpeech": "nm",
+        "definition": "seminar, seminary",
+        "freqIndex": 4108
+    },
+    {
+        "spWord": "seña",
+        "partOfSpeech": "nf",
+        "definition": "sign, mark, seal",
+        "freqIndex": 3533
+    },
+    {
+        "spWord": "senador",
+        "partOfSpeech": "nm/f",
+        "definition": "senator",
+        "freqIndex": 4386
+    },
+    {
+        "spWord": "señal",
+        "partOfSpeech": "nf",
+        "definition": "sign, mark, token",
+        "freqIndex": 1360
+    },
+    {
+        "spWord": "señalar",
+        "partOfSpeech": "v",
+        "definition": "to point (out), signal",
+        "freqIndex": 493
+    },
+    {
+        "spWord": "sencillamente",
+        "partOfSpeech": "adv",
+        "definition": "simply",
+        "freqIndex": 2352
+    },
+    {
+        "spWord": "sencillez",
+        "partOfSpeech": "nf",
+        "definition": "simplicity",
+        "freqIndex": 4380
+    },
+    {
+        "spWord": "sencillo",
+        "partOfSpeech": "adj",
+        "definition": "simple, plain, easy",
+        "freqIndex": 922
+    },
+    {
+        "spWord": "senda",
+        "partOfSpeech": "nf",
+        "definition": "path, lane",
+        "freqIndex": 4585
+    },
+    {
+        "spWord": "sendero",
+        "partOfSpeech": "nm",
+        "definition": "(foot) path",
+        "freqIndex": 4036
+    },
+    {
+        "spWord": "seno",
+        "partOfSpeech": "nm",
+        "definition": "breast, bosom, cavity",
+        "freqIndex": 1776
+    },
+    {
+        "spWord": "señor",
+        "partOfSpeech": "nm",
+        "definition": "sir, Mr., lord",
+        "freqIndex": 240
+    },
+    {
+        "spWord": "señora",
+        "partOfSpeech": "nf",
+        "definition": "Mrs., lady, madam",
+        "freqIndex": 976
+    },
+    {
+        "spWord": "señorita",
+        "partOfSpeech": "nf",
+        "definition": "young woman",
+        "freqIndex": 2622
+    },
+    {
+        "spWord": "sensación",
+        "partOfSpeech": "nf",
+        "definition": "sensation, feeling",
+        "freqIndex": 1023
+    },
+    {
+        "spWord": "sensibilidad",
+        "partOfSpeech": "nf",
+        "definition": "sensitivity",
+        "freqIndex": 1554
+    },
+    {
+        "spWord": "sensible",
+        "partOfSpeech": "adj",
+        "definition": "sensitive, sentient",
+        "freqIndex": 2030
+    },
+    {
+        "spWord": "sentado",
+        "partOfSpeech": "adj",
+        "definition": "seated",
+        "freqIndex": 1231
+    },
+    {
+        "spWord": "sentar",
+        "partOfSpeech": "v",
+        "definition": "to sit (down), seat",
+        "freqIndex": 710
+    },
+    {
+        "spWord": "sentencia",
+        "partOfSpeech": "nf",
+        "definition": "(legal) sentence, judgment",
+        "freqIndex": 2709
+    },
+    {
+        "spWord": "sentido",
+        "partOfSpeech": "nm",
+        "definition": "sense, feeling",
+        "freqIndex": 265
+    },
+    {
+        "spWord": "sentimental",
+        "partOfSpeech": "adj",
+        "definition": "sentimental",
+        "freqIndex": 2646
+    },
+    {
+        "spWord": "sentimiento",
+        "partOfSpeech": "nm",
+        "definition": "feeling, sentiment",
+        "freqIndex": 867
+    },
+    {
+        "spWord": "sentir",
+        "partOfSpeech": "v",
+        "definition": "to feel, regret",
+        "freqIndex": 131
+    },
+    {
+        "spWord": "sentir",
+        "partOfSpeech": "nm",
+        "definition": "feeling",
+        "freqIndex": 3690
+    },
+    {
+        "spWord": "separación",
+        "partOfSpeech": "nf",
+        "definition": "separation",
+        "freqIndex": 2041
+    },
+    {
+        "spWord": "separado",
+        "partOfSpeech": "adj",
+        "definition": "separate",
+        "freqIndex": 1208
+    },
+    {
+        "spWord": "separar",
+        "partOfSpeech": "v",
+        "definition": "to separate",
+        "freqIndex": 792
+    },
+    {
+        "spWord": "septiembre",
+        "partOfSpeech": "nm",
+        "definition": "September",
+        "freqIndex": 2574
+    },
+    {
+        "spWord": "séptimo",
+        "partOfSpeech": "adj",
+        "definition": "seventh",
+        "freqIndex": 4905
+    },
+    {
+        "spWord": "sequía",
+        "partOfSpeech": "nf",
+        "definition": "drought",
+        "freqIndex": 4364
+    },
+    {
+        "spWord": "ser",
+        "partOfSpeech": "v",
+        "definition": "to be (norm)",
+        "freqIndex": 8
+    },
+    {
+        "spWord": "ser",
+        "partOfSpeech": "nm",
+        "definition": "being",
+        "freqIndex": 352
+    },
+    {
+        "spWord": "serenidad",
+        "partOfSpeech": "nf",
+        "definition": "serenity, calm",
+        "freqIndex": 3743
+    },
+    {
+        "spWord": "sereno",
+        "partOfSpeech": "adj",
+        "definition": "serene, calm",
+        "freqIndex": 4066
+    },
+    {
+        "spWord": "seriamente",
+        "partOfSpeech": "adv",
+        "definition": "seriously",
+        "freqIndex": 3206
+    },
+    {
+        "spWord": "serie",
+        "partOfSpeech": "nf",
+        "definition": "series",
+        "freqIndex": 522
+    },
+    {
+        "spWord": "seriedad",
+        "partOfSpeech": "nf",
+        "definition": "seriousness",
+        "freqIndex": 3022
+    },
+    {
+        "spWord": "serio",
+        "partOfSpeech": "adj",
+        "definition": "serious",
+        "freqIndex": 545
+    },
+    {
+        "spWord": "serpiente",
+        "partOfSpeech": "nf",
+        "definition": "snake",
+        "freqIndex": 4150
+    },
+    {
+        "spWord": "servicio",
+        "partOfSpeech": "nm",
+        "definition": "service, helpfulness",
+        "freqIndex": 390
+    },
+    {
+        "spWord": "servidor",
+        "partOfSpeech": "nm/f",
+        "definition": "servant",
+        "freqIndex": 4010
+    },
+    {
+        "spWord": "servidumbre",
+        "partOfSpeech": "nf",
+        "definition": "staff of servants, servitude",
+        "freqIndex": 4602
+    },
+    {
+        "spWord": "servir",
+        "partOfSpeech": "v",
+        "definition": "to serve",
+        "freqIndex": 226
+    },
+    {
+        "spWord": "sesenta",
+        "partOfSpeech": "num",
+        "definition": "sixty",
+        "freqIndex": 1306
+    },
+    {
+        "spWord": "sesión",
+        "partOfSpeech": "nf",
+        "definition": "session, meeting",
+        "freqIndex": 1683
+    },
+    {
+        "spWord": "setenta",
+        "partOfSpeech": "num",
+        "definition": "seventy",
+        "freqIndex": 1773
+    },
+    {
+        "spWord": "severo",
+        "partOfSpeech": "adj",
+        "definition": "severe",
+        "freqIndex": 1832
+    },
+    {
+        "spWord": "sexo",
+        "partOfSpeech": "nm",
+        "definition": "sex",
+        "freqIndex": 1667
+    },
+    {
+        "spWord": "sexto",
+        "partOfSpeech": "adj",
+        "definition": "sixth",
+        "freqIndex": 3140
+    },
+    {
+        "spWord": "sexual",
+        "partOfSpeech": "adj",
+        "definition": "sexual",
+        "freqIndex": 1796
+    },
+    {
+        "spWord": "si",
+        "partOfSpeech": "conj",
+        "definition": "if, whether",
+        "freqIndex": 34
+    },
+    {
+        "spWord": "sí",
+        "partOfSpeech": "adv",
+        "definition": "yes",
+        "freqIndex": 70
+    },
+    {
+        "spWord": "siempre",
+        "partOfSpeech": "adv",
+        "definition": "always, forever",
+        "freqIndex": 90
+    },
+    {
+        "spWord": "sierra",
+        "partOfSpeech": "nf",
+        "definition": "mountain range, saw",
+        "freqIndex": 3390
+    },
+    {
+        "spWord": "siesta",
+        "partOfSpeech": "nf",
+        "definition": "siesta, afternoon nap",
+        "freqIndex": 4176
+    },
+    {
+        "spWord": "siete",
+        "partOfSpeech": "num",
+        "definition": "seven",
+        "freqIndex": 470
+    },
+    {
+        "spWord": "siglo",
+        "partOfSpeech": "nm",
+        "definition": "century, age",
+        "freqIndex": 273
+    },
+    {
+        "spWord": "significación",
+        "partOfSpeech": "nf",
+        "definition": "meaning, significance",
+        "freqIndex": 4862
+    },
+    {
+        "spWord": "significado",
+        "partOfSpeech": "nm",
+        "definition": "meaning",
+        "freqIndex": 1966
+    },
+    {
+        "spWord": "significar",
+        "partOfSpeech": "v",
+        "definition": "to mean",
+        "freqIndex": 502
+    },
+    {
+        "spWord": "significativo",
+        "partOfSpeech": "adj",
+        "definition": "significant, meaningful",
+        "freqIndex": 1939
+    },
+    {
+        "spWord": "signo",
+        "partOfSpeech": "nm",
+        "definition": "sign, mark, symbol",
+        "freqIndex": 1359
+    },
+    {
+        "spWord": "siguiente",
+        "partOfSpeech": "adj",
+        "definition": "following, next",
+        "freqIndex": 309
+    },
+    {
+        "spWord": "silencio",
+        "partOfSpeech": "nm",
+        "definition": "silence",
+        "freqIndex": 923
+    },
+    {
+        "spWord": "silencioso",
+        "partOfSpeech": "adj",
+        "definition": "quiet, silent",
+        "freqIndex": 3374
+    },
+    {
+        "spWord": "silla",
+        "partOfSpeech": "nf",
+        "definition": "chair, seat",
+        "freqIndex": 1307
+    },
+    {
+        "spWord": "sillón",
+        "partOfSpeech": "nm",
+        "definition": "armchair, seat",
+        "freqIndex": 3604
+    },
+    {
+        "spWord": "silvestre",
+        "partOfSpeech": "adj",
+        "definition": "wild",
+        "freqIndex": 4418
+    },
+    {
+        "spWord": "simbólico",
+        "partOfSpeech": "adj",
+        "definition": "symbolic",
+        "freqIndex": 3349
+    },
+    {
+        "spWord": "símbolo",
+        "partOfSpeech": "nm",
+        "definition": "symbol",
+        "freqIndex": 1723
+    },
+    {
+        "spWord": "similar",
+        "partOfSpeech": "adj",
+        "definition": "similar",
+        "freqIndex": 1325
+    },
+    {
+        "spWord": "simpatía",
+        "partOfSpeech": "nf",
+        "definition": "sympathy, affinity",
+        "freqIndex": 2327
+    },
+    {
+        "spWord": "simpático",
+        "partOfSpeech": "adj",
+        "definition": "nice, likeable, friendly",
+        "freqIndex": 2590
+    },
+    {
+        "spWord": "simple",
+        "partOfSpeech": "adj",
+        "definition": "simple, mere, simple-minded",
+        "freqIndex": 661
+    },
+    {
+        "spWord": "simplemente",
+        "partOfSpeech": "adv",
+        "definition": "simply, just",
+        "freqIndex": 591
+    },
+    {
+        "spWord": "simular",
+        "partOfSpeech": "v",
+        "definition": "to pretend, simulate",
+        "freqIndex": 3947
+    },
+    {
+        "spWord": "simultáneamente",
+        "partOfSpeech": "adv",
+        "definition": "simultaneously",
+        "freqIndex": 3627
+    },
+    {
+        "spWord": "simultáneo",
+        "partOfSpeech": "adj",
+        "definition": "simultaneous",
+        "freqIndex": 4609
+    },
+    {
+        "spWord": "sin",
+        "partOfSpeech": "prep",
+        "definition": "without",
+        "freqIndex": 43
+    },
+    {
+        "spWord": "sinceramente",
+        "partOfSpeech": "adv",
+        "definition": "sincerely",
+        "freqIndex": 3574
+    },
+    {
+        "spWord": "sinceridad",
+        "partOfSpeech": "nf",
+        "definition": "sincerity",
+        "freqIndex": 4069
+    },
+    {
+        "spWord": "sincero",
+        "partOfSpeech": "adj",
+        "definition": "sincere",
+        "freqIndex": 2915
+    },
+    {
+        "spWord": "sindicato",
+        "partOfSpeech": "nm",
+        "definition": "trade union",
+        "freqIndex": 3882
+    },
+    {
+        "spWord": "singular",
+        "partOfSpeech": "adj",
+        "definition": "single, singular",
+        "freqIndex": 2854
+    },
+    {
+        "spWord": "siniestro",
+        "partOfSpeech": "adj",
+        "definition": "sinister",
+        "freqIndex": 4880
+    },
+    {
+        "spWord": "sino",
+        "partOfSpeech": "conj",
+        "definition": "but, except, rather",
+        "freqIndex": 109
+    },
+    {
+        "spWord": "síntesis",
+        "partOfSpeech": "nf",
+        "definition": "synthesis",
+        "freqIndex": 2742
+    },
+    {
+        "spWord": "sintético",
+        "partOfSpeech": "adj",
+        "definition": "synthetic",
+        "freqIndex": 4954
+    },
+    {
+        "spWord": "síntoma",
+        "partOfSpeech": "nm",
+        "definition": "symptom",
+        "freqIndex": 2228
+    },
+    {
+        "spWord": "siquiera",
+        "partOfSpeech": "adv",
+        "definition": "even (if)",
+        "freqIndex": 602
+    },
+    {
+        "spWord": "sirena",
+        "partOfSpeech": "nf",
+        "definition": "siren, mermaid",
+        "freqIndex": 4696
+    },
+    {
+        "spWord": "sistema",
+        "partOfSpeech": "nm",
+        "definition": "system",
+        "freqIndex": 430
+    },
+    {
+        "spWord": "sistemático",
+        "partOfSpeech": "adj",
+        "definition": "systematic",
+        "freqIndex": 3567
+    },
+    {
+        "spWord": "sitio",
+        "partOfSpeech": "nm",
+        "definition": "place, space",
+        "freqIndex": 672
+    },
+    {
+        "spWord": "situación",
+        "partOfSpeech": "nf",
+        "definition": "situation",
+        "freqIndex": 268
+    },
+    {
+        "spWord": "situado",
+        "partOfSpeech": "adj",
+        "definition": "situated, located",
+        "freqIndex": 1798
+    },
+    {
+        "spWord": "situar",
+        "partOfSpeech": "v",
+        "definition": "to situate, place, locate",
+        "freqIndex": 2089
+    },
+    {
+        "spWord": "soberanía",
+        "partOfSpeech": "nf",
+        "definition": "sovereignty",
+        "freqIndex": 4824
+    },
+    {
+        "spWord": "soberano",
+        "partOfSpeech": "adj",
+        "definition": "sovereign, self-assured",
+        "freqIndex": 4782
+    },
+    {
+        "spWord": "soberbio",
+        "partOfSpeech": "adj",
+        "definition": "proud, arrogant",
+        "freqIndex": 4576
+    },
+    {
+        "spWord": "sobra",
+        "partOfSpeech": "nf",
+        "definition": "excess, surplus, leftover",
+        "freqIndex": 4547
+    },
+    {
+        "spWord": "sobrar",
+        "partOfSpeech": "v",
+        "definition": "to be too much, left over",
+        "freqIndex": 2978
+    },
+    {
+        "spWord": "sobre",
+        "partOfSpeech": "prep",
+        "definition": "on top of, over, about",
+        "freqIndex": 48
+    },
+    {
+        "spWord": "sobrepasar",
+        "partOfSpeech": "v",
+        "definition": "excel, out perform",
+        "freqIndex": 3620
+    },
+    {
+        "spWord": "sobresalir",
+        "partOfSpeech": "v",
+        "definition": "to stand out, excel",
+        "freqIndex": 3779
+    },
+    {
+        "spWord": "sobrevenir",
+        "partOfSpeech": "v",
+        "definition": "to occur, befall, strike",
+        "freqIndex": 4811
+    },
+    {
+        "spWord": "sobrevivir",
+        "partOfSpeech": "v",
+        "definition": "to survive, outlive",
+        "freqIndex": 1999
+    },
+    {
+        "spWord": "sobrino",
+        "partOfSpeech": "nm",
+        "definition": "nephew",
+        "freqIndex": 3593
+    },
+    {
+        "spWord": "social",
+        "partOfSpeech": "adj",
+        "definition": "social",
+        "freqIndex": 280
+    },
+    {
+        "spWord": "socialista",
+        "partOfSpeech": "adj",
+        "definition": "socialist",
+        "freqIndex": 2820
+    },
+    {
+        "spWord": "sociedad",
+        "partOfSpeech": "nf",
+        "definition": "society",
+        "freqIndex": 408
+    },
+    {
+        "spWord": "socio",
+        "partOfSpeech": "nm",
+        "definition": "member, partner",
+        "freqIndex": 2314
+    },
+    {
+        "spWord": "sofisticado",
+        "partOfSpeech": "adj",
+        "definition": "sophisticated",
+        "freqIndex": 4546
+    },
+    {
+        "spWord": "sol",
+        "partOfSpeech": "nm",
+        "definition": "sun",
+        "freqIndex": 686
+    },
+    {
+        "spWord": "solamente",
+        "partOfSpeech": "adv",
+        "definition": "only",
+        "freqIndex": 336
+    },
+    {
+        "spWord": "solar",
+        "partOfSpeech": "adj",
+        "definition": "solar",
+        "freqIndex": 3841
+    },
+    {
+        "spWord": "soldado",
+        "partOfSpeech": "nm/f",
+        "definition": "soldier",
+        "freqIndex": 1568
+    },
+    {
+        "spWord": "soledad",
+        "partOfSpeech": "nf",
+        "definition": "loneliness, solitude",
+        "freqIndex": 2116
+    },
+    {
+        "spWord": "solemne",
+        "partOfSpeech": "adj",
+        "definition": "solemn",
+        "freqIndex": 3115
+    },
+    {
+        "spWord": "soler",
+        "partOfSpeech": "v",
+        "definition": "to be accustomed to",
+        "freqIndex": 487
+    },
+    {
+        "spWord": "solicitar",
+        "partOfSpeech": "v",
+        "definition": "to solicit, request",
+        "freqIndex": 1384
+    },
+    {
+        "spWord": "solicitud",
+        "partOfSpeech": "nf",
+        "definition": "request, application",
+        "freqIndex": 3540
+    },
+    {
+        "spWord": "solidaridad",
+        "partOfSpeech": "nf",
+        "definition": "solidarity, togetherness",
+        "freqIndex": 2668
+    },
+    {
+        "spWord": "solidario",
+        "partOfSpeech": "adj",
+        "definition": "united, jointly shared",
+        "freqIndex": 4472
+    },
+    {
+        "spWord": "sólido",
+        "partOfSpeech": "adj",
+        "definition": "solid, strong",
+        "freqIndex": 1569
+    },
+    {
+        "spWord": "solitario",
+        "partOfSpeech": "adj",
+        "definition": "solitary, lonely",
+        "freqIndex": 2064
+    },
+    {
+        "spWord": "solo",
+        "partOfSpeech": "adj",
+        "definition": "lonely, alone",
+        "freqIndex": 160
+    },
+    {
+        "spWord": "solo",
+        "partOfSpeech": "adv",
+        "definition": "only, just",
+        "freqIndex": 102
+    },
+    {
+        "spWord": "soltar",
+        "partOfSpeech": "v",
+        "definition": "to release, loosen, let out",
+        "freqIndex": 2272
+    },
+    {
+        "spWord": "soltero",
+        "partOfSpeech": "adj",
+        "definition": "single, not married",
+        "freqIndex": 3175
+    },
+    {
+        "spWord": "solución",
+        "partOfSpeech": "nf",
+        "definition": "solution, answer",
+        "freqIndex": 871
+    },
+    {
+        "spWord": "solucionar",
+        "partOfSpeech": "v",
+        "definition": "to solve, settle",
+        "freqIndex": 2184
+    },
+    {
+        "spWord": "sombra",
+        "partOfSpeech": "nf",
+        "definition": "shade, shadow",
+        "freqIndex": 1324
+    },
+    {
+        "spWord": "sombrero",
+        "partOfSpeech": "nm",
+        "definition": "hat, sombrero",
+        "freqIndex": 2899
+    },
+    {
+        "spWord": "sombrío",
+        "partOfSpeech": "adj",
+        "definition": "shady, dark, dismal",
+        "freqIndex": 4455
+    },
+    {
+        "spWord": "someter",
+        "partOfSpeech": "v",
+        "definition": "to subject",
+        "freqIndex": 1116
+    },
+    {
+        "spWord": "sonar",
+        "partOfSpeech": "v",
+        "definition": "to sound, ring",
+        "freqIndex": 1068
+    },
+    {
+        "spWord": "soñar",
+        "partOfSpeech": "v",
+        "definition": "to dream",
+        "freqIndex": 1593
+    },
+    {
+        "spWord": "sonido",
+        "partOfSpeech": "nm",
+        "definition": "sound",
+        "freqIndex": 1192
+    },
+    {
+        "spWord": "sonoro",
+        "partOfSpeech": "adj",
+        "definition": "loud, resounding",
+        "freqIndex": 2762
+    },
+    {
+        "spWord": "sonreír",
+        "partOfSpeech": "v",
+        "definition": "to smile",
+        "freqIndex": 2731
+    },
+    {
+        "spWord": "sonriente",
+        "partOfSpeech": "adj",
+        "definition": "smiling",
+        "freqIndex": 4579
+    },
+    {
+        "spWord": "sonrisa",
+        "partOfSpeech": "nf",
+        "definition": "smile",
+        "freqIndex": 2754
+    },
+    {
+        "spWord": "sopa",
+        "partOfSpeech": "nf",
+        "definition": "soup",
+        "freqIndex": 3795
+    },
+    {
+        "spWord": "soplar",
+        "partOfSpeech": "v",
+        "definition": "to blow (wind)",
+        "freqIndex": 3201
+    },
+    {
+        "spWord": "soportar",
+        "partOfSpeech": "v",
+        "definition": "to endure, stand (something)",
+        "freqIndex": 1310
+    },
+    {
+        "spWord": "soporte",
+        "partOfSpeech": "nm",
+        "definition": "support, endorsement",
+        "freqIndex": 4797
+    },
+    {
+        "spWord": "sordo",
+        "partOfSpeech": "adj",
+        "definition": "deaf, dull",
+        "freqIndex": 2933
+    },
+    {
+        "spWord": "sorprendente",
+        "partOfSpeech": "adj",
+        "definition": "surprising, astonishing",
+        "freqIndex": 2203
+    },
+    {
+        "spWord": "sorprender",
+        "partOfSpeech": "v",
+        "definition": "to surprise",
+        "freqIndex": 1320
+    },
+    {
+        "spWord": "sorprendido",
+        "partOfSpeech": "adj",
+        "definition": "surprised",
+        "freqIndex": 3120
+    },
+    {
+        "spWord": "sorpresa",
+        "partOfSpeech": "nf",
+        "definition": "surprise",
+        "freqIndex": 1264
+    },
+    {
+        "spWord": "sospecha",
+        "partOfSpeech": "nf",
+        "definition": "suspicion",
+        "freqIndex": 2602
+    },
+    {
+        "spWord": "sospechar",
+        "partOfSpeech": "v",
+        "definition": "to suspect, suppose",
+        "freqIndex": 1984
+    },
+    {
+        "spWord": "sospechoso",
+        "partOfSpeech": "adj",
+        "definition": "suspicious",
+        "freqIndex": 3592
+    },
+    {
+        "spWord": "sostener",
+        "partOfSpeech": "v",
+        "definition": "to support, hold up",
+        "freqIndex": 883
+    },
+    {
+        "spWord": "sostenido",
+        "partOfSpeech": "adj",
+        "definition": "sustained, steady",
+        "freqIndex": 3279
+    },
+    {
+        "spWord": "sótano",
+        "partOfSpeech": "nm",
+        "definition": "basement",
+        "freqIndex": 4930
+    },
+    {
+        "spWord": "soviético",
+        "partOfSpeech": "adj",
+        "definition": "Soviet",
+        "freqIndex": 4438
+    },
+    {
+        "spWord": "su",
+        "partOfSpeech": "adj",
+        "definition": "his/her/their/your (-fam)",
+        "freqIndex": 14
+    },
+    {
+        "spWord": "suave",
+        "partOfSpeech": "adj",
+        "definition": "soft, gentle, mild",
+        "freqIndex": 1784
+    },
+    {
+        "spWord": "suavemente",
+        "partOfSpeech": "adv",
+        "definition": "softly",
+        "freqIndex": 3915
+    },
+    {
+        "spWord": "subir",
+        "partOfSpeech": "v",
+        "definition": "to go up",
+        "freqIndex": 443
+    },
+    {
+        "spWord": "súbito",
+        "partOfSpeech": "adj",
+        "definition": "sudden",
+        "freqIndex": 4130
+    },
+    {
+        "spWord": "subjetivo",
+        "partOfSpeech": "adj",
+        "definition": "subjective",
+        "freqIndex": 4793
+    },
+    {
+        "spWord": "subrayar",
+        "partOfSpeech": "v",
+        "definition": "to underline, highlight, emphasize",
+        "freqIndex": 3396
+    },
+    {
+        "spWord": "subsistir",
+        "partOfSpeech": "v",
+        "definition": "to subsist, survive",
+        "freqIndex": 3748
+    },
+    {
+        "spWord": "subterráneo",
+        "partOfSpeech": "adj",
+        "definition": "underground",
+        "freqIndex": 3555
+    },
+    {
+        "spWord": "suceder",
+        "partOfSpeech": "v",
+        "definition": "to happen",
+        "freqIndex": 406
+    },
+    {
+        "spWord": "sucesión",
+        "partOfSpeech": "nf",
+        "definition": "succession, series",
+        "freqIndex": 2655
+    },
+    {
+        "spWord": "sucesivamente",
+        "partOfSpeech": "adv",
+        "definition": "successively, step by step",
+        "freqIndex": 3428
+    },
+    {
+        "spWord": "sucesivo",
+        "partOfSpeech": "adj",
+        "definition": "successive, following",
+        "freqIndex": 2379
+    },
+    {
+        "spWord": "suceso",
+        "partOfSpeech": "nm",
+        "definition": "event, incident",
+        "freqIndex": 2563
+    },
+    {
+        "spWord": "sucio",
+        "partOfSpeech": "adj",
+        "definition": "dirty, filthy, underhanded",
+        "freqIndex": 1994
+    },
+    {
+        "spWord": "sudar",
+        "partOfSpeech": "v",
+        "definition": "to sweat",
+        "freqIndex": 4619
+    },
+    {
+        "spWord": "sudor",
+        "partOfSpeech": "nm",
+        "definition": "sweat, perspiration",
+        "freqIndex": 4081
+    },
+    {
+        "spWord": "sueldo",
+        "partOfSpeech": "nm",
+        "definition": "salary, pay",
+        "freqIndex": 1770
+    },
+    {
+        "spWord": "suelo",
+        "partOfSpeech": "nm",
+        "definition": "ground, floor",
+        "freqIndex": 432
+    },
+    {
+        "spWord": "suelto",
+        "partOfSpeech": "adj",
+        "definition": "loose",
+        "freqIndex": 1941
+    },
+    {
+        "spWord": "sueño",
+        "partOfSpeech": "nm",
+        "definition": "dream, sleep",
+        "freqIndex": 583
+    },
+    {
+        "spWord": "suerte",
+        "partOfSpeech": "nf",
+        "definition": "luck, fortune",
+        "freqIndex": 725
+    },
+    {
+        "spWord": "suficiente",
+        "partOfSpeech": "adj",
+        "definition": "sufficient, enough",
+        "freqIndex": 547
+    },
+    {
+        "spWord": "suficientemente",
+        "partOfSpeech": "adv",
+        "definition": "enough",
+        "freqIndex": 1805
+    },
+    {
+        "spWord": "sufrimiento",
+        "partOfSpeech": "nm",
+        "definition": "suffering",
+        "freqIndex": 2658
+    },
+    {
+        "spWord": "sufrir",
+        "partOfSpeech": "v",
+        "definition": "to suffer, undergo",
+        "freqIndex": 457
+    },
+    {
+        "spWord": "sugerencia",
+        "partOfSpeech": "nf",
+        "definition": "suggestion",
+        "freqIndex": 3784
+    },
+    {
+        "spWord": "sugerir",
+        "partOfSpeech": "v",
+        "definition": "to suggest, hint at",
+        "freqIndex": 1327
+    },
+    {
+        "spWord": "suicidio",
+        "partOfSpeech": "nm",
+        "definition": "suicide",
+        "freqIndex": 3329
+    },
+    {
+        "spWord": "suizo",
+        "partOfSpeech": "adj",
+        "definition": "Swiss",
+        "freqIndex": 4500
+    },
+    {
+        "spWord": "sujetar",
+        "partOfSpeech": "v",
+        "definition": "to fasten, attach, hold",
+        "freqIndex": 2879
+    },
+    {
+        "spWord": "sujeto",
+        "partOfSpeech": "nm",
+        "definition": "subject, individual",
+        "freqIndex": 1748
+    },
+    {
+        "spWord": "sujeto",
+        "partOfSpeech": "adj",
+        "definition": "fastened, subject to",
+        "freqIndex": 1759
+    },
+    {
+        "spWord": "suma",
+        "partOfSpeech": "nf",
+        "definition": "sum, amount, summary",
+        "freqIndex": 1271
+    },
+    {
+        "spWord": "sumamente",
+        "partOfSpeech": "adv",
+        "definition": "extremely, highly",
+        "freqIndex": 2380
+    },
+    {
+        "spWord": "sumar",
+        "partOfSpeech": "v",
+        "definition": "to add up, amount to",
+        "freqIndex": 1608
+    },
+    {
+        "spWord": "sumergir",
+        "partOfSpeech": "v",
+        "definition": "to submerge, plunge",
+        "freqIndex": 4431
+    },
+    {
+        "spWord": "sumido",
+        "partOfSpeech": "adj",
+        "definition": "sunken, drowned",
+        "freqIndex": 4876
+    },
+    {
+        "spWord": "sumo",
+        "partOfSpeech": "adj",
+        "definition": "utmost, highest",
+        "freqIndex": 3570
+    },
+    {
+        "spWord": "superar",
+        "partOfSpeech": "v",
+        "definition": "to overcome, surpass",
+        "freqIndex": 975
+    },
+    {
+        "spWord": "superficial",
+        "partOfSpeech": "adj",
+        "definition": "superficial",
+        "freqIndex": 2693
+    },
+    {
+        "spWord": "superficie",
+        "partOfSpeech": "nf",
+        "definition": "surface, area",
+        "freqIndex": 1442
+    },
+    {
+        "spWord": "superior",
+        "partOfSpeech": "adj",
+        "definition": "superior, upper",
+        "freqIndex": 535
+    },
+    {
+        "spWord": "superioridad",
+        "partOfSpeech": "nf",
+        "definition": "superiority",
+        "freqIndex": 4011
+    },
+    {
+        "spWord": "supervivencia",
+        "partOfSpeech": "nf",
+        "definition": "survival",
+        "freqIndex": 3983
+    },
+    {
+        "spWord": "suponer",
+        "partOfSpeech": "v",
+        "definition": "to suppose, assume",
+        "freqIndex": 305
+    },
+    {
+        "spWord": "supremo",
+        "partOfSpeech": "adj",
+        "definition": "supreme",
+        "freqIndex": 2633
+    },
+    {
+        "spWord": "suprimir",
+        "partOfSpeech": "v",
+        "definition": "to suppress, delete",
+        "freqIndex": 2976
+    },
+    {
+        "spWord": "supuestamente",
+        "partOfSpeech": "adv",
+        "definition": "supposedly, allegedly",
+        "freqIndex": 4262
+    },
+    {
+        "spWord": "supuesto",
+        "partOfSpeech": "adj",
+        "definition": "supposed",
+        "freqIndex": 511
+    },
+    {
+        "spWord": "por supuesto",
+        "partOfSpeech": "adv",
+        "definition": "of course",
+        "freqIndex": 511
+    },
+    {
+        "spWord": "sur",
+        "partOfSpeech": "nm",
+        "definition": "south",
+        "freqIndex": 1064
+    },
+    {
+        "spWord": "surgir",
+        "partOfSpeech": "v",
+        "definition": "to appear, spring (forth)",
+        "freqIndex": 553
+    },
+    {
+        "spWord": "susceptible",
+        "partOfSpeech": "adj",
+        "definition": "susceptible",
+        "freqIndex": 4250
+    },
+    {
+        "spWord": "suscitar",
+        "partOfSpeech": "v",
+        "definition": "to arouse, provoke",
+        "freqIndex": 3010
+    },
+    {
+        "spWord": "suspender",
+        "partOfSpeech": "v",
+        "definition": "to suspend, hang, fail",
+        "freqIndex": 1929
+    },
+    {
+        "spWord": "suspirar",
+        "partOfSpeech": "v",
+        "definition": "to sigh",
+        "freqIndex": 4558
+    },
+    {
+        "spWord": "sustancia",
+        "partOfSpeech": "nf",
+        "definition": "substance, essence",
+        "freqIndex": 2598
+    },
+    {
+        "spWord": "sustentar",
+        "partOfSpeech": "v",
+        "definition": "to maintain, support",
+        "freqIndex": 4392
+    },
+    {
+        "spWord": "sustituir",
+        "partOfSpeech": "v",
+        "definition": "to substitute, replace",
+        "freqIndex": 1786
+    },
+    {
+        "spWord": "susto",
+        "partOfSpeech": "nm",
+        "definition": "fright, scare",
+        "freqIndex": 3048
+    },
+    {
+        "spWord": "sutil",
+        "partOfSpeech": "adj",
+        "definition": "subtle",
+        "freqIndex": 2577
+    },
+    {
+        "spWord": "suyo",
+        "partOfSpeech": "pron",
+        "definition": "his, hers, yours (-fam), theirs",
+        "freqIndex": 520
+    },
+    {
+        "spWord": "tabaco",
+        "partOfSpeech": "nm",
+        "definition": "tobacco, cigarette, cigar",
+        "freqIndex": 2560
+    },
+    {
+        "spWord": "tabla",
+        "partOfSpeech": "nf",
+        "definition": "chart, board, table, plank",
+        "freqIndex": 1833
+    },
+    {
+        "spWord": "tablero",
+        "partOfSpeech": "nm",
+        "definition": "board, panel",
+        "freqIndex": 4207
+    },
+    {
+        "spWord": "táctica",
+        "partOfSpeech": "nf",
+        "definition": "tactics, strategy",
+        "freqIndex": 4623
+    },
+    {
+        "spWord": "tacto",
+        "partOfSpeech": "nm",
+        "definition": "sense of touch, feel",
+        "freqIndex": 4411
+    },
+    {
+        "spWord": "tal",
+        "partOfSpeech": "adj",
+        "definition": "such (a)",
+        "freqIndex": 120
+    },
+    {
+        "spWord": "talento",
+        "partOfSpeech": "nm",
+        "definition": "talent, skill",
+        "freqIndex": 2143
+    },
+    {
+        "spWord": "talla",
+        "partOfSpeech": "nf",
+        "definition": "size (of clothing), stature",
+        "freqIndex": 4330
+    },
+    {
+        "spWord": "taller",
+        "partOfSpeech": "nm",
+        "definition": "workshop, shop",
+        "freqIndex": 2373
+    },
+    {
+        "spWord": "talón",
+        "partOfSpeech": "nm",
+        "definition": "heel, check, coupon, stub",
+        "freqIndex": 4447
+    },
+    {
+        "spWord": "tamaño",
+        "partOfSpeech": "nm",
+        "definition": "size, dimension",
+        "freqIndex": 776
+    },
+    {
+        "spWord": "también",
+        "partOfSpeech": "adv",
+        "definition": "also",
+        "freqIndex": 53
+    },
+    {
+        "spWord": "tambor",
+        "partOfSpeech": "nm",
+        "definition": "drum",
+        "freqIndex": 4057
+    },
+    {
+        "spWord": "tampoco",
+        "partOfSpeech": "adv",
+        "definition": "neither, nor, either",
+        "freqIndex": 279
+    },
+    {
+        "spWord": "tan",
+        "partOfSpeech": "adv",
+        "definition": "such, as, too, so",
+        "freqIndex": 83
+    },
+    {
+        "spWord": "tanque",
+        "partOfSpeech": "nm",
+        "definition": "tank, large container",
+        "freqIndex": 4594
+    },
+    {
+        "spWord": "tanto",
+        "partOfSpeech": "adj",
+        "definition": "so much, so many",
+        "freqIndex": 79
+    },
+    {
+        "spWord": "tapa",
+        "partOfSpeech": "nf",
+        "definition": "cover, lid",
+        "freqIndex": 3492
+    },
+    {
+        "spWord": "tapar",
+        "partOfSpeech": "v",
+        "definition": "to cover, wrap",
+        "freqIndex": 2129
+    },
+    {
+        "spWord": "tardar",
+        "partOfSpeech": "v",
+        "definition": "to delay, take long",
+        "freqIndex": 959
+    },
+    {
+        "spWord": "tarde",
+        "partOfSpeech": "nf",
+        "definition": "afternoon, evening",
+        "freqIndex": 242
+    },
+    {
+        "spWord": "tarde",
+        "partOfSpeech": "adv",
+        "definition": "late",
+        "freqIndex": 1046
+    },
+    {
+        "spWord": "tardío",
+        "partOfSpeech": "adj",
+        "definition": "late, belated",
+        "freqIndex": 3487
+    },
+    {
+        "spWord": "tarea",
+        "partOfSpeech": "nf",
+        "definition": "task, job",
+        "freqIndex": 585
+    },
+    {
+        "spWord": "tarjeta",
+        "partOfSpeech": "nf",
+        "definition": "card",
+        "freqIndex": 2309
+    },
+    {
+        "spWord": "tasa",
+        "partOfSpeech": "nf",
+        "definition": "rate, fee, levy",
+        "freqIndex": 4550
+    },
+    {
+        "spWord": "taxi",
+        "partOfSpeech": "nm",
+        "definition": "taxi, cab",
+        "freqIndex": 3402
+    },
+    {
+        "spWord": "taza",
+        "partOfSpeech": "nf",
+        "definition": "cup, bowl",
+        "freqIndex": 3218
+    },
+    {
+        "spWord": "te",
+        "partOfSpeech": "pron",
+        "definition": "you (obj/+fam)",
+        "freqIndex": 136
+    },
+    {
+        "spWord": "té",
+        "partOfSpeech": "nm",
+        "definition": "tea",
+        "freqIndex": 2145
+    },
+    {
+        "spWord": "teatral",
+        "partOfSpeech": "adj",
+        "definition": "theatrical",
+        "freqIndex": 3295
+    },
+    {
+        "spWord": "teatro",
+        "partOfSpeech": "nm",
+        "definition": "theater, drama",
+        "freqIndex": 861
+    },
+    {
+        "spWord": "techo",
+        "partOfSpeech": "nm",
+        "definition": "roof",
+        "freqIndex": 1386
+    },
+    {
+        "spWord": "técnica",
+        "partOfSpeech": "nf",
+        "definition": "technique, skill",
+        "freqIndex": 1187
+    },
+    {
+        "spWord": "técnico",
+        "partOfSpeech": "adj",
+        "definition": "technical",
+        "freqIndex": 1480
+    },
+    {
+        "spWord": "técnico",
+        "partOfSpeech": "nm/f",
+        "definition": "technician",
+        "freqIndex": 2982
+    },
+    {
+        "spWord": "tecnología",
+        "partOfSpeech": "nf",
+        "definition": "technology",
+        "freqIndex": 2931
+    },
+    {
+        "spWord": "tecnológico",
+        "partOfSpeech": "adj",
+        "definition": "technological",
+        "freqIndex": 3972
+    },
+    {
+        "spWord": "tejado",
+        "partOfSpeech": "nm",
+        "definition": "roof, housetop",
+        "freqIndex": 4944
+    },
+    {
+        "spWord": "tejer",
+        "partOfSpeech": "v",
+        "definition": "to sew, weave",
+        "freqIndex": 2941
+    },
+    {
+        "spWord": "tejido",
+        "partOfSpeech": "nm",
+        "definition": "fabric, tissue",
+        "freqIndex": 2547
+    },
+    {
+        "spWord": "tela",
+        "partOfSpeech": "nf",
+        "definition": "cloth, fabric",
+        "freqIndex": 1719
+    },
+    {
+        "spWord": "telefónico",
+        "partOfSpeech": "adj",
+        "definition": "telephone",
+        "freqIndex": 2888
+    },
+    {
+        "spWord": "teléfono",
+        "partOfSpeech": "nm",
+        "definition": "phone, telephone",
+        "freqIndex": 999
+    },
+    {
+        "spWord": "televisión",
+        "partOfSpeech": "nf",
+        "definition": "TV, television",
+        "freqIndex": 1078
+    },
+    {
+        "spWord": "televisor",
+        "partOfSpeech": "nm",
+        "definition": "television set",
+        "freqIndex": 3250
+    },
+    {
+        "spWord": "tema",
+        "partOfSpeech": "nm",
+        "definition": "theme, subject, topic",
+        "freqIndex": 283
+    },
+    {
+        "spWord": "temblar",
+        "partOfSpeech": "v",
+        "definition": "to tremble, shake",
+        "freqIndex": 3255
+    },
+    {
+        "spWord": "temblor",
+        "partOfSpeech": "nm",
+        "definition": "tremor, shudder, shiver",
+        "freqIndex": 3902
+    },
+    {
+        "spWord": "temer",
+        "partOfSpeech": "v",
+        "definition": "to fear",
+        "freqIndex": 1387
+    },
+    {
+        "spWord": "temeroso",
+        "partOfSpeech": "adj",
+        "definition": "fearful",
+        "freqIndex": 3952
+    },
+    {
+        "spWord": "temor",
+        "partOfSpeech": "nm",
+        "definition": "fear",
+        "freqIndex": 1154
+    },
+    {
+        "spWord": "temperamento",
+        "partOfSpeech": "nm",
+        "definition": "temperament, personality",
+        "freqIndex": 4586
+    },
+    {
+        "spWord": "temperatura",
+        "partOfSpeech": "nf",
+        "definition": "temperature",
+        "freqIndex": 1558
+    },
+    {
+        "spWord": "templo",
+        "partOfSpeech": "nm",
+        "definition": "temple, church",
+        "freqIndex": 2437
+    },
+    {
+        "spWord": "temporada",
+        "partOfSpeech": "nf",
+        "definition": "season, period, time",
+        "freqIndex": 1887
+    },
+    {
+        "spWord": "temporal",
+        "partOfSpeech": "adj",
+        "definition": "temporary",
+        "freqIndex": 3225
+    },
+    {
+        "spWord": "temprano",
+        "partOfSpeech": "adj",
+        "definition": "early",
+        "freqIndex": 1200
+    },
+    {
+        "spWord": "tendencia",
+        "partOfSpeech": "nf",
+        "definition": "tendency, style",
+        "freqIndex": 1347
+    },
+    {
+        "spWord": "tender",
+        "partOfSpeech": "v",
+        "definition": "to tend to, lay out",
+        "freqIndex": 727
+    },
+    {
+        "spWord": "tendido",
+        "partOfSpeech": "adj",
+        "definition": "spread, hung, laid (out)",
+        "freqIndex": 3727
+    },
+    {
+        "spWord": "tener",
+        "partOfSpeech": "v",
+        "definition": "to have",
+        "freqIndex": 18
+    },
+    {
+        "spWord": "teniente",
+        "partOfSpeech": "nm",
+        "definition": "lieutenant, deputy mayor",
+        "freqIndex": 3608
+    },
+    {
+        "spWord": "tenis",
+        "partOfSpeech": "nm",
+        "definition": "tennis",
+        "freqIndex": 4968
+    },
+    {
+        "spWord": "tenor",
+        "partOfSpeech": "nm",
+        "definition": "tenor",
+        "freqIndex": 4814
+    },
+    {
+        "spWord": "a tenor de",
+        "partOfSpeech": "prep",
+        "definition": "in accordance with",
+        "freqIndex": 4814
+    },
+    {
+        "spWord": "tensión",
+        "partOfSpeech": "nf",
+        "definition": "tension, stress, strain",
+        "freqIndex": 1514
+    },
+    {
+        "spWord": "tenso",
+        "partOfSpeech": "adj",
+        "definition": "tight, tense",
+        "freqIndex": 3043
+    },
+    {
+        "spWord": "tentación",
+        "partOfSpeech": "nf",
+        "definition": "temptation",
+        "freqIndex": 2765
+    },
+    {
+        "spWord": "tentar",
+        "partOfSpeech": "v",
+        "definition": "to tempt, entice",
+        "freqIndex": 4869
+    },
+    {
+        "spWord": "tenue",
+        "partOfSpeech": "adj",
+        "definition": "tenuous, flimsy",
+        "freqIndex": 4450
+    },
+    {
+        "spWord": "teoría",
+        "partOfSpeech": "nf",
+        "definition": "theory",
+        "freqIndex": 970
+    },
+    {
+        "spWord": "teórico",
+        "partOfSpeech": "adj",
+        "definition": "theoretical",
+        "freqIndex": 2866
+    },
+    {
+        "spWord": "tercero",
+        "partOfSpeech": "adj",
+        "definition": "third",
+        "freqIndex": 394
+    },
+    {
+        "spWord": "tercio",
+        "partOfSpeech": "nm",
+        "definition": "third",
+        "freqIndex": 3988
+    },
+    {
+        "spWord": "terminar",
+        "partOfSpeech": "v",
+        "definition": "to finish, end",
+        "freqIndex": 219
+    },
+    {
+        "spWord": "término",
+        "partOfSpeech": "nm",
+        "definition": "term (language), end",
+        "freqIndex": 561
+    },
+    {
+        "spWord": "ternura",
+        "partOfSpeech": "nf",
+        "definition": "tenderness",
+        "freqIndex": 3797
+    },
+    {
+        "spWord": "terraza",
+        "partOfSpeech": "nf",
+        "definition": "terrace, balcony",
+        "freqIndex": 4074
+    },
+    {
+        "spWord": "terremoto",
+        "partOfSpeech": "nm",
+        "definition": "earthquake",
+        "freqIndex": 4100
+    },
+    {
+        "spWord": "terreno",
+        "partOfSpeech": "nm",
+        "definition": "ground, earth, terrain",
+        "freqIndex": 796
+    },
+    {
+        "spWord": "terrestre",
+        "partOfSpeech": "adj",
+        "definition": "earthly, of the earth",
+        "freqIndex": 4663
+    },
+    {
+        "spWord": "terrible",
+        "partOfSpeech": "adj",
+        "definition": "terrible",
+        "freqIndex": 1228
+    },
+    {
+        "spWord": "terriblemente",
+        "partOfSpeech": "adv",
+        "definition": "terribly",
+        "freqIndex": 4928
+    },
+    {
+        "spWord": "territorio",
+        "partOfSpeech": "nm",
+        "definition": "territory",
+        "freqIndex": 1382
+    },
+    {
+        "spWord": "terror",
+        "partOfSpeech": "nm",
+        "definition": "terror, horror",
+        "freqIndex": 2189
+    },
+    {
+        "spWord": "tertulia",
+        "partOfSpeech": "nf",
+        "definition": "get-together, meeting of friends",
+        "freqIndex": 4483
+    },
+    {
+        "spWord": "tesis",
+        "partOfSpeech": "nf",
+        "definition": "thesis, exposition",
+        "freqIndex": 2117
+    },
+    {
+        "spWord": "tesoro",
+        "partOfSpeech": "nm",
+        "definition": "treasure, thesaurus",
+        "freqIndex": 2629
+    },
+    {
+        "spWord": "testigo",
+        "partOfSpeech": "nm",
+        "definition": "witness",
+        "freqIndex": 1618
+    },
+    {
+        "spWord": "testimonio",
+        "partOfSpeech": "nm",
+        "definition": "testimony, evidence",
+        "freqIndex": 2066
+    },
+    {
+        "spWord": "texto",
+        "partOfSpeech": "nm",
+        "definition": "text",
+        "freqIndex": 800
+    },
+    {
+        "spWord": "ti",
+        "partOfSpeech": "pron",
+        "definition": "you (obj prep-sg/+fam)",
+        "freqIndex": 1704
+    },
+    {
+        "spWord": "tía",
+        "partOfSpeech": "nf",
+        "definition": "aunt",
+        "freqIndex": 2199
+    },
+    {
+        "spWord": "tibio",
+        "partOfSpeech": "adj",
+        "definition": "lukewarm",
+        "freqIndex": 3590
+    },
+    {
+        "spWord": "tiempo",
+        "partOfSpeech": "nm",
+        "definition": "time (general), weather",
+        "freqIndex": 68
+    },
+    {
+        "spWord": "tienda",
+        "partOfSpeech": "nf",
+        "definition": "shop, store, tent",
+        "freqIndex": 1650
+    },
+    {
+        "spWord": "tierno",
+        "partOfSpeech": "adj",
+        "definition": "tender, soft",
+        "freqIndex": 2973
+    },
+    {
+        "spWord": "tierra",
+        "partOfSpeech": "nf",
+        "definition": "earth, land, ground",
+        "freqIndex": 276
+    },
+    {
+        "spWord": "tigre",
+        "partOfSpeech": "nm",
+        "definition": "tiger",
+        "freqIndex": 4582
+    },
+    {
+        "spWord": "timbre",
+        "partOfSpeech": "nm",
+        "definition": "doorbell, bell, seal, stamp",
+        "freqIndex": 3404
+    },
+    {
+        "spWord": "timidez",
+        "partOfSpeech": "nf",
+        "definition": "shyness, timidity",
+        "freqIndex": 3447
+    },
+    {
+        "spWord": "tímido",
+        "partOfSpeech": "adj",
+        "definition": "timid, shy, half-hearted",
+        "freqIndex": 2795
+    },
+    {
+        "spWord": "tinta",
+        "partOfSpeech": "nf",
+        "definition": "ink",
+        "freqIndex": 3089
+    },
+    {
+        "spWord": "tinte",
+        "partOfSpeech": "nm",
+        "definition": "tint, dye",
+        "freqIndex": 4451
+    },
+    {
+        "spWord": "tío",
+        "partOfSpeech": "nm",
+        "definition": "uncle, guy",
+        "freqIndex": 1755
+    },
+    {
+        "spWord": "típico",
+        "partOfSpeech": "adj",
+        "definition": "typical",
+        "freqIndex": 1651
+    },
+    {
+        "spWord": "tipo",
+        "partOfSpeech": "nm",
+        "definition": "type, kind",
+        "freqIndex": 157
+    },
+    {
+        "spWord": "tira",
+        "partOfSpeech": "nf",
+        "definition": "strip, strap",
+        "freqIndex": 4102
+    },
+    {
+        "spWord": "tirar",
+        "partOfSpeech": "v",
+        "definition": "to throw, pull",
+        "freqIndex": 759
+    },
+    {
+        "spWord": "tiro",
+        "partOfSpeech": "nm",
+        "definition": "throw, shot",
+        "freqIndex": 1737
+    },
+    {
+        "spWord": "titular",
+        "partOfSpeech": "nm",
+        "definition": "headline, holder",
+        "freqIndex": 3655
+    },
+    {
+        "spWord": "titular",
+        "partOfSpeech": "v",
+        "definition": "to title, call",
+        "freqIndex": 4035
+    },
+    {
+        "spWord": "título",
+        "partOfSpeech": "nm",
+        "definition": "title, heading",
+        "freqIndex": 653
+    },
+    {
+        "spWord": "toalla",
+        "partOfSpeech": "nf",
+        "definition": "towel",
+        "freqIndex": 4967
+    },
+    {
+        "spWord": "tocar",
+        "partOfSpeech": "v",
+        "definition": "to touch, play (instrument)",
+        "freqIndex": 325
+    },
+    {
+        "spWord": "todavía",
+        "partOfSpeech": "adv",
+        "definition": "still, yet",
+        "freqIndex": 211
+    },
+    {
+        "spWord": "todo",
+        "partOfSpeech": "adj",
+        "definition": "all, every",
+        "freqIndex": 22
+    },
+    {
+        "spWord": "tolerancia",
+        "partOfSpeech": "nf",
+        "definition": "tolerance",
+        "freqIndex": 3792
+    },
+    {
+        "spWord": "tolerar",
+        "partOfSpeech": "v",
+        "definition": "to tolerate, put up with",
+        "freqIndex": 2874
+    },
+    {
+        "spWord": "tomar",
+        "partOfSpeech": "v",
+        "definition": "to take, drink",
+        "freqIndex": 122
+    },
+    {
+        "spWord": "tomate",
+        "partOfSpeech": "nm",
+        "definition": "tomato",
+        "freqIndex": 3920
+    },
+    {
+        "spWord": "tonelada",
+        "partOfSpeech": "nf",
+        "definition": "ton",
+        "freqIndex": 4399
+    },
+    {
+        "spWord": "tono",
+        "partOfSpeech": "nm",
+        "definition": "tone",
+        "freqIndex": 972
+    },
+    {
+        "spWord": "tontería",
+        "partOfSpeech": "nf",
+        "definition": "stupidity, stupid thing",
+        "freqIndex": 3074
+    },
+    {
+        "spWord": "tonto",
+        "partOfSpeech": "adj",
+        "definition": "stupid, dumb",
+        "freqIndex": 2191
+    },
+    {
+        "spWord": "topar",
+        "partOfSpeech": "v",
+        "definition": "to run into, bump into",
+        "freqIndex": 4230
+    },
+    {
+        "spWord": "toque",
+        "partOfSpeech": "nm",
+        "definition": "touch, ringing, warning",
+        "freqIndex": 3448
+    },
+    {
+        "spWord": "torcer",
+        "partOfSpeech": "v",
+        "definition": "to twist, bend, distort",
+        "freqIndex": 4221
+    },
+    {
+        "spWord": "tormenta",
+        "partOfSpeech": "nf",
+        "definition": "storm",
+        "freqIndex": 2841
+    },
+    {
+        "spWord": "tornar",
+        "partOfSpeech": "v",
+        "definition": "to transform, turn",
+        "freqIndex": 3263
+    },
+    {
+        "spWord": "torno",
+        "partOfSpeech": "nm",
+        "definition": "turn; drill; lathe; turnstyle",
+        "freqIndex": 1230
+    },
+    {
+        "spWord": "en torno a",
+        "partOfSpeech": "prep",
+        "definition": "about, regarding",
+        "freqIndex": 1230
+    },
+    {
+        "spWord": "toro",
+        "partOfSpeech": "nm",
+        "definition": "bull",
+        "freqIndex": 2331
+    },
+    {
+        "spWord": "torpe",
+        "partOfSpeech": "adj",
+        "definition": "clumsy, awkward, slow",
+        "freqIndex": 3629
+    },
+    {
+        "spWord": "torre",
+        "partOfSpeech": "nf",
+        "definition": "tower",
+        "freqIndex": 2162
+    },
+    {
+        "spWord": "torta",
+        "partOfSpeech": "nf",
+        "definition": "cake",
+        "freqIndex": 4715
+    },
+    {
+        "spWord": "tortura",
+        "partOfSpeech": "nf",
+        "definition": "torture",
+        "freqIndex": 3585
+    },
+    {
+        "spWord": "total",
+        "partOfSpeech": "adj",
+        "definition": "total, entire",
+        "freqIndex": 629
+    },
+    {
+        "spWord": "total",
+        "partOfSpeech": "nm",
+        "definition": "(sum) total",
+        "freqIndex": 1043
+    },
+    {
+        "spWord": "totalidad",
+        "partOfSpeech": "nf",
+        "definition": "whole, totality",
+        "freqIndex": 2276
+    },
+    {
+        "spWord": "totalmente",
+        "partOfSpeech": "adv",
+        "definition": "totally, completely",
+        "freqIndex": 662
+    },
+    {
+        "spWord": "trabajador",
+        "partOfSpeech": "nm/f",
+        "definition": "worker, laborer",
+        "freqIndex": 1714
+    },
+    {
+        "spWord": "trabajador",
+        "partOfSpeech": "adj",
+        "definition": "hardworking",
+        "freqIndex": 4489
+    },
+    {
+        "spWord": "trabajar",
+        "partOfSpeech": "v",
+        "definition": "to work",
+        "freqIndex": 183
+    },
+    {
+        "spWord": "trabajo",
+        "partOfSpeech": "nm",
+        "definition": "work, job, effort",
+        "freqIndex": 145
+    },
+    {
+        "spWord": "tradición",
+        "partOfSpeech": "nf",
+        "definition": "tradition",
+        "freqIndex": 898
+    },
+    {
+        "spWord": "tradicional",
+        "partOfSpeech": "adj",
+        "definition": "traditional",
+        "freqIndex": 1309
+    },
+    {
+        "spWord": "tradicionalmente",
+        "partOfSpeech": "adv",
+        "definition": "traditionally",
+        "freqIndex": 4657
+    },
+    {
+        "spWord": "traducción",
+        "partOfSpeech": "nf",
+        "definition": "translation",
+        "freqIndex": 3344
+    },
+    {
+        "spWord": "traducir",
+        "partOfSpeech": "v",
+        "definition": "to translate",
+        "freqIndex": 1603
+    },
+    {
+        "spWord": "traer",
+        "partOfSpeech": "v",
+        "definition": "to bring, carry",
+        "freqIndex": 289
+    },
+    {
+        "spWord": "tráfico",
+        "partOfSpeech": "nm",
+        "definition": "traffic, trade",
+        "freqIndex": 2188
+    },
+    {
+        "spWord": "tragar",
+        "partOfSpeech": "v",
+        "definition": "to swallow",
+        "freqIndex": 2965
+    },
+    {
+        "spWord": "tragedia",
+        "partOfSpeech": "nf",
+        "definition": "tragedy",
+        "freqIndex": 1905
+    },
+    {
+        "spWord": "trágico",
+        "partOfSpeech": "adj",
+        "definition": "tragic",
+        "freqIndex": 2501
+    },
+    {
+        "spWord": "trago",
+        "partOfSpeech": "nm",
+        "definition": "swig, drink",
+        "freqIndex": 4215
+    },
+    {
+        "spWord": "traición",
+        "partOfSpeech": "nf",
+        "definition": "treason, betrayal",
+        "freqIndex": 3493
+    },
+    {
+        "spWord": "traicionar",
+        "partOfSpeech": "v",
+        "definition": "to betray",
+        "freqIndex": 3713
+    },
+    {
+        "spWord": "traidor",
+        "partOfSpeech": "nm",
+        "definition": "traitor",
+        "freqIndex": 4286
+    },
+    {
+        "spWord": "traje",
+        "partOfSpeech": "nm",
+        "definition": "suit, dress, costume",
+        "freqIndex": 1710
+    },
+    {
+        "spWord": "trama",
+        "partOfSpeech": "nf",
+        "definition": "plot, theme",
+        "freqIndex": 3566
+    },
+    {
+        "spWord": "trámite",
+        "partOfSpeech": "nm",
+        "definition": "procedure, step, requirement",
+        "freqIndex": 3246
+    },
+    {
+        "spWord": "tramo",
+        "partOfSpeech": "nm",
+        "definition": "section, stretch, plot",
+        "freqIndex": 3475
+    },
+    {
+        "spWord": "trampa",
+        "partOfSpeech": "nf",
+        "definition": "trick, trap",
+        "freqIndex": 2548
+    },
+    {
+        "spWord": "hacer trampa",
+        "partOfSpeech": "v",
+        "definition": "to cheat",
+        "freqIndex": 2548
+    },
+    {
+        "spWord": "trance",
+        "partOfSpeech": "nm",
+        "definition": "trance, fix, enrapture",
+        "freqIndex": 4457
+    },
+    {
+        "spWord": "tranquilamente",
+        "partOfSpeech": "adv",
+        "definition": "calmly, peacefully",
+        "freqIndex": 3247
+    },
+    {
+        "spWord": "tranquilidad",
+        "partOfSpeech": "nf",
+        "definition": "tranquility, peace",
+        "freqIndex": 1729
+    },
+    {
+        "spWord": "tranquilizar",
+        "partOfSpeech": "v",
+        "definition": "to calm down",
+        "freqIndex": 3848
+    },
+    {
+        "spWord": "tranquilo",
+        "partOfSpeech": "adj",
+        "definition": "calm, tranquil, relaxed",
+        "freqIndex": 1144
+    },
+    {
+        "spWord": "transcurrir",
+        "partOfSpeech": "v",
+        "definition": "to occur, take place",
+        "freqIndex": 1579
+    },
+    {
+        "spWord": "transcurso",
+        "partOfSpeech": "nm",
+        "definition": "passing, course, lapse",
+        "freqIndex": 3155
+    },
+    {
+        "spWord": "transformación",
+        "partOfSpeech": "nf",
+        "definition": "transformation",
+        "freqIndex": 2450
+    },
+    {
+        "spWord": "transformar",
+        "partOfSpeech": "v",
+        "definition": "to transform, change",
+        "freqIndex": 891
+    },
+    {
+        "spWord": "transición",
+        "partOfSpeech": "nf",
+        "definition": "transition",
+        "freqIndex": 3139
+    },
+    {
+        "spWord": "transitar",
+        "partOfSpeech": "v",
+        "definition": "to roam, go by",
+        "freqIndex": 4821
+    },
+    {
+        "spWord": "tránsito",
+        "partOfSpeech": "nm",
+        "definition": "traffic, transit",
+        "freqIndex": 2792
+    },
+    {
+        "spWord": "transitorio",
+        "partOfSpeech": "adj",
+        "definition": "transitory",
+        "freqIndex": 4381
+    },
+    {
+        "spWord": "transmisión",
+        "partOfSpeech": "nf",
+        "definition": "broadcast, transmission",
+        "freqIndex": 4034
+    },
+    {
+        "spWord": "transmitir",
+        "partOfSpeech": "v",
+        "definition": "to transmit, broadcast",
+        "freqIndex": 1202
+    },
+    {
+        "spWord": "transparencia",
+        "partOfSpeech": "nf",
+        "definition": "transparency, slide",
+        "freqIndex": 4059
+    },
+    {
+        "spWord": "transparente",
+        "partOfSpeech": "adj",
+        "definition": "transparent, clear",
+        "freqIndex": 2657
+    },
+    {
+        "spWord": "transportar",
+        "partOfSpeech": "v",
+        "definition": "to transport, carry",
+        "freqIndex": 2690
+    },
+    {
+        "spWord": "transporte",
+        "partOfSpeech": "nm",
+        "definition": "transportation, transport",
+        "freqIndex": 1657
+    },
+    {
+        "spWord": "tranvía",
+        "partOfSpeech": "nm",
+        "definition": "trolley, tram, streetcar",
+        "freqIndex": 4502
+    },
+    {
+        "spWord": "trapo",
+        "partOfSpeech": "nm",
+        "definition": "rag, cloth",
+        "freqIndex": 4244
+    },
+    {
+        "spWord": "tras",
+        "partOfSpeech": "prep",
+        "definition": "after, behind",
+        "freqIndex": 534
+    },
+    {
+        "spWord": "trascendencia",
+        "partOfSpeech": "nf",
+        "definition": "transcendent nature, significance",
+        "freqIndex": 3233
+    },
+    {
+        "spWord": "trascendental",
+        "partOfSpeech": "adj",
+        "definition": "far-reaching, transcendental",
+        "freqIndex": 4613
+    },
+    {
+        "spWord": "trascendente",
+        "partOfSpeech": "adj",
+        "definition": "transcendent",
+        "freqIndex": 4564
+    },
+    {
+        "spWord": "trasero",
+        "partOfSpeech": "adj",
+        "definition": "behind, back",
+        "freqIndex": 4962
+    },
+    {
+        "spWord": "trasladar",
+        "partOfSpeech": "v",
+        "definition": "to move, transfer",
+        "freqIndex": 1219
+    },
+    {
+        "spWord": "traslado",
+        "partOfSpeech": "nm",
+        "definition": "transfer",
+        "freqIndex": 2763
+    },
+    {
+        "spWord": "traspasar",
+        "partOfSpeech": "v",
+        "definition": "to go beyond, cross over",
+        "freqIndex": 3502
+    },
+    {
+        "spWord": "trastorno",
+        "partOfSpeech": "nm",
+        "definition": "confusion, trouble, upheaval",
+        "freqIndex": 4298
+    },
+    {
+        "spWord": "tratado",
+        "partOfSpeech": "nm",
+        "definition": "treaty, treatise",
+        "freqIndex": 2270
+    },
+    {
+        "spWord": "tratamiento",
+        "partOfSpeech": "nm",
+        "definition": "treatment, processing",
+        "freqIndex": 1418
+    },
+    {
+        "spWord": "tratar",
+        "partOfSpeech": "v",
+        "definition": "to try, treat, deal with",
+        "freqIndex": 134
+    },
+    {
+        "spWord": "trato",
+        "partOfSpeech": "nm",
+        "definition": "treatment, manner, agreement",
+        "freqIndex": 1241
+    },
+    {
+        "spWord": "a través de",
+        "partOfSpeech": "prep",
+        "definition": "across, over, through",
+        "freqIndex": 347
+    },
+    {
+        "spWord": "trayecto",
+        "partOfSpeech": "nm",
+        "definition": "trajectory, course, path",
+        "freqIndex": 3407
+    },
+    {
+        "spWord": "trayectoria",
+        "partOfSpeech": "nf",
+        "definition": "trajectory, path",
+        "freqIndex": 3215
+    },
+    {
+        "spWord": "trazar",
+        "partOfSpeech": "v",
+        "definition": "to draw, trace",
+        "freqIndex": 2892
+    },
+    {
+        "spWord": "trazo",
+        "partOfSpeech": "nm",
+        "definition": "line, stroke",
+        "freqIndex": 4556
+    },
+    {
+        "spWord": "trece",
+        "partOfSpeech": "num",
+        "definition": "thirteen",
+        "freqIndex": 2115
+    },
+    {
+        "spWord": "tregua",
+        "partOfSpeech": "nf",
+        "definition": "truce, rest",
+        "freqIndex": 4640
+    },
+    {
+        "spWord": "treinta",
+        "partOfSpeech": "num",
+        "definition": "thirty",
+        "freqIndex": 722
+    },
+    {
+        "spWord": "tremendo",
+        "partOfSpeech": "adj",
+        "definition": "tremendous, dreadful, huge",
+        "freqIndex": 1198
+    },
+    {
+        "spWord": "tren",
+        "partOfSpeech": "nm",
+        "definition": "train, convoy",
+        "freqIndex": 1220
+    },
+    {
+        "spWord": "trepar",
+        "partOfSpeech": "v",
+        "definition": "to climb",
+        "freqIndex": 4116
+    },
+    {
+        "spWord": "tres",
+        "partOfSpeech": "num",
+        "definition": "three",
+        "freqIndex": 119
+    },
+    {
+        "spWord": "trescientos",
+        "partOfSpeech": "num",
+        "definition": "three hundred",
+        "freqIndex": 3341
+    },
+    {
+        "spWord": "triángulo",
+        "partOfSpeech": "nm",
+        "definition": "triangle",
+        "freqIndex": 4016
+    },
+    {
+        "spWord": "tribu",
+        "partOfSpeech": "nf",
+        "definition": "tribe",
+        "freqIndex": 2963
+    },
+    {
+        "spWord": "tribunal",
+        "partOfSpeech": "nm",
+        "definition": "court",
+        "freqIndex": 2571
+    },
+    {
+        "spWord": "trigo",
+        "partOfSpeech": "nm",
+        "definition": "wheat",
+        "freqIndex": 3961
+    },
+    {
+        "spWord": "triple",
+        "partOfSpeech": "adj",
+        "definition": "triple",
+        "freqIndex": 4520
+    },
+    {
+        "spWord": "triste",
+        "partOfSpeech": "adj",
+        "definition": "sad, unhappy",
+        "freqIndex": 1314
+    },
+    {
+        "spWord": "tristeza",
+        "partOfSpeech": "nf",
+        "definition": "sadness",
+        "freqIndex": 2233
+    },
+    {
+        "spWord": "triunfar",
+        "partOfSpeech": "v",
+        "definition": "to triumph",
+        "freqIndex": 2697
+    },
+    {
+        "spWord": "triunfo",
+        "partOfSpeech": "nm",
+        "definition": "triumph, victory",
+        "freqIndex": 1813
+    },
+    {
+        "spWord": "tronco",
+        "partOfSpeech": "nm",
+        "definition": "trunk, torso",
+        "freqIndex": 2936
+    },
+    {
+        "spWord": "trono",
+        "partOfSpeech": "nm",
+        "definition": "throne",
+        "freqIndex": 4510
+    },
+    {
+        "spWord": "tropa",
+        "partOfSpeech": "nf",
+        "definition": "troops, forces",
+        "freqIndex": 2312
+    },
+    {
+        "spWord": "tropezar",
+        "partOfSpeech": "v",
+        "definition": "to trip, stumble",
+        "freqIndex": 2907
+    },
+    {
+        "spWord": "tropical",
+        "partOfSpeech": "adj",
+        "definition": "tropical",
+        "freqIndex": 3873
+    },
+    {
+        "spWord": "trozo",
+        "partOfSpeech": "nm",
+        "definition": "piece, chunk",
+        "freqIndex": 2527
+    },
+    {
+        "spWord": "truco",
+        "partOfSpeech": "nm",
+        "definition": "trick, ruse",
+        "freqIndex": 4020
+    },
+    {
+        "spWord": "tu",
+        "partOfSpeech": "adj",
+        "definition": "your (sg/+fam)",
+        "freqIndex": 349
+    },
+    {
+        "spWord": "tú",
+        "partOfSpeech": "pron",
+        "definition": "you (subj-sg/+fam)",
+        "freqIndex": 554
+    },
+    {
+        "spWord": "tubo",
+        "partOfSpeech": "nm",
+        "definition": "tube, pipe",
+        "freqIndex": 2932
+    },
+    {
+        "spWord": "tumba",
+        "partOfSpeech": "nf",
+        "definition": "tomb, grave",
+        "freqIndex": 2485
+    },
+    {
+        "spWord": "tumbar",
+        "partOfSpeech": "v",
+        "definition": "to knock over, cast down",
+        "freqIndex": 4720
+    },
+    {
+        "spWord": "túnel",
+        "partOfSpeech": "nm",
+        "definition": "tunnel",
+        "freqIndex": 2942
+    },
+    {
+        "spWord": "turco",
+        "partOfSpeech": "adj",
+        "definition": "Turkish",
+        "freqIndex": 3691
+    },
+    {
+        "spWord": "turismo",
+        "partOfSpeech": "nm",
+        "definition": "tourism",
+        "freqIndex": 4012
+    },
+    {
+        "spWord": "turista",
+        "partOfSpeech": "nc",
+        "definition": "tourist",
+        "freqIndex": 3177
+    },
+    {
+        "spWord": "turístico",
+        "partOfSpeech": "adj",
+        "definition": "tourist",
+        "freqIndex": 4572
+    },
+    {
+        "spWord": "turno",
+        "partOfSpeech": "nm",
+        "definition": "turn, shift",
+        "freqIndex": 2252
+    },
+    {
+        "spWord": "en turno a",
+        "partOfSpeech": "prep",
+        "definition": "around",
+        "freqIndex": 2252
+    },
+    {
+        "spWord": "tuyo",
+        "partOfSpeech": "pron",
+        "definition": "yours (sg/+fam)",
+        "freqIndex": 2797
+    },
+    {
+        "spWord": "ubicación",
+        "partOfSpeech": "nf",
+        "definition": "position, location",
+        "freqIndex": 3559
+    },
+    {
+        "spWord": "ubicar",
+        "partOfSpeech": "v",
+        "definition": "to find, locate",
+        "freqIndex": 1750
+    },
+    {
+        "spWord": "últimamente",
+        "partOfSpeech": "adv",
+        "definition": "lately, recently",
+        "freqIndex": 2475
+    },
+    {
+        "spWord": "último",
+        "partOfSpeech": "adj",
+        "definition": "last, final",
+        "freqIndex": 139
+    },
+    {
+        "spWord": "umbral",
+        "partOfSpeech": "nm",
+        "definition": "threshold, outset",
+        "freqIndex": 3639
+    },
+    {
+        "spWord": "un",
+        "partOfSpeech": "art",
+        "definition": "a, an",
+        "freqIndex": 7
+    },
+    {
+        "spWord": "uña",
+        "partOfSpeech": "nf",
+        "definition": "nail, fingernail, toenail",
+        "freqIndex": 3106
+    },
+    {
+        "spWord": "únicamente",
+        "partOfSpeech": "adv",
+        "definition": "only",
+        "freqIndex": 1409
+    },
+    {
+        "spWord": "único",
+        "partOfSpeech": "adj",
+        "definition": "only, unique, sole",
+        "freqIndex": 181
+    },
+    {
+        "spWord": "unidad",
+        "partOfSpeech": "nf",
+        "definition": "unit, unity",
+        "freqIndex": 1025
+    },
+    {
+        "spWord": "unido",
+        "partOfSpeech": "adj",
+        "definition": "united",
+        "freqIndex": 858
+    },
+    {
+        "spWord": "uniforme",
+        "partOfSpeech": "nm",
+        "definition": "uniform",
+        "freqIndex": 2341
+    },
+    {
+        "spWord": "uniforme",
+        "partOfSpeech": "adj",
+        "definition": "uniform",
+        "freqIndex": 3880
+    },
+    {
+        "spWord": "unión",
+        "partOfSpeech": "nf",
+        "definition": "union",
+        "freqIndex": 2081
+    },
+    {
+        "spWord": "unir",
+        "partOfSpeech": "v",
+        "definition": "to unite, join (together)",
+        "freqIndex": 918
+    },
+    {
+        "spWord": "universal",
+        "partOfSpeech": "adj",
+        "definition": "universal",
+        "freqIndex": 1488
+    },
+    {
+        "spWord": "universidad",
+        "partOfSpeech": "nf",
+        "definition": "university, college",
+        "freqIndex": 1473
+    },
+    {
+        "spWord": "universitario",
+        "partOfSpeech": "adj",
+        "definition": "university",
+        "freqIndex": 2029
+    },
+    {
+        "spWord": "universo",
+        "partOfSpeech": "nm",
+        "definition": "universe",
+        "freqIndex": 2179
+    },
+    {
+        "spWord": "uno",
+        "partOfSpeech": "num",
+        "definition": "one",
+        "freqIndex": 72
+    },
+    {
+        "spWord": "urbano",
+        "partOfSpeech": "adj",
+        "definition": "urban, city, urbane",
+        "freqIndex": 2176
+    },
+    {
+        "spWord": "urgencia",
+        "partOfSpeech": "nf",
+        "definition": "urgency",
+        "freqIndex": 2391
+    },
+    {
+        "spWord": "urgente",
+        "partOfSpeech": "adj",
+        "definition": "urgent",
+        "freqIndex": 2265
+    },
+    {
+        "spWord": "usado",
+        "partOfSpeech": "adj",
+        "definition": "worn out, old, used",
+        "freqIndex": 3305
+    },
+    {
+        "spWord": "usar",
+        "partOfSpeech": "v",
+        "definition": "to use",
+        "freqIndex": 380
+    },
+    {
+        "spWord": "uso",
+        "partOfSpeech": "nm",
+        "definition": "use",
+        "freqIndex": 619
+    },
+    {
+        "spWord": "usted",
+        "partOfSpeech": "pron",
+        "definition": "you (subj/-fam)",
+        "freqIndex": 269
+    },
+    {
+        "spWord": "usual",
+        "partOfSpeech": "adj",
+        "definition": "normal, usual",
+        "freqIndex": 4729
+    },
+    {
+        "spWord": "útil",
+        "partOfSpeech": "adj",
+        "definition": "useful",
+        "freqIndex": 1195
+    },
+    {
+        "spWord": "utilidad",
+        "partOfSpeech": "nf",
+        "definition": "usefulness, utility",
+        "freqIndex": 2921
+    },
+    {
+        "spWord": "utilización",
+        "partOfSpeech": "nf",
+        "definition": "use, utilization",
+        "freqIndex": 3491
+    },
+    {
+        "spWord": "utilizar",
+        "partOfSpeech": "v",
+        "definition": "to use, utilize",
+        "freqIndex": 338
+    },
+    {
+        "spWord": "uva",
+        "partOfSpeech": "nf",
+        "definition": "grape",
+        "freqIndex": 3682
+    },
+    {
+        "spWord": "vaca",
+        "partOfSpeech": "nf",
+        "definition": "cow",
+        "freqIndex": 2234
+    },
+    {
+        "spWord": "vacaciones",
+        "partOfSpeech": "nf",
+        "definition": "vacation",
+        "freqIndex": 1623
+    },
+    {
+        "spWord": "vaciar",
+        "partOfSpeech": "v",
+        "definition": "to empty, pour out",
+        "freqIndex": 3584
+    },
+    {
+        "spWord": "vacilar",
+        "partOfSpeech": "v",
+        "definition": "to vacillate, hesitate",
+        "freqIndex": 4323
+    },
+    {
+        "spWord": "vacío",
+        "partOfSpeech": "adj",
+        "definition": "empty, vacant",
+        "freqIndex": 1532
+    },
+    {
+        "spWord": "vacío",
+        "partOfSpeech": "nm",
+        "definition": "emptiness, void",
+        "freqIndex": 1538
+    },
+    {
+        "spWord": "vago",
+        "partOfSpeech": "adj",
+        "definition": "vague",
+        "freqIndex": 3318
+    },
+    {
+        "spWord": "vaivén",
+        "partOfSpeech": "nm",
+        "definition": "swinging, rocking",
+        "freqIndex": 4773
+    },
+    {
+        "spWord": "valer",
+        "partOfSpeech": "v",
+        "definition": "to be worth, cost",
+        "freqIndex": 387
+    },
+    {
+        "spWord": "validez",
+        "partOfSpeech": "nf",
+        "definition": "validity",
+        "freqIndex": 4410
+    },
+    {
+        "spWord": "válido",
+        "partOfSpeech": "adj",
+        "definition": "valid",
+        "freqIndex": 2216
+    },
+    {
+        "spWord": "valiente",
+        "partOfSpeech": "adj",
+        "definition": "brave, courageous, bold",
+        "freqIndex": 3131
+    },
+    {
+        "spWord": "valioso",
+        "partOfSpeech": "adj",
+        "definition": "valuable, precious",
+        "freqIndex": 2178
+    },
+    {
+        "spWord": "valle",
+        "partOfSpeech": "nm",
+        "definition": "valley",
+        "freqIndex": 1663
+    },
+    {
+        "spWord": "valor",
+        "partOfSpeech": "nm",
+        "definition": "value, worth",
+        "freqIndex": 326
+    },
+    {
+        "spWord": "valorar",
+        "partOfSpeech": "v",
+        "definition": "to value",
+        "freqIndex": 2994
+    },
+    {
+        "spWord": "vanguardia",
+        "partOfSpeech": "nf",
+        "definition": "vanguard, forefront",
+        "freqIndex": 4043
+    },
+    {
+        "spWord": "vanidad",
+        "partOfSpeech": "nf",
+        "definition": "vanity, conceit",
+        "freqIndex": 3935
+    },
+    {
+        "spWord": "vano",
+        "partOfSpeech": "adj",
+        "definition": "vain, useless",
+        "freqIndex": 3367
+    },
+    {
+        "spWord": "vapor",
+        "partOfSpeech": "nm",
+        "definition": "vapor, steam",
+        "freqIndex": 2827
+    },
+    {
+        "spWord": "vara",
+        "partOfSpeech": "nf",
+        "definition": "rod, stick",
+        "freqIndex": 4822
+    },
+    {
+        "spWord": "variación",
+        "partOfSpeech": "nf",
+        "definition": "variation",
+        "freqIndex": 2703
+    },
+    {
+        "spWord": "variado",
+        "partOfSpeech": "adj",
+        "definition": "varied, mixed",
+        "freqIndex": 2464
+    },
+    {
+        "spWord": "variante",
+        "partOfSpeech": "nf",
+        "definition": "variant, difference",
+        "freqIndex": 3798
+    },
+    {
+        "spWord": "variar",
+        "partOfSpeech": "v",
+        "definition": "to change, vary",
+        "freqIndex": 2210
+    },
+    {
+        "spWord": "variedad",
+        "partOfSpeech": "nf",
+        "definition": "variety",
+        "freqIndex": 2368
+    },
+    {
+        "spWord": "varios",
+        "partOfSpeech": "adj",
+        "definition": "several, various",
+        "freqIndex": 224
+    },
+    {
+        "spWord": "varón",
+        "partOfSpeech": "nm",
+        "definition": "male, man",
+        "freqIndex": 2088
+    },
+    {
+        "spWord": "vasco",
+        "partOfSpeech": "adj",
+        "definition": "Basque",
+        "freqIndex": 3946
+    },
+    {
+        "spWord": "vaso",
+        "partOfSpeech": "nm",
+        "definition": "(drinking) glass, vase",
+        "freqIndex": 2107
+    },
+    {
+        "spWord": "vasto",
+        "partOfSpeech": "adj",
+        "definition": "vast, immense, huge",
+        "freqIndex": 2799
+    },
+    {
+        "spWord": "vecindad",
+        "partOfSpeech": "nf",
+        "definition": "nearness, vicinity",
+        "freqIndex": 4910
+    },
+    {
+        "spWord": "vecino",
+        "partOfSpeech": "nm",
+        "definition": "neighbor",
+        "freqIndex": 1095
+    },
+    {
+        "spWord": "vecino",
+        "partOfSpeech": "adj",
+        "definition": "nearby, neighboring",
+        "freqIndex": 1666
+    },
+    {
+        "spWord": "vegetación",
+        "partOfSpeech": "nf",
+        "definition": "vegetation",
+        "freqIndex": 3837
+    },
+    {
+        "spWord": "vegetal",
+        "partOfSpeech": "adj",
+        "definition": "plant, vegetable",
+        "freqIndex": 3304
+    },
+    {
+        "spWord": "vegetal",
+        "partOfSpeech": "nm",
+        "definition": "plant, vegetable",
+        "freqIndex": 4921
+    },
+    {
+        "spWord": "vehículo",
+        "partOfSpeech": "nm",
+        "definition": "vehicle, car",
+        "freqIndex": 1446
+    },
+    {
+        "spWord": "veinte",
+        "partOfSpeech": "num",
+        "definition": "twenty",
+        "freqIndex": 582
+    },
+    {
+        "spWord": "veinticinco",
+        "partOfSpeech": "num",
+        "definition": "twenty-five",
+        "freqIndex": 2311
+    },
+    {
+        "spWord": "veinticuatro",
+        "partOfSpeech": "num",
+        "definition": "twenty-four",
+        "freqIndex": 2998
+    },
+    {
+        "spWord": "veintidós",
+        "partOfSpeech": "num",
+        "definition": "twenty-two",
+        "freqIndex": 4873
+    },
+    {
+        "spWord": "vejez",
+        "partOfSpeech": "nf",
+        "definition": "old age",
+        "freqIndex": 4099
+    },
+    {
+        "spWord": "vela",
+        "partOfSpeech": "nf",
+        "definition": "candle, sail, vigil",
+        "freqIndex": 2287
+    },
+    {
+        "spWord": "velar",
+        "partOfSpeech": "v",
+        "definition": "to watch over",
+        "freqIndex": 3243
+    },
+    {
+        "spWord": "velo",
+        "partOfSpeech": "nm",
+        "definition": "veil",
+        "freqIndex": 4531
+    },
+    {
+        "spWord": "velocidad",
+        "partOfSpeech": "nf",
+        "definition": "speed, velocity",
+        "freqIndex": 1145
+    },
+    {
+        "spWord": "veloz",
+        "partOfSpeech": "adj",
+        "definition": "fast, quick",
+        "freqIndex": 4429
+    },
+    {
+        "spWord": "vena",
+        "partOfSpeech": "nf",
+        "definition": "vein",
+        "freqIndex": 3512
+    },
+    {
+        "spWord": "vencer",
+        "partOfSpeech": "v",
+        "definition": "to overcome, conquer",
+        "freqIndex": 1193
+    },
+    {
+        "spWord": "vendedor",
+        "partOfSpeech": "nm/f",
+        "definition": "salesperson",
+        "freqIndex": 2266
+    },
+    {
+        "spWord": "vender",
+        "partOfSpeech": "v",
+        "definition": "to sell",
+        "freqIndex": 526
+    },
+    {
+        "spWord": "veneno",
+        "partOfSpeech": "nm",
+        "definition": "poison, venom",
+        "freqIndex": 4198
+    },
+    {
+        "spWord": "venganza",
+        "partOfSpeech": "nf",
+        "definition": "revenge, vengeance",
+        "freqIndex": 3450
+    },
+    {
+        "spWord": "vengar",
+        "partOfSpeech": "v",
+        "definition": "to take revenge, avenge",
+        "freqIndex": 4849
+    },
+    {
+        "spWord": "venir",
+        "partOfSpeech": "v",
+        "definition": "to come",
+        "freqIndex": 105
+    },
+    {
+        "spWord": "venta",
+        "partOfSpeech": "nf",
+        "definition": "sale",
+        "freqIndex": 1075
+    },
+    {
+        "spWord": "ventaja",
+        "partOfSpeech": "nf",
+        "definition": "advantage, benefit",
+        "freqIndex": 1226
+    },
+    {
+        "spWord": "ventana",
+        "partOfSpeech": "nf",
+        "definition": "window",
+        "freqIndex": 1265
+    },
+    {
+        "spWord": "ventanilla",
+        "partOfSpeech": "nf",
+        "definition": "(vehicle) window",
+        "freqIndex": 4836
+    },
+    {
+        "spWord": "ver",
+        "partOfSpeech": "v",
+        "definition": "to see",
+        "freqIndex": 37
+    },
+    {
+        "spWord": "de veras",
+        "partOfSpeech": "adv",
+        "definition": "really, for real",
+        "freqIndex": 3038
+    },
+    {
+        "spWord": "verano",
+        "partOfSpeech": "nm",
+        "definition": "summer",
+        "freqIndex": 893
+    },
+    {
+        "spWord": "verbal",
+        "partOfSpeech": "adj",
+        "definition": "verbal, oral",
+        "freqIndex": 3256
+    },
+    {
+        "spWord": "verbo",
+        "partOfSpeech": "nm",
+        "definition": "verb",
+        "freqIndex": 4278
+    },
+    {
+        "spWord": "verdad",
+        "partOfSpeech": "nf",
+        "definition": "truth",
+        "freqIndex": 209
+    },
+    {
+        "spWord": "verdaderamente",
+        "partOfSpeech": "adv",
+        "definition": "truly",
+        "freqIndex": 1407
+    },
+    {
+        "spWord": "verdadero",
+        "partOfSpeech": "adj",
+        "definition": "true, real",
+        "freqIndex": 420
+    },
+    {
+        "spWord": "verde",
+        "partOfSpeech": "adj",
+        "definition": "green",
+        "freqIndex": 878
+    },
+    {
+        "spWord": "verdura",
+        "partOfSpeech": "nf",
+        "definition": "vegetables, greenery",
+        "freqIndex": 4480
+    },
+    {
+        "spWord": "vereda",
+        "partOfSpeech": "nf",
+        "definition": "path, sidewalk",
+        "freqIndex": 4700
+    },
+    {
+        "spWord": "vergüenza",
+        "partOfSpeech": "nf",
+        "definition": "embarrassment",
+        "freqIndex": 2206
+    },
+    {
+        "spWord": "verificar",
+        "partOfSpeech": "v",
+        "definition": "to verify",
+        "freqIndex": 3610
+    },
+    {
+        "spWord": "versión",
+        "partOfSpeech": "nf",
+        "definition": "version, account",
+        "freqIndex": 1613
+    },
+    {
+        "spWord": "verso",
+        "partOfSpeech": "nm",
+        "definition": "verse, poem",
+        "freqIndex": 2643
+    },
+    {
+        "spWord": "verter",
+        "partOfSpeech": "v",
+        "definition": "to pour, spill, shed",
+        "freqIndex": 4924
+    },
+    {
+        "spWord": "vertical",
+        "partOfSpeech": "adj",
+        "definition": "vertical, upright",
+        "freqIndex": 3297
+    },
+    {
+        "spWord": "vertiginoso",
+        "partOfSpeech": "adj",
+        "definition": "dizzying",
+        "freqIndex": 4516
+    },
+    {
+        "spWord": "vestido",
+        "partOfSpeech": "adj",
+        "definition": "dressed",
+        "freqIndex": 1870
+    },
+    {
+        "spWord": "vestido",
+        "partOfSpeech": "nm",
+        "definition": "dress",
+        "freqIndex": 2220
+    },
+    {
+        "spWord": "vestir",
+        "partOfSpeech": "v",
+        "definition": "to wear, dress",
+        "freqIndex": 1317
+    },
+    {
+        "spWord": "vestuario",
+        "partOfSpeech": "nm",
+        "definition": "wardrobe, changing room",
+        "freqIndex": 4641
+    },
+    {
+        "spWord": "vez",
+        "partOfSpeech": "nf",
+        "definition": "time (specific occurrence)",
+        "freqIndex": 44
+    },
+    {
+        "spWord": "vía",
+        "partOfSpeech": "nf",
+        "definition": "road, way",
+        "freqIndex": 982
+    },
+    {
+        "spWord": "por vía",
+        "partOfSpeech": "adv",
+        "definition": "by means",
+        "freqIndex": 982
+    },
+    {
+        "spWord": "viajar",
+        "partOfSpeech": "v",
+        "definition": "to travel",
+        "freqIndex": 790
+    },
+    {
+        "spWord": "viaje",
+        "partOfSpeech": "nm",
+        "definition": "travel, trip",
+        "freqIndex": 431
+    },
+    {
+        "spWord": "viajero",
+        "partOfSpeech": "nm",
+        "definition": "traveler, passenger",
+        "freqIndex": 3091
+    },
+    {
+        "spWord": "vibración",
+        "partOfSpeech": "nf",
+        "definition": "vibration",
+        "freqIndex": 4818
+    },
+    {
+        "spWord": "vibrar",
+        "partOfSpeech": "v",
+        "definition": "to vibrate, tremble",
+        "freqIndex": 4413
+    },
+    {
+        "spWord": "viceversa",
+        "partOfSpeech": "adv",
+        "definition": "vice versa",
+        "freqIndex": 4904
+    },
+    {
+        "spWord": "vicio",
+        "partOfSpeech": "nm",
+        "definition": "vice, bad habit, defect",
+        "freqIndex": 2805
+    },
+    {
+        "spWord": "víctima",
+        "partOfSpeech": "nf",
+        "definition": "victim, casualty",
+        "freqIndex": 1712
+    },
+    {
+        "spWord": "victoria",
+        "partOfSpeech": "nf",
+        "definition": "victory, triumph",
+        "freqIndex": 1821
+    },
+    {
+        "spWord": "vida",
+        "partOfSpeech": "nf",
+        "definition": "life",
+        "freqIndex": 88
+    },
+    {
+        "spWord": "vidrio",
+        "partOfSpeech": "nm",
+        "definition": "glass, pane",
+        "freqIndex": 2112
+    },
+    {
+        "spWord": "viejo",
+        "partOfSpeech": "adj",
+        "definition": "old, aged",
+        "freqIndex": 281
+    },
+    {
+        "spWord": "viento",
+        "partOfSpeech": "nm",
+        "definition": "wind, scent",
+        "freqIndex": 1216
+    },
+    {
+        "spWord": "vientre",
+        "partOfSpeech": "nm",
+        "definition": "womb, belly",
+        "freqIndex": 3434
+    },
+    {
+        "spWord": "viernes",
+        "partOfSpeech": "nm",
+        "definition": "Friday",
+        "freqIndex": 2483
+    },
+    {
+        "spWord": "vigente",
+        "partOfSpeech": "adj",
+        "definition": "in force, valid",
+        "freqIndex": 3801
+    },
+    {
+        "spWord": "vigilancia",
+        "partOfSpeech": "nf",
+        "definition": "surveillance, vigilance",
+        "freqIndex": 2632
+    },
+    {
+        "spWord": "vigilar",
+        "partOfSpeech": "v",
+        "definition": "to watch over, guard",
+        "freqIndex": 2247
+    },
+    {
+        "spWord": "vigor",
+        "partOfSpeech": "nm",
+        "definition": "force, strength, vigor",
+        "freqIndex": 3306
+    },
+    {
+        "spWord": "vigoroso",
+        "partOfSpeech": "adj",
+        "definition": "vigorous, strong",
+        "freqIndex": 4596
+    },
+    {
+        "spWord": "villa",
+        "partOfSpeech": "nf",
+        "definition": "village, town",
+        "freqIndex": 3731
+    },
+    {
+        "spWord": "vinculado",
+        "partOfSpeech": "adj",
+        "definition": "connected",
+        "freqIndex": 3181
+    },
+    {
+        "spWord": "vincular",
+        "partOfSpeech": "v",
+        "definition": "to connect, link, bind",
+        "freqIndex": 4407
+    },
+    {
+        "spWord": "vínculo",
+        "partOfSpeech": "nm",
+        "definition": "tie, bond, link",
+        "freqIndex": 3219
+    },
+    {
+        "spWord": "vino",
+        "partOfSpeech": "nm",
+        "definition": "wine",
+        "freqIndex": 917
+    },
+    {
+        "spWord": "violación",
+        "partOfSpeech": "nf",
+        "definition": "violation, rape",
+        "freqIndex": 4481
+    },
+    {
+        "spWord": "violar",
+        "partOfSpeech": "v",
+        "definition": "to violate, trespass, rape",
+        "freqIndex": 2673
+    },
+    {
+        "spWord": "violencia",
+        "partOfSpeech": "nf",
+        "definition": "violence",
+        "freqIndex": 1190
+    },
+    {
+        "spWord": "violentamente",
+        "partOfSpeech": "adv",
+        "definition": "violently",
+        "freqIndex": 4425
+    },
+    {
+        "spWord": "violento",
+        "partOfSpeech": "adj",
+        "definition": "violent",
+        "freqIndex": 1389
+    },
+    {
+        "spWord": "violín",
+        "partOfSpeech": "nm",
+        "definition": "violin",
+        "freqIndex": 4745
+    },
+    {
+        "spWord": "virgen",
+        "partOfSpeech": "nf",
+        "definition": "virgin",
+        "freqIndex": 3981
+    },
+    {
+        "spWord": "virgen",
+        "partOfSpeech": "adj",
+        "definition": "virgin",
+        "freqIndex": 4304
+    },
+    {
+        "spWord": "virtud",
+        "partOfSpeech": "nf",
+        "definition": "virtue, quality",
+        "freqIndex": 1378
+    },
+    {
+        "spWord": "visible",
+        "partOfSpeech": "adj",
+        "definition": "visible",
+        "freqIndex": 2459
+    },
+    {
+        "spWord": "visión",
+        "partOfSpeech": "nf",
+        "definition": "vision",
+        "freqIndex": 908
+    },
+    {
+        "spWord": "visita",
+        "partOfSpeech": "nf",
+        "definition": "visit, visitor, guest",
+        "freqIndex": 828
+    },
+    {
+        "spWord": "visitante",
+        "partOfSpeech": "nc",
+        "definition": "visitor",
+        "freqIndex": 2760
+    },
+    {
+        "spWord": "visitar",
+        "partOfSpeech": "v",
+        "definition": "to visit",
+        "freqIndex": 834
+    },
+    {
+        "spWord": "vislumbrar",
+        "partOfSpeech": "v",
+        "definition": "to glimpse",
+        "freqIndex": 4665
+    },
+    {
+        "spWord": "víspera",
+        "partOfSpeech": "nf",
+        "definition": "eve",
+        "freqIndex": 3541
+    },
+    {
+        "spWord": "vista",
+        "partOfSpeech": "nf",
+        "definition": "view, sight",
+        "freqIndex": 310
+    },
+    {
+        "spWord": "visual",
+        "partOfSpeech": "adj",
+        "definition": "visual",
+        "freqIndex": 4479
+    },
+    {
+        "spWord": "vital",
+        "partOfSpeech": "adj",
+        "definition": "vital, lively, essential",
+        "freqIndex": 1428
+    },
+    {
+        "spWord": "vitalidad",
+        "partOfSpeech": "nf",
+        "definition": "vitality, health",
+        "freqIndex": 3807
+    },
+    {
+        "spWord": "viuda",
+        "partOfSpeech": "nf",
+        "definition": "widow",
+        "freqIndex": 2488
+    },
+    {
+        "spWord": "vivienda",
+        "partOfSpeech": "nf",
+        "definition": "housing, dwelling",
+        "freqIndex": 1600
+    },
+    {
+        "spWord": "vivir",
+        "partOfSpeech": "v",
+        "definition": "to live",
+        "freqIndex": 128
+    },
+    {
+        "spWord": "vivo",
+        "partOfSpeech": "adj",
+        "definition": "alive, bright",
+        "freqIndex": 453
+    },
+    {
+        "spWord": "vocabulario",
+        "partOfSpeech": "nm",
+        "definition": "vocabulary",
+        "freqIndex": 3927
+    },
+    {
+        "spWord": "vocación",
+        "partOfSpeech": "nf",
+        "definition": "vocation, calling",
+        "freqIndex": 1829
+    },
+    {
+        "spWord": "volante",
+        "partOfSpeech": "nm",
+        "definition": "steering wheel",
+        "freqIndex": 4458
+    },
+    {
+        "spWord": "volar",
+        "partOfSpeech": "v",
+        "definition": "to fly",
+        "freqIndex": 1376
+    },
+    {
+        "spWord": "volcán",
+        "partOfSpeech": "nm",
+        "definition": "volcano",
+        "freqIndex": 4981
+    },
+    {
+        "spWord": "volcar",
+        "partOfSpeech": "v",
+        "definition": "to turn/knock over, empty",
+        "freqIndex": 3153
+    },
+    {
+        "spWord": "volumen",
+        "partOfSpeech": "nm",
+        "definition": "volume",
+        "freqIndex": 1274
+    },
+    {
+        "spWord": "voluntad",
+        "partOfSpeech": "nf",
+        "definition": "will, willpower, intention",
+        "freqIndex": 745
+    },
+    {
+        "spWord": "voluntariamente",
+        "partOfSpeech": "adv",
+        "definition": "voluntarily",
+        "freqIndex": 4891
+    },
+    {
+        "spWord": "voluntario",
+        "partOfSpeech": "adj",
+        "definition": "voluntary, volunteer",
+        "freqIndex": 2953
+    },
+    {
+        "spWord": "volver",
+        "partOfSpeech": "v",
+        "definition": "to return, to v again",
+        "freqIndex": 112
+    },
+    {
+        "spWord": "vos",
+        "partOfSpeech": "pron",
+        "definition": "you (subj-sg/+fam)",
+        "freqIndex": 3430
+    },
+    {
+        "spWord": "vosotros",
+        "partOfSpeech": "pron",
+        "definition": "you (subj-pl/+fam)",
+        "freqIndex": 4132
+    },
+    {
+        "spWord": "votar",
+        "partOfSpeech": "v",
+        "definition": "to vote",
+        "freqIndex": 3172
+    },
+    {
+        "spWord": "voto",
+        "partOfSpeech": "nm",
+        "definition": "vote",
+        "freqIndex": 2201
+    },
+    {
+        "spWord": "voz",
+        "partOfSpeech": "nf",
+        "definition": "voice",
+        "freqIndex": 320
+    },
+    {
+        "spWord": "vuelo",
+        "partOfSpeech": "nm",
+        "definition": "flight",
+        "freqIndex": 1665
+    },
+    {
+        "spWord": "vuelta",
+        "partOfSpeech": "nf",
+        "definition": "return, turn",
+        "freqIndex": 600
+    },
+    {
+        "spWord": "vuestro",
+        "partOfSpeech": "adj",
+        "definition": "your (pl/+fam)",
+        "freqIndex": 3137
+    },
+    {
+        "spWord": "vulgar",
+        "partOfSpeech": "adj",
+        "definition": "vulgar, common, banal",
+        "freqIndex": 2991
+    },
+    {
+        "spWord": "vulnerable",
+        "partOfSpeech": "adj",
+        "definition": "vulnerable",
+        "freqIndex": 4554
+    },
+    {
+        "spWord": "whisky",
+        "partOfSpeech": "nm",
+        "definition": "whisky",
+        "freqIndex": 4571
+    },
+    {
+        "spWord": "y",
+        "partOfSpeech": "conj",
+        "definition": "and",
+        "freqIndex": 4
+    },
+    {
+        "spWord": "ya",
+        "partOfSpeech": "adv",
+        "definition": "already, still",
+        "freqIndex": 36
+    },
+    {
+        "spWord": "yo",
+        "partOfSpeech": "pron",
+        "definition": "I (subj)",
+        "freqIndex": 52
+    },
+    {
+        "spWord": "zapato",
+        "partOfSpeech": "nm",
+        "definition": "shoe",
+        "freqIndex": 1932
+    },
+    {
+        "spWord": "zona",
+        "partOfSpeech": "nf",
+        "definition": "area, zone",
+        "freqIndex": 449
+    }
+]
+let partOfSpeechSet = new Set<string>();
+let wordOrganizedIntoTypes: any = {};
+for (let word of words) {
+    partOfSpeechSet.add(word.partOfSpeech);
+    if (wordOrganizedIntoTypes.hasOwnProperty(word.partOfSpeech)) {
+        wordOrganizedIntoTypes[word.partOfSpeech].push(word)
+    } else {
+        wordOrganizedIntoTypes[word.partOfSpeech] = [word];
+    }
+}
+for (let wordType of partOfSpeechSet) {
+    for (let wordData of wordOrganizedIntoTypes[wordType]) {
+        let word: Word = {
+            english: wordData.definition,
+            spanish: wordData.spWord,
+            freqIndexSpanish: wordData.freqIndex,
+            pos: ["nm", "nf", "nm/f", "nc", "nmf"].includes(wordType) ? "n" : wordData.partOfSpeech
+        }
+        // needs more info: "adj", "v", "nm", "nf", "nm/f", "nc", "nmf"
+        if (wordType === "adj") {
+            word["adjDataSp"] = {
+
+            }
+        } else if (wordType === "v") {
+            word["vDataSp"] = {
+
+            }
+        } else if (wordType === "nm") {
+            word["nDataSp"] = {
+                gender: "m"
+            }
+        } else if (wordType === "nf") {
+            word["nDataSp"] = {
+                gender: "f"
+            }
+        } else if (wordType === "nm/f") {
+            word["nDataSp"] = {
+                gender: "m/f"
+            }
+        } else if (wordType === "nc") {
+            word["nDataSp"] = {
+                gender: "c"
+            }
+        } else if (wordType === "nmf") {
+            word["nDataSp"] = {
+                gender: "mf"
+            }
+        }
+        allWordz.push(word);
+    }
+}

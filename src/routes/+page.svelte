@@ -34,22 +34,22 @@
 </script>
 
 <div class:invisible={currentPage !== "home"}>
+	<button onclick={goToAddWordPage}>Add a word</button>
+	<button onclick={goToDatabaseBackupPage}>DB Backup Page</button>
 	<ul>
 		{#each words as w}
 			<li>
 				{w.english}
-				{#if w.spanish}
+				<!-- {#if w.spanish}
 					→ {w.spanish.word}{/if}
 				{#if w.portuguese}
 					/ {w.portuguese.word}{/if}
-				({w.pos})
+				({w.pos}) -->
 			</li>
 		{/each}
 	</ul>
 
 	
-	<button onclick={goToAddWordPage}>Add a word</button>
-	<button onclick={goToDatabaseBackupPage}>DB Backup Page</button>
 </div>
 
 

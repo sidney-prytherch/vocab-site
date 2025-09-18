@@ -25,5 +25,9 @@
 		"typescript": "^5.0.0",
 		"vite": "^7.0.4",
 		"vite-plugin-devtools-json": "^1.0.0"
+	},
+	"dependencies": {
+		"@jirimracek/conjugate-esp": "^2.3.6",
+		"english-verbs-helper": "^3.4.0"
 	}
 }
