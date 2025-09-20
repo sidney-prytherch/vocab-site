@@ -2,7 +2,6 @@
 	import type { Word } from '$lib/db';
 	import { getWords, addWord } from '$lib/db';
 	import { Conjugator } from '@jirimracek/conjugate-esp';
-	import { getConjugation } from 'english-verbs-helper';
 	import { Crossword } from './Crossword';
 
     let allWordz: any[] = [];

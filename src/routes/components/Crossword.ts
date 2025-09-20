@@ -3,11 +3,13 @@ import { Conjugator } from "@jirimracek/conjugate-esp";
 
 // ░ ▓
 // all 2D arrays are row, column (so each 2D array is an array of rows)
-const defaultSize = 6;
+const defaultSize = 12;
+const wordPoolSize = 1000;
 const onlyBlanksRegExp = /^[░▓]*$/g
 const splitterRegExp = /[^▓]+/g
 
 export interface GridData { hint: string, answer: string, isAcross: boolean | null }
+export interface WordData {wordES?: string, wordEN?: string, wordPT?: string}
 
 interface StringPattern { row: number, col: number, isAcross: boolean, pattern: RegExp }
 
@@ -22,31 +24,67 @@ export class Crossword {
     crosswordGridData: GridData[][];
 
     static async createWithoutWordList(crosswordSize?: number) {
-        let size = !!crosswordSize ? crosswordSize : defaultSize
-        let conj = new Conjugator()
+
+
+        console.log(results);
+
+
+        let verbSet = new Set<string>();
+
+        let size = crosswordSize || defaultSize;
+        let conj = new Conjugator();
 
         let allWords = await getWords();
-        let verbs = await conj.getVerbList()
-        let words: string[] = []
+        let spanishVerbs = await conj.getVerbList();
+        let words: string[] = [];
+
+        let wordMap: WordData[];
+        let count = 0;
+
         for (let word of allWords) {
-            if (word.pos === "v" && word.spanish && verbs.includes(word.spanish)) {
-                let verbConjugation = await conj.conjugate(word.spanish)
-                if (typeof verbConjugation !== "string" && verbConjugation.length > 0) {
-                    if (verbConjugation.length > 1) {
-                        // console.log(verbConjugation)
-                        // both transitive and non transitive definitions?
-                    }
-                    for (let presentVerb of verbConjugation[0].conjugation.Indicativo.Presente) {
-                        if (presentVerb.length <= size) {
-                            words.push(presentVerb);
+            if (word.pos === "v") {
+                count++;
+                let presentTenses: {spanish?: string[], english?: string[], portuguese?: []} = {};
+                if (word.spanish && spanishVerbs.includes(word.spanish)) {
+                    let verbConjugation = await conj.conjugate(word.spanish)
+                    if (typeof verbConjugation !== "string" && verbConjugation.length > 0) {
+                        if (verbConjugation.length > 1) {
+                            // console.log(verbConjugation)
+                            // both transitive and non transitive definitions?
+                        }
+                        if (verbConjugation[0].conjugation.Indicativo.Presente.length !== 6) {
+                            console.warn(verbConjugation[0].conjugation.Indicativo.Presente);
+                        }
+                        presentTenses.spanish = verbConjugation[0].conjugation.Indicativo.Presente
+                        for (let word of verbConjugation[0].conjugation.Indicativo.Presente) {
+                            words.push(word);
                         }
                     }
-                    // words.push(...(verbConjugation[0].conjugation.Indicativo.Presente))
                 }
+                if (word.english) {
+                    let formattedWord = word.english.replace("to ", "")
+                    let formattedWords = formattedWord.split(/[,\/]/g).map(it => ((it.toLowerCase()).split(" "))[0]);
+                    for (let w of formattedWords) {
+                        verbSet.add(w);
+                    }
+                }
+                if (count < 20) {
+
+                    if (presentTenses.english && presentTenses.english.length > 0) {
+                        // console.log(presentTenses.english[1])
+                    }
+                    if (presentTenses.spanish && presentTenses.spanish.length > 0) {
+                        // console.log(presentTenses.spanish[1])
+                    }
+                }
+                
             }
         }
+        let list: string[] = [];
+        verbSet.forEach(w => list.push(w))
+        this.downloadSomething(list)
         let numbers = new Set<number>()
-        while (numbers.size < 100) {
+        while (numbers.size < wordPoolSize) {
             numbers.add(Math.floor(Math.random() * words.length))
         }
 
@@ -82,6 +120,17 @@ export class Crossword {
         this.printCrosswordToConsole();
     }
 
+    static downloadSomething(data: any) {
+		const link = document.createElement('a');
+		const content = JSON.stringify(data);
+		const file = new Blob([content], { type: 'text/plain' });
+		link.href = URL.createObjectURL(file);
+		link.download = 'whatever.txt';
+		link.click();
+		URL.revokeObjectURL(link.href);
+	};
+
+
     async createCrossword() {
         // cubic function to get a random number between 2 and crosswordSize from Math.random(), 
         // but preferring numbers closer to 1 + crosswordSize / 2
@@ -104,8 +153,42 @@ export class Crossword {
                 isAcross ? this.crosswordSize - secondSelectedWord.length : this.crosswordSize - 1, isAcross, secondSelectedWord);
         }
 
-        let patterns = this.getStringPatterns()
+        let patterns = this.getStringPatterns();
         this.printCrosswordToConsole()
+        while (true) {
+            //randomize patterns and then sort
+            this.randomizeArray(patterns);
+            
+            // sort by length of pattern, regardless of contents:
+            // patterns.sort((patternA, patternB) => patternB.word.length - patternA.word.length);
+
+            // sort by amount of letters already placed:
+            patterns.sort((patternA, patternB) => patternB.word.replaceAll("░", "").length - patternA.word.replaceAll("░", "").length);
+
+            let foundWord = false;
+            patternLoop: for (let pattern of patterns) {
+                for (let word of this.wordLists[pattern.word.length]) {
+                    if (pattern.pattern.test(word)) {
+                        // console.log(`${pattern.word} -> ${word}`);
+                        this.placeWordInGrid(pattern.row, pattern.col, pattern.isAcross, word);
+                        foundWord = true;
+                        break patternLoop;
+                    }
+                }
+            }
+            patterns = this.getStringPatterns();
+            if (patterns.length === 0 || !foundWord) {
+                break;
+            }
+        }
+        this.printCrosswordToConsole();
+    }
+
+    randomizeArray(array: any[]) {
+        for (let i = array.length - 1; i >= 0; i--) {
+            let j = Math.floor(Math.random() * array.length);
+            [array[i], array[j]] = [array[j], array[i]]
+        }
     }
 
     // ░ ▓
@@ -135,9 +218,6 @@ export class Crossword {
                         break;
                     }
                 }
-                if (!containsIllegalSpace) {
-                    // patterns.push({ row: rowIndex, col: rowSubsection.index, isAcross: true, pattern: new RegExp(`^${this.replaceBlanks(rowSubsection.word)}$`, "g") })
-                }
                 let subsections = this.getSubsections(rowSubsection);
                 for (let subsection of subsections) {
                     let containsIllegalSpace = false;
@@ -148,7 +228,7 @@ export class Crossword {
                         }
                     }
                     if (!containsIllegalSpace) {
-                        patterns.push({ row: rowIndex, col: subsection.index, isAcross: true, pattern: new RegExp(`^${this.replaceBlanks(subsection.word)}$`, "g") })
+                        patterns.push({ row: rowIndex, col: subsection.index, isAcross: true, word: subsection.word, pattern: new RegExp(`^${this.replaceBlanks(subsection.word)}$`, "g") })
                     }
                 }
             }
@@ -179,9 +259,6 @@ export class Crossword {
                         break;
                     }
                 }
-                if (!containsIllegalSpace) {
-                    // patterns.push({ row: colSubsection.index, col: colIndex, isAcross: false, pattern: new RegExp(`^${this.replaceBlanks(colSubsection.word)}$`, "g") })
-                }
                 let subsections = this.getSubsections(colSubsection);
                 for (let subsection of subsections) {
                     let containsIllegalSpace = false
@@ -192,15 +269,16 @@ export class Crossword {
                         }
                     }
                     if (!containsIllegalSpace) {
-                        patterns.push({ row: subsection.index, col: colIndex, isAcross: false, pattern: new RegExp(`^${this.replaceBlanks(subsection.word)}$`, "g") })
+                        patterns.push({ row: subsection.index, col: colIndex, isAcross: false, word: subsection.word, pattern: new RegExp(`^${this.replaceBlanks(subsection.word)}$`, "g") })
                     }
                 }
             }
         }
 
-        for (let pattern of patterns) {
-            console.log(`r${pattern.row} c${pattern.col} ${pattern.isAcross ? "across" : "down"}: ${pattern.pattern}`)
-        }
+        // for (let pattern of patterns) {
+        //     console.log(`r${pattern.row} c${pattern.col} ${pattern.isAcross ? "across" : "down"}: ${pattern.pattern}`)
+        // }
+        return patterns;
     }
 
     getSubsections(subsection: { word: string, index: number }) {
@@ -309,7 +387,7 @@ export class Crossword {
         })
         console.log(colNums)
         this.letterGrid.forEach((row, index) => {
-            console.log(`${(index < 10 ? " " : "")}${index}: ${row.join(" | ")}`)
+            console.log(`${(index < 10 ? " " : "")}${index}: ${row.join(" | ").replaceAll("░", " ")}`)
         })
         console.log(" ")
         this.crosswordGridData.forEach((row, rowIndex) => {
