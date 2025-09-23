@@ -10580,7 +10580,7 @@
     {
         "spWord": "empeñar",
         "partOfSpeech": "v",
-        "definition": "[se] to insist on",
+        "definition": "to insist on [se]",
         "freqIndex": 1998
     },
     {
@@ -10724,7 +10724,7 @@
     {
         "spWord": "encargar",
         "partOfSpeech": "v",
-        "definition": "to entrust, [se] take charge of",
+        "definition": "to entrust, take charge of [se]",
         "freqIndex": 1054
     },
     {
@@ -13010,7 +13010,7 @@
     {
         "spWord": "fijar",
         "partOfSpeech": "v",
-        "definition": "to set, fix, [se] notice",
+        "definition": "to set, fix, notice [se]",
         "freqIndex": 407
     },
     {
@@ -14480,7 +14480,7 @@
     {
         "spWord": "hermano",
         "partOfSpeech": "nm",
-        "definition": "brother, [pl] siblings",
+        "definition": "brother, siblings [pl]",
         "freqIndex": 539
     },
     {
@@ -14552,7 +14552,7 @@
     {
         "spWord": "hijo",
         "partOfSpeech": "nm",
-        "definition": "son, [pl] children",
+        "definition": "son, children [pl]",
         "freqIndex": 166
     },
     {
@@ -18626,7 +18626,7 @@
     {
         "spWord": "mentir",
         "partOfSpeech": "v",
-        "definition": "to (tell a) lie",
+        "definition": "to lie, tell a lie",
         "freqIndex": 2416
     },
     {
@@ -24842,7 +24842,7 @@
     {
         "spWord": "rendir",
         "partOfSpeech": "v",
-        "definition": "[se] to give in; to render",
+        "definition": "to give in [se]; to render",
         "freqIndex": 1534
     },
     {

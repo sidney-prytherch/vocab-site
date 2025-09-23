@@ -1,50 +1,212 @@
 import { getWords } from "$lib/db";
 import { Conjugator } from "@jirimracek/conjugate-esp";
+import { EnglishVerbConjugator } from "./EnglishVerbConjugator";
 
 // ░ ▓
 // all 2D arrays are row, column (so each 2D array is an array of rows)
 const defaultSize = 12;
-const wordPoolSize = 1000;
+const wordPoolSize = 500;
 const onlyBlanksRegExp = /^[░▓]*$/g
 const splitterRegExp = /[^▓]+/g
+const extraVerbData = [
+    {
+        person: 1,
+        plural: false,
+        pronounEN: "I",
+        pronounES: "yo",
+        isMasc: null,
+        includePronoun: false,
+        formal: null
+    },
+    {
+        person: 1,
+        plural: false,
+        pronounEN: "I",
+        pronounES: "yo",
+        isMasc: null,
+        includePronoun: true,
+        formal: null
+    },
+    {
+        person: 2,
+        plural: false,
+        pronounEN: "you",
+        pronounES: "tú",
+        isMasc: null,
+        includePronoun: false,
+        formal: false
+    },
+    {
+        person: 2,
+        plural: false,
+        pronounEN: "you",
+        pronounES: "tú",
+        isMasc: null,
+        includePronoun: true,
+        formal: false
+    },
+    {
+        person: 3,
+        plural: false,
+        pronounEN: "he/she/it",
+        pronounES: "él/ella/Ud.",
+        isMasc: null,
+        includePronoun: false,
+        formal: null
+    },
+    {
+        person: 3,
+        plural: false,
+        pronounEN: "he/it",
+        pronounES: "él",
+        isMasc: true,
+        includePronoun: true,
+        formal: false
+    },
+    {
+        person: 3,
+        plural: false,
+        pronounEN: "she/it",
+        pronounES: "ella",
+        isMasc: false,
+        includePronoun: true,
+        formal: false
+    },
+    {
+        person: 3,
+        plural: false,
+        pronounEN: "you",
+        pronounES: "Ud.",
+        isMasc: null,
+        includePronoun: true,
+        formal: true
+    },
+    {
+        person: 1,
+        plural: true,
+        pronounEN: "we",
+        pronounES: "nostrosos",
+        isMasc: null,
+        includePronoun: false,
+        formal: null
+    },
+    {
+        person: 1,
+        plural: true,
+        pronounEN: "we",
+        pronounES: "nostrosos",
+        isMasc: null,
+        includePronoun: true,
+        formal: null
+    },
+    {
+        person: 2,
+        plural: true,
+        pronounEN: "you",
+        pronounES: "vosostros",
+        isMasc: null,
+        includePronoun: false,
+        formal: null
+    },
+    {
+        person: 2,
+        plural: true,
+        pronounEN: "you",
+        pronounES: "vosostros",
+        isMasc: null,
+        includePronoun: true,
+        formal: null
+    },
+    {
+        person: 3,
+        plural: true,
+        pronounEN: "they",
+        pronounES: "ellos/ellas/Uds.",
+        isMasc: null,
+        includePronoun: false,
+        formal: null
+    },
+    {
+        person: 3,
+        plural: true,
+        pronounEN: "they",
+        pronounES: "ellos",
+        isMasc: true,
+        includePronoun: true,
+        formal: null
+    },
+    {
+        person: 3,
+        plural: true,
+        pronounEN: "they",
+        pronounES: "ellas",
+        isMasc: false,
+        includePronoun: true,
+        formal: null
+    },
+    {
+        person: 3,
+        plural: true,
+        pronounEN: "you",
+        pronounES: "Uds.",
+        isMasc: null,
+        includePronoun: true,
+        formal: true
+    }
+]
 
-export interface GridData { hint: string, answer: string, isAcross: boolean | null }
-export interface WordData {wordES?: string, wordEN?: string, wordPT?: string}
+export interface GridData { hint: string, answer: string }
+export interface WordData {wordES?: string, wordEN?: string, wordPT?: string, extraDataIndex?: number}
+export interface CrosswordWordData {
+    word: string;
+    hint: string;
+    extraDataIndex?: number;
+    languageOrigin: "ES" | "EN" | "PT";
+    hintLanguageOrigin: "ES" | "EN" | "PT";
+}
 
 interface StringPattern { row: number, col: number, isAcross: boolean, pattern: RegExp }
 
 export class Crossword {
     crosswordSize: number;
     wordCounts: number[];
-    conjugator: Conjugator;
     letterGrid: string[][];
     gridOfValidity: boolean[][][];
-    wordLists: string[][];
-    allWords: string[];
-    crosswordGridData: GridData[][];
+    wordLists: CrosswordWordData[][];
+    allWordPairs: CrosswordWordData[];
+    crosswordGridData: GridData[][][];
 
     static async createWithoutWordList(crosswordSize?: number) {
 
-
-        console.log(results);
-
+        let conjEng = new EnglishVerbConjugator()
 
         let verbSet = new Set<string>();
 
-        let size = crosswordSize || defaultSize;
         let conj = new Conjugator();
 
         let allWords = await getWords();
         let spanishVerbs = await conj.getVerbList();
-        let words: string[] = [];
 
-        let wordMap: WordData[];
+        let wordMap: WordData[] = [];
         let count = 0;
 
-        for (let word of allWords) {
+        // I
+        // you
+        // he
+        // she
+        // it
+        // we
+        // you (all)
+        // they (f.)
+        // they (m.)
+
+        let unfoundEnglishVerbs = new Set<string>()
+        wordLoop:for (let word of allWords) {
+            let wordData = {};
             if (word.pos === "v") {
-                count++;
-                let presentTenses: {spanish?: string[], english?: string[], portuguese?: []} = {};
+                let spanishVerb: string[][] = [];
+                let englishVerb: string[][] = [];
+                // let portugueseVerb: string[][] = [];
                 if (word.spanish && spanishVerbs.includes(word.spanish)) {
                     let verbConjugation = await conj.conjugate(word.spanish)
                     if (typeof verbConjugation !== "string" && verbConjugation.length > 0) {
@@ -53,69 +215,146 @@ export class Crossword {
                             // both transitive and non transitive definitions?
                         }
                         if (verbConjugation[0].conjugation.Indicativo.Presente.length !== 6) {
-                            console.warn(verbConjugation[0].conjugation.Indicativo.Presente);
+                            console.warn(`spanish conjugator didn't give 6 length conjugation for present: ${verbConjugation[0].conjugation.Indicativo.Presente}`);
                         }
-                        presentTenses.spanish = verbConjugation[0].conjugation.Indicativo.Presente
-                        for (let word of verbConjugation[0].conjugation.Indicativo.Presente) {
-                            words.push(word);
-                        }
+                        spanishVerb.push([
+                            verbConjugation[0].conjugation.Indicativo.Presente[0], // (yo)
+                            `yo ${verbConjugation[0].conjugation.Indicativo.Presente[0]}`, // 
+                            verbConjugation[0].conjugation.Indicativo.Presente[1], // (you)
+                            `tú ${verbConjugation[0].conjugation.Indicativo.Presente[1]}`, // you
+                            verbConjugation[0].conjugation.Indicativo.Presente[2], // (he/she/it)
+                            `él ${verbConjugation[0].conjugation.Indicativo.Presente[2]}`, // he
+                            `ella ${verbConjugation[0].conjugation.Indicativo.Presente[2]}`, // she
+                            `ud ${verbConjugation[0].conjugation.Indicativo.Presente[2]}`, // you (formal)
+                            verbConjugation[0].conjugation.Indicativo.Presente[3],
+                            `nosostros ${verbConjugation[0].conjugation.Indicativo.Presente[3]}`, // we
+                            verbConjugation[0].conjugation.Indicativo.Presente[4],
+                            `vosostros ${verbConjugation[0].conjugation.Indicativo.Presente[4]}`, // you (pl.)
+                            verbConjugation[0].conjugation.Indicativo.Presente[5],
+                            `ellos ${verbConjugation[0].conjugation.Indicativo.Presente[5]}`, // they (m.)
+                            `ellas ${verbConjugation[0].conjugation.Indicativo.Presente[5]}`, // they (f.)
+                            `uds ${verbConjugation[0].conjugation.Indicativo.Presente[5]}`, // you (pl., formal)
+                        ])
                     }
                 }
                 if (word.english) {
-                    let formattedWord = word.english.replace("to ", "")
-                    let formattedWords = formattedWord.split(/[,\/]/g).map(it => ((it.toLowerCase()).split(" "))[0]);
-                    for (let w of formattedWords) {
-                        verbSet.add(w);
-                    }
+                    let alternateDefinitions = word.english.split(/[,\/]/g);
+                    let defintionData = alternateDefinitions.map(definition => {
+                        let def = definition.trim().toLowerCase().replace(/^to /g, "");
+                        let spaceIndex = def.indexOf(" ")
+                        let [verb, remainder] = spaceIndex > -1 ? [def.substring(0, spaceIndex), def.substring(spaceIndex)] : [def, ""]
+                        return {verb, remainder};
+                    })
+                    let conjugations = defintionData.map(definition => {
+                        let conjugation = conjEng.conjugateVerb("PRES_IND", definition.verb);
+                        if (typeof conjugation === "string") {
+                            unfoundEnglishVerbs.add(conjugation);
+                            return null
+                        }
+                        if (conjugation) {
+                            return conjugation.map(conjugation => `${conjugation}${definition.remainder}`);
+                        } else {
+                            return null
+                        }
+                    }).filter(it => !!it)
+                    conjugations.forEach(conjugation => {
+                        englishVerb.push([
+                            conjugation[0],
+                            `i ${conjugation[0]}`, // 1 I
+                            conjugation[1],
+                            `you ${conjugation[1]}`, // 3 you
+                            conjugation[2],
+                            `he ${conjugation[2]}`, // 5 he
+                            `she ${conjugation[2]}`, // 6 she
+                            `you ${conjugation[1]}`, // 7 you (formal)
+                            conjugation[3],
+                            `nosostros ${conjugation[3]}`, // 8 we
+                            conjugation[4],
+                            `you ${conjugation[4]}`, // 11 you (pl.)
+                            conjugation[5],
+                            `they ${conjugation[5]}`, // 13 they (m.)
+                            `they ${conjugation[5]}`, // 14 they (f.)
+                            `you ${conjugation[4]}`, // 15 you (pl., formal)
+                        ])
+                    })
                 }
-                if (count < 20) {
 
-                    if (presentTenses.english && presentTenses.english.length > 0) {
-                        // console.log(presentTenses.english[1])
+                if (spanishVerb.length > 0 && englishVerb.length > 0) {
+                    count++;
+                    for (let englishVerbConjugation of englishVerb) {
+                        for (let spanishVerbConjugation of spanishVerb) {
+                            for (let i = 0; i < englishVerbConjugation.length; i++) {
+                                 wordMap.push({wordEN: englishVerbConjugation[i], wordES: spanishVerbConjugation[i], extraDataIndex: i})
+                            }
+                        }
                     }
-                    if (presentTenses.spanish && presentTenses.spanish.length > 0) {
-                        // console.log(presentTenses.spanish[1])
+                    if (count > 1000) {
+                        // break wordLoop;
                     }
                 }
-                
             }
+            wordMap.push(wordData);
         }
-        let list: string[] = [];
-        verbSet.forEach(w => list.push(w))
-        this.downloadSomething(list)
+
+        console.log(unfoundEnglishVerbs);
+        // (function(callback) {
+        //     let array: string[] = [];
+        //     unfoundEnglishVerbs.forEach(it => {array.push(it)});
+        //     callback(array);
+        // })(this.downloadSomething);
+
+        let filteredWordMap = wordMap.filter(it => it.wordEN && it.wordES);
+
         let numbers = new Set<number>()
         while (numbers.size < wordPoolSize) {
-            numbers.add(Math.floor(Math.random() * words.length))
+            numbers.add(Math.floor(Math.random() * filteredWordMap.length))
         }
 
-        let finalWords: string[] = [];
+        let finalWordMap: WordData[] = [];
         numbers.forEach(number => {
-            finalWords.push(words[number])
+            if (filteredWordMap[number].wordEN && filteredWordMap[number].wordES) {
+                finalWordMap.push(filteredWordMap[number])
+            }
         })
-        return new Crossword(finalWords, conj, crosswordSize)
+        return new Crossword(finalWordMap, crosswordSize)
     }
 
-    private constructor(words: string[], conjugator: Conjugator, crosswordSize?: number) {
+    private constructor(wordData: WordData[], crosswordSize?: number) {        
         this.crosswordSize = crosswordSize || defaultSize;
 
-        this.allWords = words;
         this.wordCounts = new Array(this.crosswordSize + 1).fill(0);
-        this.conjugator = conjugator;
         this.letterGrid = new Array(this.crosswordSize).fill(0).map(_ => new Array(this.crosswordSize).fill("░"))
         this.gridOfValidity = new Array(this.crosswordSize).fill(0).map(_ =>
             new Array(this.crosswordSize).fill(0).map(_ => [true, true])) //[isAbleToHoldAcrossWord, isAbleToHoldDownWord]
 
         this.wordLists = this.wordCounts.map(_ => []);
         this.crosswordGridData = new Array(this.crosswordSize).fill(0).map(_ =>
-            new Array(this.crosswordSize).fill(0).map(_ => { return { hint: "", answer: "", isAcross: null } }))
+            new Array(this.crosswordSize).fill(0).map(_ => { return [{ hint: "", answer: "" }, { hint: "", answer: "" }] }))
 
-        for (let word of words) {
-            if (word.length >= this.wordLists.length) {
-                console.warn(`"${word}" doesn't fit for grid size ${this.crosswordSize}`);
-                continue;
+        // for (let word of wordPairs) {
+        //     if (word.length >= this.wordLists.length) {
+        //         console.warn(`"${word}" doesn't fit for grid size ${this.crosswordSize}`);
+        //         continue;
+        //     }
+        //     this.wordLists[word.length].push(word);
+        //     this.wordCounts[word.length]++
+        // }
+        this.allWordPairs = []
+        for (let wordPair of wordData) {
+            if (wordPair.wordEN && wordPair.wordES) {
+                if (wordPair.wordEN.length < this.crosswordSize) {
+                    let formattedWordData: CrosswordWordData = {word: wordPair.wordEN, hint: wordPair.wordES, extraDataIndex: wordPair.extraDataIndex, languageOrigin: "EN", hintLanguageOrigin: "ES"}
+                    this.allWordPairs.push(formattedWordData);
+                    this.wordLists[wordPair.wordEN.length].push(formattedWordData);
+                    this.wordCounts[wordPair.wordEN.length]++
+                }
+                if (wordPair.wordES.length < this.crosswordSize) {
+                    let formattedWordData: CrosswordWordData = {word: wordPair.wordES, hint: wordPair.wordEN, extraDataIndex: wordPair.extraDataIndex, languageOrigin: "ES", hintLanguageOrigin: "EN"}
+                    this.allWordPairs.push(formattedWordData);
+                    this.wordLists[wordPair.wordES.length].push(formattedWordData);
+                    this.wordCounts[wordPair.wordES.length]++
+                }
             }
-            this.wordLists[word.length].push(word);
-            this.wordCounts[word.length]++
         }
         this.printCrosswordToConsole();
     }
@@ -136,8 +375,8 @@ export class Crossword {
         // but preferring numbers closer to 1 + crosswordSize / 2
         let firstWordLetters = Math.round((this.crosswordSize - 2) * 4 * Math.pow(Math.random() - .5, 3) + (this.crosswordSize - 2) / 2 + 2)
         let isAcross = Math.random() < .5
-        let firstSelectedWord: string | null = null;
-        let secondSelectedWord: string | null = null;
+        let firstSelectedWord: CrosswordWordData | null = null;
+        let secondSelectedWord: CrosswordWordData | null = null;
         if (this.wordCounts[firstWordLetters] > 1) {
             firstSelectedWord = this.removeRandomWordFromArray(this.wordLists[firstWordLetters]);
             secondSelectedWord = this.removeRandomWordFromArray(this.wordLists[firstWordLetters]);
@@ -149,8 +388,11 @@ export class Crossword {
             this.placeWordInGrid(0, 0, isAcross, firstSelectedWord);
         }
         if (secondSelectedWord) {
-            this.placeWordInGrid(isAcross ? this.crosswordSize - 1 : this.crosswordSize - secondSelectedWord.length,
-                isAcross ? this.crosswordSize - secondSelectedWord.length : this.crosswordSize - 1, isAcross, secondSelectedWord);
+            this.placeWordInGrid(
+                isAcross ? this.crosswordSize - 1 : this.crosswordSize - secondSelectedWord.word.length,
+                isAcross ? this.crosswordSize - secondSelectedWord.word.length : this.crosswordSize - 1, 
+                isAcross, 
+                secondSelectedWord);
         }
 
         let patterns = this.getStringPatterns();
@@ -168,7 +410,7 @@ export class Crossword {
             let foundWord = false;
             patternLoop: for (let pattern of patterns) {
                 for (let word of this.wordLists[pattern.word.length]) {
-                    if (pattern.pattern.test(word)) {
+                    if (pattern.pattern.test(word.word)) {
                         // console.log(`${pattern.word} -> ${word}`);
                         this.placeWordInGrid(pattern.row, pattern.col, pattern.isAcross, word);
                         foundWord = true;
@@ -228,7 +470,11 @@ export class Crossword {
                         }
                     }
                     if (!containsIllegalSpace) {
-                        patterns.push({ row: rowIndex, col: subsection.index, isAcross: true, word: subsection.word, pattern: new RegExp(`^${this.replaceBlanks(subsection.word)}$`, "g") })
+                        try {
+                            patterns.push({ row: rowIndex, col: subsection.index, isAcross: true, word: subsection.word, pattern: new RegExp(`^${this.replaceBlanks(subsection.word)}$`, "g") })
+                        } catch (error) {
+                            console.warn(error, subsection.word);
+                        }
                     }
                 }
             }
@@ -269,7 +515,15 @@ export class Crossword {
                         }
                     }
                     if (!containsIllegalSpace) {
-                        patterns.push({ row: subsection.index, col: colIndex, isAcross: false, word: subsection.word, pattern: new RegExp(`^${this.replaceBlanks(subsection.word)}$`, "g") })
+                        console.log(subsection.word)
+                        patterns.push(
+                            { row: subsection.index, 
+                                col: colIndex, 
+                                isAcross: false, 
+                                word: subsection.word, 
+                                pattern: new RegExp(`^${this.replaceBlanks(subsection.word)}$`, "g")
+                            }
+                        )
                     }
                 }
             }
@@ -312,8 +566,55 @@ export class Crossword {
         return patternString.replaceAll("░", ".")
     }
 
-    placeWordInGrid(row: number, col: number, isAcross: boolean, word: string) {
-        this.crosswordGridData[row][col] = { hint: word, answer: word, isAcross }
+    formatHint(wordData: CrosswordWordData) {
+        console.log(wordData);
+        if (wordData.extraDataIndex === undefined) {
+            return wordData.hint;
+        }
+        let data = extraVerbData[wordData.extraDataIndex];
+        console.log(data);
+        let formal = ""
+        if (wordData.hintLanguageOrigin === "EN" && wordData.languageOrigin === "ES") {
+            if (data.formal === false) {
+                formal = "informal " 
+            } else if (data.formal) {
+                formal = "formal "
+            }
+        } 
+        let plural = "" 
+        if (wordData.hintLanguageOrigin === "EN" && wordData.languageOrigin === "ES") {
+            if (!data.plural && [2,3,7].includes(wordData.extraDataIndex)) {
+                plural = "singular "
+            } else if (data.plural && [10,11,15].includes(wordData.extraDataIndex)) {
+                plural = "plural "
+            }
+        }
+        let gender = ""
+        if (wordData.languageOrigin === "EN" && wordData.hintLanguageOrigin === "ES") {
+            if (wordData.extraDataIndex > 11) {
+                gender = data.isMasc === true ? "masculine " : data.isMasc === false ? "feminine " : ""
+            }
+        } 
+        let formattedPronoun = "";
+        if (!data.includePronoun) {
+            if (wordData.hintLanguageOrigin === "EN") {
+                formattedPronoun = `(${data.pronounEN}) `
+            } else if (wordData.hintLanguageOrigin === "ES") {
+                formattedPronoun = `(${data.pronounES}) `
+            }
+        }
+        let formattedExtras = `[${`${formal}${plural}${gender}`.trim()}]`
+        let finalExtras = formattedExtras.length > 2 ? ` ${formattedExtras}` : ''
+        let formattedHint = `${formattedPronoun}${wordData.hint}${finalExtras}`
+        return formattedHint
+    }
+
+    placeWordInGrid(row: number, col: number, isAcross: boolean, wordData: CrosswordWordData) {
+        let word = wordData.word;
+        let hint = this.formatHint(wordData)
+        console.log({row, col, word, hint})
+        console.log(this.letterGrid)
+        this.crosswordGridData[row][col][isAcross ? 0 : 1] = { hint: hint, answer: word }
         for (let charIndex = 0; charIndex < word.length; charIndex++) {
             if (isAcross) {
                 this.letterGrid[row][col + charIndex] = word.charAt(charIndex)
@@ -360,22 +661,23 @@ export class Crossword {
         }
     }
 
-    removeRandomWordFromArray(wordArray: string[]) {
+    removeRandomWordFromArray(wordArray: CrosswordWordData[]) {
         if (wordArray.length === 0) {
             console.warn("NO WORDS LEFT!")
             return null;
         }
         let wordIndex = Math.floor(Math.random() * wordArray.length);
         let word = (wordArray.splice(wordIndex, 1))[0];
-        this.allWords.splice(this.allWords.indexOf(word), 1);
-        this.wordCounts[word.length]--;
+        this.allWordPairs.splice(this.allWordPairs.indexOf(word), 1); 
+        this.wordCounts[word.word.length]--;
         return word;
     }
 
     removeRandomWord() {
-        let wordIndex = Math.floor(Math.random() * this.allWords.length);
-        let word = (this.allWords.splice(wordIndex, 1))[0];
-        this.wordCounts[word.length]--;
+        let wordIndex = Math.floor(Math.random() * this.allWordPairs.length);
+        let word = (this.allWordPairs.splice(wordIndex, 1))[0];
+        this.wordLists[word.word.length].splice(this.wordLists[word.word.length].indexOf(word), 1)
+        this.wordCounts[word.word.length]--;
         return word;
     }
 
@@ -392,9 +694,11 @@ export class Crossword {
         console.log(" ")
         this.crosswordGridData.forEach((row, rowIndex) => {
             row.forEach((wordData, colIndex) => {
-                if (wordData.isAcross !== null) {
-                    console.log(`(${rowIndex}, ${colIndex}), ${wordData.isAcross ? "across" : "down"}: ${wordData.hint} -> ${wordData.answer}`)
-                }
+                let [acrossWord, downWord] = wordData;
+                if (acrossWord.answer) 
+                    console.log(`(${rowIndex}, ${colIndex}), across: ${acrossWord.hint} -> ${acrossWord.answer}`)
+                if (downWord.answer) 
+                    console.log(`(${rowIndex}, ${colIndex}), down: ${downWord.hint} -> ${downWord.answer}`)
             })
         })
     }
