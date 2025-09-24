@@ -1,5 +1,7 @@
 <script lang="ts">
-	import { Crossword } from './Crossword';
+	import CrosswordWorker from '$lib/crosswordWorker.ts?worker';
+	import ants from '$lib/assets/ant64 orig.gif';
+	import type { GridData } from './Crossword';
 
 	type CrosswordGridCell = {
 		value: string;
@@ -18,6 +20,7 @@
 	};
 
 	let currentCells: CrosswordGridCell[] = $state([]);
+    let cwWorker;
 
 	let currentHint: string = $state('');
 
@@ -25,62 +28,84 @@
 	let selectedCol: number = $state(-1);
 	let isGoingAcross: boolean = $state(true);
 	let crosswordGrid: CrosswordGridCell[][] = $state([]);
+	let loading = $state(false);
+
 
 	async function createCrossword() {
-		let crossword = await Crossword.createWithoutWordList();
-		let crosswordData = await crossword.createCrossword();
-		crosswordGrid = new Array(crosswordData.letterGrid.length).fill(0).map((_, rowIndex) =>
-			new Array(crosswordData.letterGrid.length).fill(0).map((_, colIndex) => {
-				let char = crosswordData.letterGrid[rowIndex][colIndex];
-				return {
-					value: char === '░' ? '▓' : char,
-					acrossOrigin: null,
-					downOrigin: null,
-					downCells: null,
-					acrossCells: null,
-					downCellsIndex: -1,
-					acrossCellsIndex: -1,
-					acrossHint: null,
-					downHint: null,
-					input: null,
-					acrossAnswer: null,
-					downAnswer: null,
-					highlight: 'none'
-				};
-			})
-		);
-		crosswordData.crosswordGridData.forEach((row, rowIndex) => {
-			row.forEach((cell, colIndex) => {
-				if (cell[0].answer.length > 0) {
-					crosswordGrid[rowIndex][colIndex].acrossCells = [];
-					for (let i = 0; i < cell[0].answer.length; i++) {
-						crosswordGrid[rowIndex][colIndex + i].acrossOrigin = { row: rowIndex, col: colIndex };
-						crosswordGrid[rowIndex][colIndex].acrossCells.push({
-							row: rowIndex,
-							col: colIndex + i
-						});
-						crosswordGrid[rowIndex][colIndex + i].acrossCells =
-							crosswordGrid[rowIndex][colIndex].acrossCells;
-						crosswordGrid[rowIndex][colIndex + i].acrossHint = cell[0].hint;
-						crosswordGrid[rowIndex][colIndex + i].acrossAnswer = cell[0].answer;
-						crosswordGrid[rowIndex][colIndex + i].acrossCellsIndex = i;
+        loading = true;
+		crosswordGrid = [];
+		currentCells = [];
+		currentHint = '';
+		selectedRow = -1;
+		selectedCol = -1;
+
+		cwWorker = new CrosswordWorker();
+        cwWorker.postMessage(0)
+		cwWorker.onmessage = (event) => {
+			let crosswordData: {
+				crosswordGridData: GridData[][][];
+				letterGrid: string[][];
+			} = event.data;
+			crosswordGrid = new Array(crosswordData.letterGrid.length).fill(0).map((_, rowIndex) =>
+				new Array(crosswordData.letterGrid.length).fill(0).map((_, colIndex) => {
+					let char = crosswordData.letterGrid[rowIndex][colIndex];
+					return {
+						value: char === '░' ? '▓' : char,
+						acrossOrigin: null,
+						downOrigin: null,
+						downCells: null,
+						acrossCells: null,
+						downCellsIndex: -1,
+						acrossCellsIndex: -1,
+						acrossHint: null,
+						downHint: null,
+						input: null,
+						acrossAnswer: null,
+						downAnswer: null,
+						highlight: 'none'
+					};
+				})
+			);
+			crosswordData.crosswordGridData.forEach((row, rowIndex) => {
+				row.forEach((cell, colIndex) => {
+					if (cell[0].answer.length > 0) {
+						crosswordGrid[rowIndex][colIndex].acrossCells = [];
+						for (let i = 0; i < cell[0].answer.length; i++) {
+							crosswordGrid[rowIndex][colIndex + i].acrossOrigin = {
+								row: rowIndex,
+								col: colIndex
+							};
+							crosswordGrid[rowIndex][colIndex].acrossCells.push({
+								row: rowIndex,
+								col: colIndex + i
+							});
+							crosswordGrid[rowIndex][colIndex + i].acrossCells =
+								crosswordGrid[rowIndex][colIndex].acrossCells;
+							crosswordGrid[rowIndex][colIndex + i].acrossHint = cell[0].hint;
+							crosswordGrid[rowIndex][colIndex + i].acrossAnswer = cell[0].answer;
+							crosswordGrid[rowIndex][colIndex + i].acrossCellsIndex = i;
+						}
 					}
-				}
-				if (cell[1].answer.length > 0) {
-					crosswordGrid[rowIndex][colIndex].downCells = [];
-					for (let i = 0; i < cell[1].answer.length; i++) {
-						crosswordGrid[rowIndex + i][colIndex].downOrigin = { row: rowIndex, col: colIndex };
-						crosswordGrid[rowIndex][colIndex].downCells.push({ row: rowIndex + i, col: colIndex });
-						crosswordGrid[rowIndex + i][colIndex].downCells =
-							crosswordGrid[rowIndex][colIndex].downCells;
-						crosswordGrid[rowIndex + i][colIndex].downHint = cell[1].hint;
-						crosswordGrid[rowIndex + i][colIndex].downAnswer = cell[1].answer;
-						crosswordGrid[rowIndex + i][colIndex].downCellsIndex = i;
+					if (cell[1].answer.length > 0) {
+						crosswordGrid[rowIndex][colIndex].downCells = [];
+						for (let i = 0; i < cell[1].answer.length; i++) {
+							crosswordGrid[rowIndex + i][colIndex].downOrigin = { row: rowIndex, col: colIndex };
+							crosswordGrid[rowIndex][colIndex].downCells.push({
+								row: rowIndex + i,
+								col: colIndex
+							});
+							crosswordGrid[rowIndex + i][colIndex].downCells =
+								crosswordGrid[rowIndex][colIndex].downCells;
+							crosswordGrid[rowIndex + i][colIndex].downHint = cell[1].hint;
+							crosswordGrid[rowIndex + i][colIndex].downAnswer = cell[1].answer;
+							crosswordGrid[rowIndex + i][colIndex].downCellsIndex = i;
+						}
 					}
-				}
+				});
 			});
-		});
-		clickCrosswordBox(0, 0);
+			clickCrosswordBox(0, 0);
+            loading = false;
+		};
 	}
 
 	function clickCrosswordBox(rowIndex: number, colIndex: number) {
@@ -201,6 +226,8 @@
 	}
 </script>
 
+<img alt="loading" src={ants} class:invisible={!loading} />
+
 {#if crosswordGrid.length > 0}
 	<div class="crossword">
 		{#each crosswordGrid as row, rowIndex}
@@ -231,9 +258,14 @@
 
 <h2>{currentHint}</h2>
 
-<button onclick={createCrossword}>createCrossword</button>
+<button onclick={createCrossword} disabled={loading}>createCrossword</button>
 
 <style>
+
+    .invisible {
+        visibility: hidden;
+    }
+    
 	.crossword-row {
 		width: 100%;
 		display: flex;
@@ -241,6 +273,14 @@
 		flex-wrap: nowrap;
 		flex-grow: 1;
 		align-items: stretch;
+	}
+
+	img {
+		position: absolute;
+		right: 0;
+		bottom: 0;
+		max-height: 33vw;
+		max-width: 33vw;
 	}
 
 	.semi {
@@ -274,8 +314,8 @@
 	.crossword {
 		width: 96vw;
 		height: 96vw;
-        margin: 0;
-        padding: 0;
+		margin: 0;
+		padding: 0;
 		display: flex;
 		flex-direction: column;
 	}

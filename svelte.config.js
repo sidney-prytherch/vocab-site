@@ -21,7 +21,12 @@ const config = {
     serviceWorker: {
         register: true,
         files: (filepath) => filepath.endsWith('.js') || filepath.endsWith('.ts')
-    }
+    },
+    compilerOptions: {
+		experimental: {
+			async: true
+		}
+	}
 };
 
 export default config;
