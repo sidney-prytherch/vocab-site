@@ -5,12 +5,13 @@
 
 	let words: (Word & { id: number })[] = $state([]);
 
-	// home, add-word
+	// home, add-word, crossword-page, database-backup-page
 	let currentPage = $state('home');
 
 	import { seedDatabaseOnce } from '$lib/initWords';
 	import AddWordPage from './components/AddWordPage.svelte';
 	import LoadDatabaseBackup from './components/LoadDatabaseBackup.svelte';
+	import CrosswordPage from './components/CrosswordPage.svelte';
 
 	async function onWordAdded() {
 		words = await getWords(); // load all words from DB
@@ -30,12 +31,17 @@
 		currentPage = 'database-backup-page'
 	}
 
+	const goToCrosswordPage = () => {
+		currentPage = 'crossword-page'
+	}
+
 	
 </script>
 
 <div class:invisible={currentPage !== "home"}>
 	<button onclick={goToAddWordPage}>Add a word</button>
 	<button onclick={goToDatabaseBackupPage}>DB Backup Page</button>
+	<button onclick={goToCrosswordPage}>Crossword Page</button>
 	<ul>
 		{#each words as w}
 			<li>
@@ -49,9 +55,7 @@
 		{/each}
 	</ul>
 
-	
 </div>
-
 
 <div class:invisible={currentPage !== "add-word-page"}>
 	<AddWordPage {onWordAdded}></AddWordPage>
@@ -60,6 +64,10 @@
 
 <div class:invisible={currentPage !== "database-backup-page"}>
 	<LoadDatabaseBackup onReturn={onWordAdded}> </LoadDatabaseBackup>
+</div>
+
+<div class:invisible={currentPage !== "crossword-page"}>
+	<CrosswordPage> </CrosswordPage>
 </div>
 
 <style>
