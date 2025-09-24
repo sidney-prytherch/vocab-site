@@ -424,7 +424,7 @@ export class Crossword {
         this.allWordPairs = []
         for (let wordPair of wordData) {
             if (wordPair.wordEN && wordPair.wordES) {
-                let englishSimple = (wordPair.tense === "PRET_IND" ? wordPair.wordEN.split("|")[0] : wordPair.wordEN).replaceAll(/(\(\)\[\])/g, "");
+                let englishSimple = (wordPair.tense === "PRET_IND" ? wordPair.wordEN.split("|")[0] : wordPair.wordEN).replaceAll(/[\(\)\[\]]/g, "");
                 if (englishSimple.length < this.crosswordSize) {
                     let formattedWordData: CrosswordWordData = {word: englishSimple, hint: wordPair.wordES, extraDataIndex: wordPair.extraDataIndex, languageOrigin: "EN", hintLanguageOrigin: "ES"}
                     this.allWordPairs.push(formattedWordData);
@@ -554,7 +554,8 @@ export class Crossword {
                     }
                     if (!containsIllegalSpace) {
                         try {
-                            patterns.push({ row: rowIndex, col: subsection.index, isAcross: true, word: subsection.word, pattern: new RegExp(`^${this.replaceBlanks(subsection.word)}$`, "g") })
+                            patterns.push({ row: rowIndex, col: subsection.index, isAcross: true, word: subsection.word, 
+                                pattern: new RegExp(`^${this.replaceBlanks(subsection.word)}$`, "g") })
                         } catch (error) {
                             console.warn(error, subsection.word);
                         }
