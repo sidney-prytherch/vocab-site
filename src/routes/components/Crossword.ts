@@ -5,7 +5,7 @@ import { EnglishVerbConjugator } from "./EnglishVerbConjugator";
 // ░ ▓
 // all 2D arrays are row, column (so each 2D array is an array of rows)
 const defaultSize = 15;
-const wordPoolSize = 500;
+const wordPoolSize = 100;
 const onlyBlanksRegExp = /^[░▓]*$/g
 const splitterRegExp = /[^▓]+/g
 const extraVerbData = [
@@ -439,7 +439,6 @@ export class Crossword {
                 }
             }
         }
-        this.printCrosswordToConsole();
     }
 
     static downloadSomething(data: any) {
@@ -479,7 +478,6 @@ export class Crossword {
         }
 
         let patterns = this.getStringPatterns();
-        this.printCrosswordToConsole()
         while (true) {
             //randomize patterns and then sort
             this.randomizeArray(patterns);
@@ -507,6 +505,10 @@ export class Crossword {
             }
         }
         this.printCrosswordToConsole();
+        return {
+            crosswordGridData: this.crosswordGridData,
+            letterGrid: this.letterGrid
+        }
     }
 
     randomizeArray(array: any[]) {
@@ -674,7 +676,7 @@ export class Crossword {
             }
         }
         let gender = ""
-        if (wordData.languageOrigin === "EN" && wordData.hintLanguageOrigin === "ES") {
+        if (wordData.hintLanguageOrigin === "EN" && wordData.languageOrigin === "ES") {
             if (wordData.extraDataIndex > 11) {
                 gender = data.isMasc === true ? "masculine " : data.isMasc === false ? "feminine " : ""
             }
