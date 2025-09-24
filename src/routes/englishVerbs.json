@@ -103,14 +103,6 @@
             "past participle": "pointed",
             "present participle": "pointing",
             "third-person singular simple present": "points"
-        },
-        {
-            "name": "en-verb",
-            "default": "point",
-            "simple past": "pointed",
-            "past participle": "pointed",
-            "present participle": "pointing",
-            "third-person singular simple present": "points"
         }
     ],
     "tighten": [
@@ -147,7 +139,7 @@
         {
             "name": "en-verb",
             "default": "take",
-            "past participle": "taken|[archaic|Scotland]tane",
+            "past participle": "taken|[archaic~Scotland]tane",
             "simple past": "took",
             "present participle": "taking",
             "third-person singular simple present": "takes"
@@ -1305,8 +1297,8 @@
         {
             "name": "en-verb",
             "default": "fit",
-            "simple past": "fitted|fit",
-            "past participle": "fitted|fit",
+            "simple past": "fit|fitted",
+            "past participle": "fit|fitted",
             "present participle": "fitting",
             "third-person singular simple present": "fits"
         },
@@ -1371,7 +1363,7 @@
         {
             "name": "en-verb",
             "default": "forget",
-            "past participle": "forgotten|[archaic|colloquial]forgot",
+            "past participle": "forgotten|[archaic~colloquial]forgot",
             "simple past": "forgot|[obsolete]forgat",
             "present participle": "forgetting",
             "third-person singular simple present": "forgets"
@@ -1507,8 +1499,8 @@
         {
             "name": "en-verb",
             "default": "leave",
-            "simple past": "leaved|left",
-            "past participle": "leaved|left",
+            "simple past": "left|leaved",
+            "past participle": "left|leaved",
             "present participle": "leaving",
             "third-person singular simple present": "leaves"
         },
@@ -1605,8 +1597,8 @@
         {
             "name": "en-verb",
             "default": "make",
-            "simple past": "made|[dialectal|obsolete]maked",
-            "past participle": "made|[dialectal|obsolete]maked",
+            "simple past": "made|[dialectal~obsolete]maked",
+            "past participle": "made|[dialectal~obsolete]maked",
             "present participle": "making",
             "third-person singular simple present": "makes"
         }
@@ -1723,8 +1715,8 @@
         {
             "name": "en-verb",
             "default": "pay",
-            "simple past": "payed|paid",
-            "past participle": "payed|paid",
+            "simple past": "paid|payed",
+            "past participle": "paid|payed",
             "present participle": "paying",
             "third-person singular simple present": "pays"
         }
@@ -2085,8 +2077,8 @@
         {
             "name": "en-verb",
             "default": "tell",
-            "simple past": "told|[dialectal|nonstandard]telled",
-            "past participle": "told|[dialectal|nonstandard]telled",
+            "simple past": "told|[dialectal~nonstandard]telled",
+            "past participle": "told|[dialectal~nonstandard]telled",
             "present participle": "telling",
             "third-person singular simple present": "tells"
         }
@@ -2164,7 +2156,7 @@
             "name": "en-verb",
             "default": "wear",
             "past participle": "weared|worn|[obsolete]worne",
-            "simple past": "weared|wore",
+            "simple past": "wore|weared",
             "present participle": "wearing",
             "third-person singular simple present": "wears"
         }
@@ -3012,7 +3004,7 @@
             "name": "en-verb",
             "default": "sweat",
             "past participle": "sweated|[archaic]sweaten",
-            "simple past": "sweated|sweat",
+            "simple past": "sweat|sweated",
             "present participle": "sweating",
             "third-person singular simple present": "sweats"
         }
@@ -4549,8 +4541,8 @@
         {
             "name": "en-verb",
             "default": "fix",
-            "simple past": "fixt|fixed",
-            "past participle": "fixt|fixed",
+            "simple past": "fixed|fixt",
+            "past participle": "fixed|fixt",
             "present participle": "fixing",
             "third-person singular simple present": "fixes"
         }
@@ -9288,8 +9280,8 @@
     "build": [
         {
             "default": "build",
-            "simple past": "built|[archaic|poetic]builded",
-            "past participle": "built|[archaic|poetic]builded",
+            "simple past": "built|[archaic~poetic]builded",
+            "past participle": "built|[archaic~poetic]builded",
             "present participle": "building",
             "third-person singular simple present": "builds"
         }
@@ -9307,7 +9299,7 @@
         {
             "default": "fling",
             "past participle": "flung|[nonstandard]flinged",
-            "simple past": "flung|[colloquial|dialectal]flang|[nonstandard]flinged",
+            "simple past": "flung|[colloquial~dialectal]flang|[nonstandard]flinged",
             "present participle": "flinging",
             "third-person singular simple present": "flings"
         }
@@ -9711,8 +9703,8 @@
     "heat": [
         {
             "default": "heat",
-            "simple past": "heated|[dialectal|obsolete]heat|[dialectal]het",
-            "past participle": "heated|[dialectal|obsolete]heat|[dialectal]het",
+            "simple past": "heated|[dialectal~obsolete]heat|[dialectal]het",
+            "past participle": "heated|[dialectal~obsolete]heat|[dialectal]het",
             "present participle": "heating",
             "third-person singular simple present": "heats"
         }
@@ -10062,9 +10054,9 @@
     "program": [
         {
             "default": "program",
-            "simple past": "programmed|programed",
-            "past participle": "programmed|programed",
-            "present participle": "programming|programing",
+            "simple past": "programmed",
+            "past participle": "programmed",
+            "present participle": "programming",
             "third-person singular simple present": "programs"
         }
     ],
@@ -10170,8 +10162,8 @@
     "counsel": [
         {
             "default": "counsel",
-            "simple past": "counselled|counseled",
-            "past participle": "counselled|counseled",
+            "simple past": "counseled|counselled",
+            "past participle": "counseled|counselled",
             "present participle": "counselling|counseling",
             "third-person singular simple present": "counsels"
         }
@@ -10630,7 +10622,7 @@
         {
             "default": "thrive",
             "past participle": "thriven|thrived",
-            "simple past": "throve|thrived",
+            "simple past": "thrived",
             "present participle": "thriving",
             "third-person singular simple present": "thrives"
         }
@@ -11614,6 +11606,24 @@
             "past participle": "equalized",
             "present participle": "equalizing",
             "third-person singular simple present": "equalizes"
+        }
+    ],
+    "doubt": [
+        {
+            "default": "doubt",
+            "simple past": "doubted",
+            "past participle": "doubted",
+            "present participle": "doubting",
+            "third-person singular simple present": "doubts"
+        }
+    ],
+    "group": [
+        {
+            "default": "group",
+            "simple past": "grouped",
+            "past participle": "grouped",
+            "present participle": "grouping",
+            "third-person singular simple present": "groups"
         }
     ]
 }

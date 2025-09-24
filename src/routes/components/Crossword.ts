@@ -4,7 +4,7 @@ import { EnglishVerbConjugator } from "./EnglishVerbConjugator";
 
 // ░ ▓
 // all 2D arrays are row, column (so each 2D array is an array of rows)
-const defaultSize = 12;
+const defaultSize = 15;
 const wordPoolSize = 500;
 const onlyBlanksRegExp = /^[░▓]*$/g
 const splitterRegExp = /[^▓]+/g
@@ -61,7 +61,7 @@ const extraVerbData = [
         pronounES: "él",
         isMasc: true,
         includePronoun: true,
-        formal: false
+        formal: null
     },
     {
         person: 3,
@@ -70,7 +70,7 @@ const extraVerbData = [
         pronounES: "ella",
         isMasc: false,
         includePronoun: true,
-        formal: false
+        formal: null
     },
     {
         person: 3,
@@ -156,7 +156,7 @@ const extraVerbData = [
 ]
 
 export interface GridData { hint: string, answer: string }
-export interface WordData {wordES?: string, wordEN?: string, wordPT?: string, extraDataIndex?: number}
+export interface WordData {wordES?: string, wordEN?: string, wordPT?: string, extraDataIndex?: number, tense?: "PRES_IND" | "PRET_IND"}
 export interface CrosswordWordData {
     word: string;
     hint: string;
@@ -180,8 +180,6 @@ export class Crossword {
 
         let conjEng = new EnglishVerbConjugator()
 
-        let verbSet = new Set<string>();
-
         let conj = new Conjugator();
 
         let allWords = await getWords();
@@ -201,11 +199,11 @@ export class Crossword {
         // they (m.)
 
         let unfoundEnglishVerbs = new Set<string>()
-        wordLoop:for (let word of allWords) {
+        wordLoop: for (let word of allWords) {
             let wordData = {};
             if (word.pos === "v") {
-                let spanishVerb: string[][] = [];
-                let englishVerb: string[][] = [];
+                let spanishVerb: {[tense: string]: string[][]} = {};
+                let englishVerb: {[tense: string]: string[][]} = {};
                 // let portugueseVerb: string[][] = [];
                 if (word.spanish && spanishVerbs.includes(word.spanish)) {
                     let verbConjugation = await conj.conjugate(word.spanish)
@@ -217,7 +215,10 @@ export class Crossword {
                         if (verbConjugation[0].conjugation.Indicativo.Presente.length !== 6) {
                             console.warn(`spanish conjugator didn't give 6 length conjugation for present: ${verbConjugation[0].conjugation.Indicativo.Presente}`);
                         }
-                        spanishVerb.push([
+                        if (!spanishVerb.PRES_IND) {
+                            spanishVerb.PRES_IND = []
+                        }
+                        spanishVerb["PRES_IND"].push([
                             verbConjugation[0].conjugation.Indicativo.Presente[0], // (yo)
                             `yo ${verbConjugation[0].conjugation.Indicativo.Presente[0]}`, // 
                             verbConjugation[0].conjugation.Indicativo.Presente[1], // (you)
@@ -235,18 +236,48 @@ export class Crossword {
                             `ellas ${verbConjugation[0].conjugation.Indicativo.Presente[5]}`, // they (f.)
                             `uds ${verbConjugation[0].conjugation.Indicativo.Presente[5]}`, // you (pl., formal)
                         ])
+                        if (verbConjugation[0].conjugation.Indicativo.PreteritoIndefinido.length !== 6) {
+                            console.warn(`spanish conjugator didn't give 6 length conjugation for present: ${verbConjugation[0].conjugation.Indicativo.Presente}`);
+                        }
+                        if (!spanishVerb.PRET_IND) {
+                            spanishVerb.PRET_IND = []
+                        }
+                        spanishVerb["PRET_IND"].push([
+                            verbConjugation[0].conjugation.Indicativo.PreteritoIndefinido[0], // (yo)
+                            `yo ${verbConjugation[0].conjugation.Indicativo.PreteritoIndefinido[0]}`, // 
+                            verbConjugation[0].conjugation.Indicativo.PreteritoIndefinido[1], // (you)
+                            `tú ${verbConjugation[0].conjugation.Indicativo.PreteritoIndefinido[1]}`, // you
+                            verbConjugation[0].conjugation.Indicativo.PreteritoIndefinido[2], // (he/she/it)
+                            `él ${verbConjugation[0].conjugation.Indicativo.PreteritoIndefinido[2]}`, // he
+                            `ella ${verbConjugation[0].conjugation.Indicativo.PreteritoIndefinido[2]}`, // she
+                            `ud ${verbConjugation[0].conjugation.Indicativo.PreteritoIndefinido[2]}`, // you (formal)
+                            verbConjugation[0].conjugation.Indicativo.PreteritoIndefinido[3],
+                            `nosostros ${verbConjugation[0].conjugation.Indicativo.PreteritoIndefinido[3]}`, // we
+                            verbConjugation[0].conjugation.Indicativo.PreteritoIndefinido[4],
+                            `vosostros ${verbConjugation[0].conjugation.Indicativo.PreteritoIndefinido[4]}`, // you (pl.)
+                            verbConjugation[0].conjugation.Indicativo.PreteritoIndefinido[5],
+                            `ellos ${verbConjugation[0].conjugation.Indicativo.PreteritoIndefinido[5]}`, // they (m.)
+                            `ellas ${verbConjugation[0].conjugation.Indicativo.PreteritoIndefinido[5]}`, // they (f.)
+                            `uds ${verbConjugation[0].conjugation.Indicativo.PreteritoIndefinido[5]}`, // you (pl., formal)
+                        ])
                     }
                 }
                 if (word.english) {
                     let alternateDefinitions = word.english.split(/[,\/]/g);
                     let defintionData = alternateDefinitions.map(definition => {
+                        if ((/^not| not/g).test(definition)) {
+                            let def = definition.trim().toLowerCase().replace(/^to /g, "").replace(/ ?not /g, "").trim();
+                            let spaceIndex = def.indexOf(" ")
+                            let [verb, remainder] = spaceIndex > -1 ? [def.substring(0, spaceIndex), def.substring(spaceIndex)] : [def, ""]
+                            return {verb, remainder, negate: true};
+                        }
                         let def = definition.trim().toLowerCase().replace(/^to /g, "");
                         let spaceIndex = def.indexOf(" ")
                         let [verb, remainder] = spaceIndex > -1 ? [def.substring(0, spaceIndex), def.substring(spaceIndex)] : [def, ""]
                         return {verb, remainder};
                     })
-                    let conjugations = defintionData.map(definition => {
-                        let conjugation = conjEng.conjugateVerb("PRES_IND", definition.verb);
+                    let presIndConjugations = defintionData.map(definition => {
+                        let conjugation = conjEng.conjugateVerb("PRES_IND", definition.verb, !!(definition.negate));
                         if (typeof conjugation === "string") {
                             unfoundEnglishVerbs.add(conjugation);
                             return null
@@ -257,8 +288,24 @@ export class Crossword {
                             return null
                         }
                     }).filter(it => !!it)
-                    conjugations.forEach(conjugation => {
-                        englishVerb.push([
+                    let pretIndConjugations = defintionData.map(definition => {
+                        let conjugation = conjEng.conjugateVerb("PRET_IND", definition.verb, !!(definition.negate));
+                        if (typeof conjugation === "string") {
+                            unfoundEnglishVerbs.add(conjugation);
+                            return null
+                        }
+                        if (conjugation) {
+                            return conjugation.map(conjugation => `${conjugation}${definition.remainder}`);
+                        } else {
+                            return null
+                        }
+                    }).filter(it => !!it)
+                    // console.log({alternateDefinitions, defintionData, conjugations: presIndConjugations});
+                    presIndConjugations.forEach(conjugation => {
+                        if (!englishVerb.PRES_IND) {
+                            englishVerb.PRES_IND = []
+                        }
+                        englishVerb.PRES_IND.push([
                             conjugation[0],
                             `i ${conjugation[0]}`, // 1 I
                             conjugation[1],
@@ -268,7 +315,30 @@ export class Crossword {
                             `she ${conjugation[2]}`, // 6 she
                             `you ${conjugation[1]}`, // 7 you (formal)
                             conjugation[3],
-                            `nosostros ${conjugation[3]}`, // 8 we
+                            `we ${conjugation[3]}`, // 8 we
+                            conjugation[4],
+                            `you ${conjugation[4]}`, // 11 you (pl.)
+                            conjugation[5],
+                            `they ${conjugation[5]}`, // 13 they (m.)
+                            `they ${conjugation[5]}`, // 14 they (f.)
+                            `you ${conjugation[4]}`, // 15 you (pl., formal)
+                        ])
+                    })
+                    pretIndConjugations.forEach(conjugation => {
+                        if (!englishVerb.PRET_IND) {
+                            englishVerb.PRET_IND = []
+                        }
+                        englishVerb.PRET_IND.push([
+                            conjugation[0],
+                            `i ${conjugation[0]}`, // 1 I
+                            conjugation[1],
+                            `you ${conjugation[1]}`, // 3 you
+                            conjugation[2],
+                            `he ${conjugation[2]}`, // 5 he
+                            `she ${conjugation[2]}`, // 6 she
+                            `you ${conjugation[1]}`, // 7 you (formal)
+                            conjugation[3],
+                            `we ${conjugation[3]}`, // 8 we
                             conjugation[4],
                             `you ${conjugation[4]}`, // 11 you (pl.)
                             conjugation[5],
@@ -279,12 +349,25 @@ export class Crossword {
                     })
                 }
 
-                if (spanishVerb.length > 0 && englishVerb.length > 0) {
+                if (spanishVerb.PRES_IND && spanishVerb.PRES_IND.length > 0 && englishVerb.PRES_IND && englishVerb.PRES_IND.length > 0) {
                     count++;
-                    for (let englishVerbConjugation of englishVerb) {
-                        for (let spanishVerbConjugation of spanishVerb) {
+                    for (let englishVerbConjugation of englishVerb.PRES_IND) {
+                        for (let spanishVerbConjugation of spanishVerb.PRES_IND) {
                             for (let i = 0; i < englishVerbConjugation.length; i++) {
-                                 wordMap.push({wordEN: englishVerbConjugation[i], wordES: spanishVerbConjugation[i], extraDataIndex: i})
+                                 wordMap.push({wordEN: englishVerbConjugation[i], wordES: spanishVerbConjugation[i], extraDataIndex: i, tense: "PRES_IND"})
+                            }
+                        }
+                    }
+                    if (count > 1000) {
+                        // break wordLoop;
+                    }
+                }
+                if (spanishVerb.PRET_IND && spanishVerb.PRET_IND.length > 0 && englishVerb.PRET_IND && englishVerb.PRET_IND.length > 0) {
+                    count++;
+                    for (let englishVerbConjugation of englishVerb.PRET_IND) {
+                        for (let spanishVerbConjugation of spanishVerb.PRET_IND) {
+                            for (let i = 0; i < englishVerbConjugation.length; i++) {
+                                 wordMap.push({wordEN: englishVerbConjugation[i], wordES: spanishVerbConjugation[i], extraDataIndex: i, tense: "PRET_IND"})
                             }
                         }
                     }
@@ -296,7 +379,6 @@ export class Crossword {
             wordMap.push(wordData);
         }
 
-        console.log(unfoundEnglishVerbs);
         // (function(callback) {
         //     let array: string[] = [];
         //     unfoundEnglishVerbs.forEach(it => {array.push(it)});
@@ -342,11 +424,12 @@ export class Crossword {
         this.allWordPairs = []
         for (let wordPair of wordData) {
             if (wordPair.wordEN && wordPair.wordES) {
-                if (wordPair.wordEN.length < this.crosswordSize) {
-                    let formattedWordData: CrosswordWordData = {word: wordPair.wordEN, hint: wordPair.wordES, extraDataIndex: wordPair.extraDataIndex, languageOrigin: "EN", hintLanguageOrigin: "ES"}
+                let englishSimple = (wordPair.tense === "PRET_IND" ? wordPair.wordEN.split("|")[0] : wordPair.wordEN).replaceAll(/(\(\)\[\])/g, "");
+                if (englishSimple.length < this.crosswordSize) {
+                    let formattedWordData: CrosswordWordData = {word: englishSimple, hint: wordPair.wordES, extraDataIndex: wordPair.extraDataIndex, languageOrigin: "EN", hintLanguageOrigin: "ES"}
                     this.allWordPairs.push(formattedWordData);
-                    this.wordLists[wordPair.wordEN.length].push(formattedWordData);
-                    this.wordCounts[wordPair.wordEN.length]++
+                    this.wordLists[englishSimple.length].push(formattedWordData);
+                    this.wordCounts[englishSimple.length]++
                 }
                 if (wordPair.wordES.length < this.crosswordSize) {
                     let formattedWordData: CrosswordWordData = {word: wordPair.wordES, hint: wordPair.wordEN, extraDataIndex: wordPair.extraDataIndex, languageOrigin: "ES", hintLanguageOrigin: "EN"}
@@ -498,13 +581,13 @@ export class Crossword {
                 subsection = splitterRegExp.exec(colPatternStr);
             }
             for (let colSubsection of colSubsections) {
-                let containsIllegalSpace = false
-                for (let rowIndex = colSubsection.index; rowIndex < colSubsection.index + colSubsection.word.length; rowIndex++) {
-                    if (!this.gridOfValidity[rowIndex][colIndex][1]) {
-                        containsIllegalSpace = true;
-                        break;
-                    }
-                }
+                // let containsIllegalSpace = false
+                // for (let rowIndex = colSubsection.index; rowIndex < colSubsection.index + colSubsection.word.length; rowIndex++) {
+                //     if (!this.gridOfValidity[rowIndex][colIndex][1]) {
+                //         containsIllegalSpace = true;
+                //         break;
+                //     }
+                // }
                 let subsections = this.getSubsections(colSubsection);
                 for (let subsection of subsections) {
                     let containsIllegalSpace = false
@@ -515,7 +598,7 @@ export class Crossword {
                         }
                     }
                     if (!containsIllegalSpace) {
-                        console.log(subsection.word)
+                        // console.log(subsection.word)
                         patterns.push(
                             { row: subsection.index, 
                                 col: colIndex, 
@@ -567,12 +650,12 @@ export class Crossword {
     }
 
     formatHint(wordData: CrosswordWordData) {
-        console.log(wordData);
+        // console.log(wordData);
         if (wordData.extraDataIndex === undefined) {
             return wordData.hint;
         }
         let data = extraVerbData[wordData.extraDataIndex];
-        console.log(data);
+        // console.log(data);
         let formal = ""
         if (wordData.hintLanguageOrigin === "EN" && wordData.languageOrigin === "ES") {
             if (data.formal === false) {
@@ -612,8 +695,8 @@ export class Crossword {
     placeWordInGrid(row: number, col: number, isAcross: boolean, wordData: CrosswordWordData) {
         let word = wordData.word;
         let hint = this.formatHint(wordData)
-        console.log({row, col, word, hint})
-        console.log(this.letterGrid)
+        // console.log({row, col, word, hint})
+        // console.log(this.letterGrid)
         this.crosswordGridData[row][col][isAcross ? 0 : 1] = { hint: hint, answer: word }
         for (let charIndex = 0; charIndex < word.length; charIndex++) {
             if (isAcross) {

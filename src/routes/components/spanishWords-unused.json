@@ -1088,7 +1088,7 @@
     {
         "spWord": "agrupar",
         "partOfSpeech": "v",
-        "definition": "to (put in) group",
+        "definition": "to group, put in a group",
         "freqIndex": 4441
     },
     {
@@ -1154,7 +1154,7 @@
     {
         "spWord": "ahorrar",
         "partOfSpeech": "v",
-        "definition": "to save (money, time)",
+        "definition": "to save (money or time)",
         "freqIndex": 2775
     },
     {
@@ -2306,7 +2306,7 @@
     {
         "spWord": "aproximar",
         "partOfSpeech": "v",
-        "definition": "to come near, closer",
+        "definition": "to come near, come closer",
         "freqIndex": 2070
     },
     {
@@ -10010,7 +10010,7 @@
     {
         "spWord": "dudar",
         "partOfSpeech": "v",
-        "definition": "to (have) doubt",
+        "definition": "to doubt, to have doubts",
         "freqIndex": 1252
     },
     {
@@ -15680,7 +15680,7 @@
     {
         "spWord": "influir",
         "partOfSpeech": "v",
-        "definition": "to (have) influence",
+        "definition": "to influence, to have influence",
         "freqIndex": 2022
     },
     {
@@ -16646,7 +16646,7 @@
     {
         "spWord": "joder",
         "partOfSpeech": "v",
-        "definition": "to f**k, screw (around/up)",
+        "definition": "to fuck, screw (around or up)",
         "freqIndex": 4535
     },
     {
@@ -26972,7 +26972,7 @@
     {
         "spWord": "sobrar",
         "partOfSpeech": "v",
-        "definition": "to be too much, left over",
+        "definition": "to be too much, be left over",
         "freqIndex": 2978
     },
     {

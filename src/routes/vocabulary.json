@@ -9569,7 +9569,7 @@
         "vDataSp": {}
     },
     {
-        "english": "to (put in) group",
+        "english": "to group, put in groups",
         "spanish": "agrupar",
         "freqIndexSpanish": 4441,
         "pos": "v",
@@ -9597,7 +9597,7 @@
         "vDataSp": {}
     },
     {
-        "english": "to save (money, time)",
+        "english": "to save (money or time)",
         "spanish": "ahorrar",
         "freqIndexSpanish": 2775,
         "pos": "v",
@@ -9961,7 +9961,7 @@
         "vDataSp": {}
     },
     {
-        "english": "to come near, closer",
+        "english": "to come near, come closer",
         "spanish": "aproximar",
         "freqIndexSpanish": 2070,
         "pos": "v",
@@ -11410,7 +11410,7 @@
         "vDataSp": {}
     },
     {
-        "english": "should, ought to; to owe",
+        "english": "should, be ought to; to owe",
         "spanish": "deber",
         "freqIndexSpanish": 75,
         "pos": "v",
@@ -12117,7 +12117,7 @@
         "vDataSp": {}
     },
     {
-        "english": "to (have) doubt",
+        "english": "to doubt, have doubts",
         "spanish": "dudar",
         "freqIndexSpanish": 1252,
         "pos": "v",
@@ -12243,7 +12243,7 @@
         "vDataSp": {}
     },
     {
-        "english": "[se] to insist on",
+        "english": "to insist on [se]",
         "spanish": "empeñar",
         "freqIndexSpanish": 1998,
         "pos": "v",
@@ -12320,7 +12320,7 @@
         "vDataSp": {}
     },
     {
-        "english": "to entrust, [se] take charge of",
+        "english": "to entrust, take charge of [se]",
         "spanish": "encargar",
         "freqIndexSpanish": 1054,
         "pos": "v",
@@ -12950,7 +12950,7 @@
         "vDataSp": {}
     },
     {
-        "english": "to set, fix, [se] notice",
+        "english": "to set, fix, notice [se]",
         "spanish": "fijar",
         "freqIndexSpanish": 407,
         "pos": "v",
@@ -13461,7 +13461,7 @@
         "vDataSp": {}
     },
     {
-        "english": "to (have) influence",
+        "english": "to influence, have influence",
         "spanish": "influir",
         "freqIndexSpanish": 2022,
         "pos": "v",
@@ -13706,14 +13706,14 @@
         "vDataSp": {}
     },
     {
-        "english": "to f**k, screw (around/up)",
+        "english": "to fuck, screw (around or up)",
         "spanish": "joder",
         "freqIndexSpanish": 4535,
         "pos": "v",
         "vDataSp": {}
     },
     {
-        "english": "to play (sport/game)",
+        "english": "to play (sport or game)",
         "spanish": "jugar",
         "freqIndexSpanish": 355,
         "pos": "v",
@@ -14014,7 +14014,7 @@
         "vDataSp": {}
     },
     {
-        "english": "to (tell a) lie",
+        "english": "to lie, tell a lie",
         "spanish": "mentir",
         "freqIndexSpanish": 2416,
         "pos": "v",
@@ -14175,7 +14175,7 @@
         "vDataSp": {}
     },
     {
-        "english": "to negotiate, deal (with/in)",
+        "english": "to negotiate, deal (with or in)",
         "spanish": "negociar",
         "freqIndexSpanish": 3921,
         "pos": "v",
@@ -15498,7 +15498,7 @@
         "vDataSp": {}
     },
     {
-        "english": "[se] to give in; to render",
+        "english": "to give in [se]; to render",
         "spanish": "rendir",
         "freqIndexSpanish": 1534,
         "pos": "v",
@@ -16009,7 +16009,7 @@
         "vDataSp": {}
     },
     {
-        "english": "to be too much, left over",
+        "english": "to be too much, be left over",
         "spanish": "sobrar",
         "freqIndexSpanish": 2978,
         "pos": "v",
@@ -16723,7 +16723,7 @@
         "vDataSp": {}
     },
     {
-        "english": "to return, to v again",
+        "english": "to return",
         "spanish": "volver",
         "freqIndexSpanish": 112,
         "pos": "v",

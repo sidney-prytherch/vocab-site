@@ -15,9 +15,11 @@ type VerbsData = {[key: string]: {
     "extra2"?: string
 }[]};
 
+const badSimplePastVersions = new RegExp(/\[[^\]]*(obsolete|archaic|nonstandard|colloquial|rare|dialectal|Commonwealth|UK|rare)[^\]]*\]/g)
+
 export class EnglishVerbConjugator {
 
-    conjugateVerb(tense: Conjugation, verb: string) {
+    conjugateVerb(tense: Conjugation, verb: string, negate: boolean) {
         let allVerbs: VerbsData = (verbs as VerbsData);
         let verbMatch = allVerbs.hasOwnProperty(verb) ? allVerbs[verb] : null
         if (verb === "be") {
@@ -34,10 +36,31 @@ export class EnglishVerbConjugator {
         }
         let verbParts = verbMatch[0]
         if (tense === "PRES_IND") {
-            return [verbParts.default, verbParts.default, verbParts["third-person singular simple present"], verbParts.default, verbParts.default, verbParts.default];
+            if (negate) {
+                return [`don't ${verbParts.default}`, `don't ${verbParts.default}`, `doesn't ${verbParts.default}`, `don't ${verbParts.default}`, `don't ${verbParts.default}`, `don't ${verbParts.default}`];
+            } else {
+                return [verbParts.default, verbParts.default, verbParts["third-person singular simple present"], verbParts.default, verbParts.default, verbParts.default];
+            }
         }
         if (tense === "PRET_IND") {
-            return [verbParts["past participle"], verbParts["past participle"], verbParts["past participle"], verbParts["past participle"], verbParts["past participle"], verbParts["past participle"]];
+            // if (verbParts["simple past"].match(/[^\w]/g)) {
+            //     console.warn(verbParts);
+            // }
+            let simplePastVersions = verbParts["simple past"].split("|").filter(it => !(badSimplePastVersions.test(it)));
+            let primaryVersion = simplePastVersions.find(it => it.indexOf("[US]") > -1)
+            let formattedSimplePastVersions = simplePastVersions.map(it => it.replaceAll(/\[[^\]]*\]/g, ""))
+            if (!primaryVersion) {
+                primaryVersion = formattedSimplePastVersions[0];
+            } else {
+                primaryVersion = primaryVersion.replaceAll(/\[[^\]]*\]/g, "");
+            }
+            let allVersions = [primaryVersion, ...formattedSimplePastVersions.filter(it => it != primaryVersion)].join("|");
+
+            if (negate) {
+                return [`didn't ${verbParts.default}`, `didn't ${verbParts.default}`, `didn't ${verbParts.default}`, `didn't ${verbParts.default}`, `didn't ${verbParts.default}`, `didn't ${verbParts.default}`];
+            } else {
+                return [allVersions, allVersions, allVersions, allVersions, allVersions, allVersions];
+            }
         }
     }
 
