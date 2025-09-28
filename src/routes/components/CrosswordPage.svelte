@@ -2,6 +2,8 @@
 	import CrosswordWorker from '$lib/crosswordWorker.ts?worker';
 	import ants from '$lib/assets/ant64 orig.gif';
 	import type { GridData } from './Crossword';
+	import { on } from 'svelte/events';
+	import { onMount } from 'svelte';
 
 	type CrosswordGridCell = {
 		value: string;
@@ -15,12 +17,13 @@
 		downHint: string | null;
 		acrossAnswer: string | null;
 		downAnswer: string | null;
-		input: HTMLInputElement | null;
+		button: HTMLButtonElement | null;
+		userInput: string;
 		highlight: 'none' | 'semi' | 'full';
 	};
 
 	let currentCells: CrosswordGridCell[] = $state([]);
-    let cwWorker;
+	let cwWorker;
 
 	let currentHint: string = $state('');
 
@@ -30,9 +33,8 @@
 	let crosswordGrid: CrosswordGridCell[][] = $state([]);
 	let loading = $state(false);
 
-
 	async function createCrossword() {
-        loading = true;
+		loading = true;
 		crosswordGrid = [];
 		currentCells = [];
 		currentHint = '';
@@ -40,7 +42,7 @@
 		selectedCol = -1;
 
 		cwWorker = new CrosswordWorker();
-        cwWorker.postMessage(0)
+		cwWorker.postMessage(0);
 		cwWorker.onmessage = (event) => {
 			let crosswordData: {
 				crosswordGridData: GridData[][][];
@@ -59,7 +61,8 @@
 						acrossCellsIndex: -1,
 						acrossHint: null,
 						downHint: null,
-						input: null,
+						button: null,
+						userInput: '',
 						acrossAnswer: null,
 						downAnswer: null,
 						highlight: 'none'
@@ -104,7 +107,7 @@
 				});
 			});
 			clickCrosswordBox(0, 0);
-            loading = false;
+			loading = false;
 		};
 	}
 
@@ -164,28 +167,110 @@
 		console.log(isGoingAcross);
 	}
 
-	function keyDown(e: KeyboardEvent, rowIndex: number, charIndex: number) {
-		console.log(e.code);
-		if (crosswordGrid[rowIndex][charIndex].input) {
+	onMount(() => {
+		on(window, 'keydown', (e) => {
+			if (selectedRow === -1 || selectedCol === -1) {
+				return;
+			}
+			let currentCell = crosswordGrid[selectedRow][selectedCol];
+            if (e.code === "Space") {
+                currentCell.userInput = " "
+				goToNext(selectedRow, selectedCol, false);
+                return;
+            }
 			if (
-				(e.code === 'Backspace' && crosswordGrid[rowIndex][charIndex].input.value === '') ||
+				(e.code === 'Backspace' && currentCell.userInput === '') ||
 				(isGoingAcross && e.code === 'ArrowLeft') ||
 				(!isGoingAcross && e.code === 'ArrowUp')
 			) {
-				goToNext(rowIndex, charIndex, false);
+				goToNext(selectedRow, selectedCol, false);
+                return;
 			}
+            if (e.code === 'Backspace') {
+                currentCell.userInput = '';
+                return;
+            }
 			if (
 				(isGoingAcross && e.code === 'ArrowRight') ||
 				(!isGoingAcross && e.code === 'ArrowDown')
 			) {
-				goToNext(rowIndex, charIndex, true);
+				goToNext(selectedRow, selectedCol, true);
+                return;
 			}
-		}
-	}
+
+            if (currentCell.userInput === '`') {
+                if (e.key === "e") {
+                    currentCell.userInput = 'è'
+                } else if (e.key === "i") {
+                    currentCell.userInput = 'ì'
+                } else if (e.key === "a") {
+                    currentCell.userInput = 'à'
+                } else if (e.key === "o") {
+                    currentCell.userInput = 'ò'
+                } else if (e.key === "u") {
+                    currentCell.userInput = 'ù'
+                } else if (e.key.length === 1) {
+				    currentCell.userInput = e.key;
+                }
+				goToNext(selectedRow, selectedCol, true);
+                return;
+            } else if (currentCell.userInput === '´') { 
+                if (e.key === "e") {
+                    currentCell.userInput = 'é'
+                } else if (e.key === "i") {
+                    currentCell.userInput = 'í'
+                } else if (e.key === "a") {
+                    currentCell.userInput = 'á'
+                } else if (e.key === "o") {
+                    currentCell.userInput = 'ó'
+                } else if (e.key === "u") {
+                    currentCell.userInput = 'ú'
+                } else if (e.key.length === 1) {
+				    currentCell.userInput = e.key;
+                }
+				goToNext(selectedRow, selectedCol, true);
+                return;
+            } else if (currentCell.userInput === 'ˆ') { 
+                if (e.key === "e") {
+                    currentCell.userInput = 'ê'
+                } else if (e.key === "i") {
+                    currentCell.userInput = 'î'
+                } else if (e.key === "a") {
+                    currentCell.userInput = 'â'
+                } else if (e.key === "o") {
+                    currentCell.userInput = 'ô'
+                } else if (e.key === "u") {
+                    currentCell.userInput = 'û'
+                } else if (e.key.length === 1) {
+				    currentCell.userInput = e.key;
+                }
+				goToNext(selectedRow, selectedCol, true);
+                return;
+            } else if (currentCell.userInput === '˜') { 
+                if (e.key === "n") {
+                    currentCell.userInput = 'ñ'
+                } else if (e.key === "o") {
+                    currentCell.userInput = 'õ'
+                } else if (e.key === "a") {
+                    currentCell.userInput = 'ã'
+                } else if (e.key.length === 1) {
+				    currentCell.userInput = e.key;
+                }
+				goToNext(selectedRow, selectedCol, true);
+                return;
+            }
+			if (e.key.length === 1) {
+				currentCell.userInput = e.key;
+				goToNext(selectedRow, selectedCol, true);
+			}
+		});
+	});
 
 	function goToNext(rowIndex: number, charIndex: number, forward: boolean) {
 		let currentCell = crosswordGrid[rowIndex][charIndex];
 		let changeInPosition = forward ? 1 : -1;
+		let nextRow = rowIndex;
+		let nextCol = charIndex;
 		let nextInList = currentCell;
 		if (isGoingAcross) {
 			if (currentCell.acrossCells) {
@@ -197,6 +282,7 @@
 				}
 				nextInList.highlight = 'semi';
 				nextInList = crosswordGrid[rowIndex][charIndex + changeInPosition];
+				nextCol = charIndex + changeInPosition;
 			}
 		} else {
 			if (currentCell.downCells) {
@@ -208,21 +294,13 @@
 				}
 				nextInList.highlight = 'semi';
 				nextInList = crosswordGrid[rowIndex + changeInPosition][charIndex];
+				nextRow = rowIndex + changeInPosition;
 			}
 		}
 		nextInList.highlight = 'full';
-		if (nextInList.input) {
-			nextInList.input.select();
-		}
+		selectedRow = nextRow;
+		selectedCol = nextCol;
 		return nextInList;
-	}
-
-	function inputChange(rowIndex: number, charIndex: number) {
-		let currentCell = crosswordGrid[rowIndex][charIndex];
-		if (currentCell.input && ['', '`', '´', '˜', 'ˆ'].includes(currentCell.input.value)) {
-			return;
-		}
-		goToNext(rowIndex, charIndex, true);
 	}
 </script>
 
@@ -234,21 +312,16 @@
 			<div class="crossword-row">
 				{#each row as cell, colIndex}
 					{#if cell.value === '▓'}
-						<span class="disabled" id="{rowIndex}~{colIndex}">▓</span>
+						<button class="disabled" id="{rowIndex}~{colIndex}">▓</button>
 					{:else}
-						<input
-							bind:this={cell.input}
-							type="text"
+						<button
+							bind:this={cell.button}
 							class={cell.highlight}
-							maxlength="1"
-							size="1"
-							id="{rowIndex}~{colIndex}"
-							oninput={(e) => inputChange(rowIndex, colIndex)}
-							onkeydown={(e) => keyDown(e, rowIndex, colIndex)}
 							onclick={() => {
 								clickCrosswordBox(rowIndex, colIndex);
 							}}
-						/>
+							>{cell.userInput}
+						</button>
 					{/if}
 				{/each}
 			</div>
@@ -261,11 +334,10 @@
 <button onclick={createCrossword} disabled={loading}>createCrossword</button>
 
 <style>
+	.invisible {
+		visibility: hidden;
+	}
 
-    .invisible {
-        visibility: hidden;
-    }
-    
 	.crossword-row {
 		width: 100%;
 		display: flex;
@@ -283,14 +355,6 @@
 		max-width: 33vw;
 	}
 
-	.semi {
-		background-color: lightblue;
-	}
-
-	.full {
-		background-color: lightskyblue;
-	}
-
 	.disabled {
 		background-color: black;
 	}
@@ -302,11 +366,19 @@
 		margin: 0;
 	}
 
-	input {
+	.semi {
+		background-color: lightblue;
+	}
+
+	.full {
+		background-color: lightskyblue;
+	}
+
+	.white-square {
 		text-align: center;
 	}
 
-	input[type='text']:focus {
+	.focused {
 		background-color: lightskyblue;
 		outline: none;
 	}

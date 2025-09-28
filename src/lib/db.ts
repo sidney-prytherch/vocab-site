@@ -1,6 +1,6 @@
 // db.ts
 export interface Word {
-	english: string;
+	english: string[];
 	spanish?: string;
 	portuguese?: string;
 	pos: string;

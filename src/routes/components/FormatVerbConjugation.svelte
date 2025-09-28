@@ -2,6 +2,7 @@
 	import type { Word } from '$lib/db';
 	import { getWords, addWord } from '$lib/db';
 
+
 	let { onReturn } = $props();
 
     let fileInput: HTMLInputElement | undefined = $state();
