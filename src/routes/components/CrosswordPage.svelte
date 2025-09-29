@@ -534,7 +534,7 @@
 </div>
 <br />
 <button onclick={createCrossword} disabled={loading}>createCrossword</button>
-<input type="text" value="" maxlength="1"/>
+<input bind:this={hiddenInput} type="text" value="" maxlength="1" />
 
 <style>
 	input {
