@@ -534,11 +534,13 @@
 </div>
 <br />
 <button onclick={createCrossword} disabled={loading}>createCrossword</button>
-<input bind:this={hiddenInput} type="text" value="" maxlength="1" />
+<input class="secretInput" bind:this={hiddenInput} type="text" value="" maxlength="1" />
 
 <style>
-	input {
-		visibility: hidden;
+
+	.secretInput {
+		position: absolute;
+		top: -100px;
 	}
 
 	.help-letter {
