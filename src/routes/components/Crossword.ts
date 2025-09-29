@@ -669,34 +669,44 @@ export class Crossword {
     }
 
     formatHint(wordData: CrosswordWordData) {
+        let givePronouns = true;
         // console.log(wordData);
         if (wordData.extraDataIndex === undefined) {
             return wordData.hint;
         }
         let data = extraVerbData[wordData.extraDataIndex];
         // console.log(data);
-        let formal = ""
-        if (wordData.hintLanguageOrigin === "EN" && wordData.languageOrigin === "ES") {
-            if (data.formal === false) {
-                formal = "informal " 
-            } else if (data.formal) {
-                formal = "formal "
+        let formattedExtras = ''
+        if (givePronouns) {
+            let pronoun = extraVerbData[wordData.extraDataIndex].pronounES;
+            if (['tú', 'Ud.', 'ellos', 'ellas', 'Uds.'].includes(pronoun)) {
+                formattedExtras = `[${pronoun}]`
             }
-        } 
-        let plural = "" 
-        if (wordData.hintLanguageOrigin === "EN" && wordData.languageOrigin === "ES") {
-            if (!data.plural && [2,3,7].includes(wordData.extraDataIndex)) {
-                plural = "singular "
-            } else if (data.plural && [10,11,15].includes(wordData.extraDataIndex)) {
-                plural = "plural "
+        } else {
+            let formal = ""
+            if (wordData.hintLanguageOrigin === "EN" && wordData.languageOrigin === "ES") {
+                if (data.formal === false) {
+                    formal = "informal " 
+                } else if (data.formal) {
+                    formal = "formal "
+                }
+            } 
+            let plural = "" 
+            if (wordData.hintLanguageOrigin === "EN" && wordData.languageOrigin === "ES") {
+                if (!data.plural && [2,3,7].includes(wordData.extraDataIndex)) {
+                    plural = "singular "
+                } else if (data.plural && [10,11,15].includes(wordData.extraDataIndex)) {
+                    plural = "plural "
+                }
             }
+            let gender = ""
+            if (wordData.hintLanguageOrigin === "EN" && wordData.languageOrigin === "ES") {
+                if (wordData.extraDataIndex > 11) {
+                    gender = data.isMasc === true ? "masculine " : data.isMasc === false ? "feminine " : ""
+                }
+            }
+            formattedExtras = `[${`${formal}${plural}${gender}`.trim()}]`
         }
-        let gender = ""
-        if (wordData.hintLanguageOrigin === "EN" && wordData.languageOrigin === "ES") {
-            if (wordData.extraDataIndex > 11) {
-                gender = data.isMasc === true ? "masculine " : data.isMasc === false ? "feminine " : ""
-            }
-        } 
         let formattedPronoun = "";
         if (!data.includePronoun) {
             if (wordData.hintLanguageOrigin === "EN") {
@@ -705,7 +715,6 @@ export class Crossword {
                 formattedPronoun = `(${data.pronounES}) `
             }
         }
-        let formattedExtras = `[${`${formal}${plural}${gender}`.trim()}]`
         let finalExtras = formattedExtras.length > 2 ? ` ${formattedExtras}` : ''
         let formattedHint = `${formattedPronoun}${wordData.hint}${finalExtras}`
         return formattedHint

@@ -3,7 +3,8 @@
 
 </script>
 
-<div class="keyboard">
+
+<!-- <div class="keyboard">
 	<div class="row">
 		<button>q</button>
 		<button>w</button>
@@ -37,4 +38,4 @@
 		<button>m</button>
 		<button>space</button>
 	</div>
-</div>
+</div> -->

@@ -36,7 +36,7 @@
 
 	const tenseCodeMap: { [key: string]: string } = {
 		PRES_IND: 'Present tense (indicative)',
-		PRET_IND: 'Present tense (indicative)'
+		PRET_IND: 'Past tense (indicative)'
 	};
 
 	const partOfSpeechCodeMap: { [key: string]: string } = {
