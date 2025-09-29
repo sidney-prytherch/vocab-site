@@ -4,7 +4,7 @@ import { EnglishVerbConjugator } from "./EnglishVerbConjugator";
 
 // ░ ▓
 // all 2D arrays are row, column (so each 2D array is an array of rows)
-const defaultSize = 21;
+const defaultSize = 17;
 const wordPoolSize = 100;
 const onlyBlanksRegExp = /^[░▓]*$/g
 const splitterRegExp = /[^▓]+/g
