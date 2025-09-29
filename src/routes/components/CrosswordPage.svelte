@@ -335,9 +335,9 @@
 	}
 
 	onMount(() => {
-		useHorizontalDisplay = window.innerHeight < window.innerWidth * 1.2;
+		useHorizontalDisplay = window.innerWidth > 1000;
 		on(window, 'resize', (e) => {
-			useHorizontalDisplay = window.innerHeight < window.innerWidth * 1.2;
+			useHorizontalDisplay = window.innerWidth > 1000;
 		});
 		on(window, 'keydown', (e) => {
 			if (selectedRow === -1 || selectedCol === -1) {
@@ -595,6 +595,7 @@
 		flex-basis: 100px;
 		padding: 0;
 		margin: 0;
+		flex-shrink: 1;
 	}
 
 	.correct-semi {
@@ -641,8 +642,10 @@
 	}
 
 	.wide-window-crossword {
-		width: 40vw;
-		height: 40vw;
+		width: 50vw;
+		height: 50vw;
+		min-width: 600px;
+		min-height: 600px;
 		padding-right: 32px;
 	}
 </style>
