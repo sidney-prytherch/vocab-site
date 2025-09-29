@@ -512,8 +512,8 @@
 				? `- ${tenseCodeMap[currentVerbTense]}`
 				: ''}
 		</h3>
-		<button class:invisible={crosswordGrid.length == 0} onclick={giveHint}
-			>Unsure? click here!</button
+		<button class:invisible={crosswordGrid.length == 0 || (currentHelp.length > 0 && currentHelp.indexOf("_") > -1)} onclick={giveHint}
+			>{currentHelp.length === 0 ? 'U' : 'Still u'}nsure? click here!</button
 		>
 		<div class="horizontal flex-container">
 			{#each currentHelp as letter}
@@ -622,7 +622,7 @@
 	.crossword {
 		width: 96vw;
 		height: 96vw;
-		min-height: 400px;
+		min-height: 500px;
 		margin: 0;
 		padding: 0;
 		display: flex;
