@@ -15,7 +15,7 @@
 
     async function handleAdd() {
 		const word: Word = {
-			english: newEnglish,
+			english: [newEnglish],
 			pos: newPos
 		};
 
