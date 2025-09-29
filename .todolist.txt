@@ -1,6 +1,16 @@
+DONE:
 - improve the letter input for the crossword
 - split definitiions into arrays of definitions
+- update hint display in crossword page:
+    - add to/from language
+    - add part of speech
+    - add tense information for verbs
+    - add help button
+
+DOING:
 - add a proper dictionary page
+
+TO DO:
 - add to database ability to select preferred definitions, and update, add, or remove definitions
 - update dictionary page to do the above
 - add ability to add/remove word on dictionary page

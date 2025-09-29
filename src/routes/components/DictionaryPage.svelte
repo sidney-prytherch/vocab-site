@@ -1,12 +1,13 @@
 <script lang="ts">
 	import type { Word } from '$lib/db';
 	import { getWords, addWord } from '$lib/db';
-	import { Conjugator } from '@jirimracek/conjugate-esp';
-	import { Crossword } from './Crossword';
+	import { Crossword, type WordData } from './Crossword';
 
-    let allWordz: any[] = [];
+    // let allWords: (Word & { id: number })[] = [];
 
-	let { onReturn } = $props();
+	let { onReturn, allWords }: { onReturn:any, allWords: (Word & { id: number })[]} = $props();
+	let displayWords = $state(allWords)
+
 
     let fileInput: HTMLInputElement | undefined = $state();
 
@@ -31,17 +32,6 @@
 
     const downloadVocabFile = async () => {
 		const link = document.createElement('a');
-		const content = JSON.stringify(allWordz);
-		const file = new Blob([content], { type: 'text/plain' });
-		link.href = URL.createObjectURL(file);
-		link.download = 'vocab.json';
-		link.click();
-		URL.revokeObjectURL(link.href);
-	};
-
-    const downloadVocabFileSpecial = async () => {
-		const link = document.createElement('a');
-		let allWords = await getWords();
 		const content = JSON.stringify(allWords);
 		const file = new Blob([content], { type: 'text/plain' });
 		link.href = URL.createObjectURL(file);
@@ -49,30 +39,6 @@
 		link.click();
 		URL.revokeObjectURL(link.href);
 	};
-
-    const goThroughVerbs = async () => {
-		const link = document.createElement('a');
-		let allWords = await getWords();
-        let conj = new Conjugator()
-        let verbs = await conj.getVerbList()
-        let contents: string[] = []
-        for (let word of allWords) {
-            if (word.pos === "v" && word.spanish && verbs.includes(word.spanish)) {
-                let verbConjugation = await conj.conjugate(word.spanish)
-                if (verbConjugation) {
-                    contents.push(JSON.stringify(verbConjugation));
-                }
-            }
-            // if (word.pos === "v" && word.english) {
-            //     getConjugation()
-            // }
-        }
-		const file = new Blob(["[" + contents.join(",\n") + "]"], { type: 'text/plain' });
-		link.href = URL.createObjectURL(file);
-		link.download = 'verbConj.json';
-		link.click();
-		URL.revokeObjectURL(link.href);
-    }
 
     async function createCrossword() {
         let crossword = await Crossword.createWithoutWordList();
@@ -100,14 +66,29 @@
 		}
 	}
 
+
+
+	async function generateList() {
+
+        allWords = allWords.sort((a, b) => (a.freqIndexSpanish || 9999) - (b.freqIndexSpanish || 9999));
+
+        let wordMap: WordData[] = [];
+        for (let word of allWords) {
+			wordMap.push({
+				wordEN: word.english[0],
+				extraEnglishDefs: word.english,
+				wordES: word.spanish
+			})
+        }
+    }
+
 </script>
+
+
 
 <button onclick={downloadVocabFile}>Download</button>
 	<div>
 		<input type="file" bind:this={fileInput} name="fileInput" accept="json" />
 		<button class="fileButton" onclick={uploadVocabFile}>Upload Vocab File</button>
 	</div>
-<button onclick={handleAdd}>Add Word</button>
-<button onclick={goThroughVerbs}>goThroughVerbs</button>
-<button onclick={createCrossword}>createCrossword</button>
 <button onclick={onReturn}>Go Home</button>

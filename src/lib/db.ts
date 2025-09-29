@@ -3,6 +3,7 @@ export interface Word {
 	english: string[];
 	spanish?: string;
 	portuguese?: string;
+	primaryEnglishIndex?: number;
 	pos: string;
 	nDataSp?: {gender: string};
 	adjDataSp?: {};
