@@ -334,7 +334,125 @@
 		);
 	}
 
+	function hiddenInputChange() {
+		if (hiddenInput) {
+			let code = "";
+			if (hiddenInput.value.length === 0) {
+				code = "Backspace"
+			}
+			hiddenInput.value = hiddenInput.value.charAt(hiddenInput.value.length)
+			let character = hiddenInput.value;
+			if (character === " ") {
+				code = "Space"
+			} else {
+				code = character
+			}
+			updateInput(code, character);
+		}
+	}
+
+	function updateInput(code: string, key: string) {
+if (selectedRow === -1 || selectedCol === -1) {
+				return;
+			}
+			console.log(code);
+			let currentCell = crosswordGrid[selectedRow][selectedCol];
+			if (code === 'Space') {
+				currentCell.userInput = ' ';
+				goToNext(selectedRow, selectedCol, true);
+				return;
+			}
+			if (
+				(code === 'Backspace' && currentCell.userInput === '') ||
+				(isGoingAcross && code === 'ArrowLeft') ||
+				(!isGoingAcross && code === 'ArrowUp')
+			) {
+				goToNext(selectedRow, selectedCol, false);
+				return;
+			}
+			if (code === 'Backspace') {
+				currentCell.userInput = '';
+				return;
+			}
+			if (
+				(isGoingAcross && code === 'ArrowRight') ||
+				(!isGoingAcross && code === 'ArrowDown')
+			) {
+				goToNext(selectedRow, selectedCol, true);
+				return;
+			}
+
+			if (currentCell.userInput === '`') {
+				if (key === 'e') {
+					currentCell.userInput = 'è';
+				} else if (key === 'i') {
+					currentCell.userInput = 'ì';
+				} else if (key === 'a') {
+					currentCell.userInput = 'à';
+				} else if (key === 'o') {
+					currentCell.userInput = 'ò';
+				} else if (key === 'u') {
+					currentCell.userInput = 'ù';
+				} else if (key.length === 1) {
+					currentCell.userInput = key;
+				}
+				goToNext(selectedRow, selectedCol, true);
+				return;
+			} else if (currentCell.userInput === '´') {
+				if (key === 'e') {
+					currentCell.userInput = 'é';
+				} else if (key === 'i') {
+					currentCell.userInput = 'í';
+				} else if (key === 'a') {
+					currentCell.userInput = 'á';
+				} else if (key === 'o') {
+					currentCell.userInput = 'ó';
+				} else if (key === 'u') {
+					currentCell.userInput = 'ú';
+				} else if (key.length === 1) {
+					currentCell.userInput = key;
+				}
+				goToNext(selectedRow, selectedCol, true);
+				return;
+			} else if (currentCell.userInput === 'ˆ') {
+				if (key === 'e') {
+					currentCell.userInput = 'ê';
+				} else if (key === 'i') {
+					currentCell.userInput = 'î';
+				} else if (key === 'a') {
+					currentCell.userInput = 'â';
+				} else if (key === 'o') {
+					currentCell.userInput = 'ô';
+				} else if (key === 'u') {
+					currentCell.userInput = 'û';
+				} else if (key.length === 1) {
+					currentCell.userInput = key;
+				}
+				goToNext(selectedRow, selectedCol, true);
+				return;
+			} else if (currentCell.userInput === '˜') {
+				if (key === 'n') {
+					currentCell.userInput = 'ñ';
+				} else if (key === 'o') {
+					currentCell.userInput = 'õ';
+				} else if (key === 'a') {
+					currentCell.userInput = 'ã';
+				} else if (key.length === 1) {
+					currentCell.userInput = key;
+				}
+				goToNext(selectedRow, selectedCol, true);
+				return;
+			}
+			if (key.length === 1) {
+				currentCell.userInput = key;
+				goToNext(selectedRow, selectedCol, true);
+			}
+	}
+
 	onMount(() => {
+		if (hiddenInput) {
+			hiddenInput.value = "e"
+		}
 		useHorizontalDisplay = window.innerWidth > 1000;
 		on(window, 'resize', (e) => {
 			useHorizontalDisplay = window.innerWidth > 1000;
@@ -534,7 +652,7 @@
 </div>
 <br />
 <button onclick={createCrossword} disabled={loading}>createCrossword</button>
-<input class="secretInput" bind:this={hiddenInput} type="text" value="" maxlength="1" />
+<input class="secretInput" oninput={hiddenInputChange} bind:this={hiddenInput} type="text" value="e" maxlength="2" />
 
 <style>
 
