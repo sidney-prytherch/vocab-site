@@ -591,8 +591,11 @@
 <button class:invisible={crosswordGrid.length === 0} onclick={checkAnswers} disabled={loading}>check answers</button>
 
 <style>
+	* {
+		font-family: "Monaco";
+	}
+
 	input {
-		font-family: monospace;
 		text-align: center;
 		animation-duration: 2s;
 	}
