@@ -591,13 +591,50 @@
 <button class:invisible={crosswordGrid.length === 0} onclick={checkAnswers} disabled={loading}>check answers</button>
 
 <style>
-	* {
-		font-family: "Monaco";
+
+	.crossword {
+		width: 96vw;
+		height: 96vw;
+		margin: 0;
+		padding: 0;
+		display: flex;
+		flex-direction: column;
+		aspect-ratio: 1 / 1 !important;
+	}
+
+	.wide-window-crossword {
+		width: 50vw;
+		height: 50vw;
+		min-width: 600px;
+		min-height: 600px;
+		padding-right: 32px;
+		aspect-ratio: 1 / 1 !important;
 	}
 
 	input {
 		text-align: center;
 		animation-duration: 2s;
+		min-height: 1px;
+		min-width: 0px;
+	}
+
+	.crossword-row {
+		width: 100%;
+		display: flex;
+		flex-direction: row;
+		flex-wrap: nowrap;
+		flex: 1;
+	}
+
+	.crossword-row * {
+		border: 1px black solid;
+		padding: 0;
+		margin: 0;
+		flex: 1;
+	}
+
+	* {
+		font-family: "Monaco";
 	}
 
 	input:focus {
@@ -625,15 +662,6 @@
 		visibility: hidden;
 	}
 
-	.crossword-row {
-		width: 100%;
-		display: flex;
-		flex-direction: row;
-		flex-wrap: nowrap;
-		flex-grow: 1;
-		align-items: stretch;
-	}
-
 	img {
 		max-width: 33vw;
 		padding-top: 16px;
@@ -649,19 +677,7 @@
 
 	.disabled {
 		background-color: black;
-	}
-
-	.crossword-row * {
-		border: 1px black solid;
-		flex-basis: 100px;
-		padding: 0;
-		margin: 0;
-		flex-shrink: 1;
-	}
-
-	input {
-		width: 0px;
-	}
+	}	
 
 	.semi {
 		background-color: lightblue;
@@ -680,21 +696,5 @@
 		outline: none;
 	}
 
-	.crossword {
-		width: 96vw;
-		height: 96vw;
-		min-height: 500px;
-		margin: 0;
-		padding: 0;
-		display: flex;
-		flex-direction: column;
-	}
-
-	.wide-window-crossword {
-		width: 50vw;
-		height: 50vw;
-		min-width: 600px;
-		min-height: 600px;
-		padding-right: 32px;
-	}
+	
 </style>
