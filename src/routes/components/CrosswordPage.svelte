@@ -319,6 +319,7 @@
 	function clickCrosswordBox(rowIndex: number, colIndex: number) {
 		currentCells.forEach((cell) => {
 			cell.highlight = 'none';
+			cell.input?.getAnimations().forEach(it => it.cancel())
 		});
 		if (selectedRow === rowIndex && selectedCol === colIndex) {
 			if (
@@ -362,9 +363,11 @@
 		currentCells = [];
 		newSemiSelectedCells.forEach((cellRowAndCol) => {
 			crosswordGrid[cellRowAndCol.row][cellRowAndCol.col].highlight = 'semi';
+			crosswordGrid[cellRowAndCol.row][cellRowAndCol.col].input?.getAnimations().forEach(it => it.cancel())
 			currentCells.push(crosswordGrid[cellRowAndCol.row][cellRowAndCol.col]);
 		});
 		crosswordGrid[rowIndex][colIndex].highlight = 'full';
+		crosswordGrid[rowIndex][colIndex].input?.getAnimations().forEach(it => it.cancel())
 		if (isGoingAcross) {
 			currentHint = crosswordGrid[rowIndex][colIndex].acrossHint || '';
 			if (crosswordGrid[rowIndex][colIndex].acrossLanguages) {
@@ -585,7 +588,7 @@
 </div>
 <br />
 <button onclick={createCrossword} disabled={loading}>create Crossword</button>
-<button onclick={checkAnswers} disabled={loading}>check answers</button>
+<button class:invisible={crosswordGrid.length === 0} onclick={checkAnswers} disabled={loading}>check answers</button>
 
 <style>
 	input {

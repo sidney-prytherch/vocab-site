@@ -678,9 +678,11 @@ export class Crossword {
         // console.log(data);
         let formattedExtras = ''
         if (givePronouns) {
-            let pronoun = extraVerbData[wordData.extraDataIndex].pronounES;
-            if (['tú', 'Ud.', 'ellos', 'ellas', 'Uds.'].includes(pronoun)) {
-                formattedExtras = `[${pronoun}]`
+            if (wordData.hintLanguageOrigin === "EN" && wordData.languageOrigin === "ES") {
+                let pronoun = extraVerbData[wordData.extraDataIndex].pronounES;
+                if (['tú', 'Ud.', 'ellos', 'ellas', 'Uds.', 'vosotros'].includes(pronoun)) {
+                    formattedExtras = `[${pronoun}]`
+                }
             }
         } else {
             let formal = ""
