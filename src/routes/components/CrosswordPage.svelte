@@ -248,6 +248,7 @@
 	}
 
 	function clickCrosswordBox(rowIndex: number, colIndex: number) {
+		prompt()
 		currentCells.forEach((cell) => {
 			cell.highlight = 'none';
 		});
