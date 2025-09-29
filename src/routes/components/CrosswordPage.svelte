@@ -73,6 +73,7 @@
 	let isGoingAcross: boolean = $state(true);
 	let crosswordGrid: CrosswordGridCell[][] = $state([]);
 	let loading = $state(false);
+	let hiddenInput: HTMLInputElement | null = $state(null)
 
 	async function createCrossword() {
 		loading = true;
@@ -248,7 +249,9 @@
 	}
 
 	function clickCrosswordBox(rowIndex: number, colIndex: number) {
-		prompt()
+		if (hiddenInput) {
+			hiddenInput.focus()
+		}
 		currentCells.forEach((cell) => {
 			cell.highlight = 'none';
 		});
@@ -531,8 +534,13 @@
 </div>
 <br />
 <button onclick={createCrossword} disabled={loading}>createCrossword</button>
+<input type="text" value="" maxlength="1"/>
 
 <style>
+	input {
+		visibility: hidden;
+	}
+
 	.help-letter {
 		padding-right: 6px;
 	}
