@@ -1,6 +1,7 @@
 import { getWords } from "$lib/db";
 import { Conjugator } from "@jirimracek/conjugate-esp";
 import { EnglishVerbConjugator } from "./EnglishVerbConjugator";
+import type { CrosswordSettings } from "./CrosswordPage.svelte";
 
 // ░ ▓
 // all 2D arrays are row, column (so each 2D array is an array of rows)
@@ -148,7 +149,7 @@ const extraVerbData = [
         person: 3,
         plural: true,
         pronounEN: "you",
-        pronounES: "Uds.",
+        pronounES: "udestes",
         isMasc: null,
         includePronoun: true,
         formal: true
@@ -179,7 +180,7 @@ export class Crossword {
     allWordPairs: CrosswordWordData[];
     crosswordGridData: GridData[][][];
 
-    static async createWithoutWordList(crosswordSize?: number) {
+    static async createWithoutWordList(crosswordSettings?: CrosswordSettings) {
 
         let conjEng = new EnglishVerbConjugator()
 
@@ -411,11 +412,11 @@ export class Crossword {
                 finalWordMap.push(filteredWordMap[number])
             }
         })
-        return new Crossword(finalWordMap, crosswordSize)
+        return new Crossword(finalWordMap, crosswordSettings)
     }
 
-    private constructor(wordData: WordData[], crosswordSize?: number) {        
-        this.crosswordSize = crosswordSize || defaultSize;
+    private constructor(wordData: WordData[], crosswordSettings?: CrosswordSettings) {        
+        this.crosswordSize = crosswordSettings?.gridSize || defaultSize;
 
         this.wordCounts = new Array(this.crosswordSize + 1).fill(0);
         this.letterGrid = new Array(this.crosswordSize).fill(0).map(_ => new Array(this.crosswordSize).fill("░"))

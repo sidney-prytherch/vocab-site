@@ -3,10 +3,22 @@
 	import ants from '$lib/assets/ant64 orig.gif';
 	import esToEn from '$lib/assets/mex us.png';
 	import enToEs from '$lib/assets/us mex.png';
+	import left from '$lib/assets/left-arrow.svg';
+	import nextClue from '$lib/assets/next.svg';
+	import switchOrientation from '$lib/assets/switchAcrossAndDown.svg';
+	import checkLetters from '$lib/assets/checkAnswers.svg';
 
 	import type { GridData, Languages } from './Crossword';
 	import { on } from 'svelte/events';
 	import { onMount } from 'svelte';
+	import { translations } from './Translations';
+
+	export type CrosswordSettings = {
+		gridSize: number;
+		language: Languages;
+	};
+
+	let { settings }: { settings: CrosswordSettings } = $props();
 
 	type CrosswordGridCell = {
 		value: string;
@@ -35,22 +47,22 @@
 	};
 
 	const tenseCodeMap: { [key: string]: string } = {
-		PRES_IND: 'Present tense (indicative)',
-		PRET_IND: 'Past tense (indicative)'
+		PRES_IND: translations[settings.language]['present (indicative)'],
+		PRET_IND: translations[settings.language]['past (indicative)']
 	};
 
 	const partOfSpeechCodeMap: { [key: string]: string } = {
-		v: 'Verb',
-		num: 'Number',
-		conj: 'Conjunction',
-		pron: 'Pronoun',
-		n: 'Noun',
-		interj: 'Interjection',
-		art: 'Article',
-		expr: 'Expression',
-		adj: 'Adjective',
-		adv: 'Adverb',
-		prep: 'Preposition'
+		v: translations[settings.language]['verb'],
+		num: translations[settings.language]['number'],
+		conj: translations[settings.language]['conjunction'],
+		pron: translations[settings.language]['pronoun'],
+		n: translations[settings.language]['noun'],
+		interj: translations[settings.language]['interjection'],
+		art: translations[settings.language]['article'],
+		expr: translations[settings.language]['expression'],
+		adj: translations[settings.language]['adjective'],
+		adv: translations[settings.language]['adverb'],
+		prep: translations[settings.language]['preposition']
 	};
 
 	const incorrectAnimation = [
@@ -116,8 +128,18 @@
 	let originCells: { row: number; col: number; isAcross: boolean }[] = $state([]);
 	let currentOriginCellIndex = -1;
 
+	function switchDirection() {
+		clickCrosswordBox(selectedRow, selectedCol, null);
+	}
+
 	function goToNextOrigin() {
 		currentOriginCellIndex = (currentOriginCellIndex + 1) % originCells.length;
+		let origin = originCells[currentOriginCellIndex];
+		clickCrosswordBox(origin.row, origin.col, origin.isAcross);
+	}
+
+	function goToPreviousOrigin() {
+		currentOriginCellIndex = (currentOriginCellIndex + originCells.length - 1) % originCells.length;
 		let origin = originCells[currentOriginCellIndex];
 		clickCrosswordBox(origin.row, origin.col, origin.isAcross);
 	}
@@ -147,6 +169,7 @@
 				}
 			});
 		});
+		crosswordGrid[selectedRow][selectedCol].input?.focus();
 	}
 
 	async function createCrossword() {
@@ -158,7 +181,7 @@
 		selectedCol = -1;
 
 		cwWorker = new CrosswordWorker();
-		cwWorker.postMessage(0);
+		cwWorker.postMessage(settings);
 		cwWorker.onmessage = (event) => {
 			let crosswordData: {
 				crosswordGridData: GridData[][][];
@@ -499,6 +522,9 @@
 				currentCell.input.value = currentCell.userInput = 'ç';
 			} else {
 				currentCell.input.value = currentCell.userInput = value.charAt(1);
+				if (['`', '´', '˜', 'ˆ', ','].includes(currentCell.userInput)) {
+					return;
+				}
 			}
 			goToNext(selectedRow, selectedCol, true);
 			return;
@@ -580,56 +606,162 @@
 		</div>
 	{/if}
 	<div class="flex-container">
-		<h2>
-			<u>{currentHint}</u>
-			{currentAnswerWords > 1
-				? ` ~ ${currentAnswerWords} Words`
-				: currentAnswerWords === 1
-					? ` ~ ${currentAnswerWords} Word`
-					: ''}
-		</h2>
-		<h3>
-			{partOfSpeechCodeMap[currentPartOfSpeech]}
-			{tenseCodeMap[currentVerbTense] && tenseCodeMap[currentVerbTense].length > 0
-				? `- ${tenseCodeMap[currentVerbTense]}`
-				: ''}
-		</h3>
-		<button
-			class:invisible={crosswordGrid.length === 0 ||
-				(currentHelp.length > 0 && currentHelp.indexOf('_') === -1)}
-			onclick={giveHint}>{currentHelp.length === 0 ? 'U' : 'Still u'}nsure? click here!</button
-		>
-		<div class="horizontal flex-container">
-			{#each currentHelp as letter}
-				<h3 class="help-letter" class:help-space={letter === ' '}>{letter}</h3>
-			{/each}
+		<div class="flex-container horizontal spaced">
+			<div>
+				<h2>
+					<u>{currentHint}</u>
+					{#if hintLanguage === 'ES' && answerLanguage === 'EN'}
+						<img alt="Es -> En" src={esToEn} />
+					{/if}
+					{#if hintLanguage === 'EN' && answerLanguage === 'ES'}
+						<img alt="En -> Es" src={enToEs} />
+					{/if}
+				</h2>
+				<h4>
+					{partOfSpeechCodeMap[currentPartOfSpeech]}
+					{tenseCodeMap[currentVerbTense] && tenseCodeMap[currentVerbTense].length > 0
+						? `- ${tenseCodeMap[currentVerbTense]}`
+						: ''}
+				</h4>
+				<h4>
+					{currentAnswerWords > 1
+						? `(${currentAnswerWords} ${translations[settings.language]['words']})`
+						: currentAnswerWords === 1
+							? `(${currentAnswerWords} ${translations[settings.language]['word']})`
+							: ''}
+				</h4>
+			</div>
+			<div class="flex-container button-group">
+				<div class="flex-container horizontal">
+					<button
+						class="icon-button"
+						aria-label="previous letter"
+						class:invisible={crosswordGrid.length === 0}
+						onclick={() => {
+							goToNext(selectedRow, selectedCol, false);
+						}}><svg class:up-arrow={!isGoingAcross}><image href={left}></image></svg></button
+					>
+					<button
+						class="icon-button"
+						aria-label="next letter"
+						class:invisible={crosswordGrid.length === 0}
+						onclick={() => {
+							goToNext(selectedRow, selectedCol, true);
+						}}
+						><svg class:down-arrow={!isGoingAcross} class:right-arrow={isGoingAcross}
+							><image href={left}></image></svg
+						></button
+					>
+				</div>
+				<div class="flex-container horizontal">
+					<button
+						class="icon-button"
+						aria-label="previous word"
+						class:invisible={crosswordGrid.length === 0}
+						onclick={goToPreviousOrigin}
+						><svg class="right-arrow"><image href={nextClue}></image></svg></button
+					>
+					<button
+						class="icon-button"
+						aria-label="next word"
+						class:invisible={crosswordGrid.length === 0}
+						onclick={goToNextOrigin}><svg><image href={nextClue}></image></svg></button
+					>
+				</div>
+				<div class="flex-container horizontal">
+					<button
+						aria-label="check letters"
+						class="icon-button"
+						class:invisible={crosswordGrid.length === 0}
+						onclick={checkAnswers}><svg><image href={checkLetters}></image></svg></button
+					>
+					<button
+						class="icon-button"
+						aria-label="switch orientation"
+						class:invisible={crosswordGrid.length === 0}
+						onclick={switchDirection}><svg><image href={switchOrientation}></image></svg></button
+					>
+				</div>
+			</div>
 		</div>
-		{#if hintLanguage === 'ES' && answerLanguage === 'EN'}
-			<img alt="Es -> En" src={esToEn} />
-		{/if}
-		{#if hintLanguage === 'EN' && answerLanguage === 'ES'}
-			<img alt="En -> Es" src={enToEs} />
-		{/if}
+		<div class="flex-container horizontal">
+			<button
+				class="right-margin"
+				class:invisible={crosswordGrid.length === 0 ||
+					(currentHelp.length > 0 && currentHelp.indexOf('_') === -1)}
+				onclick={giveHint}>{translations[settings.language]['help']}!</button
+			>
+			<div class="horizontal flex-container">
+				{#each currentHelp as letter}
+					<h4 class="letter-help" class:help-space={letter === ' '}>{letter}</h4>
+				{/each}
+			</div>
+		</div>
 	</div>
 </div>
 <br />
-<button onclick={createCrossword} disabled={loading}>create Crossword</button>
-<button class:invisible={crosswordGrid.length === 0} onclick={checkAnswers}>check answers</button>
-<button class:invisible={crosswordGrid.length === 0} onclick={goToNextOrigin}>go to next</button>
-<button
-	class:invisible={crosswordGrid.length === 0}
-	onclick={() => {
-		goToNext(selectedRow, selectedCol, false);
-	}}>{isGoingAcross ? '←' : '↑'}</button
->
-<button
-	class:invisible={crosswordGrid.length === 0}
-	onclick={() => {
-		goToNext(selectedRow, selectedCol, true);
-	}}>{isGoingAcross ? '→' : '↓'}</button
+<button onclick={createCrossword} disabled={loading}
+	>{translations[settings.language]['create crossword']}</button
 >
 
 <style>
+	.button-group {
+		justify-content: center;
+	}
+	.button-group div {
+		justify-content: space-evenly;
+	}
+	.spaced {
+		justify-content: space-between;
+	}
+	.right-margin {
+		margin-right: 8px;
+	}
+
+	h2 {
+		margin: 2px 0 2px 0;
+	}
+
+	h4 {
+		margin: 0 0 0 20px;
+		padding: 0;
+	}
+
+	.letter-help {
+		margin: 0 6px 0 0;
+	}
+
+	.up-arrow {
+		transform: rotate(90deg);
+	}
+
+	.down-arrow {
+		transform: rotate(270deg);
+	}
+
+	.right-arrow {
+		transform: rotate(180deg);
+	}
+
+	.icon-button {
+		border: 2px solid black;
+		border-radius: 4px;
+		aspect-ratio: 1 / 1;
+		height: 34px;
+		width: 34px;
+		padding: 0;
+		margin: 2px;
+		text-align: center;
+	}
+
+	image,
+	svg {
+		height: 30px;
+		width: 30px;
+		padding: 0;
+		margin: 0;
+	}
+
 	.crossword {
 		width: 96vw;
 		height: 96vw;
@@ -679,10 +811,6 @@
 		outline: none;
 	}
 
-	.help-letter {
-		padding-right: 6px;
-	}
-
 	.help-space {
 		padding-right: 18px;
 	}
@@ -701,7 +829,7 @@
 	}
 
 	img {
-		max-width: 33vw;
+		height: 24px;
 		padding-top: 16px;
 	}
 

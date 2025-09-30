@@ -9,6 +9,10 @@ DONE:
 - add buttons for navigation
     - arrow buttons (left right up down)
     - next hint navigation
+- clean up crossword UI
+- add crossword settings
+    - default language 
+    - crossword size
 
 DOING:
 - crossword settings

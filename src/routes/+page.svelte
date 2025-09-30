@@ -12,8 +12,13 @@
 	import { seedDatabaseOnce } from '$lib/initWords';
 	import AddWordPage from './components/AddWordPage.svelte';
 	import LoadDatabaseBackup from './components/LoadDatabaseBackup.svelte';
-	import CrosswordPage from './components/CrosswordPage.svelte';
+	import CrosswordPage, { type CrosswordSettings } from './components/CrosswordPage.svelte';
 	import DictionaryPage from './components/DictionaryPage.svelte';
+
+	let settings: CrosswordSettings = {
+		language: "ES",
+		gridSize: 15, 
+	}
 
 	async function onWordAdded() {
 		words = await getWords(); // load all words from DB
@@ -75,7 +80,7 @@
 </div>
 
 <div class:invisible={currentPage !== "crossword-page"}>
-	<CrosswordPage > </CrosswordPage>
+	<CrosswordPage {settings} > </CrosswordPage>
 </div>
 
 <div class:invisible={currentPage !== "dictionary-page"}>
