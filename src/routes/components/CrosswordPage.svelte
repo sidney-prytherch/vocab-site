@@ -606,7 +606,7 @@
 		</div>
 	{/if}
 	<div class="flex-container">
-		<div class="flex-container horizontal spaced">
+		<div class="flex-container horizontal spaced" class:reverse={useHorizontalDisplay}>
 			<div>
 				<h2>
 					<u>{currentHint}</u>
@@ -705,8 +705,16 @@
 >
 
 <style>
+	.reverse {
+		flex-direction: row-reverse !important;
+	}
+	.reverse .button-group {
+		padding-right: 16px;
+	}
+
 	.button-group {
 		justify-content: center;
+		padding-bottom: 16px;
 	}
 	.button-group div {
 		justify-content: space-evenly;
