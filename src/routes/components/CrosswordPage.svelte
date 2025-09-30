@@ -173,6 +173,13 @@
 	}
 
 	async function createCrossword() {
+		if (crosswordGrid.length > 0) {
+			let text = translations[settings.language]["Are you sure?"];
+			if (!confirm(text)) {
+				return;
+			}
+		}
+		
 		loading = true;
 		crosswordGrid = [];
 		currentCells = [];
@@ -755,8 +762,8 @@
 		border: 2px solid black;
 		border-radius: 4px;
 		aspect-ratio: 1 / 1;
-		height: 34px;
-		width: 34px;
+		height: 44px;
+		width: 44px;
 		padding: 0;
 		margin: 2px;
 		text-align: center;
@@ -764,8 +771,8 @@
 
 	image,
 	svg {
-		height: 30px;
-		width: 30px;
+		height: 40px;
+		width: 40px;
 		padding: 0;
 		margin: 0;
 	}

@@ -9247,8 +9247,8 @@
         "vDataSp": {}
     },
     {
-        "english": ["to have just {verb-ed}"],
-        "spanish": "acabar de {v}",
+        "english": ["to have just [done something]"],
+        "spanish": "acabar de [hacer algo]",
         "freqIndexSpanish": 266,
         "pos": "v",
         "vDataSp": {}

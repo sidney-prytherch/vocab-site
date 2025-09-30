@@ -621,7 +621,7 @@ export class Crossword {
                         }
                     }
                     if (!containsIllegalSpace) {
-                        // console.log(subsection.word)
+                        console.log(subsection.word)
                         patterns.push(
                             { row: subsection.index, 
                                 col: colIndex, 

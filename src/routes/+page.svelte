@@ -26,6 +26,7 @@
 	}
 
 	onMount(async () => {
+		goToCrosswordPage();
 		await seedDatabaseOnce(); // insert seed words if first use
 		words = await getWords(); // load all words from DB
 	});

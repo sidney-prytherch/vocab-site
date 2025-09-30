@@ -16,7 +16,8 @@ export const translations: {[language: string]: {[key:string]: string}} = {
         "adverb": "adverb",
         "preposition": "preposition",
         "help": "help",
-        "create crossword": "create crossword"
+        "create crossword": "create crossword",
+        "Are you sure?": "Are you sure?",
     },
     "ES": {
         "word": "palabra",
@@ -36,6 +37,7 @@ export const translations: {[language: string]: {[key:string]: string}} = {
         "preposition": "preposición",
         "help": "ayuda",
         "create crossword": "crear crucigrama",
+        "Are you sure?": "¿Estás segura de que quieres crear un nuevo crucigrama? Esto eliminará el actual.",
     },
     "PT": {
         "word": "palavra",
@@ -55,5 +57,6 @@ export const translations: {[language: string]: {[key:string]: string}} = {
         "preposition": "preposição",
         "help": "ajuda",
         "create crossword": "criar palavras cruzadas",
+        "Are you sure?": "Tem certeza?",
     }
 }
