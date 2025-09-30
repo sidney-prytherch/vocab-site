@@ -378,6 +378,7 @@ export class Crossword {
                     
                 }
             } else {
+                console.log(`${word.english[0]}~${word.spanish}`)
                 wordMap.push({
                     wordEN: word.english[0],
                     extraEnglishDefs: word.english,
@@ -386,7 +387,7 @@ export class Crossword {
                 })
             }
             count++;
-            if (count > 100) {
+            if (count > 500) {
                 break wordLoop;
             }
         }
@@ -436,13 +437,15 @@ export class Crossword {
         this.allWordPairs = []
         for (let wordPair of wordData) {
             if (wordPair.wordEN && wordPair.wordES) {
-                let englishSimple = (wordPair.tense === "PRET_IND" ? wordPair.wordEN.split("|")[0] : wordPair.wordEN).replaceAll(/\([^\)]*\)|\[[^\]]*\]|\+\[|\]|\(|\)/g, "").trim()
+                let englishSimple = (wordPair.tense === "PRET_IND" ? wordPair.wordEN.split("|")[0] : wordPair.wordEN).replaceAll(/\([^\)]*\)|\[[^\]]*\]|\+\[|\]|\(|\)/g, "").trim();
+                if (wordPair.partOfSpeech !== "v") console.log(`~~~EN~~~${englishSimple}->${wordPair.wordES}`)
                 if (englishSimple.length < this.crosswordSize) {
                     let formattedWordData: CrosswordWordData = {word: englishSimple, hint: wordPair.wordES, extraDataIndex: wordPair.extraDataIndex, languageOrigin: "EN", hintLanguageOrigin: "ES", partOfSpeech: wordPair.partOfSpeech, verbTense: wordPair.tense}
                     this.allWordPairs.push(formattedWordData);
                     this.wordLists[englishSimple.length].push(formattedWordData);
                     this.wordCounts[englishSimple.length]++
                 }
+                if (wordPair.partOfSpeech !== "v") console.log(`~~~SP~~~${wordPair.wordES}->${wordPair.wordEN}`)
                 if (wordPair.wordES.length < this.crosswordSize) {
                     let formattedWordData: CrosswordWordData = {word: wordPair.wordES, hint: wordPair.wordEN, extraDataIndex: wordPair.extraDataIndex, languageOrigin: "ES", hintLanguageOrigin: "EN", partOfSpeech: wordPair.partOfSpeech, verbTense: wordPair.tense}
                     this.allWordPairs.push(formattedWordData);

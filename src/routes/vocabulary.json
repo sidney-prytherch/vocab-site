@@ -4102,8 +4102,15 @@
         "adjDataSp": {}
     },
     {
-        "english": ["this (m) [esta (f)]"],
+        "english": ["this (m)"],
         "spanish": "este",
+        "freqIndexSpanish": 29,
+        "pos": "adj",
+        "adjDataSp": {}
+    },
+    {
+        "english": ["this (f)"],
+        "spanish": "esta",
         "freqIndexSpanish": 29,
         "pos": "adj",
         "adjDataSp": {}
@@ -13202,7 +13209,7 @@
         "vDataSp": {}
     },
     {
-        "english": ["to have (+Ved)"],
+        "english": ["to have (+verbed)"],
         "spanish": "haber",
         "freqIndexSpanish": 11,
         "pos": "v",
@@ -39520,14 +39527,26 @@
         "pos": "pron"
     },
     {
-        "english": ["he", "[ellos] them (m)"],
+        "english": ["he"],
         "spanish": "él",
         "freqIndexSpanish": 41,
         "pos": "pron"
     },
     {
-        "english": ["she", "[ellas] them (f)"],
+        "english": ["them (m)"],
+        "spanish": "ellos",
+        "freqIndexSpanish": 41,
+        "pos": "pron"
+    },
+    {
+        "english": ["she"],
         "spanish": "ella",
+        "freqIndexSpanish": 69,
+        "pos": "pron"
+    },
+    {
+        "english": ["them (f)"],
+        "spanish": "ellas",
         "freqIndexSpanish": 69,
         "pos": "pron"
     },
@@ -39538,8 +39557,14 @@
         "pos": "pron"
     },
     {
-        "english": ["that one (m)", "[ésa (f)]"],
+        "english": ["that one (m)"],
         "spanish": "ése",
+        "freqIndexSpanish": 855,
+        "pos": "pron"
+    },
+    {
+        "english": ["that one (f)"],
+        "spanish": "ésa",
         "freqIndexSpanish": 855,
         "pos": "pron"
     },
@@ -39550,8 +39575,14 @@
         "pos": "pron"
     },
     {
-        "english": ["this one (m)", "[ésta (f)]"],
+        "english": ["this one (m)"],
         "spanish": "éste",
+        "freqIndexSpanish": 168,
+        "pos": "pron"
+    },
+    {
+        "english": ["this one (f)"],
+        "spanish": "ésta",
         "freqIndexSpanish": 168,
         "pos": "pron"
     },
@@ -39628,7 +39659,7 @@
         "pos": "pron"
     },
     {
-        "english": ["what?", "which?", "how (+ adj)!"],
+        "english": ["what?", "which?", "how (+adj)!"],
         "spanish": "qué",
         "freqIndexSpanish": 47,
         "pos": "pron"
@@ -40024,8 +40055,14 @@
         "pos": "num"
     },
     {
-        "english": ["the"],
-        "spanish": "el, la",
+        "english": ["the [feminine]"],
+        "spanish": "la",
+        "freqIndexSpanish": 1,
+        "pos": "art"
+    },
+    {
+        "english": ["the [masculine]"],
+        "spanish": "el",
         "freqIndexSpanish": 1,
         "pos": "art"
     },

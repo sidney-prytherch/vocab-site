@@ -6,20 +6,24 @@ DONE:
     - add part of speech
     - add tense information for verbs
     - add help button
+- add buttons for navigation
+    - arrow buttons (left right up down)
+    - next hint navigation
 
 DOING:
-- add a proper dictionary page
+- crossword settings
+    - words by frequency, by part of speech
+    - which verb conjugations
+    - which pronouns should appear for verbs (and for each language) & whether pronouns should appear in the solutions for the crossword
 
 TO DO:
+- add a proper dictionary page
 - add to database ability to select preferred definitions, and update, add, or remove definitions
 - update dictionary page to do the above
 - add ability to add/remove word on dictionary page
 - add vocab lists to db, and ability to create, add, update lists
 - add ability to create vocab lists from dictionary page, and add words to vocab lists
-- add ability to select what you want to have in the crossword
-    - words by frequency, by part of speech, vocab lists
-    - which verb conjugations
-    - which pronouns should appear for verbs (and for each language) & whether pronouns should appear in the solutions for the crossword
+- add vocab list to crossword settings
 - ability to select what languages the crossword has as answers and as hints
 - add more verb conjugations
 - add portuguese, latin, and french

@@ -54,46 +54,44 @@
 	};
 
 	const incorrectAnimation = [
-		{ backgroundColor: "rgb(230, 108, 128)" },
-		{ backgroundColor: "rgb(255, 255, 255)" },
+		{ backgroundColor: 'rgb(230, 108, 128)' },
+		{ backgroundColor: 'rgb(255, 255, 255)' }
 	];
 
 	const correctAnimation = [
-		{ backgroundColor: "rgb(108, 230, 108)" },
-		{ backgroundColor: "rgb(255, 255, 255)" },
+		{ backgroundColor: 'rgb(108, 230, 108)' },
+		{ backgroundColor: 'rgb(255, 255, 255)' }
 	];
 
 	const incorrectAnimationToSemi = [
-		{ backgroundColor: "rgb(230, 108, 128)" },
-		{ backgroundColor: "rgb(173, 216, 230)" },
+		{ backgroundColor: 'rgb(230, 108, 128)' },
+		{ backgroundColor: 'rgb(173, 216, 230)' }
 	];
 
 	const correctAnimationToSemi = [
-		{ backgroundColor: "rgb(108, 230, 108)" },
-		{ backgroundColor: "rgb(173, 216, 230)" },
+		{ backgroundColor: 'rgb(108, 230, 108)' },
+		{ backgroundColor: 'rgb(173, 216, 230)' }
 	];
 
 	const incorrectAnimationToFull = [
-		{ backgroundColor: "rgb(230, 108, 128)" },
-		{ backgroundColor: "rgb(135, 216, 230)" },
+		{ backgroundColor: 'rgb(230, 108, 128)' },
+		{ backgroundColor: 'rgb(135, 216, 230)' }
 	];
 
 	const correctAnimationToFull = [
-		{ backgroundColor: "rgb(108, 230, 108)" },
-		{ backgroundColor: "rgb(135, 216, 230)" },
+		{ backgroundColor: 'rgb(108, 230, 108)' },
+		{ backgroundColor: 'rgb(135, 216, 230)' }
 	];
-
 
 	const animationTiming = {
 		duration: 5000,
-		iterations: 1,
+		iterations: 1
 	};
 
 	const fastAnimationTiming = {
 		duration: 2000,
-		iterations: 1,
+		iterations: 1
 	};
-
 
 	let currentCells: CrosswordGridCell[] = $state([]);
 	let cwWorker;
@@ -115,6 +113,14 @@
 	let isGoingAcross: boolean = $state(true);
 	let crosswordGrid: CrosswordGridCell[][] = $state([]);
 	let loading = $state(false);
+	let originCells: { row: number; col: number; isAcross: boolean }[] = $state([]);
+	let currentOriginCellIndex = -1;
+
+	function goToNextOrigin() {
+		currentOriginCellIndex = (currentOriginCellIndex + 1) % originCells.length;
+		let origin = originCells[currentOriginCellIndex];
+		clickCrosswordBox(origin.row, origin.col, origin.isAcross);
+	}
 
 	function checkAnswers() {
 		crosswordGrid.forEach((row) => {
@@ -123,17 +129,17 @@
 					return;
 				}
 				if (cell.userInput === cell.value) {
-					if (cell.highlight === "none") {
+					if (cell.highlight === 'none') {
 						cell.input.animate(correctAnimation, animationTiming);
-					} else if (cell.highlight === "semi") {
+					} else if (cell.highlight === 'semi') {
 						cell.input.animate(correctAnimationToSemi, fastAnimationTiming);
 					} else {
 						cell.input.animate(correctAnimationToFull, fastAnimationTiming);
 					}
 				} else {
-					if (cell.highlight === "none") {
+					if (cell.highlight === 'none') {
 						cell.input.animate(incorrectAnimation, animationTiming);
-					} else if (cell.highlight === "semi") {
+					} else if (cell.highlight === 'semi') {
 						cell.input.animate(incorrectAnimationToSemi, fastAnimationTiming);
 					} else {
 						cell.input.animate(incorrectAnimationToFull, fastAnimationTiming);
@@ -181,9 +187,11 @@
 					};
 				})
 			);
+			originCells = [];
 			crosswordData.crosswordGridData.forEach((row, rowIndex) => {
 				row.forEach((cell, colIndex) => {
 					if (cell[0].answer.length > 0) {
+						originCells.push({ row: rowIndex, col: colIndex, isAcross: true });
 						crosswordGrid[rowIndex][colIndex].acrossCells = [];
 						for (let i = 0; i < cell[0].answer.length; i++) {
 							crosswordGrid[rowIndex][colIndex + i].acrossOrigin = {
@@ -212,6 +220,7 @@
 						}
 					}
 					if (cell[1].answer.length > 0) {
+						originCells.push({ row: rowIndex, col: colIndex, isAcross: false });
 						crosswordGrid[rowIndex][colIndex].downCells = [];
 						for (let i = 0; i < cell[1].answer.length; i++) {
 							crosswordGrid[rowIndex + i][colIndex].downOrigin = { row: rowIndex, col: colIndex };
@@ -238,8 +247,8 @@
 					}
 				});
 			});
-			clickCrosswordBox(0, 0);
 			loading = false;
+			clickCrosswordBox(0, 0, null);
 		};
 	}
 
@@ -316,10 +325,10 @@
 		return fullString.replace(new RegExp(`(?<=^.{${index}})_`, 'g'), char);
 	}
 
-	function clickCrosswordBox(rowIndex: number, colIndex: number) {
+	function clickCrosswordBox(rowIndex: number, colIndex: number, across?: boolean | null) {
 		currentCells.forEach((cell) => {
 			cell.highlight = 'none';
-			cell.input?.getAnimations().forEach(it => it.cancel())
+			cell.input?.getAnimations().forEach((it) => it.cancel());
 		});
 		if (selectedRow === rowIndex && selectedCol === colIndex) {
 			if (
@@ -343,17 +352,29 @@
 			selectedCol = colIndex;
 			selectedRow = rowIndex;
 		}
+		if (across !== null) {
+			isGoingAcross = !!across;
+		}
 		let selectedCell = crosswordGrid[rowIndex][colIndex];
 		let newOrigin: CrosswordGridCell | null = null;
+		let originRow: number = 0;
+		let originCol: number = 0;
 		if (isGoingAcross && selectedCell.acrossOrigin) {
 			newOrigin = crosswordGrid[selectedCell.acrossOrigin.row][selectedCell.acrossOrigin.col];
+			originRow = selectedCell.acrossOrigin.row;
+			originCol = selectedCell.acrossOrigin.col;
 		} else if (!isGoingAcross && selectedCell.downOrigin) {
 			newOrigin = crosswordGrid[selectedCell.downOrigin.row][selectedCell.downOrigin.col];
+			originRow = selectedCell.downOrigin.row;
+			originCol = selectedCell.downOrigin.col;
 		} else {
 			console.error('something went wrong');
 			console.log(crosswordGrid);
 			return;
 		}
+		currentOriginCellIndex = originCells.findIndex(
+			(it) => it.col === originCol && it.row === originRow && it.isAcross === isGoingAcross
+		);
 		let newSemiSelectedCells = isGoingAcross ? newOrigin.acrossCells : newOrigin.downCells;
 		if (!newSemiSelectedCells) {
 			console.error('something went wrong');
@@ -363,11 +384,15 @@
 		currentCells = [];
 		newSemiSelectedCells.forEach((cellRowAndCol) => {
 			crosswordGrid[cellRowAndCol.row][cellRowAndCol.col].highlight = 'semi';
-			crosswordGrid[cellRowAndCol.row][cellRowAndCol.col].input?.getAnimations().forEach(it => it.cancel())
+			crosswordGrid[cellRowAndCol.row][cellRowAndCol.col].input
+				?.getAnimations()
+				.forEach((it) => it.cancel());
 			currentCells.push(crosswordGrid[cellRowAndCol.row][cellRowAndCol.col]);
 		});
 		crosswordGrid[rowIndex][colIndex].highlight = 'full';
-		crosswordGrid[rowIndex][colIndex].input?.getAnimations().forEach(it => it.cancel())
+		crosswordGrid[rowIndex][colIndex].input?.focus();
+		crosswordGrid[rowIndex][colIndex].input?.setSelectionRange(1, 1);
+		crosswordGrid[rowIndex][colIndex].input?.getAnimations().forEach((it) => it.cancel());
 		if (isGoingAcross) {
 			currentHint = crosswordGrid[rowIndex][colIndex].acrossHint || '';
 			if (crosswordGrid[rowIndex][colIndex].acrossLanguages) {
@@ -393,13 +418,6 @@
 			currentAnswer = crosswordGrid[rowIndex][colIndex].downAnswer || '';
 			currentHelp = formatHelp(newOrigin.downHelp);
 		}
-		console.log({ hintLanguage, answerLanguage });
-
-		console.log(
-			isGoingAcross
-				? crosswordGrid[rowIndex][colIndex].acrossAnswer
-				: crosswordGrid[rowIndex][colIndex].downAnswer
-		);
 	}
 
 	onMount(() => {
@@ -499,6 +517,8 @@
 					(forward && currentCell.acrossCellsIndex === currentCell.acrossCells.length - 1) ||
 					(!forward && currentCell.acrossCellsIndex === 0)
 				) {
+					nextInList.input?.focus();
+					nextInList.input?.setSelectionRange(1, 1);
 					return;
 				}
 				nextInList.highlight = 'semi';
@@ -511,6 +531,8 @@
 					(forward && currentCell.downCellsIndex === currentCell.downCells.length - 1) ||
 					(!forward && currentCell.downCellsIndex === 0)
 				) {
+					nextInList.input?.focus();
+					nextInList.input?.setSelectionRange(1, 1);
 					return;
 				}
 				nextInList.highlight = 'semi';
@@ -520,6 +542,7 @@
 		}
 		nextInList.highlight = 'full';
 		nextInList.input?.focus();
+		nextInList.input?.setSelectionRange(1, 1);
 		selectedRow = nextRow;
 		selectedCol = nextCol;
 		return nextInList;
@@ -541,9 +564,12 @@
 								id="{rowIndex}~{colIndex}"
 								maxlength="2"
 								class={cell.highlight}
+								onfocus={() => {
+									console.log('input');
+								}}
 								oninput={inputChange}
 								onclick={() => {
-									clickCrosswordBox(rowIndex, colIndex);
+									clickCrosswordBox(rowIndex, colIndex, null);
 								}}
 								value={cell.userInput}
 							/>
@@ -588,10 +614,22 @@
 </div>
 <br />
 <button onclick={createCrossword} disabled={loading}>create Crossword</button>
-<button class:invisible={crosswordGrid.length === 0} onclick={checkAnswers} disabled={loading}>check answers</button>
+<button class:invisible={crosswordGrid.length === 0} onclick={checkAnswers}>check answers</button>
+<button class:invisible={crosswordGrid.length === 0} onclick={goToNextOrigin}>go to next</button>
+<button
+	class:invisible={crosswordGrid.length === 0}
+	onclick={() => {
+		goToNext(selectedRow, selectedCol, false);
+	}}>{isGoingAcross ? '←' : '↑'}</button
+>
+<button
+	class:invisible={crosswordGrid.length === 0}
+	onclick={() => {
+		goToNext(selectedRow, selectedCol, true);
+	}}>{isGoingAcross ? '→' : '↓'}</button
+>
 
 <style>
-
 	.crossword {
 		width: 96vw;
 		height: 96vw;
@@ -634,7 +672,7 @@
 	}
 
 	* {
-		font-family: "Monaco";
+		font-family: 'Monaco';
 	}
 
 	input:focus {
@@ -677,7 +715,7 @@
 
 	.disabled {
 		background-color: black;
-	}	
+	}
 
 	.semi {
 		background-color: lightblue;
@@ -695,6 +733,4 @@
 		background-color: lightskyblue;
 		outline: none;
 	}
-
-	
 </style>
