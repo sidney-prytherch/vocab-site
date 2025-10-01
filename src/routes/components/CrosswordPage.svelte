@@ -35,7 +35,8 @@
 		maxFrequency: number;
 		verbTenses: {
 			[key: string]: boolean
-		}
+		},
+		allowSpaces: boolean
 	};
 
 	let { settings, goToCrosswordSettingsPage }: { settings: CrosswordSettings, goToCrosswordSettingsPage: () => void } = $props();
@@ -486,7 +487,7 @@
 		if (!currentCell.input) {
 			return;
 		}
-		let value = currentCell.input.value.toLowerCase();
+		let value = currentCell.input.value.toUpperCase();
 		let previousInputValue = currentCell.userInput;
 		currentCell.userInput = value;
 		if (value.length === 0) {
@@ -510,44 +511,44 @@
 			goToNext(selectedRow, selectedCol, true);
 			return;
 		} else {
-			if (value === '`e' || value == 'e`') {
-				currentCell.input.value = currentCell.userInput = 'è';
-			} else if (value === '`a' || value == 'a`') {
-				currentCell.input.value = currentCell.userInput = 'à';
-			} else if (value === '`i' || value == 'i`') {
-				currentCell.input.value = currentCell.userInput = 'ì';
-			} else if (value === '`o' || value == 'o`') {
-				currentCell.input.value = currentCell.userInput = 'ò';
-			} else if (value === '`u' || value == 'u`') {
-				currentCell.input.value = currentCell.userInput = 'ù';
-			} else if (value === '´e' || value == 'e´') {
-				currentCell.input.value = currentCell.userInput = 'é';
-			} else if (value === '´a' || value == 'a´') {
-				currentCell.input.value = currentCell.userInput = 'á';
-			} else if (value === '´i' || value == 'i´') {
-				currentCell.input.value = currentCell.userInput = 'í';
-			} else if (value === '´o' || value == 'o´') {
-				currentCell.input.value = currentCell.userInput = 'ó';
-			} else if (value === '´u' || value == 'u´') {
-				currentCell.input.value = currentCell.userInput = 'ú';
-			} else if (value === 'ˆe' || value == 'eˆ') {
-				currentCell.input.value = currentCell.userInput = 'ê';
-			} else if (value === 'ˆa' || value == 'aˆ') {
-				currentCell.input.value = currentCell.userInput = 'â';
-			} else if (value === 'ˆi' || value == 'iˆ') {
-				currentCell.input.value = currentCell.userInput = 'î';
-			} else if (value === 'ˆo' || value == 'oˆ') {
-				currentCell.input.value = currentCell.userInput = 'ô';
-			} else if (value === 'ˆu' || value == 'uˆ') {
-				currentCell.input.value = currentCell.userInput = 'û';
-			} else if (value === '˜a' || value == 'a˜') {
-				currentCell.input.value = currentCell.userInput = 'ã';
-			} else if (value === '˜o' || value == 'o˜') {
-				currentCell.input.value = currentCell.userInput = 'õ';
-			} else if (value === '˜n' || value == 'n˜') {
-				currentCell.input.value = currentCell.userInput = 'ñ';
-			} else if (value === ',c' || value == 'c,') {
-				currentCell.input.value = currentCell.userInput = 'ç';
+			if (value === '`E' || value == 'E`') {
+				currentCell.input.value = currentCell.userInput = 'È';
+			} else if (value === '`A' || value == 'A`') {
+				currentCell.input.value = currentCell.userInput = 'À';
+			} else if (value === '`I' || value == 'I`') {
+				currentCell.input.value = currentCell.userInput = 'Ì';
+			} else if (value === '`O' || value == 'O`') {
+				currentCell.input.value = currentCell.userInput = 'Ò';
+			} else if (value === '`U' || value == 'U`') {
+				currentCell.input.value = currentCell.userInput = 'Ù';
+			} else if (value === '´E' || value == 'E´') {
+				currentCell.input.value = currentCell.userInput = 'É';
+			} else if (value === '´A' || value == 'A´') {
+				currentCell.input.value = currentCell.userInput = 'Á';
+			} else if (value === '´I' || value == 'I´') {
+				currentCell.input.value = currentCell.userInput = 'Í';
+			} else if (value === '´O' || value == 'O´') {
+				currentCell.input.value = currentCell.userInput = 'Ó';
+			} else if (value === '´U' || value == 'U´') {
+				currentCell.input.value = currentCell.userInput = 'Ú';
+			} else if (value === 'ˆE' || value == 'Eˆ') {
+				currentCell.input.value = currentCell.userInput = 'Ê';
+			} else if (value === 'ˆA' || value == 'Aˆ') {
+				currentCell.input.value = currentCell.userInput = 'Â';
+			} else if (value === 'ˆI' || value == 'Iˆ') {
+				currentCell.input.value = currentCell.userInput = 'Î';
+			} else if (value === 'ˆO' || value == 'Oˆ') {
+				currentCell.input.value = currentCell.userInput = 'Ô';
+			} else if (value === 'ˆU' || value == 'Uˆ') {
+				currentCell.input.value = currentCell.userInput = 'Û';
+			} else if (value === '˜A' || value == 'A˜') {
+				currentCell.input.value = currentCell.userInput = 'Ã';
+			} else if (value === '˜O' || value == 'O˜') {
+				currentCell.input.value = currentCell.userInput = 'Õ';
+			} else if (value === '˜N' || value == 'N˜') {
+				currentCell.input.value = currentCell.userInput = 'Ñ';
+			} else if (value === ',C' || value == 'C,') {
+				currentCell.input.value = currentCell.userInput = 'Ç';
 			} else {
 				currentCell.input.value = currentCell.userInput = value.charAt(1);
 				if (['`', '´', '˜', 'ˆ', ','].includes(currentCell.userInput)) {

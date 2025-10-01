@@ -27,6 +27,7 @@ export const translations: {[language: string]: {[key:string]: string}} = {
         'Select word pool size:': 'Select word pool size:',
         'additional word pool info': 'additional word pool info',
         'go to settings page': 'go to settings page',
+        'allow spaces in crossword' : 'allow spaces in crossword',
     },
     "ES": {
         "word": "palabra",
@@ -56,6 +57,7 @@ export const translations: {[language: string]: {[key:string]: string}} = {
         'Select word pool size:': 'Seleccione el tamaño del grupo de palabras:',
         'additional word pool info': 'additional word pool info',
         'go to settings page': 'ir a la página de configuración',
+        'allow spaces in crossword' : 'permitir espacios en la cuadrícula del crucigrama',
     },
     "PT": {
         "word": "palavra",
@@ -85,5 +87,6 @@ export const translations: {[language: string]: {[key:string]: string}} = {
         'Select word pool size:': 'Selecione o tamanho do grupo de palavras:',
         'additional word pool info': 'additional word pool info',
         'go to settings page': 'ir à página de configuração',
+        'allow spaces in crossword' : 'permitir espaços na grade de palavras cruzadas',
     }
 }

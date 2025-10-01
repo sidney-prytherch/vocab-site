@@ -489,22 +489,26 @@ export class Crossword {
         //     this.wordCounts[word.length]++
         // }
         this.allWordPairs = []
+        let allowSpaces = crosswordSettings ? crosswordSettings.allowSpaces : true
+        
         for (let wordPair of wordData) {
             if (wordPair.wordEN && wordPair.wordES) {
                 let englishSimple = (wordPair.tense === "PRET_IND" ? wordPair.wordEN.split("|")[0] : wordPair.wordEN).replaceAll(/\([^\)]*\)|\[[^\]]*\]|\+\[|\]|\(|\)/g, "").trim();
-                if (wordPair.partOfSpeech !== "v") console.log(`~~~EN~~~${englishSimple}->${wordPair.wordES}`)
-                if (englishSimple.length < this.crosswordSize) {
-                    let formattedWordData: CrosswordWordData = { word: englishSimple, hint: wordPair.wordES, extraDataIndex: wordPair.extraDataIndex, languageOrigin: "EN", hintLanguageOrigin: "ES", partOfSpeech: wordPair.partOfSpeech, verbTense: wordPair.tense }
+                let formattedWord = (allowSpaces ? englishSimple.replaceAll(" ", "") : englishSimple).toUpperCase()
+                if (wordPair.partOfSpeech !== "v") console.log(`~~~EN~~~${formattedWord}->${wordPair.wordES}`)
+                if (formattedWord.length < this.crosswordSize) {
+                    let formattedWordData: CrosswordWordData = { word: formattedWord, hint: wordPair.wordES, extraDataIndex: wordPair.extraDataIndex, languageOrigin: "EN", hintLanguageOrigin: "ES", partOfSpeech: wordPair.partOfSpeech, verbTense: wordPair.tense }
                     this.allWordPairs.push(formattedWordData);
-                    this.wordLists[englishSimple.length].push(formattedWordData);
-                    this.wordCounts[englishSimple.length]++
+                    this.wordLists[formattedWord.length].push(formattedWordData);
+                    this.wordCounts[formattedWord.length]++
                 }
-                if (wordPair.partOfSpeech !== "v") console.log(`~~~SP~~~${wordPair.wordES}->${wordPair.wordEN}`)
-                if (wordPair.wordES.length < this.crosswordSize) {
-                    let formattedWordData: CrosswordWordData = { word: wordPair.wordES, hint: wordPair.wordEN, extraDataIndex: wordPair.extraDataIndex, languageOrigin: "ES", hintLanguageOrigin: "EN", partOfSpeech: wordPair.partOfSpeech, verbTense: wordPair.tense }
+                let formattedWordES = (allowSpaces ? wordPair.wordES.replaceAll(" ", "") : wordPair.wordES).toUpperCase()
+                if (wordPair.partOfSpeech !== "v") console.log(`~~~SP~~~${formattedWordES}->${wordPair.wordEN}`)
+                if (formattedWordES.length < this.crosswordSize) {
+                    let formattedWordData: CrosswordWordData = { word: formattedWordES, hint: wordPair.wordEN, extraDataIndex: wordPair.extraDataIndex, languageOrigin: "ES", hintLanguageOrigin: "EN", partOfSpeech: wordPair.partOfSpeech, verbTense: wordPair.tense }
                     this.allWordPairs.push(formattedWordData);
-                    this.wordLists[wordPair.wordES.length].push(formattedWordData);
-                    this.wordCounts[wordPair.wordES.length]++
+                    this.wordLists[formattedWordES.length].push(formattedWordData);
+                    this.wordCounts[formattedWordES.length]++
                 }
             }
         }

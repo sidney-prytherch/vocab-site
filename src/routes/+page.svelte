@@ -42,7 +42,8 @@
 		verbTenses: {
 			'PRES_IND': true, 
 			'PRET_IND': true
-		}
+		},
+		allowSpaces: true
 	});
 
 	let languages: Languages[] = ['ES', 'EN', 'PT'];
@@ -140,6 +141,16 @@
 		<p>{translations[settings.language]['additional freq info']}</p>
 	</div>
 
+	<div class="flex-container horizontal group">
+		<input
+					id={`allow-spaces-checkbox`}
+					type="checkbox"
+					value={"allowSpaces"}
+					bind:checked={settings.allowSpaces}
+				/>
+				<label for={`allow-spaces-checkbox`}>{translations[settings.language]['allow spaces in crossword']}</label>
+	</div>
+
 	<!-- <div class="flex-container horizontal group">
 		<label for="word-pool-size"
 			>{translations[settings.language]['Select word pool size:']}</label
@@ -189,6 +200,7 @@
 				PRES_IND: settings.verbTenses.PRES_IND, 
 				PRET_IND: settings.verbTenses.PRET_IND,
 			}, 
+			allowSpaces: settings.allowSpaces
 		}}
 	></CrosswordPage>
 </div>
