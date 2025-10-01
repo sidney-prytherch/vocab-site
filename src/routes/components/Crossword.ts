@@ -280,7 +280,12 @@ export class Crossword {
                             `ellos ${verbConjugation[0].conjugation.Indicativo.Presente[5]}`, // they (m.)
                             `ellas ${verbConjugation[0].conjugation.Indicativo.Presente[5]}`, // they (f.)
                             `uds ${verbConjugation[0].conjugation.Indicativo.Presente[5]}`, // you (pl., formal)
-                        ])
+                        ].map((it, index) => {
+                            if (crosswordSettings?.personIndices.includes(index)) {
+                                return it
+                            }
+                            return '';
+                        }))
                         if (verbConjugation[0].conjugation.Indicativo.PreteritoIndefinido.length !== 6) {
                             console.warn(`spanish conjugator didn't give 6 length conjugation for present: ${verbConjugation[0].conjugation.Indicativo.Presente}`);
                         }
@@ -304,7 +309,12 @@ export class Crossword {
                             `ellos ${verbConjugation[0].conjugation.Indicativo.PreteritoIndefinido[5]}`, // they (m.)
                             `ellas ${verbConjugation[0].conjugation.Indicativo.PreteritoIndefinido[5]}`, // they (f.)
                             `uds ${verbConjugation[0].conjugation.Indicativo.PreteritoIndefinido[5]}`, // you (pl., formal)
-                        ])
+                        ].map((it, index) => {
+                            if (crosswordSettings?.personIndices.includes(index)) {
+                                return it
+                            }
+                            return '';
+                        }))
                     }
                 }
                 if (word.english && word.english.length > 0) {
@@ -369,7 +379,12 @@ export class Crossword {
                             `they ${conjugation[5]}`, // 13 they (m.)
                             `they ${conjugation[5]}`, // 14 they (f.)
                             `you ${conjugation[4]}`, // 15 you (pl., formal)
-                        ])
+                        ].map((it, index) => {
+                            if (crosswordSettings?.personIndices.includes(index)) {
+                                return it
+                            }
+                            return '';
+                        }))
                     })
                     pretIndConjugations.forEach(conjugation => {
                         if (!englishVerb.PRET_IND) {
@@ -392,7 +407,12 @@ export class Crossword {
                             `they ${conjugation[5]}`, // 13 they (m.)
                             `they ${conjugation[5]}`, // 14 they (f.)
                             `you ${conjugation[4]}`, // 15 you (pl., formal)
-                        ])
+                        ].map((it, index) => {
+                            if (crosswordSettings?.personIndices.includes(index)) {
+                                return it
+                            }
+                            return '';
+                        }))
                     })
                 }
 
