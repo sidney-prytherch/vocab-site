@@ -16,9 +16,29 @@
 	export type CrosswordSettings = {
 		gridSize: number;
 		language: Languages;
+		personIndices: number[];
+		partsOfSpeech: {
+			[key: string]: boolean
+			// "verb": boolean;
+			// "number": boolean;
+			// "conjunction": boolean;
+			// "pronoun": boolean;
+			// "noun": boolean;
+			// "interjection": boolean;
+			// "article": boolean;
+			// "expression": boolean;
+			// "adjective": boolean;
+			// "adverb": boolean;
+		},
+		allowedTranslations: {from: Languages, to: Languages}[];
+		wordPoolSize: number;
+		maxFrequency: number;
+		verbTenses: {
+			[key: string]: boolean
+		}
 	};
 
-	let { settings }: { settings: CrosswordSettings } = $props();
+	let { settings, goToCrosswordSettingsPage }: { settings: CrosswordSettings, goToCrosswordSettingsPage: () => void } = $props();
 
 	type CrosswordGridCell = {
 		value: string;
@@ -46,12 +66,12 @@
 		downHelp: string;
 	};
 
-	const tenseCodeMap: { [key: string]: string } = {
+	let tenseCodeMap: { [key: string]: string } = $derived({
 		PRES_IND: translations[settings.language]['present (indicative)'],
 		PRET_IND: translations[settings.language]['past (indicative)']
-	};
+	});
 
-	const partOfSpeechCodeMap: { [key: string]: string } = {
+	let partOfSpeechCodeMap: { [key: string]: string } = $derived({
 		v: translations[settings.language]['verb'],
 		num: translations[settings.language]['number'],
 		conj: translations[settings.language]['conjunction'],
@@ -63,7 +83,7 @@
 		adj: translations[settings.language]['adjective'],
 		adv: translations[settings.language]['adverb'],
 		prep: translations[settings.language]['preposition']
-	};
+	});
 
 	const incorrectAnimation = [
 		{ backgroundColor: 'rgb(230, 108, 128)' },
@@ -188,6 +208,7 @@
 		selectedCol = -1;
 
 		cwWorker = new CrosswordWorker();
+		console.log(settings);
 		cwWorker.postMessage(settings);
 		cwWorker.onmessage = (event) => {
 			let crosswordData: {
@@ -611,7 +632,7 @@
 				</div>
 			{/each}
 		</div>
-	{/if}
+	
 	<div class="flex-container">
 		<div class="flex-container horizontal spaced" class:reverse={useHorizontalDisplay}>
 			<div>
@@ -705,11 +726,13 @@
 			</div>
 		</div>
 	</div>
+	{/if}
 </div>
 <br />
 <button onclick={createCrossword} disabled={loading}
 	>{translations[settings.language]['create crossword']}</button
 >
+<button onclick={goToCrosswordSettingsPage}>{translations[settings.language]['go to settings page']}</button>
 
 <style>
 	.reverse {
