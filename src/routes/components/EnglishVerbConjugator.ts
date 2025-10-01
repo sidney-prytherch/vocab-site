@@ -15,7 +15,7 @@ type VerbsData = {[key: string]: {
     "extra2"?: string
 }[]};
 
-const badSimplePastVersions = new RegExp(/\[[^\]]*(obsolete|archaic|nonstandard|colloquial|rare|dialectal|Commonwealth|UK|rare)[^\]]*\]/g)
+const badSimplePastVersions = new RegExp(/\[[^\]]*(obsolete|archaic|nonstandard|colloquial|rare|dialectal|Commonwealth|UK|rare)[^\]]*\]/)
 
 export class EnglishVerbConjugator {
 

@@ -65,6 +65,8 @@
 		highlight: 'none' | 'semi' | 'full' | string;
 		acrossHelp: string;
 		downHelp: string;
+		downWordCount: number;
+		acrossWordCount: number;
 	};
 
 	let tenseCodeMap: { [key: string]: string } = $derived({
@@ -133,9 +135,7 @@
 	let currentHint: string = $state('');
 	let currentHelp: string[] = $state([]);
 	let currentAnswer: string = $state('');
-	let currentAnswerWords: number = $derived(
-		currentAnswer.split(' ').filter((it) => it.length > 0).length
-	);
+	let currentAnswerWords: number = $state(0);
 	let currentPartOfSpeech: string = $state('');
 	let currentVerbTense: string = $state('');
 	let hintLanguage: Languages = $state('EN');
@@ -235,7 +235,9 @@
 						downAnswer: null,
 						highlight: 'none',
 						acrossHelp: '',
-						downHelp: ''
+						downHelp: '',
+						acrossWordCount: 0,
+						downWordCount: 0
 					};
 				})
 			);
@@ -259,6 +261,7 @@
 							crosswordGrid[rowIndex][colIndex + i].acrossHint = cell[0].hint;
 							crosswordGrid[rowIndex][colIndex + i].acrossAnswer = cell[0].answer;
 							crosswordGrid[rowIndex][colIndex + i].acrossCellsIndex = i;
+							crosswordGrid[rowIndex][colIndex + i].acrossWordCount = cell[0].wordCount;
 							crosswordGrid[rowIndex][colIndex + i].acrossLanguages = {
 								from: cell[0].hintLanguage,
 								to: cell[0].answerLanguage
@@ -285,6 +288,7 @@
 							crosswordGrid[rowIndex + i][colIndex].downHint = cell[1].hint;
 							crosswordGrid[rowIndex + i][colIndex].downAnswer = cell[1].answer;
 							crosswordGrid[rowIndex + i][colIndex].downCellsIndex = i;
+							crosswordGrid[rowIndex + i][colIndex].downWordCount = cell[1].wordCount;
 							crosswordGrid[rowIndex + i][colIndex].downLanguages = {
 								from: cell[1].hintLanguage,
 								to: cell[1].answerLanguage
@@ -415,10 +419,12 @@
 			newOrigin = crosswordGrid[selectedCell.acrossOrigin.row][selectedCell.acrossOrigin.col];
 			originRow = selectedCell.acrossOrigin.row;
 			originCol = selectedCell.acrossOrigin.col;
+			currentAnswerWords = selectedCell.acrossWordCount;
 		} else if (!isGoingAcross && selectedCell.downOrigin) {
 			newOrigin = crosswordGrid[selectedCell.downOrigin.row][selectedCell.downOrigin.col];
 			originRow = selectedCell.downOrigin.row;
 			originCol = selectedCell.downOrigin.col;
+			currentAnswerWords = selectedCell.downWordCount;
 		} else {
 			console.error('something went wrong');
 			console.log(crosswordGrid);
@@ -567,6 +573,7 @@
 		let nextCol = charIndex;
 		let nextInList = currentCell;
 		if (isGoingAcross) {
+			currentAnswerWords = nextInList.acrossWordCount;
 			if (currentCell.acrossCells) {
 				if (
 					(forward && currentCell.acrossCellsIndex === currentCell.acrossCells.length - 1) ||
@@ -582,6 +589,7 @@
 			}
 		} else {
 			if (currentCell.downCells) {
+				currentAnswerWords = nextInList.downWordCount;
 				if (
 					(forward && currentCell.downCellsIndex === currentCell.downCells.length - 1) ||
 					(!forward && currentCell.downCellsIndex === 0)

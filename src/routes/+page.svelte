@@ -19,8 +19,8 @@
 
 	let settings: CrosswordSettings = $state({
 		language: 'ES',
-		gridSize: 15,
-		personIndices: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 12, 13, 14, 15],
+		gridSize: 17,
+		personIndices: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 12, 13, 14, 15, 16, 17],
 		partsOfSpeech: {
 			verb: true,
 			number: false,
@@ -40,8 +40,8 @@
 		wordPoolSize: 100,
 		maxFrequency: 1000,
 		verbTenses: {
-			'PRES_IND': true, 
-			'PRET_IND': true
+			PRES_IND: true,
+			PRET_IND: true
 		},
 		allowSpaces: true
 	});
@@ -137,18 +137,20 @@
 		<label for="freq-input"
 			>{translations[settings.language]['Select maximum word frequency:']}</label
 		>
-		<input id="freq-input" bind:value={settings.maxFrequency} type="number" min="100" max="5000" />
+		<input id="freq-input" bind:value={settings.maxFrequency} type="number" min="50" max="5000" />
 		<p>{translations[settings.language]['additional freq info']}</p>
 	</div>
 
 	<div class="flex-container horizontal group">
 		<input
-					id={`allow-spaces-checkbox`}
-					type="checkbox"
-					value={"allowSpaces"}
-					bind:checked={settings.allowSpaces}
-				/>
-				<label for={`allow-spaces-checkbox`}>{translations[settings.language]['allow spaces in crossword']}</label>
+			id={`allow-spaces-checkbox`}
+			type="checkbox"
+			value={'allowSpaces'}
+			bind:checked={settings.allowSpaces}
+		/>
+		<label for={`allow-spaces-checkbox`}
+			>{translations[settings.language]['allow spaces in crossword']}</label
+		>
 	</div>
 
 	<!-- <div class="flex-container horizontal group">
@@ -197,9 +199,9 @@
 			wordPoolSize: settings.wordPoolSize,
 			maxFrequency: settings.maxFrequency,
 			verbTenses: {
-				PRES_IND: settings.verbTenses.PRES_IND, 
-				PRET_IND: settings.verbTenses.PRET_IND,
-			}, 
+				PRES_IND: settings.verbTenses.PRES_IND,
+				PRET_IND: settings.verbTenses.PRET_IND
+			},
 			allowSpaces: settings.allowSpaces
 		}}
 	></CrosswordPage>
