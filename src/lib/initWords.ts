@@ -10,6 +10,7 @@ export async function seedDatabaseOnce() {
 		if (word.spanish && learnedVocab.includes(word.spanish)) {
 			word.learned = true;
 			learnedVocab.splice(learnedVocab.indexOf(word.spanish), 1)
+			console.log(`${word.english.join(", ")} ~ ${word.spanish}`)
 		}
 
 		await addWord(word);
