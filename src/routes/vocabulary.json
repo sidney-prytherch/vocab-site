@@ -12394,18 +12394,20 @@
         "vDataSp": {}
     },
     {
-        "english": ["to meet"],
+        "english": ["to meet", "to meet with"],
         "spanish": "encontrar con",
         "freqIndexSpanish": 100,
         "pos": "v",
-        "vDataSp": {}
+        "vDataSp": {},
+        "hint": "+someone"
     },
     {
         "english": ["to find"],
         "spanish": "encontrar",
         "freqIndexSpanish": 100,
         "pos": "v",
-        "vDataSp": {}
+        "vDataSp": {},
+        "hint": "+something"
     },
     {
         "english": ["harden", "make hard"],
