@@ -51,7 +51,7 @@ const extraVerbData = [
         person: 3,
         plural: false,
         pronounEN: "he/she/it",
-        pronounES: "él/ella/Ud.",
+        pronounES: "él/ella",
         isMasc: null,
         includePronoun: false,
         formal: null
@@ -123,7 +123,7 @@ const extraVerbData = [
         person: 3,
         plural: true,
         pronounEN: "they",
-        pronounES: "ellos/ellas/Uds.",
+        pronounES: "ellos/ellas",
         isMasc: null,
         includePronoun: false,
         formal: null
