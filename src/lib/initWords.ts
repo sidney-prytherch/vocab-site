@@ -9,10 +9,13 @@ export async function seedDatabaseOnce() {
 	for (const word of seedWords) {
 		if (word.spanish && learnedVocab.includes(word.spanish)) {
 			word.learned = true;
+			learnedVocab.splice(learnedVocab.indexOf(word.spanish), 1)
 		}
 
 		await addWord(word);
 	}
+
+	console.log(learnedVocab)
 
 	localStorage.setItem('wordsSeeded', 'true');
 }

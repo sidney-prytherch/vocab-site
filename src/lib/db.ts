@@ -10,6 +10,7 @@ export interface Word {
 	vDataSp?: {};
 	freqIndexSpanish?: number;
 	learned?: boolean;
+	hint?: string;
 }
 export interface Settings {
 	crosswordSize: number;

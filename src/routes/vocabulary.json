@@ -277,10 +277,11 @@
         "pos": "adv"
     },
     {
-        "english": ["to where?"],
+        "english": ["to where"],
         "spanish": "adónde",
         "freqIndexSpanish": 3926,
-        "pos": "adv"
+        "pos": "adv",
+        "hint": "question word"
     },
     {
         "english": ["luckily", "fortunately"],
@@ -505,10 +506,11 @@
         "pos": "adv"
     },
     {
-        "english": ["how?"],
+        "english": ["how"],
         "spanish": "cómo",
         "freqIndexSpanish": 126,
-        "pos": "adv"
+        "pos": "adv",
+        "hint": "question word"
     },
     {
         "english": ["completely"],
@@ -553,10 +555,11 @@
         "pos": "adv"
     },
     {
-        "english": ["when?"],
+        "english": ["when"],
         "spanish": "cuándo",
         "freqIndexSpanish": 1199,
-        "pos": "adv"
+        "pos": "adv",
+        "hint": "question word"
     },
     {
         "english": ["carefully"],
@@ -643,10 +646,11 @@
         "pos": "adv"
     },
     {
-        "english": ["where?"],
+        "english": ["where"],
         "spanish": "dónde",
         "freqIndexSpanish": 421,
-        "pos": "adv"
+        "pos": "adv",
+        "hint": "question word"
     },
     {
         "english": ["harshly", "severely"],
@@ -2211,6 +2215,20 @@
         "adjDataSp": {}
     },
     {
+        "english": ["purple"],
+        "spanish": "púrpura",
+        "freqIndexSpanish": 904,
+        "pos": "adj",
+        "adjDataSp": {}
+    },
+    {
+        "english": ["silver"],
+        "spanish": "plateado",
+        "freqIndexSpanish": 904,
+        "pos": "adj",
+        "adjDataSp": {}
+    },
+    {
         "english": ["short", "low"],
         "spanish": "bajo",
         "freqIndexSpanish": 412,
@@ -3128,11 +3146,12 @@
         "adjDataSp": {}
     },
     {
-        "english": ["how much?"],
+        "english": ["how much"],
         "spanish": "cuánto",
         "freqIndexSpanish": 723,
-        "pos": "adj",
-        "adjDataSp": {}
+        "pos": "pron",
+        "adjDataSp": {},
+        "hint": "question word"
     },
     {
         "english": ["fourth"],
@@ -8854,7 +8873,7 @@
         "adjDataSp": {}
     },
     {
-        "english": ["your (sg", "+fam)"],
+        "english": ["your (sg+fam)"],
         "spanish": "tu",
         "freqIndexSpanish": 349,
         "pos": "adj",
@@ -9162,7 +9181,7 @@
         "adjDataSp": {}
     },
     {
-        "english": ["your (pl", "+fam)"],
+        "english": ["your (pl+fam)"],
         "spanish": "vuestro",
         "freqIndexSpanish": 3137,
         "pos": "adj",
@@ -32018,6 +32037,15 @@
         }
     },
     {
+        "english": ["form"],
+        "spanish": "formulario",
+        "freqIndexSpanish": 9999,
+        "pos": "n",
+        "nDataSp": {
+            "gender": "m"
+        }
+    },
+    {
         "english": ["formation", "education"],
         "spanish": "formación",
         "freqIndexSpanish": 938,
@@ -32378,7 +32406,19 @@
         }
     },
     {
-        "english": ["(pl) thank you; grace", "favor"],
+        "english": ["please"],
+        "spanish": "por favor",
+        "freqIndexSpanish": 100,
+        "pos": "expr"
+    },
+    {
+        "english": ["thank you"],
+        "spanish": "gracias",
+        "freqIndexSpanish": 100,
+        "pos": "expr"
+    },
+    {
+        "english": ["grace", "favor"],
         "spanish": "gracia",
         "freqIndexSpanish": 272,
         "pos": "n",
@@ -33770,6 +33810,15 @@
         "pos": "n",
         "nDataSp": {
             "gender": "f"
+        }
+    },
+    {
+        "english": ["rainbow"],
+        "spanish": "arcoíris",
+        "freqIndexSpanish": 1217,
+        "pos": "n",
+        "nDataSp": {
+            "gender": "m"
         }
     },
     {
@@ -35195,7 +35244,7 @@
         }
     },
     {
-        "english": ["(interior) wall"],
+        "english": ["wall"],
         "spanish": "pared",
         "freqIndexSpanish": 736,
         "pos": "n",
@@ -39578,10 +39627,11 @@
         "pos": "pron"
     },
     {
-        "english": ["which?"],
+        "english": ["which"],
         "spanish": "cuál",
         "freqIndexSpanish": 395,
-        "pos": "pron"
+        "pos": "pron",
+        "hint": "question word"
     },
     {
         "english": ["he"],
@@ -39590,7 +39640,7 @@
         "pos": "pron"
     },
     {
-        "english": ["them (m)"],
+        "english": ["they (m)", "them (m)"],
         "spanish": "ellos",
         "freqIndexSpanish": 41,
         "pos": "pron"
@@ -39602,7 +39652,7 @@
         "pos": "pron"
     },
     {
-        "english": ["them (f)"],
+        "english": ["they (f)", "them (f)"],
         "spanish": "ellas",
         "freqIndexSpanish": 69,
         "pos": "pron"
@@ -39710,16 +39760,24 @@
         "pos": "pron"
     },
     {
-        "english": ["you (obj-pl", "+fam)"],
+        "english": ["you (obj-pl+fam)"],
         "spanish": "os",
         "freqIndexSpanish": 1373,
         "pos": "pron"
     },
     {
-        "english": ["what?", "which?", "how (+adj)!"],
+        "english": ["what", "which"],
         "spanish": "qué",
         "freqIndexSpanish": 47,
-        "pos": "pron"
+        "pos": "pron",
+        "hint": "question word"
+    },
+    {
+        "english": ["how"],
+        "spanish": "qué",
+        "freqIndexSpanish": 47,
+        "pos": "pron",
+        "hint": "used with an adjective to form an expression"
     },
     {
         "english": ["who", "whom"],
@@ -39728,16 +39786,25 @@
         "pos": "pron"
     },
     {
-        "english": ["who?", "whom?"],
+        "english": ["who", "whom"],
         "spanish": "quién",
         "freqIndexSpanish": 292,
-        "pos": "pron"
+        "pos": "pron",
+        "hint": "question word"
     },
     {
-        "english": ["[“reflexive” marker]"],
+        "english": ["why"],
+        "spanish": "por qué",
+        "freqIndexSpanish": 292,
+        "pos": "pron",
+        "hint": "question word"
+    },
+    {
+        "english": ["oneself"],
         "spanish": "se",
         "freqIndexSpanish": 9,
-        "pos": "pron"
+        "pos": "pron",
+        "hint": "reflexive marker"
     },
     {
         "english": ["his", "hers", "yours (-fam)", "theirs"],
@@ -39746,25 +39813,25 @@
         "pos": "pron"
     },
     {
-        "english": ["you (obj", "+fam)"],
+        "english": ["you (obj+fam)"],
         "spanish": "te",
         "freqIndexSpanish": 136,
         "pos": "pron"
     },
     {
-        "english": ["you (obj prep-sg", "+fam)"],
+        "english": ["you (obj prep-sg+fam)"],
         "spanish": "ti",
         "freqIndexSpanish": 1704,
         "pos": "pron"
     },
     {
-        "english": ["you (subj-sg", "+fam)"],
+        "english": ["you (subj-sg+fam)"],
         "spanish": "tú",
         "freqIndexSpanish": 554,
         "pos": "pron"
     },
     {
-        "english": ["yours (sg", "+fam)"],
+        "english": ["yours (sg+fam)"],
         "spanish": "tuyo",
         "freqIndexSpanish": 2797,
         "pos": "pron"
@@ -39776,13 +39843,13 @@
         "pos": "pron"
     },
     {
-        "english": ["you (subj-sg", "+fam)"],
+        "english": ["you (subj-sg+fam)"],
         "spanish": "vos",
         "freqIndexSpanish": 3430,
         "pos": "pron"
     },
     {
-        "english": ["you (subj-pl", "+fam)"],
+        "english": ["you (subj-pl+fam)"],
         "spanish": "vosotros",
         "freqIndexSpanish": 4132,
         "pos": "pron"
