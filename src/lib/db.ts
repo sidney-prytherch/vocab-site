@@ -5,10 +5,11 @@ export interface Word {
 	portuguese?: string;
 	primaryEnglishIndex?: number;
 	pos: string;
-	nDataSp?: {gender: string};
+	nDataSp?: {gender: string, onlyPlural?: boolean};
 	adjDataSp?: {};
 	vDataSp?: {};
 	freqIndexSpanish?: number;
+	learned?: boolean;
 }
 export interface Settings {
 	crosswordSize: number;

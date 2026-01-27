@@ -36,7 +36,8 @@
 		verbTenses: {
 			[key: string]: boolean
 		},
-		allowSpaces: boolean
+		allowSpaces: boolean,
+		learnedOnly: boolean
 	};
 
 	let { settings, goToCrosswordSettingsPage }: { settings: CrosswordSettings, goToCrosswordSettingsPage: () => void } = $props();

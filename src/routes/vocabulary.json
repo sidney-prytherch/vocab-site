@@ -1,6 +1,12 @@
 {
     "words": [
     {
+        "english": ["sunglasses"],
+        "spanish": "lentes de sol",
+        "freqIndexSpanish": 5000,
+        "pos": "n"
+    },
+    {
         "english": ["to", "at"],
         "spanish": "a",
         "freqIndexSpanish": 5,
@@ -241,7 +247,7 @@
         "pos": "adv"
     },
     {
-        "english": ["in agreement"],
+        "english": ["agreed", "ok", "in agreement"],
         "spanish": "de acuerdo",
         "freqIndexSpanish": 313,
         "pos": "adv"
@@ -391,7 +397,7 @@
         "pos": "adv"
     },
     {
-        "english": ["up above"],
+        "english": ["up", "up above"],
         "spanish": "arriba",
         "freqIndexSpanish": 544,
         "pos": "adv"
@@ -2219,7 +2225,7 @@
         "adjDataSp": {}
     },
     {
-        "english": ["inexpensive"],
+        "english": ["cheap", "inexpensive"],
         "spanish": "barato",
         "freqIndexSpanish": 1470,
         "pos": "adj",
@@ -12369,6 +12375,13 @@
         "vDataSp": {}
     },
     {
+        "english": ["to meet"],
+        "spanish": "encontrar con",
+        "freqIndexSpanish": 100,
+        "pos": "v",
+        "vDataSp": {}
+    },
+    {
         "english": ["to find"],
         "spanish": "encontrar",
         "freqIndexSpanish": 100,
@@ -16716,6 +16729,13 @@
         "vDataSp": {}
     },
     {
+        "english": ["to live in"],
+        "spanish": "vivir en",
+        "freqIndexSpanish": 128,
+        "pos": "v",
+        "vDataSp": {}
+    },
+    {
         "english": ["to live"],
         "spanish": "vivir",
         "freqIndexSpanish": 128,
@@ -18551,6 +18571,15 @@
         }
     },
     {
+        "english": ["in case"],
+        "spanish": "en caso",
+        "freqIndexSpanish": 130,
+        "pos": "n",
+        "nDataSp": {
+            "gender": "m"
+        }
+    },
+    {
         "english": ["punishment", "penalty"],
         "spanish": "castigo",
         "freqIndexSpanish": 1867,
@@ -18896,6 +18925,15 @@
         "english": ["code"],
         "spanish": "código",
         "freqIndexSpanish": 2078,
+        "pos": "n",
+        "nDataSp": {
+            "gender": "m"
+        }
+    },
+    {
+        "english": ["zip code"],
+        "spanish": "código postal",
+        "freqIndexSpanish": 9999,
         "pos": "n",
         "nDataSp": {
             "gender": "m"
@@ -22916,7 +22954,16 @@
         }
     },
     {
-        "english": ["means", "middle"],
+        "english": ["means"],
+        "spanish": "medio",
+        "freqIndexSpanish": 171,
+        "pos": "n",
+        "nDataSp": {
+            "gender": "m"
+        }
+    },
+    {
+        "english": ["middle"],
         "spanish": "medio",
         "freqIndexSpanish": 171,
         "pos": "n",
@@ -23228,6 +23275,16 @@
         "pos": "n",
         "nDataSp": {
             "gender": "m"
+        }
+    },
+    {
+        "english": ["furniture"],
+        "spanish": "muebles",
+        "freqIndexSpanish": 1952,
+        "pos": "n",
+        "nDataSp": {
+            "gender": "m",
+            "onlyPlural": true
         }
     },
     {

@@ -1,5 +1,5 @@
 import { addWord, getWords } from '$lib/db';
-import { seedWords } from './seedWords';
+import { seedWords, learnedVocab } from './seedWords';
 
 export async function seedDatabaseOnce() {
 	const seeded = localStorage.getItem('wordsSeeded');
@@ -7,6 +7,10 @@ export async function seedDatabaseOnce() {
 
 	// Add all seed words to IndexedDB
 	for (const word of seedWords) {
+		if (word.spanish && learnedVocab.includes(word.spanish)) {
+			word.learned = true;
+		}
+
 		await addWord(word);
 	}
 

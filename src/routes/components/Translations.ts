@@ -28,6 +28,7 @@ export const translations: {[language: string]: {[key:string]: string}} = {
         'additional word pool info': 'additional word pool info',
         'go to settings page': 'go to settings page',
         'allow spaces in crossword' : 'allow spaces in crossword',
+        'only learned words': 'only include words learned'
     },
     "ES": {
         "word": "palabra",
@@ -58,6 +59,7 @@ export const translations: {[language: string]: {[key:string]: string}} = {
         'additional word pool info': 'additional word pool info',
         'go to settings page': 'ir a la página de configuración',
         'allow spaces in crossword' : 'permitir espacios en la cuadrícula del crucigrama',
+        'only learned words': 'TRANSLATE: only include words learned'
     },
     "PT": {
         "word": "palavra",
@@ -88,5 +90,6 @@ export const translations: {[language: string]: {[key:string]: string}} = {
         'additional word pool info': 'additional word pool info',
         'go to settings page': 'ir à página de configuração',
         'allow spaces in crossword' : 'permitir espaços na grade de palavras cruzadas',
+        'only learned words': 'TRANSLATE: only include words learned'
     }
 }

@@ -23,15 +23,15 @@
 		personIndices: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 12, 13, 14, 15, 16, 17],
 		partsOfSpeech: {
 			verb: true,
-			number: false,
-			conjunction: false,
-			pronoun: false,
-			noun: false,
-			interjection: false,
-			article: false,
-			expression: false,
-			adjective: false,
-			adverb: false
+			number: true,
+			conjunction: true,
+			pronoun: true,
+			noun: true,
+			interjection: true,
+			article: true,
+			expression: true,
+			adjective: true,
+			adverb: true
 		},
 		allowedTranslations: [
 			{ from: 'EN', to: 'ES' },
@@ -43,7 +43,8 @@
 			PRES_IND: true,
 			PRET_IND: true
 		},
-		allowSpaces: true
+		allowSpaces: true,
+		learnedOnly: true
 	});
 
 	let languages: Languages[] = ['ES', 'EN', 'PT'];
@@ -153,6 +154,18 @@
 		>
 	</div>
 
+	<div class="flex-container horizontal group">
+		<input
+			id={`learned-only-checkbox`}
+			type="checkbox"
+			value={'learnedOnly'}
+			bind:checked={settings.learnedOnly}
+		/>
+		<label for={`allow-spaces-checkbox`}
+			>{translations[settings.language]['only learned words']}</label
+		>
+	</div>
+
 	<!-- <div class="flex-container horizontal group">
 		<label for="word-pool-size"
 			>{translations[settings.language]['Select word pool size:']}</label
@@ -202,7 +215,8 @@
 				PRES_IND: settings.verbTenses.PRES_IND,
 				PRET_IND: settings.verbTenses.PRET_IND
 			},
-			allowSpaces: settings.allowSpaces
+			allowSpaces: settings.allowSpaces,
+			learnedOnly: settings.learnedOnly
 		}}
 	></CrosswordPage>
 </div>

@@ -232,13 +232,18 @@ export class Crossword {
         let conj = new Conjugator();
 
         let allWordsInDB: Word[] = (await getWords()).sort((a, b) => (a.freqIndexSpanish || 9999) - (b.freqIndexSpanish || 9999))
-            .slice(0, (crosswordSettings?.maxFrequency || 100))
+            .slice(0, (crosswordSettings?.learnedOnly ? 10000 : crosswordSettings?.maxFrequency || 100))
             .filter(it => {
                 if (!crosswordSettings) {
                     return true;
                 }
+                if (crosswordSettings.learnedOnly && !it.learned) {
+                    return false;
+                }
                 return crosswordSettings.partsOfSpeech[posCodeMap[it.pos]];
-            });
+            })
+
+        
 
         // console.log(allWordsInDB);
 
