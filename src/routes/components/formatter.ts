@@ -1,12 +1,16 @@
-interface Word {
+type Word = {
 	english: string[];
 	spanish?: string;
 	portuguese?: string;
+	primaryEnglishIndex?: number;
 	pos: string;
-	nDataSp?: {gender: string};
+	nDataSp?: {gender: string, onlyPlural?: boolean};
 	adjDataSp?: {};
 	vDataSp?: {};
 	freqIndexSpanish?: number;
+	learned?: boolean;
+	weight?: number;
+	hint?: string;
 }
 let allWordz = [];
 

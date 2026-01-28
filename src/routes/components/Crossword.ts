@@ -243,6 +243,16 @@ export class Crossword {
                 return crosswordSettings.partsOfSpeech[posCodeMap[it.pos]];
             })
 
+        if (crosswordSettings?.learnedOnly) {
+            let allLearnedWordsInDB = allWordsInDB.slice();
+            allWordsInDB.forEach(word => {
+                for (let i = 0; i < (word.weight || 0); i++) {
+                    allLearnedWordsInDB.push(word);
+                }
+            })
+            allWordsInDB = allLearnedWordsInDB;
+        }
+
         
 
         // console.log(allWordsInDB);
@@ -253,6 +263,8 @@ export class Crossword {
         for (let index = 0; index < randomizedIndices.length && index < (crosswordSettings?.wordPoolSize || 100); index++ ) {
             allWords.push(allWordsInDB[randomizedIndices[index]])
         }
+
+        allWords = [...new Set(allWords)]
 
         let spanishVerbs = await conj.getVerbList();
 

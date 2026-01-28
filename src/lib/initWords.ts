@@ -1,15 +1,19 @@
 import { addWord, getWords } from '$lib/db';
-import { seedWords, learnedVocab } from './seedWords';
+import { seedWords, loadLearnedVocabYaml } from './seedWords';
 
 export async function seedDatabaseOnce() {
 	const seeded = localStorage.getItem('wordsSeeded');
 	if (seeded) return; // already seeded
 
 	// Add all seed words to IndexedDB
+
+	let learnedVocab = await loadLearnedVocabYaml();
+
 	for (const word of seedWords) {
-		if (word.spanish && learnedVocab.includes(word.spanish)) {
+		if (word.spanish && !isNaN(learnedVocab[word.spanish])) {
 			word.learned = true;
-			learnedVocab.splice(learnedVocab.indexOf(word.spanish), 1)
+			word.weight = learnedVocab[word.spanish];
+			delete learnedVocab[word.spanish]
 			console.log(`${word.english.join(", ")} ~ ${word.spanish}`)
 		}
 

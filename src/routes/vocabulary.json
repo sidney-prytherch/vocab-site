@@ -19,6 +19,18 @@
         "pos": "prep"
     },
     {
+        "english": ["welcome"],
+        "spanish": "bienvenido",
+        "freqIndexSpanish": 236,
+        "pos": "interj"
+    },
+    {
+        "english": ["welcome"],
+        "spanish": "bienvenido",
+        "freqIndexSpanish": 236,
+        "pos": "adj"
+    },
+    {
         "english": ["under", "underneath"],
         "spanish": "bajo",
         "freqIndexSpanish": 214,
@@ -211,6 +223,12 @@
         "pos": "adv"
     },
     {
+        "english": ["a bit"],
+        "spanish": "un poco",
+        "freqIndexSpanish": 500,
+        "pos": "adv"
+    },
+    {
         "english": ["openly"],
         "spanish": "abiertamente",
         "freqIndexSpanish": 4649,
@@ -324,6 +342,12 @@
         "spanish": "alrededor",
         "freqIndexSpanish": 556,
         "pos": "adv"
+    },
+    {
+        "english": ["around", "round"],
+        "spanish": "alrededor",
+        "freqIndexSpanish": 556,
+        "pos": "prep"
     },
     {
         "english": ["highly"],
@@ -2726,7 +2750,7 @@
         "adjDataSp": {}
     },
     {
-        "english": ["commercial", "shopping"],
+        "english": ["commercial"],
         "spanish": "comercial",
         "freqIndexSpanish": 1253,
         "pos": "adj",
@@ -3688,6 +3712,13 @@
     {
         "english": ["sweet"],
         "spanish": "dulce",
+        "freqIndexSpanish": 1882,
+        "pos": "adj",
+        "adjDataSp": {}
+    },
+    {
+        "english": ["sour"],
+        "spanish": "agrio",
         "freqIndexSpanish": 1882,
         "pos": "adj",
         "adjDataSp": {}
@@ -6724,11 +6755,28 @@
         "adjDataSp": {}
     },
     {
-        "english": ["busy", "occupied"],
+        "english": ["busy"],
         "spanish": "ocupado",
         "freqIndexSpanish": 1601,
         "pos": "adj",
-        "adjDataSp": {}
+        "adjDataSp": {},
+        "hint": "describes a person"
+    },
+    {
+        "english": ["occupied"],
+        "spanish": "ocupado",
+        "freqIndexSpanish": 1601,
+        "pos": "adj",
+        "adjDataSp": {},
+        "hint": "describes a person or a thing"
+    },
+    {
+        "english": ["crowded", "busy"],
+        "spanish": "concurrido",
+        "freqIndexSpanish": 1601,
+        "pos": "adj",
+        "adjDataSp": {},
+        "hint": "describes a place"
     },
     {
         "english": ["official", "authorized"],
@@ -9792,7 +9840,7 @@
     {
         "english": ["to dawn", "get light"],
         "spanish": "amanecer",
-        "freqIndexSpanish": 3591,
+        "freqIndexSpanish": 13591,
         "pos": "v",
         "vDataSp": {}
     },
@@ -16801,6 +16849,42 @@
         }
     },
     {
+        "english": ["tattoo"],
+        "spanish": "tatuaje",
+        "freqIndexSpanish": 5000,
+        "pos": "n",
+        "nDataSp": {
+            "gender": "m"
+        }
+    },
+    {
+        "english": ["lemon", "lime"],
+        "spanish": "limón",
+        "freqIndexSpanish": 5000,
+        "pos": "n",
+        "nDataSp": {
+            "gender": "m"
+        }
+    },
+    {
+        "english": ["work day"],
+        "spanish": "día laboral",
+        "freqIndexSpanish": 5000,
+        "pos": "n",
+        "nDataSp": {
+            "gender": "m"
+        }
+    },
+    {
+        "english": ["weekend"],
+        "spanish": "fin de semana",
+        "freqIndexSpanish": 5000,
+        "pos": "n",
+        "nDataSp": {
+            "gender": "m"
+        }
+    },
+    {
         "english": ["range", "(handheld) fan"],
         "spanish": "abanico",
         "freqIndexSpanish": 4422,
@@ -17298,6 +17382,15 @@
     {
         "english": ["daybreak", "dawn"],
         "spanish": "amanecer",
+        "freqIndexSpanish": 3051,
+        "pos": "n",
+        "nDataSp": {
+            "gender": "m"
+        }
+    },
+    {
+        "english": ["nightfall", "dusk"],
+        "spanish": "anochecer",
         "freqIndexSpanish": 3051,
         "pos": "n",
         "nDataSp": {
@@ -18295,12 +18388,57 @@
         }
     },
     {
-        "english": ["coffee", "café"],
+        "english": ["coffee"],
         "spanish": "café",
         "freqIndexSpanish": 1250,
         "pos": "n",
         "nDataSp": {
             "gender": "m"
+        }
+    },
+    {
+        "english": ["cafeteria"],
+        "spanish": "cafetería",
+        "freqIndexSpanish": 1250,
+        "pos": "n",
+        "nDataSp": {
+            "gender": "f"
+        }
+    },
+    {
+        "english": ["french fry", "potato chip"],
+        "spanish": "papa frita",
+        "freqIndexSpanish": 5000,
+        "pos": "n",
+        "nDataSp": {
+            "gender": "f"
+        }
+    },
+    {
+        "english": ["[it is] very spicy"],
+        "spanish": "[eso] pica mucho",
+        "freqIndexSpanish": 5000,
+        "pos": "n",
+        "nDataSp": {
+            "gender": "f"
+        }
+    },
+    {
+        "english": ["midnight"],
+        "spanish": "medianoche",
+        "freqIndexSpanish": 5000,
+        "pos": "n",
+        "nDataSp": {
+            "gender": "f"
+        }
+    },
+    {
+        "english": ["salad"],
+        "spanish": "ensalada",
+        "freqIndexSpanish": 5000,
+        "pos": "n",
+        "nDataSp": {
+            "gender": "f"
         }
     },
     {
@@ -18702,6 +18840,15 @@
     {
         "english": ["center", "middle", "downtown"],
         "spanish": "centro",
+        "freqIndexSpanish": 339,
+        "pos": "n",
+        "nDataSp": {
+            "gender": "m"
+        }
+    },
+    {
+        "english": ["shopping center"],
+        "spanish": "centro comercial",
         "freqIndexSpanish": 339,
         "pos": "n",
         "nDataSp": {
@@ -35417,9 +35564,42 @@
         }
     },
     {
+        "english": ["bald"],
+        "spanish": "calvo",
+        "freqIndexSpanish": 5000,
+        "pos": "adj"
+    },
+    {
+        "english": ["spicy"],
+        "spanish": "picante",
+        "freqIndexSpanish": 5000,
+        "pos": "adj"
+    },
+    {
+        "english": ["salty"],
+        "spanish": "salada",
+        "freqIndexSpanish": 5000,
+        "pos": "adj"
+    },
+    {
+        "english": ["juicy"],
+        "spanish": "jugoso",
+        "freqIndexSpanish": 5000,
+        "pos": "adj"
+    },
+    {
         "english": ["trouble"],
         "spanish": "pena",
         "freqIndexSpanish": 575,
+        "pos": "n",
+        "nDataSp": {
+            "gender": "f"
+        }
+    },
+    {
+        "english": ["sauce", "salsa"],
+        "spanish": "salsa",
+        "freqIndexSpanish": 5000,
         "pos": "n",
         "nDataSp": {
             "gender": "f"
@@ -39125,7 +39305,7 @@
         }
     },
     {
-        "english": ["adolescent"],
+        "english": ["teenager"],
         "spanish": "adolescente",
         "freqIndexSpanish": 2645,
         "pos": "n",
@@ -39838,10 +40018,17 @@
         "freqIndexSpanish": 2797,
         "pos": "pron"
     },
+
     {
-        "english": ["you (subj", "-fam)"],
+        "english": ["you (subj-fam)"],
         "spanish": "usted",
         "freqIndexSpanish": 269,
+        "pos": "pron"
+    },
+    {
+        "english": ["you all"],
+        "spanish": "todos ustedes",
+        "freqIndexSpanish": 499,
         "pos": "pron"
     },
     {

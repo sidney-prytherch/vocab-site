@@ -10,6 +10,7 @@ export interface Word {
 	vDataSp?: {};
 	freqIndexSpanish?: number;
 	learned?: boolean;
+	weight?: number;
 	hint?: string;
 }
 export interface Settings {
