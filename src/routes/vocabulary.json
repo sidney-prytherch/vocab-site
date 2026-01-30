@@ -13977,6 +13977,13 @@
         "vDataSp": {}
     },
     {
+        "english": ["to snow"],
+        "spanish": "nevar",
+        "freqIndexSpanish": 2053,
+        "pos": "v",
+        "vDataSp": {}
+    },
+    {
         "english": ["to locate", "find", "localize"],
         "spanish": "localizar",
         "freqIndexSpanish": 3102,
@@ -14768,7 +14775,7 @@
         "vDataSp": {}
     },
     {
-        "english": ["to be able to; can"],
+        "english": ["to be able to", "can"],
         "spanish": "poder",
         "freqIndexSpanish": 27,
         "pos": "v",
@@ -16858,6 +16865,15 @@
         }
     },
     {
+        "english": ["everyone", "everybody"],
+        "spanish": "todo el mundo",
+        "freqIndexSpanish": 500,
+        "pos": "n",
+        "nDataSp": {
+            "gender": "m"
+        }
+    },
+    {
         "english": ["lemon", "lime"],
         "spanish": "limón",
         "freqIndexSpanish": 5000,
@@ -18484,7 +18500,8 @@
         "pos": "n",
         "nDataSp": {
             "gender": "m"
-        }
+        },
+        "example": "hace calor|it's hot"
     },
     {
         "english": ["change"],
@@ -19051,7 +19068,8 @@
         "pos": "n",
         "nDataSp": {
             "gender": "m"
-        }
+        },
+        "example": "hace mal clima|it's unpleasant out"
     },
     {
         "english": ["club", "society"],
@@ -21544,7 +21562,8 @@
         "pos": "n",
         "nDataSp": {
             "gender": "m"
-        }
+        },
+        "example": "hace frío|it's cold"
     },
     {
         "english": ["fruit", "result"],
@@ -21814,6 +21833,33 @@
         "pos": "n",
         "nDataSp": {
             "gender": "m"
+        }
+    },
+    {
+        "english": ["scarf"],
+        "spanish": "bufanda",
+        "freqIndexSpanish": 3392,
+        "pos": "n",
+        "nDataSp": {
+            "gender": "f"
+        }
+    },
+    {
+        "english": ["umbrella"],
+        "spanish": "paraguas",
+        "freqIndexSpanish": 3392,
+        "pos": "n",
+        "nDataSp": {
+            "gender": "m"
+        }
+    },
+    {
+        "english": ["earmuffs"],
+        "spanish": "orejeras",
+        "freqIndexSpanish": 5000,
+        "pos": "n",
+        "nDataSp": {
+            "gender": "f"
         }
     },
     {
@@ -23933,6 +23979,15 @@
         }
     },
     {
+        "english": ["parent"],
+        "spanish": "progenitor",
+        "freqIndexSpanish": 5000,
+        "pos": "n",
+        "nDataSp": {
+            "gender": "m"
+        }
+    },
+    {
         "english": ["godparent", "sponsor"],
         "spanish": "padrino",
         "freqIndexSpanish": 4732,
@@ -24980,6 +25035,15 @@
         "english": ["protector", "defender"],
         "spanish": "protector",
         "freqIndexSpanish": 4288,
+        "pos": "n",
+        "nDataSp": {
+            "gender": "m"
+        }
+    },
+    {
+        "english": ["sunscreen"],
+        "spanish": "protector solar",
+        "freqIndexSpanish": 5000,
         "pos": "n",
         "nDataSp": {
             "gender": "m"
@@ -26642,9 +26706,27 @@
         }
     },
     {
-        "english": ["time (general)", "weather"],
+        "english": ["time", "weather"],
         "spanish": "tiempo",
         "freqIndexSpanish": 68,
+        "pos": "n",
+        "nDataSp": {
+            "gender": "m"
+        }
+    },
+    {
+        "english": ["forecast"],
+        "spanish": "pronóstico",
+        "freqIndexSpanish": 5000,
+        "pos": "n",
+        "nDataSp": {
+            "gender": "m"
+        }
+    },
+    {
+        "english": ["weather forecast"],
+        "spanish": "pronóstico del tiempo",
+        "freqIndexSpanish": 5000,
         "pos": "n",
         "nDataSp": {
             "gender": "m"
@@ -28808,6 +28890,15 @@
         "pos": "n",
         "nDataSp": {
             "gender": "f"
+        }
+    },
+    {
+        "english": ["raincoat"],
+        "spanish": "impermeable",
+        "freqIndexSpanish": 5000,
+        "pos": "n",
+        "nDataSp": {
+            "gender": "m"
         }
     },
     {

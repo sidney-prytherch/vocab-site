@@ -284,4 +284,60 @@ vocab:
   bienvenido: 1
   dar: 3
   temprano: 5
+  gente: 0
+  mujer: 1
+  hombre: 1
+  niño: 1
+  niña: 1
+  mundo: 0
+  todo el mundo: 2
+  humano: 1
+  progenitor: 1
+  # niños: 1
+  departamento: 1
+  tarea: 1
+  nuestro: 1
+  su: 1
+  # sus: 1
+  encantar: 4
+  # acurrucarse: 4
+  madre: 2
+  padre: 2
+  hijo: 2
+  hija: 2
+  abuelo: 1
+  abuela: 1
+  marido: 1
+  esposa: 1
+  amigo: 1
+  novia: 3
+  novio: 3
+  # padres: 1
+  abrazo: 1
+  tiempo: 2
+  temperatura: 1
+  viento: 3
+  nieve: 3
+  sol: 1
+  tormenta: 3
+  hielo: 4
+  lluvia: 4
+  niebla: 3
+  clima: 4
+  agradable: 2
+  # hace calor: 4
+  # hace frío: 4
+  llover: 4
+  # hace mal clima: 4
+  pronóstico del tiempo: 4
+  nevar: 4
+  paraguas: 4
+  impermeable: 4
+  protector solar: 4
+  bota: 3
+  guante: 3
+  bufanda: 3
+  abrigo: 4
+  sombrero: 4
+  orejeras: 4
 
