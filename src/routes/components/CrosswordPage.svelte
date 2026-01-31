@@ -68,6 +68,8 @@
 		downHelp: string;
 		downWordCount: number;
 		acrossWordCount: number;
+		downLetterCounts: string;
+		acrossLetterCounts: string;
 	};
 
 	let tenseCodeMap: { [key: string]: string } = $derived({
@@ -137,6 +139,7 @@
 	let currentHelp: string[] = $state([]);
 	let currentAnswer: string = $state('');
 	let currentAnswerWords: number = $state(0);
+	let currentAnswerLetters: string = $state('');
 	let currentPartOfSpeech: string = $state('');
 	let currentVerbTense: string = $state('');
 	let hintLanguage: Languages = $state('EN');
@@ -238,7 +241,9 @@
 						acrossHelp: '',
 						downHelp: '',
 						acrossWordCount: 0,
-						downWordCount: 0
+						downWordCount: 0,
+						downLetterCounts: '',
+						acrossLetterCounts: ''
 					};
 				})
 			);
@@ -263,6 +268,7 @@
 							crosswordGrid[rowIndex][colIndex + i].acrossAnswer = cell[0].answer;
 							crosswordGrid[rowIndex][colIndex + i].acrossCellsIndex = i;
 							crosswordGrid[rowIndex][colIndex + i].acrossWordCount = cell[0].wordCount;
+							crosswordGrid[rowIndex][colIndex + i].acrossLetterCounts = cell[0].letterCount.join(", ");
 							crosswordGrid[rowIndex][colIndex + i].acrossLanguages = {
 								from: cell[0].hintLanguage,
 								to: cell[0].answerLanguage
@@ -290,6 +296,7 @@
 							crosswordGrid[rowIndex + i][colIndex].downAnswer = cell[1].answer;
 							crosswordGrid[rowIndex + i][colIndex].downCellsIndex = i;
 							crosswordGrid[rowIndex + i][colIndex].downWordCount = cell[1].wordCount;
+							crosswordGrid[rowIndex + i][colIndex].downLetterCounts = cell[1].letterCount.join(", ");
 							crosswordGrid[rowIndex + i][colIndex].downLanguages = {
 								from: cell[1].hintLanguage,
 								to: cell[1].answerLanguage
@@ -421,11 +428,13 @@
 			originRow = selectedCell.acrossOrigin.row;
 			originCol = selectedCell.acrossOrigin.col;
 			currentAnswerWords = selectedCell.acrossWordCount;
+			currentAnswerLetters = selectedCell.acrossLetterCounts;
 		} else if (!isGoingAcross && selectedCell.downOrigin) {
 			newOrigin = crosswordGrid[selectedCell.downOrigin.row][selectedCell.downOrigin.col];
 			originRow = selectedCell.downOrigin.row;
 			originCol = selectedCell.downOrigin.col;
 			currentAnswerWords = selectedCell.downWordCount;
+			currentAnswerLetters = selectedCell.downLetterCounts;
 		} else {
 			console.error('something went wrong');
 			console.log(crosswordGrid);
@@ -575,6 +584,7 @@
 		let nextInList = currentCell;
 		if (isGoingAcross) {
 			currentAnswerWords = nextInList.acrossWordCount;
+			currentAnswerLetters = nextInList.acrossLetterCounts;
 			if (currentCell.acrossCells) {
 				if (
 					(forward && currentCell.acrossCellsIndex === currentCell.acrossCells.length - 1) ||
@@ -591,6 +601,7 @@
 		} else {
 			if (currentCell.downCells) {
 				currentAnswerWords = nextInList.downWordCount;
+				currentAnswerLetters = nextInList.downLetterCounts;
 				if (
 					(forward && currentCell.downCellsIndex === currentCell.downCells.length - 1) ||
 					(!forward && currentCell.downCellsIndex === 0)
@@ -667,6 +678,11 @@
 						: currentAnswerWords === 1
 							? `(${currentAnswerWords} ${translations[settings.language]['word']})`
 							: ''}
+				</h4>
+				<h4>
+					{currentAnswerLetters !== ''
+						? `${translations[settings.language]['letters']}: ${currentAnswerLetters}`
+						: ''}
 				</h4>
 			</div>
 			<div class="flex-container button-group">

@@ -2,6 +2,7 @@ export const translations: {[language: string]: {[key:string]: string}} = {
     "EN": {
         "word": "word",
         "words": "words",
+        "letters": "letters",
         "present (indicative)": "present (indicative)",
         "past (indicative)": "past (indicative)",
         "verb": "verb",
@@ -33,6 +34,7 @@ export const translations: {[language: string]: {[key:string]: string}} = {
     "ES": {
         "word": "palabra",
         "words": "palabras",
+        "letters": "letras",
         "present (indicative)": "presente (de indicativo)",
         "past (indicative)": "pretérito (de indicativo)",
         "verb": "verbo",
@@ -64,6 +66,7 @@ export const translations: {[language: string]: {[key:string]: string}} = {
     "PT": {
         "word": "palavra",
         "words": "palavras",
+        "letters": "letras",
         "present (indicative)": "presente",
         "past (indicative)": "pretérito",
         "verb": "verbo",

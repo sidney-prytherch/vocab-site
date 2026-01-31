@@ -176,7 +176,7 @@ const extraVerbData = [
 ]
 export type Languages = "ES" | "EN" | "PT";
 
-export interface GridData { hint: string, answer: string, hintLanguage: Languages, answerLanguage: Languages, partOfSpeech?: string, verbTense?: string, wordCount: number }
+export interface GridData { hint: string, answer: string, hintLanguage: Languages, answerLanguage: Languages, partOfSpeech?: string, verbTense?: string, wordCount: number, letterCount: number[] }
 export interface WordData { wordES?: string, wordEN?: string, wordPT?: string, extraDataIndex?: number, tense?: "PRES_IND" | "PRET_IND", extraEnglishDefs?: string[], partOfSpeech?: string }
 export interface CrosswordWordData {
     word: string;
@@ -187,6 +187,7 @@ export interface CrosswordWordData {
     partOfSpeech?: string;
     verbTense?: string;
     wordCount: number;
+    letterCount: number[];
 }
 
 function shuffle(array: any[]) {
@@ -265,6 +266,7 @@ export class Crossword {
         }
 
         allWords = [...new Set(allWords)]
+        console.log(allWords);
 
         let spanishVerbs = await conj.getVerbList();
 
@@ -480,13 +482,15 @@ export class Crossword {
 
                 }
             } else {
-                console.log(`${word.english[0]}~${word.spanish}`)
-                wordMap.push({
-                    wordEN: word.english[0],
-                    extraEnglishDefs: word.english,
-                    wordES: word.spanish,
-                    partOfSpeech: word.pos
-                })
+                for (let englishWord of word.english) {
+                    console.log(`${englishWord}~${word.spanish}`)
+                    wordMap.push({
+                        wordEN: englishWord,
+                        extraEnglishDefs: word.english,
+                        wordES: word.spanish,
+                        partOfSpeech: word.pos
+                    })
+                }
             }
         }
 
@@ -522,7 +526,7 @@ export class Crossword {
 
         this.wordLists = this.wordCounts.map(_ => []);
         this.crosswordGridData = new Array(this.crosswordSize).fill(0).map(_ =>
-            new Array(this.crosswordSize).fill(0).map(_ => { return [{ hint: "", answer: "", hintLanguage: 'EN', answerLanguage: 'EN', wordCount: 0 }, { hint: "", answer: "", hintLanguage: 'EN', answerLanguage: 'EN', wordCount: 0 }] }))
+            new Array(this.crosswordSize).fill(0).map(_ => { return [{ hint: "", answer: "", hintLanguage: 'EN', answerLanguage: 'EN', wordCount: 0, letterCount: [] }, { hint: "", answer: "", hintLanguage: 'EN', answerLanguage: 'EN', wordCount: 0, letterCount: [] }] }))
 
         // for (let word of wordPairs) {
         //     if (word.length >= this.wordLists.length) {
@@ -539,19 +543,21 @@ export class Crossword {
             if (wordPair.wordEN && wordPair.wordES) {
                 let englishSimple = (wordPair.tense === "PRET_IND" ? wordPair.wordEN.split("|")[0] : wordPair.wordEN).replaceAll(/\([^\)]*\)|\[[^\]]*\]|\+\[|\]|\(|\)/g, "").trim();
                 let wordCountEn = englishSimple.split(" ").length;
+                let letterCountsEn = englishSimple.split(" ").map(word => word.length)
                 let formattedWord = (allowSpaces ? englishSimple : englishSimple.replaceAll(" ", "")).toUpperCase();
                 if (wordPair.partOfSpeech !== "v") console.log(`~~~EN~~~${formattedWord}->${wordPair.wordES}`)
                 if (formattedWord.length < this.crosswordSize) {
-                    let formattedWordData: CrosswordWordData = { word: formattedWord, hint: wordPair.wordES, extraDataIndex: wordPair.extraDataIndex, languageOrigin: "EN", hintLanguageOrigin: "ES", partOfSpeech: wordPair.partOfSpeech, verbTense: wordPair.tense, wordCount: wordCountEn }
+                    let formattedWordData: CrosswordWordData = { word: formattedWord, hint: wordPair.wordES, extraDataIndex: wordPair.extraDataIndex, languageOrigin: "EN", hintLanguageOrigin: "ES", partOfSpeech: wordPair.partOfSpeech, verbTense: wordPair.tense, wordCount: wordCountEn, letterCount: letterCountsEn }
                     this.allWordPairs.push(formattedWordData);
                     this.wordLists[formattedWord.length].push(formattedWordData);
                     this.wordCounts[formattedWord.length]++
                 }
                 let wordCountEs = wordPair.wordES.split(" ").length;
+                let letterCountsEs = wordPair.wordES.split(" ").map(word => word.length);
                 let formattedWordES = (allowSpaces ? wordPair.wordES : wordPair.wordES.replaceAll(" ", "")).toUpperCase()
                 if (wordPair.partOfSpeech !== "v") console.log(`~~~SP~~~${formattedWordES}->${wordPair.wordEN}`)
                 if (formattedWordES.length < this.crosswordSize) {
-                    let formattedWordData: CrosswordWordData = { word: formattedWordES, hint: wordPair.wordEN, extraDataIndex: wordPair.extraDataIndex, languageOrigin: "ES", hintLanguageOrigin: "EN", partOfSpeech: wordPair.partOfSpeech, verbTense: wordPair.tense, wordCount: wordCountEs }
+                    let formattedWordData: CrosswordWordData = { word: formattedWordES, hint: wordPair.wordEN, extraDataIndex: wordPair.extraDataIndex, languageOrigin: "ES", hintLanguageOrigin: "EN", partOfSpeech: wordPair.partOfSpeech, verbTense: wordPair.tense, wordCount: wordCountEs, letterCount: letterCountsEs }
                     this.allWordPairs.push(formattedWordData);
                     this.wordLists[formattedWordES.length].push(formattedWordData);
                     this.wordCounts[formattedWordES.length]++
@@ -726,7 +732,7 @@ export class Crossword {
                         }
                     }
                     if (!containsIllegalSpace) {
-                        console.log(subsection.word)
+                        // console.log(subsection.word)
                         patterns.push(
                             {
                                 row: subsection.index,
@@ -837,7 +843,7 @@ export class Crossword {
         let hint = this.formatHint(wordData)
         // console.log({row, col, word, hint})
         // console.log(this.letterGrid)
-        this.crosswordGridData[row][col][isAcross ? 0 : 1] = { hint: hint, answer: word, hintLanguage: wordData.hintLanguageOrigin, answerLanguage: wordData.languageOrigin, partOfSpeech: wordData.partOfSpeech, verbTense: wordData.verbTense, wordCount: wordData.wordCount }
+        this.crosswordGridData[row][col][isAcross ? 0 : 1] = { hint: hint, answer: word, hintLanguage: wordData.hintLanguageOrigin, answerLanguage: wordData.languageOrigin, partOfSpeech: wordData.partOfSpeech, verbTense: wordData.verbTense, wordCount: wordData.wordCount, letterCount: wordData.letterCount }
         for (let charIndex = 0; charIndex < word.length; charIndex++) {
             if (isAcross) {
                 this.letterGrid[row][col + charIndex] = word.charAt(charIndex)

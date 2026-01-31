@@ -16928,7 +16928,7 @@
         }
     },
     {
-        "english": ["overcoat", "shelter"],
+        "english": ["coat", "overcoat", "shelter"],
         "spanish": "abrigo",
         "freqIndexSpanish": 2996,
         "pos": "n",
@@ -37965,7 +37965,7 @@
         }
     },
     {
-        "english": ["task", "job"],
+        "english": ["task", "homework"],
         "spanish": "tarea",
         "freqIndexSpanish": 585,
         "pos": "n",

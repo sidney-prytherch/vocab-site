@@ -689,6 +689,16 @@
             "third-person singular simple present": "visits"
         }
     ],
+    "snow": [
+        {
+            "name": "en-verb",
+            "default": "snow",
+            "simple past": "snowed",
+            "past participle": "snowed",
+            "present participle": "snowing",
+            "third-person singular simple present": "snows"
+        }
+    ],
     "learn": [
         {
             "name": "en-verb",

@@ -9,18 +9,21 @@ export async function seedDatabaseOnce() {
 
 	let learnedVocab = await loadLearnedVocabYaml();
 
+	const nonFoundWords = Object.keys(learnedVocab)
 	for (const word of seedWords) {
 		if (word.spanish && !isNaN(learnedVocab[word.spanish])) {
 			word.learned = true;
 			word.weight = learnedVocab[word.spanish];
-			delete learnedVocab[word.spanish]
+			if (nonFoundWords.includes(word.spanish)) {
+				nonFoundWords.splice(nonFoundWords.indexOf(word.spanish), 1);
+			}
 			console.log(`${word.english.join(", ")} ~ ${word.spanish}`)
 		}
 
 		await addWord(word);
 	}
 
-	console.log(learnedVocab)
+	console.log(nonFoundWords)
 
 	localStorage.setItem('wordsSeeded', 'true');
 }
